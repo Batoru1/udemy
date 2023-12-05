@@ -50,29 +50,127 @@
 
 // this challenge
 
-const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+// const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 
-let tips = [];
-let totals = [];
+// let tips = [];
+// let totals = [];
 
-const calcTip = function (bill) {
-  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
-};
+// const calcTip = function (bill) {
+//   return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+// };
 
-for (let i = 0; i < bills.length; i++) {
-  tips.push(calcTip(bills[i]));
-  totals.push(bills[i] + tips[i]);
-}
+// for (let i = 0; i < bills.length; i++) {
+//   tips.push(calcTip(bills[i]));
+//   totals.push(bills[i] + tips[i]);
+// }
 
-console.log(tips, totals);
+// console.log(tips, totals);
 
 //bonus
-const calcAverage = function (arr) {
-  let sum = 0;
-  for (let i = 0; i < arr.length; i++) {
-    sum = sum + arr[i];
-  }
-  return sum / arr.length;
-};
 
-console.log(calcAverage(totals));
+//expression
+// const calcAverage = function (arr) {
+//   let sum = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     // sum = sum + arr[i];
+//     sum += arr[i];
+//   }
+//   return sum / arr.length;
+// };
+
+//declaration
+// function calcAverage(arr) {
+//   let sum = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     // sum = sum + arr[i];
+//     sum += arr[i];
+//   }
+//   return sum / arr.length;
+// }
+
+//arrow
+// const calcAverage = (arr) => {
+//   let sum = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     // sum = sum + arr[i];
+//     sum += arr[i];
+//   }
+//   return sum / arr.length;
+// };
+
+// console.log(calcAverage(totals));
+
+///////////Repeating coding  assignments///////
+
+//Values and variables
+
+const country = 'Lithuania';
+const continent = 'Europe';
+let population = 2.8;
+
+// console.log(country, continent, population);
+
+//Data types
+
+const isIsland = false;
+let language;
+
+console.log(
+  typeof isIsland,
+  typeof population,
+  typeof country,
+  typeof language
+);
+
+//let const and var
+language = 'lithuanian';
+console.log(typeof language);
+
+//Baasic Operators
+
+console.log(population / 2);
+console.log(++population);
+// population++;
+// console.log(population);
+console.log(population > 6);
+console.log(population < 33);
+
+const description2 =
+  country +
+  ' is in ' +
+  continent +
+  ", and it's " +
+  population +
+  ' million people speak ' +
+  language;
+console.log(description2);
+
+//Strings and template literalls
+
+const description1 = `${country} is in ${continent}, and it's ${population} million peoplee speak ${language}`;
+console.log(description1);
+
+//Taking decissions:if/else Statements
+
+if (population > 33) {
+  console.log(`${country}'s population is above average`);
+} else {
+  console.log(
+    `${country}'s population is ${33 - population} million bellow average`
+  );
+}
+
+//type conversion and coercion
+
+console.log('9' - '5');
+console.log('19' - '13' + '17');
+console.log('19' - '13' + 17);
+console.log('123' < 57);
+console.log(5 + 6 + '4' + 9 - 4 - 2);
+
+//Equality Operators: == vs. ===
+
+const numNeighbours = prompt(
+  'How many neighbour countries does your country have?'
+);
+if()
