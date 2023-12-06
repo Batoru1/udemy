@@ -89,6 +89,7 @@
 // }
 
 //arrow
+
 // const calcAverage = (arr) => {
 //   let sum = 0;
 //   for (let i = 0; i < arr.length; i++) {
@@ -100,7 +101,9 @@
 
 // console.log(calcAverage(totals));
 
-///////////Repeating coding  assignments///////
+////////////////////////////////////////////////////////
+///////////Repeating coding  assignments Part1//////////
+////////////////////////////////////////////////////////
 
 //Values and variables
 
@@ -170,7 +173,54 @@ console.log(5 + 6 + '4' + 9 - 4 - 2);
 
 //Equality Operators: == vs. ===
 
-const numNeighbours = prompt(
-  'How many neighbour countries does your country have?'
+// let numNeighbours = Number(
+//   prompt('How many neighbour countries does your country have?')
+// );
+// if (numNeighbours === 1) {
+//   console.log('Only 1 border!');
+// } else if (numNeighbours > 1) {
+//   console.log('More than 1 border');
+// } else {
+//   console.log('No borders');
+// }
+
+//Logical Operators
+
+if ((language === 'english') & (population < 50) & !isIsland) {
+  console.log(`you should live in ${country}`);
+} else {
+  console.log(`${country} doesn't meet your criteria`);
+}
+console.log(!isIsland);
+
+//The switch statement
+
+switch (language) {
+  case 'chinese ||  mandarin':
+    console.log('MOST number of native speakers!');
+    break;
+  case 'spanish':
+    console.log('2nd place in number of native speakers');
+    break;
+  case 'english':
+    console.log('3rd place');
+    break;
+  case 'hindi':
+    console.log('Number 4');
+    break;
+  case 'arabic':
+    console.log('5th most spoken language');
+    break;
+  default:
+    console.log('even better language!');
+}
+
+//The conditional(ternary) operator
+
+// population > 33
+//   ? console.log(`${country}'s population is above average`)
+//   : console.log(`${country}'s population is below average`);
+
+console.log(
+  `${country}'s population is ${population > 33 ? 'above' : 'below'} average`
 );
-if()
