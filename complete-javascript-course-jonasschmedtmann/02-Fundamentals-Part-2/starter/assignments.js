@@ -105,73 +105,73 @@
 ///////////Repeating coding  assignments Part1//////////
 ////////////////////////////////////////////////////////
 
-//Values and variables
+// //Values and variables
 
-const country = 'Lithuania';
-const continent = 'Europe';
-let population = 2.8;
+// const country = 'Lithuania';
+// const continent = 'Europe';
+// let population = 2.8;
 
-// console.log(country, continent, population);
+// // console.log(country, continent, population);
 
-//Data types
+// //Data types
 
-const isIsland = false;
-let language;
+// const isIsland = false;
+// let language;
 
-console.log(
-  typeof isIsland,
-  typeof population,
-  typeof country,
-  typeof language
-);
+// console.log(
+//   typeof isIsland,
+//   typeof population,
+//   typeof country,
+//   typeof language
+// );
 
-//let const and var
-language = 'lithuanian';
-console.log(typeof language);
+// //let const and var
+// language = 'lithuanian';
+// console.log(typeof language);
 
-//Baasic Operators
+// //Baasic Operators
 
-console.log(population / 2);
-console.log(++population);
-// population++;
-// console.log(population);
-console.log(population > 6);
-console.log(population < 33);
+// console.log(population / 2);
+// console.log(++population);
+// // population++;
+// // console.log(population);
+// console.log(population > 6);
+// console.log(population < 33);
 
-const description2 =
-  country +
-  ' is in ' +
-  continent +
-  ", and it's " +
-  population +
-  ' million people speak ' +
-  language;
-console.log(description2);
+// const description2 =
+//   country +
+//   ' is in ' +
+//   continent +
+//   ", and it's " +
+//   population +
+//   ' million people speak ' +
+//   language;
+// console.log(description2);
 
-//Strings and template literalls
+// //Strings and template literalls
 
-const description1 = `${country} is in ${continent}, and it's ${population} million peoplee speak ${language}`;
-console.log(description1);
+// const description1 = `${country} is in ${continent}, and it's ${population} million peoplee speak ${language}`;
+// console.log(description1);
 
-//Taking decissions:if/else Statements
+// //Taking decissions:if/else Statements
 
-if (population > 33) {
-  console.log(`${country}'s population is above average`);
-} else {
-  console.log(
-    `${country}'s population is ${33 - population} million bellow average`
-  );
-}
+// if (population > 33) {
+//   console.log(`${country}'s population is above average`);
+// } else {
+//   console.log(
+//     `${country}'s population is ${33 - population} million bellow average`
+//   );
+// }
 
-//type conversion and coercion
+// //type conversion and coercion
 
-console.log('9' - '5');
-console.log('19' - '13' + '17');
-console.log('19' - '13' + 17);
-console.log('123' < 57);
-console.log(5 + 6 + '4' + 9 - 4 - 2);
+// console.log('9' - '5');
+// console.log('19' - '13' + '17');
+// console.log('19' - '13' + 17);
+// console.log('123' < 57);
+// console.log(5 + 6 + '4' + 9 - 4 - 2);
 
-//Equality Operators: == vs. ===
+// //Equality Operators: == vs. ===
 
 // let numNeighbours = Number(
 //   prompt('How many neighbour countries does your country have?')
@@ -184,43 +184,69 @@ console.log(5 + 6 + '4' + 9 - 4 - 2);
 //   console.log('No borders');
 // }
 
-//Logical Operators
+// //Logical Operators
 
-if ((language === 'english') & (population < 50) & !isIsland) {
-  console.log(`you should live in ${country}`);
-} else {
-  console.log(`${country} doesn't meet your criteria`);
-}
-console.log(!isIsland);
+// if ((language === 'english') & (population < 50) & !isIsland) {
+//   console.log(`you should live in ${country}`);
+// } else {
+//   console.log(`${country} doesn't meet your criteria`);
+// }
+// console.log(!isIsland);
 
-//The switch statement
+// // The switch statement
 
-switch (language) {
-  case 'chinese ||  mandarin':
-    console.log('MOST number of native speakers!');
-    break;
-  case 'spanish':
-    console.log('2nd place in number of native speakers');
-    break;
-  case 'english':
-    console.log('3rd place');
-    break;
-  case 'hindi':
-    console.log('Number 4');
-    break;
-  case 'arabic':
-    console.log('5th most spoken language');
-    break;
-  default:
-    console.log('even better language!');
-}
+// switch (language) {
+//   case 'chinese ||  mandarin':
+//     console.log('MOST number of native speakers!');
+//     break;
+//   case 'spanish':
+//     console.log('2nd place in number of native speakers');
+//     break;
+//   case 'english':
+//     console.log('3rd place');
+//     break;
+//   case 'hindi':
+//     console.log('Number 4');
+//     break;
+//   case 'arabic':
+//     console.log('5th most spoken language');
+//     break;
+//   default:
+//     console.log('even better language!');
+// }
 
-//The conditional(ternary) operator
+// //The conditional(ternary) operator
 
 // population > 33
 //   ? console.log(`${country}'s population is above average`)
 //   : console.log(`${country}'s population is below average`);
 
-console.log(
-  `${country}'s population is ${population > 33 ? 'above' : 'below'} average`
-);
+// console.log(
+//   `${country}'s population is ${population > 33 ? 'above' : 'below'} average`
+// );
+
+////////////////////////////////////////////////////////
+///////////Repeating coding  assignments Part2//////////
+////////////////////////////////////////////////////////
+
+//functions
+
+function describeCountry(country, population, capitalCity) {
+  console.log(
+    `${country} has ${population} million people and it's capital city is ${capitalCity}`
+  );
+}
+
+const countryLit = describeCountry('Lithuania', 2.8, 'Vilnius');
+const countryPol = describeCountry('Poland', 38, 'Warsaw');
+const countryLat = describeCountry('Latvia', 1.8, 'Ryga');
+
+// function describeCountry(country, population, capitalCity) {
+//   return `${country} has ${population} million people and it's capital city is ${capitalCity}`;
+// }
+
+// const countryLit = describeCountry('Lithuania', 2.8, 'Vilnius');
+// const countryPol = describeCountry('Poland', 38, 'Warsaw');
+// const countryLat = describeCountry('Latvia', 1.8, 'Ryga');
+
+// console.log(countryLit, countryLat, countryPol);
