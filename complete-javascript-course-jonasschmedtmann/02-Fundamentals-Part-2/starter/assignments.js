@@ -250,3 +250,25 @@ const countryLat = describeCountry('Latvia', 1.8, 'Ryga');
 // const countryLat = describeCountry('Latvia', 1.8, 'Ryga');
 
 // console.log(countryLit, countryLat, countryPol);
+
+//Function Declarations vs. Expressions
+
+function percentageOfWorld1(population) {
+  return (population / 7900) * 100;
+}
+
+const popLit = percentageOfWorld1(2.8);
+const popLat = percentageOfWorld1(1.8);
+const popEst = percentageOfWorld1(1.3);
+
+console.log(popLit, popLat, popEst);
+
+const percentageOfWorld2 = function (population) {
+  return (population / 7900) * 100;
+};
+
+const popPol = percentageOfWorld2(38);
+const popGer = percentageOfWorld2(83);
+const popUsa = percentageOfWorld2(331);
+
+console.log(popPol, popGer, popUsa);
