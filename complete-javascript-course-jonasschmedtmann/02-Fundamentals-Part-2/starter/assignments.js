@@ -272,3 +272,80 @@ const popGer = percentageOfWorld2(83);
 const popUsa = percentageOfWorld2(331);
 
 console.log(popPol, popGer, popUsa);
+
+//Arrow function
+const percentageOfWorld3 = (population) => (population / 7900) * 100;
+
+const popTaiw = percentageOfWorld3(23);
+const popDen = percentageOfWorld3(5.8);
+const popUkr = percentageOfWorld3(41);
+
+console.log(popTaiw, popDen, popUkr);
+
+//Functions calling other functions
+
+//declaration
+function describePopulation(country, population) {
+  return `${country} has ${population} million people, which is about ${percentageOfWorld1(
+    population
+  )}% of world population`;
+}
+
+console.log(describePopulation('Finland', 5.5));
+console.log(describePopulation('Japan', 126));
+console.log(describePopulation('Netherlands', 17.5));
+
+//expression
+const describePopulation2 = function (country, population) {
+  return `${country} has ${population} million people, which is about ${percentageOfWorld1(
+    population
+  )}% of world population`;
+};
+
+console.log(describePopulation2('Finland', 5.5));
+console.log(describePopulation2('Japan', 126));
+console.log(describePopulation2('Netherlands', 17.5));
+
+//arrow
+const describePopulation3 = (country, population) =>
+  `${country} has ${population} million people, which is about ${percentageOfWorld1(
+    population
+  )}% of world population`;
+
+console.log(describePopulation3('Finland', 5.5));
+console.log(describePopulation3('Japan', 126));
+console.log(describePopulation3('Netherlands', 17.5));
+
+//Introduction to arrays
+
+const populations = [2.8, 33, 331, 23];
+
+console.log(populations.length === 4);
+
+const percentages = [
+  percentageOfWorld1(populations[0]),
+  percentageOfWorld1(populations[1]),
+  percentageOfWorld1(populations[2]),
+  percentageOfWorld1(populations[3]),
+];
+
+console.log(percentages);
+
+//basic array operations(methods)
+
+const neighboursLit = ['Latvia', 'Poland', 'Belarus', 'Russia'];
+console.log(neighboursLit);
+
+neighboursLit.push('Utopia');
+console.log(neighboursLit);
+
+neighboursLit.pop();
+console.log(neighboursLit);
+
+!neighboursLit.includes('Germany')
+  ? console.log(' Probably not a central European country :D')
+  : console.log('A central European country');
+
+console.log(neighboursLit.indexOf('Russia'));
+neighboursLit[neighboursLit.indexOf('Russia')] = 'Orckland';
+console.log(neighboursLit);
