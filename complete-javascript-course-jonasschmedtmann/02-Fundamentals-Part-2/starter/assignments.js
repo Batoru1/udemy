@@ -349,3 +349,45 @@ console.log(neighboursLit);
 console.log(neighboursLit.indexOf('Russia'));
 neighboursLit[neighboursLit.indexOf('Russia')] = 'Orckland';
 console.log(neighboursLit);
+
+//introduction to objects
+
+const myCountry = {
+  country: 'Lithuania',
+  capital: 'Vilnius',
+  language: 'lithuanian',
+  population: 2.8,
+  neighbours: ['Latvia', 'Poland', 'Belarus', 'Russia'],
+};
+
+//Dot vs. Bracket Notation
+
+console.log(
+  `${myCountry.country} has ${myCountry['population']} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry['capital']}`
+);
+
+myCountry.population += 2;
+console.log(myCountry.population);
+
+myCountry['population'] -= 2;
+console.log(myCountry.population);
+
+//Object methods
+
+myCountry.describe = function () {
+  console.log(
+    `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${this.capital}`
+  );
+};
+
+myCountry.describe();
+
+myCountry.checkIsland = function () {
+  this.isIsland = !Boolean(this.neighbours.length);
+  // this.isIsland = this.neighbours.length === 0 ? true : false;
+  // console.log(this.sIsland);
+};
+
+myCountry.checkIsland();
+
+console.log(myCountry);
