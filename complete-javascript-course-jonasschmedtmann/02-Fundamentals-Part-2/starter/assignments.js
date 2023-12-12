@@ -436,7 +436,8 @@
 
 // console.log(percentages, percentages2, percentages3);
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////CODING CHALLANGES REPEAT/////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////CODING CHALLANGES REPEAT////////////////////////
+//////////////////////////// PART 1/////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
 //Coding challange 1
@@ -542,3 +543,53 @@ if ((calcAvgD3 > calcAvgK3) & (calcAvgD3 >= 100)) {
 } else {
   console.log(`no one wins ${calcAvgD3} & ${calcAvgK3} less than 100! ☠️`);
 }
+
+//coding challange4
+
+const bill = 275;
+// const bill = 40;
+// const bill = 430;
+
+let tip;
+
+tip = (50 <= bill) & (bill <= 300) ? bill * 0.15 : bill * 0.2;
+
+// if ((50 <= bill) & (bill <= 300)) {
+//   tip = bill * 0.15;
+// } else {
+//   tip = bill * 0.2;
+// }
+console.log(
+  `The bill was ${bill}, the tip was ${tip}, and the total values was ${
+    bill + tip
+  }`
+);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////CODING CHALLANGES REPEAT////////////////////////
+//////////////////////////// PART 2/////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+//Coding challange1
+
+//data1
+
+const calcAverage = (score1, score2, scor3) => (score1 + score2 + scor3) / 3;
+
+//dat1
+const avgDolphins = calcAverage(44, 23, 71);
+const avgKoalas = calcAverage(65, 54, 49);
+console.log(avgDolphins, avgKoalas);
+
+//data2
+// const avgDolphins = calcAverage(85, 54, 41);
+// const avgKoalas = calcAverage(23, 34, 27);
+// console.log(avgDolphins, avgKoalas);
+
+const checkWinner = (avgDolphins, avgKoalas) => {
+  if (avgDolphins > avgKoalas) & (avgDolphins > avgKoalas * 2){
+    console.log();
+  }
+}
+
+
+console.log(checkWinner(avgDolphins, avgKoalas));
