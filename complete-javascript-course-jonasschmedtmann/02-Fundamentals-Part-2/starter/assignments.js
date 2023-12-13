@@ -663,3 +663,27 @@ if (mark.bmi > john.bmi) {
     `${john.name}'s BMI (${john.bmi}) is higher than ${mark.name}'s BMI (${mark.bmi})`
   );
 }
+
+//challange4
+
+const billz = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+
+const tipz = [];
+const totalz = [];
+
+for (let i = 0; i < billz.length; i++) {
+  tipz.push(calcTip(billz[i]));
+  totalz.push(tipz[i] + billz[i]);
+}
+
+console.log(billz);
+console.log(tipz);
+console.log(totalz);
+
+//bonus
+function calcAveragez(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    arr.push();
+  }
+}
