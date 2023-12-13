@@ -453,9 +453,9 @@ const massJohn2 = 85;
 const heightJohn2 = 1.76;
 
 const BMIMark1 = massMark1 / heightMark1 ** 2;
-const BMIJohn1 = massJohn2 / heightJohn1 ** 2;
+const BMIJohn1 = massJohn1 / heightJohn1 ** 2;
 
-const BMIMark2 = massMark1 / heightMark2 ** 2;
+const BMIMark2 = massMark2 / heightMark2 ** 2;
 const BMIJohn2 = massJohn2 / heightJohn2 ** 2;
 
 console.log(BMIMark1, BMIJohn1, BMIMark2, BMIJohn2);
@@ -546,7 +546,7 @@ if ((calcAvgD3 > calcAvgK3) & (calcAvgD3 >= 100)) {
 
 //coding challange4
 
-const bill = 275;
+let bill = 275;
 // const bill = 40;
 // const bill = 430;
 
@@ -600,3 +600,66 @@ console.log(avgDolphins, avgKoalas);
 checkWinner(avgDolphins, avgKoalas);
 
 //challange2
+// bill = 100;
+//declaration
+// function calcTip(anyBill) {
+//   tip = (50 <= bill) & (bill <= 300) ? bill * 0.15 : bill * 0.2;
+//   return tip;
+// }
+
+// console.log(calcTip(200));
+
+//expression
+// const calcTip = function (anyBill) {
+//   tip = (50 <= banyBill)) & (anyBill) <= 300) ? anyBill) * 0.15 : anyBill)* 0.2;
+//   return tip;
+// };
+
+// console.log(calcTip());
+
+//arrow
+
+const calcTip = (anyBill) =>
+  (50 <= anyBill) & (anyBill <= 300) ? anyBill * 0.15 : anyBill * 0.2;
+
+console.log(calcTip(100));
+
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+const totals = [tips[0] + bills[0], tips[1] + bills[1], tips[2] + bills[2]];
+
+console.log(bills, tips, totals);
+
+//challange 3
+const mark = {
+  name: 'Mark Miller',
+  mass: 78,
+  height: 1.69,
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
+
+const john = {
+  name: 'John Smith',
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    return (this.bmi = this.mass / this.height ** 2);
+  },
+};
+
+console.log(mark);
+console.log(mark.calcBMI());
+console.log(john.calcBMI());
+
+if (mark.bmi > john.bmi) {
+  console.log(
+    `${mark.name}'s BMI (${mark.bmi}) is higher than ${john.name}'s BMI (${john.bmi})`
+  );
+} else {
+  console.log(
+    `${john.name}'s BMI (${john.bmi}) is higher than ${mark.name}'s BMI (${mark.bmi})`
+  );
+}
