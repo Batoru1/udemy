@@ -680,10 +680,16 @@ console.log(billz);
 console.log(tipz);
 console.log(totalz);
 
-//bonus
+//bonucd
 function calcAveragez(arr) {
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
-    arr.push();
+    sum += arr[i];
   }
+  return sum / arr.length;
 }
+
+calcAverage(totalz);
+
+console.log(calcAveragez(totalz));
+console.log(calcAveragez(tipz));
