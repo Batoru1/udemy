@@ -8,9 +8,7 @@ const calcAge = birthYear => 2037 - birthYear;
 const calcTip = anyBill =>
   (50 <= anyBill) & (anyBill <= 300) ? anyBill * 0.15 : anyBill * 0.2;
 
-console.log();
-console.log(calcAge);
+console.log(calcAge(1991));
 
-console.log();
-
+//video
 //video
