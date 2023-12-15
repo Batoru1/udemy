@@ -619,7 +619,7 @@ checkWinner(avgDolphins, avgKoalas);
 
 //arrow
 
-const calcTip = (anyBill) =>
+const calcTip = anyBill =>
   (50 <= anyBill) & (anyBill <= 300) ? anyBill * 0.15 : anyBill * 0.2;
 
 console.log(calcTip(100));
@@ -693,3 +693,5 @@ calcAverage(totalz);
 
 console.log(calcAveragez(totalz));
 console.log(calcAveragez(tipz));
+
+const calcAge = birthYear => 2037 - birthYear;
