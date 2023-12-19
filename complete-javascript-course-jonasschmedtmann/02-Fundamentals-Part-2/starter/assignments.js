@@ -694,4 +694,4 @@ calcAverage(totalz);
 console.log(calcAveragez(totalz));
 console.log(calcAveragez(tipz));
 
-const calcAge = birthYear => 2037 - birthYear;
+
