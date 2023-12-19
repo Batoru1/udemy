@@ -680,7 +680,7 @@ console.log(billz);
 console.log(tipz);
 console.log(totalz);
 
-//bonucd
+//bonus challange
 function calcAveragez(arr) {
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -693,5 +693,3 @@ calcAverage(totalz);
 
 console.log(calcAveragez(totalz));
 console.log(calcAveragez(tipz));
-
-
