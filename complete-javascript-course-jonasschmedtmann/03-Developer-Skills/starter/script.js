@@ -78,8 +78,21 @@ console.log(amplitudeNew);
 
 //61 debugging with the console and breakpoints
 const measureKelvin = function () {
-  const measurment = {
+  const measurement = {
     type: 'temp',
     unit: 'celsius',
+    //c FIX bug
+    value: Number(prompt('Degrees celsius')),
   };
+
+  //B) find the bug
+  console.table(measurement);
+
+  // console.log(measurement.value);
+  // console.warn(measurement.value);
+  // console.error(measurement.value);
+  const kelvin = measurement.value + 273;
+  return kelvin;
 };
+// a) identify bug
+console.log(measureKelvin());
