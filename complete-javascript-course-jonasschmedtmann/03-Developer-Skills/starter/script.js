@@ -121,3 +121,19 @@ const calcTempAmplitudeBug = function (t1, t2) {
 const amplitudeBug = calcTempAmplitudeBug([3, 5, 1], [9, 4, 5]);
 //A identify
 console.log(amplitudeBug);
+
+//Coding Challange 1
+function printForecast(arr) {
+  const indexArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    let arrIndex = arr.indexOf(arr[i]);
+    let newIndex = indexArr.push(arrIndex + 1);
+    return console.log(`${arr[i]}c in ${indexArr} days`);
+  }
+}
+
+const arr1 = [17, 21, 23];
+const arr2 = [12, 5, -5, 0, 4];
+
+printForecast(arr1);
