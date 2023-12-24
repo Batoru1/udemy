@@ -143,34 +143,39 @@ function printForecast(arr) {
   }
   console.log(valueIndex);
 
-  const valuePlusIndex = [valueArr, valueIndex];
-  for (let i = 0; i < valuePlusIndex.length; i++) {
-    for (let j = 0; j < valueIndex[i].length; j++) {
-      // console.log(`...${}c in ${} days...`);
-      console.log(`...${valuePlusIndex[0]}c in ${valuePlusIndex[1]} days...`);
-    }
+  for (let i = 0; i < valueIndex.length; i++) {
+    const value1 = valueArr[i];
+    const value2 = valueIndex[i];
+    console.log(`...${value1}c in ${value2} days...`);
   }
-  console.log(valuePlusIndex);
-  return console.log(
-    `...${valuePlusIndex[0]}c in ${valuePlusIndex[1]} days...`
-  );
+
+  // return console.log(`...${value1}c in ${value2} days...`);
+
+  // const valuePlusIndex = [valueArr, valueIndex];
+  // for (let i = 0; i < valuePlusIndex.length; i++) {
+  //   for (let j = 0; j < valueIndex[i].length; j++) {
+  //     // console.log(`...${}c in ${} days...`);
+  //     console.log(`...${valuePlusIndex[0]}c in ${valuePlusIndex[1]} days...`);
+  //   }
+  // }
+  // console.log(valuePlusIndex);
+  // return console.log(
+  //   `...${valuePlusIndex[0]}c in ${valuePlusIndex[1]} days...`
+  // );
 }
 
 const arr1 = [17, 21, 23];
 const arr2 = [12, 5, -5, 0, 4];
 
-printForecast(arr2);
+printForecast(arr1);
 
 //exmp
-const twoDArray = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-];
+const array1 = [1, 2, 3];
+const array2 = ['a', 'b', 'c'];
 
-for (let i = 0; i < twoDArray.length; i++) {
-  for (let j = 0; j < twoDArray[i].length; j++) {
-    const value = twoDArray[i][j];
-    console.log(`Value at (${i}, ${j}): ${value}`);
-  }
+// Assuming both arrays are of the same length
+for (let i = 0; i < array1.length; i++) {
+  const value1 = array1[i];
+  const value2 = array2[i];
+  console.log(`Value from array1: ${value1}, Value from array2: ${value2}`);
 }
