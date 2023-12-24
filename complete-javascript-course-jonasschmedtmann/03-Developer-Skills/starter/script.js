@@ -124,16 +124,53 @@ console.log(amplitudeBug);
 
 //Coding Challange 1
 function printForecast(arr) {
-  const indexArr = [];
+  // const indexArr = [];
+  // for (let i = 0; i < arr.length; i++) {
+  //   let arrIndex = arr.indexOf(arr[i]);
+  //   let newIndex = indexArr.push(arrIndex + 1);
+  //   return console.log(`...${arr[i]}c in ${indexArr} days...`);
+  // }
 
+  const valueArr = [];
   for (let i = 0; i < arr.length; i++) {
-    let arrIndex = arr.indexOf(arr[i]);
-    let newIndex = indexArr.push(arrIndex + 1);
-    return console.log(`${arr[i]}c in ${indexArr} days`);
+    const arrValue = valueArr.push(arr[i]);
   }
+  console.log(valueArr);
+
+  const valueIndex = [];
+  for (let i = 0; i < arr.length; i++) {
+    const indexValue = valueIndex.push(arr.indexOf(arr[i]) + 1);
+  }
+  console.log(valueIndex);
+
+  const valuePlusIndex = [valueArr, valueIndex];
+  for (let i = 0; i < valuePlusIndex.length; i++) {
+    for (let j = 0; j < valueIndex[i].length; j++) {
+      // console.log(`...${}c in ${} days...`);
+      console.log(`...${valuePlusIndex[0]}c in ${valuePlusIndex[1]} days...`);
+    }
+  }
+  console.log(valuePlusIndex);
+  return console.log(
+    `...${valuePlusIndex[0]}c in ${valuePlusIndex[1]} days...`
+  );
 }
 
 const arr1 = [17, 21, 23];
 const arr2 = [12, 5, -5, 0, 4];
 
-printForecast(arr1);
+printForecast(arr2);
+
+//exmp
+const twoDArray = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+
+for (let i = 0; i < twoDArray.length; i++) {
+  for (let j = 0; j < twoDArray[i].length; j++) {
+    const value = twoDArray[i][j];
+    console.log(`Value at (${i}, ${j}): ${value}`);
+  }
+}
