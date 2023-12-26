@@ -124,18 +124,11 @@ console.log(amplitudeBug);
 
 //Coding Challange 1
 function printForecast(arr) {
-  // const indexArr = [];
+  // const valueArr = [];
   // for (let i = 0; i < arr.length; i++) {
-  //   let arrIndex = arr.indexOf(arr[i]);
-  //   let newIndex = indexArr.push(arrIndex + 1);
-  //   return console.log(`...${arr[i]}c in ${indexArr} days...`);
+  //   const arrValue = valueArr.push(arr[i]);
   // }
-
-  const valueArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    const arrValue = valueArr.push(arr[i]);
-  }
-  console.log(valueArr);
+  // console.log(valueArr);
 
   const valueIndex = [];
   for (let i = 0; i < arr.length; i++) {
@@ -143,39 +136,38 @@ function printForecast(arr) {
   }
   console.log(valueIndex);
 
-  for (let i = 0; i < valueIndex.length; i++) {
-    const value1 = valueArr[i];
-    const value2 = valueIndex[i];
-    console.log(`...${value1}c in ${value2} days...`);
-  }
+  const mapArr = arr.map(element => `...${element}`);
 
-  // return console.log(`...${value1}c in ${value2} days...`);
+  const joinArr = mapArr.join('C... ');
+  console.log(joinArr);
 
-  // const valuePlusIndex = [valueArr, valueIndex];
-  // for (let i = 0; i < valuePlusIndex.length; i++) {
-  //   for (let j = 0; j < valueIndex[i].length; j++) {
-  //     // console.log(`...${}c in ${} days...`);
-  //     console.log(`...${valuePlusIndex[0]}c in ${valuePlusIndex[1]} days...`);
-  //   }
+  console.log();
+  // const resultArr = [];
+
+  // for (let i = 0; i < valueIndex.length; i++) {
+  //   const value1 = valueArr[i];
+  //   const value2 = valueIndex[i];
+
+  //   console.log(`...${value1}c in ${value2} days...`);
   // }
-  // console.log(valuePlusIndex);
-  // return console.log(
-  //   `...${valuePlusIndex[0]}c in ${valuePlusIndex[1]} days...`
-  // );
 }
 
 const arr1 = [17, 21, 23];
 const arr2 = [12, 5, -5, 0, 4];
 
-printForecast(arr1);
+printForecast(arr2);
 
-//exmp
-const array1 = [1, 2, 3];
-const array2 = ['a', 'b', 'c'];
+//official answer
 
-// Assuming both arrays are of the same length
-for (let i = 0; i < array1.length; i++) {
-  const value1 = array1[i];
-  const value2 = array2[i];
-  console.log(`Value from array1: ${value1}, Value from array2: ${value2}`);
-}
+//1) understanding problem
+//-Array transformed to string, separated by ...
+//-what is the x days? Answer:index + 1
+
+//2) Breaking up into subproblems
+//- transform array into a string
+//- transform each element to string with C
+//- string needs to contain day (index+1)
+//- add ...between elements and start and end of string
+
+const data1 = [17, 21, 23];
+const data2 = [12, 5, -5, 0, 4];
