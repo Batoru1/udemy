@@ -123,33 +123,24 @@ const amplitudeBug = calcTempAmplitudeBug([3, 5, 1], [9, 4, 5]);
 console.log(amplitudeBug);
 
 //Coding Challange 1
+//my code
 function printForecast(arr) {
-  // const valueArr = [];
-  // for (let i = 0; i < arr.length; i++) {
-  //   const arrValue = valueArr.push(arr[i]);
-  // }
-  // console.log(valueArr);
-
   const valueIndex = [];
   for (let i = 0; i < arr.length; i++) {
     const indexValue = valueIndex.push(arr.indexOf(arr[i]) + 1);
   }
-  console.log(valueIndex);
 
-  const mapArr = arr.map(element => `...${element}`);
+  let forecast = '';
 
-  const joinArr = mapArr.join('C... ');
-  console.log(joinArr);
+  for (let i = 0; i < valueIndex.length; i++) {
+    const value1 = arr[i];
+    const value2 = valueIndex[i];
 
-  console.log();
-  // const resultArr = [];
+    forecast += `... ${value1}c in ${value2} days `;
+  }
 
-  // for (let i = 0; i < valueIndex.length; i++) {
-  //   const value1 = valueArr[i];
-  //   const value2 = valueIndex[i];
-
-  //   console.log(`...${value1}c in ${value2} days...`);
-  // }
+  forecast += ' ...';
+  console.log(forecast);
 }
 
 const arr1 = [17, 21, 23];
@@ -157,7 +148,7 @@ const arr2 = [12, 5, -5, 0, 4];
 
 printForecast(arr2);
 
-//official answer
+//Jonas's code
 
 //1) understanding problem
 //-Array transformed to string, separated by ...
@@ -168,6 +159,20 @@ printForecast(arr2);
 //- transform each element to string with C
 //- string needs to contain day (index+1)
 //- add ...between elements and start and end of string
+//- log string to console
 
 const data1 = [17, 21, 23];
 const data2 = [12, 5, -5, 0, 4];
+
+console.log(`... ${data1[0]}c ... ${data1[1]}c ... ${data1[2]}c ...`);
+
+const printForecast3 = function (arr3) {
+  //accumulator variable
+  let str = '';
+  for (let i = 0; i < arr3.length; i++) {
+    str += `${arr3[i]}c in ${i + 1} days ... `;
+  }
+  console.log('...' + str);
+};
+
+printForecast3(data2);
