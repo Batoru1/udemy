@@ -1,0 +1,18 @@
+body {
+  background-color: rgb(236, 232, 217);
+  font-family: 'Segoe UI';
+  font-size: 20px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.first {
+  color: red;
+}
+
+#your-name {
+  background-color: rgb(228, 161, 16);
+  border: 5px solid #444;
+}

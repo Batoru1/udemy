@@ -124,6 +124,7 @@ console.log(amplitudeBug);
 
 //Coding Challange 1
 //my code
+
 function printForecast(arr) {
   const valueIndex = [];
   for (let i = 0; i < arr.length; i++) {
