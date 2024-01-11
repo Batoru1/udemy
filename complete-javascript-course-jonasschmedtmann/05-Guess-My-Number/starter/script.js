@@ -18,6 +18,10 @@ const displayMessage = function (message) {
   document.querySelector('.message').textContent = message;
 };
 
+const displayScore = function (score) {
+  document.querySelector('.score').textContent = score;
+};
+
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
   // console.log(guess, typeof guess);
@@ -43,11 +47,13 @@ document.querySelector('.check').addEventListener('click', function () {
       //   guess > secretNumber ? '🔼 Too high!' : '🔽 Too low!';
       displayMessage(guess > secretNumber ? '🔼 Too high!' : '🔽 Too low!');
       score--;
-      document.querySelector('.score').textContent = score;
+      // document.querySelector('.score').textContent = score;
+      displayScore(score);
     } else {
       // document.querySelector('.message').textContent = '🤯 you lost the game';
       displayMessage('🤯 you lost the game');
-      document.querySelector('.score').textContent = 0;
+      // document.querySelector('.score').textContent = 0;
+      displayScore(0);
     }
 
     //guess is to high
@@ -80,7 +86,8 @@ document.querySelector('.again').addEventListener('click', function () {
 
   // document.querySelector('.message').textContent = 'Start guessing...';
   displayMessage('Start guessing...');
-  document.querySelector('.score').textContent = score;
+  // document.querySelector('.score').textContent = score;
+  displayScore(score);
   document.querySelector('.number').textContent = '?';
   document.querySelector('.guess').value = '';
   document.querySelector('body').style.backgroundColor = 'black';
