@@ -12,15 +12,27 @@ const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
-//starting condirions
-score0El.textContent = 0;
-score1El.textContent = 0;
-diceEl.classList.add('hidden');
+let scores, currentScore, activePlayer, playing;
 
-const scores = [0, 0];
-let currentScore = 0;
-let activePlayer = 0;
-let playing = true;
+//starting condirions
+const init = function () {
+  scores = [0, 0];
+  currentScore = 0;
+  activePlayer = 0;
+  playing = true;
+
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+  current0El.textContent = 0;
+  current1El.textContent = 0;
+
+  diceEl.classList.add('hidden');
+  player0El.classList.remove('player--winner');
+  player1El.classList.remove('player--winner');
+  player0El.classList.add('player--active');
+  player1El.classList.remove('player--active');
+};
+init();
 
 const switchPlayer = function () {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -63,7 +75,7 @@ btnHold.addEventListener('click', function () {
     document.getElementById(`score--${activePlayer}`).textContent =
       scores[activePlayer];
     //2check score is already 100
-    if (scores[activePlayer] >= 20) {
+    if (scores[activePlayer] >= 100) {
       //finish game
       playing = false;
       diceEl.classList.add('hidden');
@@ -80,31 +92,4 @@ btnHold.addEventListener('click', function () {
   }
 });
 
-btnNew.addEventListener('click', function () {
-  if (!playing) {
-    document
-      .querySelector(`.player--${activePlayer}`)
-      .classList.remove('player--winner');
-    playing = true;
-    scores[activePlayer] = 0;
-    scores[!activePlayer] = 0;
-    score0El.textContent = 0;
-    score1El.textContent = 0;
-    current0El.textContent = 0;
-    current1El.textContent = 0;
-    currentScore = 0;
-    scores[!activePlayer] = currentScore;
-    scores[activePlayer] = currentScore;
-    player0El.classList.toggle('player--active');
-
-    // if (dice != 1) {
-    //   //add dice to current score
-    //   currentScore = 0;
-    //   document.getElementById(`current--${activePlayer}`).textContent =
-    //     currentScore;
-    // } else {
-    //   //switch to next player
-    //   switchPlayer();
-    // }
- 
-});
+btnNew.addEventListener('click', init);
