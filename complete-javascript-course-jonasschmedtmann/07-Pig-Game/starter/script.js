@@ -72,10 +72,39 @@ btnHold.addEventListener('click', function () {
         .classList.add('player--winner');
       document
         .querySelector(`.player--${activePlayer}`)
-        .classList.remove('player--activeS');
+        .classList.remove('player--active');
     } else {
       //switch next player
       switchPlayer();
     }
   }
+});
+
+btnNew.addEventListener('click', function () {
+  if (!playing) {
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.remove('player--winner');
+    playing = true;
+    scores[activePlayer] = 0;
+    scores[!activePlayer] = 0;
+    score0El.textContent = 0;
+    score1El.textContent = 0;
+    current0El.textContent = 0;
+    current1El.textContent = 0;
+    currentScore = 0;
+    scores[!activePlayer] = currentScore;
+    scores[activePlayer] = currentScore;
+    player0El.classList.toggle('player--active');
+
+    // if (dice != 1) {
+    //   //add dice to current score
+    //   currentScore = 0;
+    //   document.getElementById(`current--${activePlayer}`).textContent =
+    //     currentScore;
+    // } else {
+    //   //switch to next player
+    //   switchPlayer();
+    // }
+ 
 });
