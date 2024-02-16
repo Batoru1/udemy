@@ -42,6 +42,9 @@ const restaurant = {
   },
 };
 
+/////////////////////////////////////////
+//Object destructuring//
+////////////////////////////////////////
 restaurant.orderDelivery({
   time: '22.30',
   address: 'via del sol 21',
@@ -53,10 +56,6 @@ restaurant.orderDelivery({
   address: 'via del sol 21',
   starterIndex: 1,
 });
-
-/////////////////////////////////////////
-//Object destructuring//
-////////////////////////////////////////
 
 const { name, openingHours, categories } = restaurant;
 console.log(name, openingHours, categories);
