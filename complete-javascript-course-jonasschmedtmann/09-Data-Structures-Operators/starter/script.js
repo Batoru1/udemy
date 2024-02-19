@@ -47,57 +47,74 @@ const restaurant = {
   },
 };
 
+////////////////////////////////////////////////////
+///////////rest pattern and parameters//////////////
+///////////////////////////////////////////////////
+
+//SPREAD because on RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
+
+//REST, because on LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
 /////////////////////////////////////////////////////////
 /////////////////spread operator/////////////////////////
 ////////////////////////////////////////////////////////
 
-const arr = [7, 8, 9];
-const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badNewArr);
+// const arr = [7, 8, 9];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
 
-const newArr = [1, 2, ...arr];
-console.log(newArr);
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
 
-console.log(...newArr);
+// console.log(...newArr);
 
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-console.log(newMenu);
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
 
-//copy array
-const mainMenuCopy = [...restaurant.mainMenu];
-console.log(mainMenuCopy);
+// //copy array
+// const mainMenuCopy = [...restaurant.mainMenu];
+// console.log(mainMenuCopy);
 
-//join two or more arrays together
-const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(menu);
+// //join two or more arrays together
+// const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(menu);
 
-//Iterables: arrays,strings,maps,sets.NOT objects
-//string
-const str = 'Jonas';
-const letter = [...str, ' ', 'S.'];
-console.log(letter);
-console.log(...str);
-// console.log(`${...str} Schmedtman`);
+// //Iterables: arrays,strings,maps,sets.NOT objects
+// //string
+// const str = 'Jonas';
+// const letter = [...str, ' ', 'S.'];
+// console.log(letter);
+// console.log(...str);
+// // console.log(`${...str} Schmedtman`);
 
-//real world exmp
-const ingredients = [
-  // prompt("Let's make pasta! Ingredient 1?"),
-  // prompt('Ingredient 2?'),
-  // prompt('Ingredient 3?'),
-];
-console.log(ingredients);
+// //real world exmp
+// const ingredients = [
+//   // prompt("Let's make pasta! Ingredient 1?"),
+//   // prompt('Ingredient 2?'),
+//   // prompt('Ingredient 3?'),
+// ];
+// console.log(ingredients);
 
-restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
-restaurant.orderPasta(...ingredients);
+// restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+// restaurant.orderPasta(...ingredients);
 
-//Objects
-const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Gusseppe' };
-console.log(newRestaurant);
+// //Objects
+// const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Gusseppe' };
+// console.log(newRestaurant);
 
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = 'Ristorante Roma';
-console.log(restaurantCopy.name);
-console.log(restaurant.name);
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = 'Ristorante Roma';
+// console.log(restaurantCopy.name);
+// console.log(restaurant.name);
 
 /////////////////////////////////////////
 //Object destructuring//
