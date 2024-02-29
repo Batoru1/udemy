@@ -224,6 +224,16 @@ const books = [
   },
 ];
 
+/////////////////////////////////////////////////////////////
+/////////Rest Pattern and Parameters////////////////////////
+////////////////////////////////////////////////////////////
+
+// 4.1
+// Destructure the keywords property (array) of the first book from the books array into variables called mainKeyword and rest. The first keyword should be assigned to mainKeyword, and the rest of the keywords should be assigned to the rest variable (it should be an array).
+
+const mainKeyword = books.keywords;
+
+////////////////////////////////////////////////
 //////////////destructuring arrays/////////////
 ///////////////////////////////////////////
 //1.1

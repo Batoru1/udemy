@@ -59,35 +59,35 @@ const restaurant = {
 //////////////short circuting ($$ and ||)////////////
 /////////////////////////////////////////////////////
 
-console.log('----OR----');
+// console.log('----OR----');
 
-//use ANY data type, return ANY data type, short-circuiting
-console.log(3 || 'Jonas');
-console.log('' || 'Jonas');
-console.log(true || 0);
-console.log(undefined || null);
+// //use ANY data type, return ANY data type, short-circuiting
+// console.log(3 || 'Jonas');
+// console.log('' || 'Jonas');
+// console.log(true || 0);
+// console.log(undefined || null);
 
-console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+// console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 
-restaurant.numGuests = 0;
-const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guests1);
+// restaurant.numGuests = 0;
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guests1);
 
-const guests2 = restaurant.numGuests || 10;
-console.log(guests2);
+// const guests2 = restaurant.numGuests || 10;
+// console.log(guests2);
 
-console.log('----AND----');
+// console.log('----AND----');
 
-console.log(0 && 'Jonas');
-console.log(7 && 'Jonas');
+// console.log(0 && 'Jonas');
+// console.log(7 && 'Jonas');
 
-console.log('Hello' && 23 && null && 'jonas');
-//practical example
-if (restaurant.orderPizza) {
-  restaurant.orderPizza('mushrooms', 'spinach');
-}
+// console.log('Hello' && 23 && null && 'jonas');
+// //practical example
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('mushrooms', 'spinach');
+// }
 
-restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+// restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 
 ////////////////////////////////////////////////////
 ///////////rest pattern and parameters//////////////
@@ -96,8 +96,8 @@ restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 //1)Detructuring
 
 //SPREAD because on RIGHT side of =
-const arr = [1, 2, ...[3, 4]];
-// console.log(arr);
+const arr2 = [1, 2, ...[3, 4]];
+// console.log(arr2);
 
 //REST, because on LEFT side of =
 const [a, b, ...others] = [1, 2, 3, 4, 5];
@@ -133,24 +133,25 @@ const { sat, ...weekdays } = restaurant.openingHours;
 
 // restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 // restaurant.orderPizza('mushrooms');
+
 /////////////////////////////////////////////////////////
 /////////////////spread operator/////////////////////////
 ////////////////////////////////////////////////////////
 
-// const arr = [7, 8, 9];
-// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
 // console.log(badNewArr);
 
-// const newArr = [1, 2, ...arr];
+const newArr = [1, 2, ...arr];
 // console.log(newArr);
 
 // console.log(...newArr);
 
-// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
 // console.log(newMenu);
 
 // //copy array
-// const mainMenuCopy = [...restaurant.mainMenu];
+const mainMenuCopy = [...restaurant.mainMenu];
 // console.log(mainMenuCopy);
 
 // //join two or more arrays together
