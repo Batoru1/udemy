@@ -115,14 +115,14 @@ const { sat, ...weekdays } = restaurant.openingHours;
 // console.log(weekdays);
 
 //2) functions
-// const add = function (...numbers) /*contract into arr again!!!!*/ {
-//   let sum = 0;
-//   for (let i = 0; i < numbers.length; i++) {
-//     sum += numbers[i];
-//   }
-//   // return sum;
-//   // console.log(sum);
-// };
+const add = function (...numbers) /*contract into arr again!!!!*/ {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+  // console.log(sum);
+};
 
 // add(2, 3);
 // add(5, 3, 7, 2);
