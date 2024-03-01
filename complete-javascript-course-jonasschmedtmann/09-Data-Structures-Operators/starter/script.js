@@ -96,33 +96,33 @@ const restaurant = {
 //1)Detructuring
 
 //SPREAD because on RIGHT side of =
-const arr2 = [1, 2, ...[3, 4]];
+// const arr2 = [1, 2, ...[3, 4]];
 // console.log(arr2);
 
 //REST, because on LEFT side of =
-const [a, b, ...others] = [1, 2, 3, 4, 5];
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
 // console.log(a, b, others);
 
-const [pizza, , risotto, ...otherFood] = [
-  ...restaurant.mainMenu,
-  ...restaurant.starterMenu,
-];
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
 // console.log(pizza, risotto, otherFood);
 
 //objects
 
-const { sat, ...weekdays } = restaurant.openingHours;
+// const { sat, ...weekdays } = restaurant.openingHours;
 // console.log(weekdays);
 
 //2) functions
-const add = function (...numbers) /*contract into arr again!!!!*/ {
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
-  }
-  return sum;
-  // console.log(sum);
-};
+// const add = function (...numbers) /*contract into arr again!!!!*/ {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) {
+//     sum += numbers[i];
+//   }
+//   return sum;
+// console.log(sum);
+// };
 
 // add(2, 3);
 // add(5, 3, 7, 2);
@@ -138,20 +138,20 @@ const add = function (...numbers) /*contract into arr again!!!!*/ {
 /////////////////spread operator/////////////////////////
 ////////////////////////////////////////////////////////
 
-const arr = [7, 8, 9];
-const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+// const arr = [7, 8, 9];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
 // console.log(badNewArr);
 
-const newArr = [1, 2, ...arr];
+// const newArr = [1, 2, ...arr];
 // console.log(newArr);
 
 // console.log(...newArr);
 
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
 // console.log(newMenu);
 
 // //copy array
-const mainMenuCopy = [...restaurant.mainMenu];
+// const mainMenuCopy = [...restaurant.mainMenu];
 // console.log(mainMenuCopy);
 
 // //join two or more arrays together
@@ -242,29 +242,29 @@ const mainMenuCopy = [...restaurant.mainMenu];
 // console.log(x, y, z);
 // console.log(arr);
 
-// let [main, , secondary] = restaurant.categories;
-// console.log(main, secondary);
+let [main, , secondary] = restaurant.categories;
+console.log(main, secondary);
 
-// //switching variables
-// // const temp = main;
-// // main = secondary;
-// // secondary = temp;
-// // console.log(main, secondary);
+//switching variables
+const temp = main;
+main = secondary;
+secondary = temp;
+console.log(main, secondary);
 
-// [main, secondary] = [secondary, main];
-// console.log(main, secondary);
+[main, secondary] = [secondary, main];
+console.log(main, secondary);
 
-// //receive 2 return values from a function
-// const [starter, mainCourse] = restaurant.order(2, 0);
-// console.log(starter, mainCourse);
+//receive 2 return values from a function
+const [starter, mainCourse] = restaurant.order(2, 0);
+console.log(starter, mainCourse);
 
-// //nested destructuring
-// const nested = [2, 4, [5, 6]];
-// // const [i, , j] = nested;
-// // console.log(i, j);
+//nested destructuring
+const nested = [2, 4, [5, 6]];
+const [i, , j] = nested;
+console.log(i, j);
 // const [i, , [j, k]] = nested;
 // console.log(i, j, k);
 
-// //default values
-// const [p = 1, q = 1, r = 1] = [8, 9];
-// console.log(p, q, r);
+//default values
+const [p = 1, q = 1, r = 1] = [8, 9];
+console.log(p, q, r);
