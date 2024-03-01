@@ -251,9 +251,13 @@ const { publisher: bookPublisher, ...restOfTheBook } = books[1];
 
 // "The book "Algorithms" has 2 authors"
 
-function printBookAuthorsCount(title, ...authors) {
+// function printBookAuthorsCount(title, ...authors) {
+//   console.log(`The book "${title}" has ${authors.length} authors`);
+// }
+
+const printBookAuthorsCount = (title, ...authors) => {
   console.log(`The book "${title}" has ${authors.length} authors`);
-}
+};
 
 printBookAuthorsCount('Al', 'faf');
 
