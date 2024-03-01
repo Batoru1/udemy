@@ -70,3 +70,5 @@ const getBooksByGenre = genre =>
 const getBooksAsArrays = () => books.map(book => Object.entries(book));
 const getBookAuthors = () => books.map(book => book.author);
 console.log(getBooksByGenre);
+
+console.log('hello');

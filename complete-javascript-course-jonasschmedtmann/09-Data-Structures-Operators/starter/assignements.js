@@ -259,7 +259,7 @@ const printBookAuthorsCount = (title, ...authors) => {
   console.log(`The book "${title}" has ${authors.length} authors`);
 };
 
-printBookAuthorsCount('Al', 'faf');
+// printBookAuthorsCount('Al', 'faf');
 
 ////////////////////////////////////////////////
 //////////////destructuring arrays/////////////
