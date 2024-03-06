@@ -231,13 +231,13 @@ const books = [
 // 4.1
 // Destructure the keywords property (array) of the first book from the books array into variables called mainKeyword and rest. The first keyword should be assigned to mainKeyword, and the rest of the keywords should be assigned to the rest variable (it should be an array).
 
-const [mainKeyword, ...rest] = books[0].keywords;
+// const [mainKeyword, ...rest] = books[0].keywords;
 // console.log(mainKeyword, rest);
 
 // 4.2
 // Destructure the second book from the books array into a variable called bookPublisher. The bookPublisher variable should be assigned with the value of the publisher property of the book object. Assign the rest of the properties to the restOfTheBook variable.
 
-const { publisher: bookPublisher, ...restOfTheBook } = books[1];
+// const { publisher: bookPublisher, ...restOfTheBook } = books[1];
 // console.log(bookPublisher, restOfTheBook);
 
 // 4.3
@@ -255,9 +255,9 @@ const { publisher: bookPublisher, ...restOfTheBook } = books[1];
 //   console.log(`The book "${title}" has ${authors.length} authors`);
 // }
 
-const printBookAuthorsCount = (title, ...authors) => {
-  console.log(`The book "${title}" has ${authors.length} authors`);
-};
+// const printBookAuthorsCount = (title, ...authors) => {
+//   console.log(`The book "${title}" has ${authors.length} authors`);
+// };
 
 // printBookAuthorsCount('Al', 'faf');
 
@@ -267,31 +267,31 @@ const printBookAuthorsCount = (title, ...authors) => {
 //1.1
 // Destructure the books array into two variables called firstBook and secondBook.
 
-const [firstBook, secondBook] = books;
+// const [firstBook, secondBook] = books;
 // console.log(firstBook, secondBook);
 
 //1.2
 //Destructure the books array into a variable called thirdBook. You must skip the first two books.
 
-const [, , thirdBook] = books;
+// const [, , thirdBook] = books;
 // console.log(thirdBook);
 
 // 1.3
 // Below is the nested ratings array that contains two other arrays. Destructure the nested ratings arrays into two variables called rating and ratingsCount. In the result of your destructuring, the ratings variable should store a number 4.19, and the ratingsCount variable should store a number 144584.
 
-const ratings = [
-  ['rating', 4.19],
-  ['ratingsCount', 144584],
-];
+// const ratings = [
+//   ['rating', 4.19],
+//   ['ratingsCount', 144584],
+// ];
 // const [[, rating], [, ratingsCount]] = ratings;
 // console.log(rating, ratingsCount);
 
 // 1.4
 // Below is the ratingStars array. Destructure it into three variables called fiveStarRatings, oneStarRatings and threeStarRatings. Assign the threeStarRatings variable with a default value of 0.
 
-const ratingStars = [63405, 1808];
-const [fiveStarRatings = 0, oneStarRatings = 0, threeStarRatings = 0] =
-  ratingStars;
+// const ratingStars = [63405, 1808];
+// const [fiveStarRatings = 0, oneStarRatings = 0, threeStarRatings = 0] =
+//   ratingStars;
 // console.log(fiveStarRatings, oneStarRatings, threeStarRatings);
 
 ////////////////////////destructuring objects//////////////////////
@@ -300,28 +300,28 @@ const [fiveStarRatings = 0, oneStarRatings = 0, threeStarRatings = 0] =
 //2.1
 // Destructure the first book object from the books array into variables called title, author and ISBN.
 
-const { title, author, ISBN } = books[0];
+// const { title, author, ISBN } = books[0];
 // console.log(title, author, ISBN);
 
 // 2.2
 // Each book object has the keywords property. Destructure the first book object from the books array into a variable called tagz. The tagz Svariable should be assigned with the value of the keywords property.
 
-const { keywords: tagz } = books[0];
+// const { keywords: tagz } = books[0];
 // console.log(tagz);
 
 //2.3
 // The seventh book from the books array is missing the programmingLanguage property. Destructure the seventh book object (books[6]) into variables called language and programmingLanguage. Assign the programmingLanguage variable with a default value of 'unknown'.
 
-const { language = [], programmingLanguage = 'unknown' } = books[6];
+// const { language = [], programmingLanguage = 'unknown' } = books[6];
 // console.log(language, programmingLanguage);
 
 // 2.4
 // Below are two variables called bookTitle and bookAuthor. Reassign them with the values of the title and author properties of the first book object from the books array.
 
-let bookTitle = 'unknown';
-let bookAuthor = 'unknown';
+// let bookTitle = 'unknown';
+// let bookAuthor = 'unknown';
 
-({ title: bookTitle, author: bookAuthor } = books[0]);
+// ({ title: bookTitle, author: bookAuthor } = books[0]);
 // console.log(bookTitle, bookAuthor);
 
 // 2.5
@@ -344,11 +344,11 @@ let bookAuthor = 'unknown';
 
 // Please do most of the work on the left side of the assignment operator: const ... = books[0];
 
-const {
-  thirdParty: {
-    goodreads: { rating: bookRating },
-  },
-} = books[0];
+// const {
+//   thirdParty: {
+//     goodreads: { rating: bookRating },
+//   },
+// } = books[0];
 
 // console.log(bookRating);
 
@@ -361,7 +361,7 @@ const {
 
 // Declare an array called bookAuthors, and fill it with authors of the first two books from the books array. The bookAuthors array should have just one level (no nested arrays).
 
-const bookAuthors = [...books[0].author, ...books[1].author];
+// const bookAuthors = [...books[0].author, ...books[1].author];
 // console.log(bookAuthors);
 
 // 3.2
@@ -375,8 +375,8 @@ const bookAuthors = [...books[0].author, ...books[1].author];
 
 // "J a v a S c r i p t"
 
-const spellWord = function (str) {
-  console.log(...str);
-};
+// const spellWord = function (str) {
+//   console.log(...str);
+// };
 
 // spellWord('bam');

@@ -242,21 +242,21 @@ const restaurant = {
 // console.log(x, y, z);
 // console.log(arr);
 
-let [main, , secondary] = restaurant.categories;
-console.log(main, secondary);
+// let [main, , secondary] = restaurant.categories;
+// console.log(main, secondary);
 
-//switching variables
-const temp = main;
-main = secondary;
-secondary = temp;
-console.log(main, secondary);
+// //switching variables
+// const temp = main;
+// main = secondary;
+// secondary = temp;
+// console.log(main, secondary);
 
-[main, secondary] = [secondary, main];
-console.log(main, secondary);
+// [main, secondary] = [secondary, main];
+// console.log(main, secondary);
 
-//receive 2 return values from a function
-const [starter, mainCourse] = restaurant.order(2, 0);
-console.log(starter, mainCourse);
+// //receive 2 return values from a function
+// const [starter, mainCourse] = restaurant.order(2, 0);
+// console.log(starter, mainCourse);
 
 //nested destructuring
 const nested = [2, 4, [5, 6]];
