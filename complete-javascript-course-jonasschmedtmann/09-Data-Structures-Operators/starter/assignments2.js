@@ -97,9 +97,3 @@ getBooksByGenre('fantasy');
       The getBooksAsArrays() function returns the books array, but all book objects and their properties were converted to arrays.
       Now, you have an array of arrays of arrays.
       Destructure the title of the second book (The Cyberiad) into a variable called 'title'. */
-
-// console.log(getBooksAsArrays());
-getBooksAsArrays();
-
-const [, title] = getBooksAsArrays();
-console.log(title);
