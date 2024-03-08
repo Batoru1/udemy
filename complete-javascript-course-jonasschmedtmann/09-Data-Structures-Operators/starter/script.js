@@ -189,12 +189,16 @@ const restaurant = {
 /////////////////////////////////////////
 //Object destructuring//
 ////////////////////////////////////////
-// restaurant.orderDelivery({
-//   time: '22.30',
-//   address: 'via del sol 21',
-//   mainIndex: 2,
-//   starterIndex: 2,
-// });
+
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+
+restaurant.orderDelivery({
+  time: '22.30',
+  address: 'via del sol 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
 
 // restaurant.orderDelivery({
 //   address: 'via del sol 21',
@@ -242,27 +246,29 @@ const restaurant = {
 // console.log(x, y, z);
 // console.log(arr);
 
-let [main, , secondary] = restaurant.categories;
-console.log(main, secondary);
+// let [main, , secondary] = restaurant.categories;
+// console.log(main, secondary);
 
-//switching variables
-const temp = main;
-main = secondary;
-secondary = temp;
-console.log(main, secondary);
+// //switching variables
+// const temp = main;
+// main = secondary;
+// secondary = temp;
+// console.log(main, secondary);
 
-[main, secondary] = [secondary, main]; //because rassigning, no need to declare variables//
-console.log(main, secondary);
+// [main, secondary] = [secondary, main]; //because rassigning, no need to declare variables//
+// console.log(main, secondary);
 
 // //receive 2 return values from a function
 // const [starter, mainCourse] = restaurant.order(2, 0);
 // console.log(starter, mainCourse);
 
-//nested destructuring
+// nested destructuring
 // const nested = [2, 4, [5, 6]];
 // const [i, , j] = nested;
 // console.log(i, j);
-// s
+
+// const [i, , [j, k]] = nested;
+// console.log(i, j, k);
 
 //default values
 // const [p = 1, q = 1, r = 1] = [8, 9];
