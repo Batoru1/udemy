@@ -29,6 +29,7 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+  //object as an argument
 
   orderDelivery: function ({
     starterIndex = 1,
@@ -138,72 +139,79 @@ const restaurant = {
 /////////////////spread operator/////////////////////////
 ////////////////////////////////////////////////////////
 
-// const arr = [7, 8, 9];
-// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
-// console.log(badNewArr);
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
 
-// const newArr = [1, 2, ...arr];
-// console.log(newArr);
+//using ...
+const newArr = [1, 2, ...arr];
+console.log(newArr);
 
-// console.log(...newArr);
+//passing multiple elements into a function
+console.log(...newArr);
 
-// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-// console.log(newMenu);
+//expanding array with new element
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
 
-// //copy array
-// const mainMenuCopy = [...restaurant.mainMenu];
-// console.log(mainMenuCopy);
+//copy array(shallow)
+const mainMenuCopy = [...restaurant.mainMenu];
+console.log(mainMenuCopy);
 
-// //join two or more arrays together
-// const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
-// console.log(menu);
+//join two or more arrays together
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
 
-// //Iterables: arrays,strings,maps,sets.NOT objects
-// //string
-// const str = 'Jonas';
-// const letter = [...str, ' ', 'S.'];
-// console.log(letter);
-// console.log(...str);
-// // console.log(`${...str} Schmedtman`);
+//Iterables: arrays,strings,maps,sets.NOT objects
+//string
+const str = 'Jonas';
+const letter = [...str, ' ', 'S.'];
+console.log(letter);
+console.log(...str);
+// console.log(`${...str} Schmedtman`);
 
-// //real world exmp PASSING MLTIPLE arguments into  a FUNCTION
-// const ingredients = [
-//   prompt("Let's make pasta! Ingredient 1?"),
-//   prompt('Ingredient 2?'),
-//   prompt('Ingredient 3?'),
-// ];
-// console.log(ingredients);
+//real world exmp PASSING MLTIPLE arguments into  a FUNCTION
+const ingredients = [
+  prompt("Let's make pasta! Ingredient 1?"),
+  prompt('Ingredient 2?'),
+  prompt('Ingredient 3?'),
+];
+console.log(ingredients);
 
-// restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
-// restaurant.orderPasta(...ingredients);
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+restaurant.orderPasta(...ingredients);
 
-// //Objects
-// const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Gusseppe' };
-// console.log(newRestaurant);
+//Objects
+const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Gusseppe' };
+console.log(newRestaurant);
 
-// const restaurantCopy = { ...restaurant };
-// restaurantCopy.name = 'Ristorante Roma';
-// console.log(restaurantCopy.name);
-// console.log(restaurant.name);
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
 
 /////////////////////////////////////////
 //Object destructuring//
 ////////////////////////////////////////
 
-const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
+// const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
 
-restaurant.orderDelivery({
-  time: '22.30',
-  address: 'via del sol 21',
-  mainIndex: 2,
-  starterIndex: 2,
-});
+//objects as function variables
+
+// restaurant.orderDelivery({
+//   time: '22.30',
+//   address: 'via del sol 21',
+//   mainIndex: 2,
+//   starterIndex: 2,
+// });
 
 // restaurant.orderDelivery({
 //   address: 'via del sol 21',
 //   starterIndex: 1,
 // });
+
+//rename variables from object
 
 // const { name, openingHours, categories } = restaurant;
 // console.log(name, openingHours, categories);
@@ -215,20 +223,22 @@ restaurant.orderDelivery({
 // } = restaurant;
 // console.log(restaurantName, hours, tags);
 
-// //default values
+//default values for property that doesnt exist
+//default values
+
 // const { menu = [], starterMenu: starters = [] } = restaurant;
 // console.log(menu, starters);
 
-// //mutating variables
+//mutating variables
 // let a = 111;
 // let b = 999;
 
 // const obj = { a: 23, b: 7, c: 14 };
-
+//in order to override let a and b need use parenthesis ()!!!s
 // ({ a, b } = obj);
 // console.log(a, b);
 
-// //nested objects
+//nested objects
 // const {
 //   fri: { open: o, close: c },
 // } = openingHours;
