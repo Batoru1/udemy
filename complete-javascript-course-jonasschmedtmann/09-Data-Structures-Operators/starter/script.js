@@ -97,18 +97,18 @@ const restaurant = {
 //1)Detructuring
 
 //SPREAD because on RIGHT side of =
-// const arr2 = [1, 2, ...[3, 4]];
-// console.log(arr2);
+const arr2 = [1, 2, ...[3, 4]];
+console.log(arr2);
 
 //REST, because on LEFT side of =
-// const [a, b, ...others] = [1, 2, 3, 4, 5];
-// console.log(a, b, others);
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
 
-// const [pizza, , risotto, ...otherFood] = [
-//   ...restaurant.mainMenu,
-//   ...restaurant.starterMenu,
-// ];
-// console.log(pizza, risotto, otherFood);
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
 
 //objects
 
@@ -139,28 +139,28 @@ const restaurant = {
 /////////////////spread operator/////////////////////////
 ////////////////////////////////////////////////////////
 
-const arr = [7, 8, 9];
-const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badNewArr);
+// const arr = [7, 8, 9];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
 
 //using ...
-const newArr = [1, 2, ...arr];
-console.log(newArr);
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
 
 //passing multiple elements into a function
-console.log(...newArr);
+// console.log(...newArr);
 
 //expanding array with new element
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-console.log(newMenu);
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
 
 //copy array(shallow)
-const mainMenuCopy = [...restaurant.mainMenu];
-console.log(mainMenuCopy);
+// const mainMenuCopy = [...restaurant.mainMenu];
+// console.log(mainMenuCopy);
 
 //join two or more arrays together
-const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(menu);
+// const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(menu);
 
 //Iterables: arrays,strings,maps,sets.NOT objects
 //string
@@ -168,7 +168,7 @@ console.log(menu);
 // const letter = [...str, ' ', 'S.'];
 // console.log(letter);
 // console.log(...str);
-// console.log(`${...str} Schmedtman`);
+// console.log(`${...str} Schmedtman`);doesnt work,because this not the places that expects multiple values separated by a comma - ,
 
 //real world exmp PASSING MLTIPLE arguments into  a FUNCTION
 // const ingredients = [
@@ -181,7 +181,7 @@ console.log(menu);
 // restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
 // restaurant.orderPasta(...ingredients);
 
-//Objects
+//Objects, order doesn't matter
 // const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Gusseppe' };
 // console.log(newRestaurant);
 
