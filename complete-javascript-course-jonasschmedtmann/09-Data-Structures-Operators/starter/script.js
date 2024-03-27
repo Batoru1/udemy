@@ -48,8 +48,8 @@ const restaurant = {
   },
 
   orderPizza: function (mainIngredient, ...otherIngredients) {
-    // console.log(mainIngredient);
-    // console.log(otherIngredients);
+    console.log(mainIngredient);
+    console.log(otherIngredients);
     console.log(
       `this is a pizza containing ${mainIngredient}, ${otherIngredients}`
     );
@@ -57,18 +57,19 @@ const restaurant = {
 };
 
 /////////////////////////////////////////////////////
-//////////////short circuting ($$ and ||)////////////
+//////////////short circuting (&& and ||)////////////
 /////////////////////////////////////////////////////
 
 // console.log('----OR----');
 
 // //use ANY data type, return ANY data type, short-circuiting
-// console.log(3 || 'Jonas');
-// console.log('' || 'Jonas');
-// console.log(true || 0);
-// console.log(undefined || null);
+console.log(3 || 'Jonas'); //if the first value is truthy, it will be imediatelly returned, that is what shortcircutting means
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
 
-// console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+//undefined, 0, '', are falsy-  Hello is the first truthy value and will be returned
 
 // restaurant.numGuests = 0;
 // const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
@@ -97,32 +98,30 @@ const restaurant = {
 //1)Detructuring
 
 //SPREAD because on RIGHT side of =
-const arr2 = [1, 2, ...[3, 4]];
-console.log(arr2);
+// const arr2 = [1, 2, ...[3, 4]];
+// console.log(arr2);
 
-//REST, because on LEFT side of =
-const [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log(a, b, others);
+// //REST, because on LEFT side of =
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
 
-const [pizza, , risotto, ...otherFood] = [
-  ...restaurant.mainMenu,
-  ...restaurant.starterMenu,
-];
-console.log(pizza, risotto, otherFood);
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+// console.log(pizza, risotto, otherFood);
 
-//objects
+// //objects
 
 // const { sat, ...weekdays } = restaurant.openingHours;
 // console.log(weekdays);
 
 //2) functions
-// const add = function (...numbers) /*contract into arr again!!!!*/ {
+// //contract array!!!!!rest op
+// const add = function (...numbers) {
 //   let sum = 0;
-//   for (let i = 0; i < numbers.length; i++) {
-//     sum += numbers[i];
-//   }
-//   return sum;
-// console.log(sum);
+//   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+//   console.log(sum);
 // };
 
 // add(2, 3);
@@ -130,7 +129,7 @@ console.log(pizza, risotto, otherFood);
 // add(8, 2, 5, 3, 2, 1, 4);
 
 // const x = [23, 5, 7];
-// add(...x); //expand arrr!!!!!!!!!
+// add(...x); //expand arrr!!!!!!!!!sprad op
 
 // restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 // restaurant.orderPizza('mushrooms');
