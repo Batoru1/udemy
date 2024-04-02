@@ -63,35 +63,35 @@ const restaurant = {
 // console.log('----OR----');
 
 // // //use ANY data type, return ANY data type, short-circuiting
-// console.log(3 || 'Jonas'); //if the first value is truthy, it will be imediatelly returned, that is what shortcircutting means with || operator
-// console.log('' || 'Jonas');
-// console.log(true || 0);
-// console.log(undefined || null);
+console.log(3 || 'Jonas'); //if the first value is truthy, it will be imediatelly returned, that is what shortcircutting means with || operator
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
 
-// console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 // //undefined, 0, '', are falsy-  Hello is the first truthy value and will be returned
 
-// // restaurant.numGuests = 23; //if 0 then guests=10, because 0 is falsy and gets short circuited
-// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
-// console.log(guests1);
+restaurant.numGuests = 23; //if 0 then guests=10, because 0 is falsy and gets short circuited
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
 
-// const guests2 = restaurant.numGuests || 10;
-// console.log(guests2);
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
 
 // console.log('----AND----');
 // //&& operator shortcircuits when the first value is falsy, and then immediately returns that falsy value, without evaluating the second operand, because for the statement to be true both values have to be true, so if first one is false, there is no point in evaluating the whole operation.
 
-// console.log(0 && 'Jonas');
+console.log(0 && 'Jonas');
 // //if two truthy values are evaluated then the last truthy value is returned(shortcircuit on last truthy value)
 // console.log(7 && 'Jonas');
 
-// console.log('Hello' && 23 && null && 'jonas');
+console.log('Hello' && 23 && null && 'jonas');
 // //practical example
-// if (restaurant.orderPizza) {
-//   restaurant.orderPizza('mushrooms', 'spinach');
-// }
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
 
-// restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach', 'boner');
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach', 'boner');
 
 // //summary:
 // //the || operator will return the first truthy value of all the operands or simply the last value, if all of them are falsy.

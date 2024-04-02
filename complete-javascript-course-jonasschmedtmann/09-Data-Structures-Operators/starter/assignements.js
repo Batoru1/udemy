@@ -224,6 +224,41 @@ const books = [
   },
 ];
 
+////////////////////////////////////////////////////////////////////////////Short Circuiting ($$ and ||)/////////////////////
+//////////////////////////////////////////////////////////////
+
+// 5.1
+// Some of the book objects have the programmingLanguage property, which specifies what programming language is used in the book, for example
+
+// {
+//   title: 'Algorithms',
+//   author: ['Robert Sedgewick', 'Kevin Wayne'],
+//   ...
+//   programmingLanguage: 'Java',     // <-- HERE
+// }
+// Write a function called hasExamplesInJava that takes a book object from the books array as an argument. This function should return true if the book uses Java, or a string 'no data available' if it uses other language or no programming language at all.
+
+const hasExamplesInJava = books.programmingLanguage('Java');
+
+// Use short-circuiting.
+
+// Example 1
+
+// Code:
+
+// hasExamplesInJava(books[0]);
+// Expected output:
+
+// true
+// Example 2
+
+// Code:
+
+// hasExamplesInJava(books[1]);
+// Expected output:
+
+// "no data available"
+
 /////////////////////////////////////////////////////////////
 /////////Rest Pattern and Parameters////////////////////////
 ////////////////////////////////////////////////////////////
