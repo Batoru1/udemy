@@ -238,10 +238,11 @@ const books = [
 // }
 // Write a function called hasExamplesInJava that takes a book object from the books array as an argument. This function should return true if the book uses Java, or a string 'no data available' if it uses other language or no programming language at all.
 
-function hasExamplesInJava(book) {
-  return book.programmingLanguage === 'Java' || 'no data';
-}
-console.log(hasExamplesInJava(books[0]));
+//Solution:
+// function hasExamplesInJava(book) {
+//   return book.programmingLanguage === 'Java' || 'no data';
+// }
+// console.log(hasExamplesInJava(books[0]));
 
 // Use short-circuiting.
 
@@ -262,6 +263,20 @@ console.log(hasExamplesInJava(books[0]));
 
 // "no data available"
 
+// 5.2
+// Some of the book objects have the onlineContent property, which is either true or false. Loop over the books array, and for the books that provide online content, log to the console a string in this format: "${title}" provides online content. Use short-circuiting.
+
+// {
+//   title: 'Operating System Concepts',
+//   // ... removed for clarity
+//   onlineContent: false,          // <-- HERE
+// },
+
+//solution:
+// for (let i = 0; i < books.length; i++) {
+//   books[i].onlineContent &&
+//     console.log(`'${books[i].title}' provides online content`);
+// }
 /////////////////////////////////////////////////////////////
 /////////Rest Pattern and Parameters////////////////////////
 ////////////////////////////////////////////////////////////
