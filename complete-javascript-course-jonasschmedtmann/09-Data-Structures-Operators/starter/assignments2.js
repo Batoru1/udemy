@@ -73,35 +73,70 @@ const getBooksAsArrays = () => bookz.map(book => Object.entries(book));
 const getBookAuthors = () => bookz.map(book => book.author);
 getBooksByGenre('fantasy');
 
-console.log(getBooksAsArrays());
+// console.log(getBooksAsArrays());
+
+/*
+ *  ********************************************
+ *  2) DESTRUCTURING OBJECTS                   *
+ *  ********************************************
+ */
+
+/* A) Take the first object from the 'bookz' array, and assign the author to the 'author' variable using destructuring.
+      Use the 'let' statement because the 'author' variable may change later. */
+
+//Solution:
+
+let { author } = bookz[0];
+console.log(author);
+
+/* B) Take the second object from the 'books' array, and destructure the title into a variable called 'bookTitle'. */
+
+//Solution:
+const bookTitle = bookz[1].title;
+// const { title: bookTitle } = bookz[1];
+console.log(bookTitle);
+
+/* C) The book objects aren't consistent in their form.
+      For example, the second book doesn't have the 'filmAdaptation' property.
+      Destructure it into a variable called 'hasFilmAdaptation' with a default value of false. */
+
+//Solution:
+
+const { filmAdaptation: hasFilmAdaptation = false } = bookz[1];
+console.log(hasFilmAdaptation);
+
+/* D) Remember the 'author' variable from exercise A? It's time to reassign it.
+      Destructure the author of the third book into existing variable called 'author'. */
+
 /*
  *  ********************************************
  *  1) DESTRUCTURING ARRAYS                    *
  *  ********************************************
  */
 
-// A) Destructure the 'books' array into four variables called 'a', 'b', 'c' and 'd'.
-//       Leave the rest of the books unused. */
+// // A) Destructure the 'books' array into four variables called 'a', 'b', 'c' and 'd'.
+// //       Leave the rest of the books unused. */
 
-//Solution:
-const [a, b, c, d] = bookz;
-// const [a, b, c, d] = [...bookz];
-console.log(a, b, c, d);
+// //Solution:
+// const [a, b, c, d] = bookz;
+// // const [a, b, c, d] = [...bookz];
+// console.log(a, b, c, d);
 
 /* B) The second and third books are science fiction.
       Assign these books to the variables called 'second' and 'third' using destructuring. */
 
 //Solution:
 
-const [, second, third] = bookz;
-console.log(second, third);
+// const [, second, third] = bookz;
+// // const [, second, third] = [...bookz];
+// console.log(second, third);
 
-/*D) Are you ready for some hard-core destructuring? 😄
-      The getBooksAsArrays() function returns the books array, but all book objects and their properties were converted to arrays.
-      Now, you have an array of arrays of arrays.
-      Destructure the title of the second book (The Cyberiad) into a variable called 'title'. */
+// /*D) Are you ready for some hard-core destructuring? 😄
+//       The getBooksAsArrays() function returns the books array, but all book objects and their properties were converted to arrays.
+//       Now, you have an array of arrays of arrays.
+//       Destructure the title of the second book (The Cyberiad) into a variable called 'title'. */
 
-//Solution:
+// //Solution:
 
-const title = [getBooksAsArrays([(1)[0]])];
-console.log(title);
+// const [, [[, title]]] = getBooksAsArrays();
+// console.log(title);
