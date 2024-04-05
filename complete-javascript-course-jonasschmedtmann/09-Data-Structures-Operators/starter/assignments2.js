@@ -74,6 +74,43 @@ const getBookAuthors = () => bookz.map(book => book.author);
 getBooksByGenre('fantasy');
 
 // console.log(getBooksAsArrays());
+console.log(getBookAuthors());
+
+/*
+ *  ********************************************
+ *  3) THE SPREAD SYNTAX                       *
+ *  ********************************************
+ */
+
+/* A) The getBookAuthors() function returns an array of authors from the 'books' array.
+      Reassign the 'authors' variable below so that it contains both — already existing authors,
+      and authors returned from the getBookAuthors() function. Use the spread syntax. */
+let authors = ['George Orwell', 'Aldous Huxley'];
+//Solution:
+authors = [...getBookAuthors(), ...authors];
+console.log(authors);
+
+/* B) The console.log() method can take multiple arguments and log them to the console.
+      First, log the 'authors' array as it is (as one argument).
+      Second, log the elements of the 'authors' array, but this time use the spread syntax.
+      Compare the outputs. */
+//Solution;
+console.log(...authors);
+
+/* C) The spread syntax can be used with other iterables, for example, strings.
+      Create a new variable called 'firstNameArray', and spread the 'firstName' string
+      so that each letter becomes an element of the 'firstNameArray' like ['J', 'o', 'h', 'n']. */
+const firstName = 'John';
+//Solution:
+const firstNameArray = [...firstName];
+console.log(firstNameArray);
+
+/* D) Now it's time to spread some objects. Create a new variable called 'cyberiad',
+      and assign an object to it. This object should have all the properties of the second book from the 'books' array,
+      plus the missing 'filmAdaptation' property set to false. */
+//Solution:
+const cyberiad = [...getBooksAsArrays()[1]];
+console.log(cyberiad);
 
 /*
  *  ********************************************
@@ -81,33 +118,30 @@ getBooksByGenre('fantasy');
  *  ********************************************
  */
 
-/* A) Take the first object from the 'bookz' array, and assign the author to the 'author' variable using destructuring.
-      Use the 'let' statement because the 'author' variable may change later. */
+// /* A) Take the first object from the 'bookz' array, and assign the author to the 'author' variable using destructuring.
+//       Use the 'let' statement because the 'author' variable may change later. */
+// //Solution:
+// let { author } = bookz[0];
+// console.log(author);
 
-//Solution:
+// /* B) Take the second object from the 'books' array, and destructure the title into a variable called 'bookTitle'. */
+// //Solution:
+// const bookTitle = bookz[1].title;
+// // const { title: bookTitle } = bookz[1];
+// console.log(bookTitle);
 
-let { author } = bookz[0];
-console.log(author);
+// /* C) The book objects aren't consistent in their form.
+//       For example, the second book doesn't have the 'filmAdaptation' property.
+//       Destructure it into a variable called 'hasFilmAdaptation' with a default value of false. */
+// //Solution:
+// const { filmAdaptation: hasFilmAdaptation = false } = bookz[1];
+// console.log(hasFilmAdaptation);
 
-/* B) Take the second object from the 'books' array, and destructure the title into a variable called 'bookTitle'. */
-
-//Solution:
-const bookTitle = bookz[1].title;
-// const { title: bookTitle } = bookz[1];
-console.log(bookTitle);
-
-/* C) The book objects aren't consistent in their form.
-      For example, the second book doesn't have the 'filmAdaptation' property.
-      Destructure it into a variable called 'hasFilmAdaptation' with a default value of false. */
-
-//Solution:
-
-const { filmAdaptation: hasFilmAdaptation = false } = bookz[1];
-console.log(hasFilmAdaptation);
-
-/* D) Remember the 'author' variable from exercise A? It's time to reassign it.
-      Destructure the author of the third book into existing variable called 'author'. */
-
+// /* D) Remember the 'author' variable from exercise A? It's time to reassign it.
+//       Destructure the author of the third book into existing variable called 'author'. */
+// //Solution:
+// ({ author } = bookz[2]);
+// console.log(author);
 /*
  *  ********************************************
  *  1) DESTRUCTURING ARRAYS                    *

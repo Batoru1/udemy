@@ -169,13 +169,13 @@ const restaurant = {
 // const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
 // console.log(menu);
 
-//Iterables: arrays,strings,maps,sets.NOT objects
-//string
+// //Iterables: arrays,strings,maps,sets.NOT objects
+// //string
 // const str = 'Jonas';
 // const letter = [...str, ' ', 'S.'];
 // console.log(letter);
 // console.log(...str);
-// console.log(`${...str} Schmedtman`);doesnt work,because this not the places that expects multiple values separated by a comma - ,
+// // console.log(`${...str} Schmedtman`);doesnt work,because this not the places that expects multiple values separated by a comma - ,
 
 //real world exmp PASSING MLTIPLE arguments into  a FUNCTION
 // const ingredients = [
@@ -219,7 +219,7 @@ const restaurant = {
 // const { menu = [], starterMenu: starters = [] } = restaurant;
 // console.log(menu, starters);
 
-//mutating variables
+//mutating variables (reassigning)
 // let a = 111;
 // let b = 999;
 
