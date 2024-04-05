@@ -104,7 +104,6 @@ const restaurant = {
 ///////////////////////////////////////////////////
 
 //1)Detructuring
-
 //SPREAD because on RIGHT side of =
 // const arr2 = [1, 2, ...[3, 4]];
 // console.log(arr2);
@@ -120,7 +119,6 @@ const restaurant = {
 // console.log(pizza, risotto, otherFood);
 
 // //objects
-
 // const { sat, ...weekdays } = restaurant.openingHours;
 // console.log(weekdays);
 
@@ -137,7 +135,7 @@ const restaurant = {
 // add(8, 2, 5, 3, 2, 1, 4);
 
 // const x = [23, 5, 7];
-// add(...x); //expand arrr!!!!!!!!!sprad op
+// add(...x); //expand arrr!!!!!!!!!spread op
 
 // restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 // restaurant.orderPizza('mushrooms');

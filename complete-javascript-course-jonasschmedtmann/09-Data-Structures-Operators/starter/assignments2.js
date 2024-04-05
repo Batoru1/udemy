@@ -73,8 +73,37 @@ const getBooksAsArrays = () => bookz.map(book => Object.entries(book));
 const getBookAuthors = () => bookz.map(book => book.author);
 getBooksByGenre('fantasy');
 
+console.log(getBooksByGenre('fantasy'));
 // console.log(getBooksAsArrays());
-console.log(getBookAuthors());
+// console.log(getBookAuthors());
+
+/*
+ *  ********************************************
+ *  4) REST PATTERN AND PARAMETERS             *
+ *  ********************************************
+ */
+
+/* A) The getBooksByGenre() function returns an array of books based on the genre you pass as the argument.
+      Use it to get all 'fantasy' books. Destructure the returned array into two variables — the first one called 'theLordOfTheRings',
+      and the second one called 'otherFantasyBooks' (an array containing all other values from the returned array). */
+//Solution:
+const [theLordOfTheRings, ...otherFantasyBooks] = getBooksByGenre('fantasy');
+console.log(theLordOfTheRings, otherFantasyBooks);
+
+/* B) This time you'll write a function utilizing the power of rest parameters.
+      This function named as list() should output a list with a title to the console.
+      The first argument it takes is the "title" of the list (string),
+      the rest of arguments are list "items" (as many as you want) that will be displayed under the title.
+      Example:
+      list('My favorite books', 'Brave New World', 'The Great Gatsby', 'Pride and Prejudice');
+      Output:
+      My favorite books:          <-- title
+      1) Brave New World          <-- list item
+      2) The Great Gatsby         <-- list item
+      3) Pride and Prejudice      <-- list item
+      ...
+     */
+//Solution:
 
 /*
  *  ********************************************
@@ -82,35 +111,36 @@ console.log(getBookAuthors());
  *  ********************************************
  */
 
-/* A) The getBookAuthors() function returns an array of authors from the 'books' array.
-      Reassign the 'authors' variable below so that it contains both — already existing authors,
-      and authors returned from the getBookAuthors() function. Use the spread syntax. */
-let authors = ['George Orwell', 'Aldous Huxley'];
-//Solution:
-authors = [...getBookAuthors(), ...authors];
-console.log(authors);
+// /* A) The getBookAuthors() function returns an array of authors from the 'books' array.
+//       Reassign the 'authors' variable below so that it contains both — already existing authors,
+//       and authors returned from the getBookAuthors() function. Use the spread syntax. */
+// let authors = ['George Orwell', 'Aldous Huxley'];
+// //Solution:
+// authors = [...getBookAuthors(), ...authors];
+// console.log(authors);
 
-/* B) The console.log() method can take multiple arguments and log them to the console.
-      First, log the 'authors' array as it is (as one argument).
-      Second, log the elements of the 'authors' array, but this time use the spread syntax.
-      Compare the outputs. */
-//Solution;
-console.log(...authors);
+// /* B) The console.log() method can take multiple arguments and log them to the console.
+//       First, log the 'authors' array as it is (as one argument).
+//       Second, log the elements of the 'authors' array, but this time use the spread syntax.
+//       Compare the outputs. */
+// //Solution;
+// console.log(...authors);
 
-/* C) The spread syntax can be used with other iterables, for example, strings.
-      Create a new variable called 'firstNameArray', and spread the 'firstName' string
-      so that each letter becomes an element of the 'firstNameArray' like ['J', 'o', 'h', 'n']. */
-const firstName = 'John';
-//Solution:
-const firstNameArray = [...firstName];
-console.log(firstNameArray);
+// /* C) The spread syntax can be used with other iterables, for example, strings.
+//       Create a new variable called 'firstNameArray', and spread the 'firstName' string
+//       so that each letter becomes an element of the 'firstNameArray' like ['J', 'o', 'h', 'n']. */
+// const firstName = 'John';
+// //Solution:
+// const firstNameArray = [...firstName];
+// console.log(firstNameArray);
 
-/* D) Now it's time to spread some objects. Create a new variable called 'cyberiad',
-      and assign an object to it. This object should have all the properties of the second book from the 'books' array,
-      plus the missing 'filmAdaptation' property set to false. */
-//Solution:
-const cyberiad = [...getBooksAsArrays()[1]];
-console.log(cyberiad);
+// /* D) Now it's time to spread some objects. Create a new variable called 'cyberiad',
+//       and assign an object to it. This object should have all the properties of the second book from the 'books' array,
+//       plus the missing 'filmAdaptation' property set to false. */
+// //Solution:
+
+// const cyberiad = { ...getBooksAsArrays()[1], filmAdaptation: false };
+// console.log(cyberiad);
 
 /*
  *  ********************************************
