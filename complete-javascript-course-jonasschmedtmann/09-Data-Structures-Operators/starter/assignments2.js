@@ -73,9 +73,44 @@ const getBooksAsArrays = () => bookz.map(book => Object.entries(book));
 const getBookAuthors = () => bookz.map(book => book.author);
 getBooksByGenre('fantasy');
 
-console.log(getBooksByGenre('fantasy'));
+// console.log(getBooksByGenre('fantasy'));
 // console.log(getBooksAsArrays());
 // console.log(getBookAuthors());
+
+/*
+ *  ********************************************
+ *  5) SHORT CIRCUITING (&& and ||)            *
+ *  ********************************************
+ */
+
+/* A) Each book has the 'otherLanguagesTitle' property, which stores an object containing the language as a key,
+      and the title of the book in that language as a value.
+      Example 'otherLanguagesTitle' property:
+      otherLanguagesTitle: {
+        spanish: 'El señor de los anillos',
+        chinese: '魔戒',
+        french: 'Le Seigneur des anneaux'
+      }
+      Write a function called 'getTitleInSpanish' that takes a 'book' object as an argument,
+      and returns a title in Spanish or a string "No data available" if there is no title in Spanish.
+      Using the 'if' statement or the ternary operator is not allowed. */
+//Solution:
+
+/* B) Loop over the 'books' array, and for each book check if it has the title in Spanish and Korean.
+      If it's true, log a string "<title> by <author> has title in Spanish and Korean" to the console,
+      where <title> is the book title (in English), and <author> is the author of the book.
+      Using the 'if' statement or the ternary operator is not allowed.
+      Example output:
+      "A Game of Thrones by George R. R. Martin has translations in Spanish and Korean."
+      */
+
+/* C) Loop over the 'books' array, and for each book check if it has the title in Portuguese or Spanish, but not in both.
+      If it's true, log a string "<title> by <author> has title in Portuguese or Spanish, but not in both" to the console,
+      where <title> is the book title (in English), and <author> is the author of the book.
+      Using the 'if' statement or the ternary operator is not allowed.
+      Example output:
+      "A Game of Thrones by George R. R. Martin has translations in Spanish and Korean."
+      */
 
 /*
  *  ********************************************
@@ -86,9 +121,9 @@ console.log(getBooksByGenre('fantasy'));
 /* A) The getBooksByGenre() function returns an array of books based on the genre you pass as the argument.
       Use it to get all 'fantasy' books. Destructure the returned array into two variables — the first one called 'theLordOfTheRings',
       and the second one called 'otherFantasyBooks' (an array containing all other values from the returned array). */
-//Solution:
-const [theLordOfTheRings, ...otherFantasyBooks] = getBooksByGenre('fantasy');
-console.log(theLordOfTheRings, otherFantasyBooks);
+// //Solution:
+// const [theLordOfTheRings, ...otherFantasyBooks] = getBooksByGenre('fantasy');
+// console.log(theLordOfTheRings, otherFantasyBooks);
 
 /* B) This time you'll write a function utilizing the power of rest parameters.
       This function named as list() should output a list with a title to the console.
@@ -103,7 +138,24 @@ console.log(theLordOfTheRings, otherFantasyBooks);
       3) Pride and Prejudice      <-- list item
       ...
      */
-//Solution:
+// //Solution:
+// list(
+//   'My favorite books',
+//   'Brave New World',
+//   'The Great Gatsby',
+//   'Pride and Prejudice'
+// );
+
+// // function list(title, ...listItems) {
+// //   console.log(title, listItems);
+// // }
+
+// function list(title, ...items) {
+//   console.log(`${title}:`);
+//   for (let i = 0; i < items.length; i++) {
+//     console.log(`${i + 1}) ${items[i]}`);
+//   }
+// }
 
 /*
  *  ********************************************
