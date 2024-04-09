@@ -126,18 +126,18 @@ getBooksByGenre('fantasy');
       "A Game of Thrones by George R. R. Martin has translations in Spanish and Korean."
       */
 //Solution:
-for (let i = 0; i < bookz.length; i++) {
-  if (
-    (bookz[i].otherLanguagesTitle['portuguese'] &&
-      !bookz[i].otherLanguagesTitle['spanish']) ||
-    (bookz[i].otherLanguagesTitle['spanish'] &&
-      !bookz[i].otherLanguagesTitle['portuguese'])
-  ) {
-    console.log(
-      `${bookz[i].title} by ${bookz[i].author} has title in either Portuguese or Spanish, but not in both`
-    );
-  }
-}
+// for (let i = 0; i < bookz.length; i++) {
+//   if (
+//     (bookz[i].otherLanguagesTitle['portuguese'] &&
+//       !bookz[i].otherLanguagesTitle['spanish']) ||
+//     (bookz[i].otherLanguagesTitle['spanish'] &&
+//       !bookz[i].otherLanguagesTitle['portuguese'])
+//   ) {
+//     console.log(
+//       `${bookz[i].title} by ${bookz[i].author} has title in either Portuguese or Spanish, but not in both`
+//     );
+//   }
+// }
 
 /*
  *  ********************************************
