@@ -94,15 +94,13 @@ getBooksByGenre('fantasy');
       Write a function called 'getTitleInSpanish' that takes a 'book' object as an argument,
       and returns a title in Spanish or a string "No data available" if there is no title in Spanish.
       Using the 'if' statement or the ternary operator is not allowed. */
-//Solution:
-function getTitleInSpanish(book) {
-  for (let i = 0; i < bookz.length; i++) {
-    const book = bookz[i].otherLanguagesTitle.spanish || 'No data available';
-  }
-  return book;
-}
+// Solution:
+// function getTitleInSpanish(book) {
+//   return book.otherLanguagesTitle['spanish'] || 'No data available';
+//   return book;
+// }
 
-console.log(getTitleInSpanish(bookz[0]));
+// console.log(getTitleInSpanish(bookz[2]));
 
 /* B) Loop over the 'books' array, and for each book check if it has the title in Spanish and Korean.
       If it's true, log a string "<title> by <author> has title in Spanish and Korean" to the console,
@@ -111,6 +109,14 @@ console.log(getTitleInSpanish(bookz[0]));
       Example output:
       "A Game of Thrones by George R. R. Martin has translations in Spanish and Korean."
       */
+//Solution:
+// for (let i = 0; i < bookz.length; i++) {
+//   bookz[i].otherLanguagesTitle['spanish'] &&
+//     bookz[i].otherLanguagesTitle['korean'] &&
+//     console.log(
+//       `${bookz[i].title} by ${bookz[i].author} has translations in Spanish and Korean`
+//     );
+// }
 
 /* C) Loop over the 'books' array, and for each book check if it has the title in Portuguese or Spanish, but not in both.
       If it's true, log a string "<title> by <author> has title in Portuguese or Spanish, but not in both" to the console,
@@ -119,6 +125,19 @@ console.log(getTitleInSpanish(bookz[0]));
       Example output:
       "A Game of Thrones by George R. R. Martin has translations in Spanish and Korean."
       */
+//Solution:
+for (let i = 0; i < bookz.length; i++) {
+  if (
+    (bookz[i].otherLanguagesTitle['portuguese'] &&
+      !bookz[i].otherLanguagesTitle['spanish']) ||
+    (bookz[i].otherLanguagesTitle['spanish'] &&
+      !bookz[i].otherLanguagesTitle['portuguese'])
+  ) {
+    console.log(
+      `${bookz[i].title} by ${bookz[i].author} has title in either Portuguese or Spanish, but not in both`
+    );
+  }
+}
 
 /*
  *  ********************************************
