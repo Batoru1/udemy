@@ -56,6 +56,10 @@ const restaurant = {
   },
 };
 
+//////////////////////////////////////////////////////////////
+//////////Logical Assignment Operators//////////////////////
+///////////////////////////////////////////////////////////
+
 //////////////////////////////////////////////////////
 /////////////The Nullish Coalescing operator (??)/////
 /////////////////////////////////////////////////////
@@ -66,12 +70,12 @@ const restaurant = {
 
 // The ?? operator evaluates to its right-hand side operand when its left-hand side operand is null or undefined. Otherwise, it returns the left-hand side operand. In other words, it provides a way to specify a default value only when the variable is null or undefined, but not for other falsy values like 0, '', false, or NaN.
 
-restaurant.numGuests = 0;
-const guests = restaurant.numGuests || 10;
-console.log(guests);
+// restaurant.numGuests = 0;
+// const guests = restaurant.numGuests || 10;
+// console.log(guests);
 
-const guestCorrect = restaurant.numGuests ?? 10;
-console.log(guestCorrect);
+// const guestCorrect = restaurant.numGuests ?? 10;
+// console.log(guestCorrect);
 
 /////////////////////////////////////////////////////
 //////////////short circuting (&& and ||)////////////
