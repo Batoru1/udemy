@@ -56,6 +56,23 @@ const restaurant = {
   },
 };
 
+//////////////////////////////////////////////////////
+/////////////The Nullish Coalescing operator (??)/////
+/////////////////////////////////////////////////////
+
+//works almost the same way as the || OR operator. It works with the idea of nullish values instead of falsy values. Nullish values will shortcircuit the evaluation
+
+//Nullish values: null and undefined (NOT 0 or ' ')
+
+// The ?? operator evaluates to its right-hand side operand when its left-hand side operand is null or undefined. Otherwise, it returns the left-hand side operand. In other words, it provides a way to specify a default value only when the variable is null or undefined, but not for other falsy values like 0, '', false, or NaN.
+
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+
 /////////////////////////////////////////////////////
 //////////////short circuting (&& and ||)////////////
 /////////////////////////////////////////////////////
