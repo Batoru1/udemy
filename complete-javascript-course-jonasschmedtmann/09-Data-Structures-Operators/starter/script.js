@@ -85,6 +85,9 @@ const rest2 = { name: 'La Piazza', owner: 'Giovani Rossi' };
 // console.log(rest1, rest2);
 // Logical assignment operator (||=op.) assigns a value to a variable if it is currently falsy!!!!!!!!RETURNS THE FIRST TRUTHY VALUE
 
+//chatGpt:
+// Logical OR assignment (||=): This operator performs the logical OR operation between its left-hand side operand (the variable) and its right-hand side operand (the value to be assigned). If the left-hand side operand is falsy, the right-hand side operand is assigned to it. Otherwise, the left-hand side operand remains unchanged.
+
 //////////logical nullish assignment operator ??=//////////
 
 //nullish means null or undefined
@@ -93,19 +96,36 @@ const rest2 = { name: 'La Piazza', owner: 'Giovani Rossi' };
 
 //to solve the numGuests:0 problem with ||=
 
-rest1.numGuests ??= 10;
-rest2.numGuests ??= 10; //10 is assigned to rest2, because it's undefined
+// rest1.numGuests ??= 10;
+// rest2.numGuests ??= 10; //10 is assigned to rest2, because it's undefined
 
 // console.log(rest1, rest2);
 
-////////////////logical and assignment operator &&=//////////
+//chatGpt
+// Logical nullish assignment (??=): This operator performs the nullish coalescing operation between its left-hand side operand (the variable) and its right-hand side operand (the value to be assigned). If the left-hand side operand is nullish (i.e., null or undefined), the right-hand side operand is assigned to it. Otherwise, the left-hand side operand remains unchanged.
+
+////////////////logical AND assignment operator &&=//////////
 
 //Lets say we want to anonimize the names of restaurant owners(when there is an owner property, change it with the string 'anonymous')
 
-//&& operator shortcircuits when first value is falsy and returns that falsy value(RETURNS FIRST FALSY VALUE)
+//&& operator shortcircuits when first value is falsy and returns that falsy value(RETURNS FIRST FALSY VALUE)!!!!!!!
 
-rest2.owner = rest2.owner && 'anonymous';
-console.log(rest1, rest2);
+// rest1.owner = rest1.owner && 'anonymous';
+// rest2.owner = rest2.owner && 'anonymous';
+
+// console.log(rest1, rest2);
+
+// anonimize,but with Logical AND assignment operator &&=//
+
+// rest1.owner &&= 'anonymous';
+// rest2.owner &&= 'anonymous';
+
+// console.log(rest1, rest2);
+
+// !!!!!!!!!! &&= AND assignment  operator assigns a value to a variable if it is currently truthy!!!!!!!!!!!!!!!!(returns the first falsy value?)
+
+//chatGpt:
+// Logical AND assignment (&&=): This operator performs the logical AND operation between its left-hand side operand (the variable) and its right-hand side operand (the value to be assigned). If the left-hand side operand is truthy, the right-hand side operand is assigned to it. Otherwise, the left-hand side operand remains unchanged.
 
 //////////////////////////////////////////////////////
 /////////////The Nullish Coalescing operator (??)/////
