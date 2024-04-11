@@ -60,6 +60,53 @@ const restaurant = {
 //////////Logical Assignment Operators//////////////////////
 ///////////////////////////////////////////////////////////
 
+const rest1 = {
+  name: 'Capri',
+  // numGuests: 20
+  numGuests: 0,
+  //if numGuests is 0 with || op. then variable will set to default(10), not 0, because 0 is falsy
+};
+const rest2 = { name: 'La Piazza', owner: 'Giovani Rossi' };
+
+//adding number of guests property to objects that don't already have it
+
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// console.log(rest1, rest2);
+
+//////////Logical assignment OR operator  ||= /////////////
+
+//logical assignment OR  op. doing the same (adding number of guests property to objects that don't already have it)
+
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// console.log(rest1, rest2);
+// Logical assignment operator (||=op.) assigns a value to a variable if it is currently falsy!!!!!!!!RETURNS THE FIRST TRUTHY VALUE
+
+//////////logical nullish assignment operator ??=//////////
+
+//nullish means null or undefined
+
+//!!!!!! nullish assignment operator ??= will assign a value to a variable, if that exact variable if that exact variable is currently nullish or undefined!!!!!!!!!
+
+//to solve the numGuests:0 problem with ||=
+
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10; //10 is assigned to rest2, because it's undefined
+
+// console.log(rest1, rest2);
+
+////////////////logical and assignment operator &&=//////////
+
+//Lets say we want to anonimize the names of restaurant owners(when there is an owner property, change it with the string 'anonymous')
+
+//&& operator shortcircuits when first value is falsy and returns that falsy value(RETURNS FIRST FALSY VALUE)
+
+rest2.owner = rest2.owner && 'anonymous';
+console.log(rest1, rest2);
+
 //////////////////////////////////////////////////////
 /////////////The Nullish Coalescing operator (??)/////
 /////////////////////////////////////////////////////
