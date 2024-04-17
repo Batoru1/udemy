@@ -243,12 +243,17 @@ const books = [
 // Use the &&= operator (tip: you may also need the ! operator)
 
 //Solution:
-for (let i = 0; i < books.length; i++) {
-  // books[i] = true &&= books[i].goodreads.rating < 4.2;
-  if (books[i] = true &&= books[i].goodreads.rating < 4.2) {
-    
-  }
-}
+//official
+// for (let i = 0; i < books.length; i++) {
+//   books[i].highlighted &&= !(books[i].thirdParty.goodreads.rating < 4.2);
+// }
+
+//working solution
+// for (let i = 0; i < books.length; i++) {
+//   books[i].highlighted ||= !(books[i].thirdParty.goodreads.rating < 4.2);
+// }
+
+// console.log(books);
 
 ////////////////////////////////////////////////////////
 /////////The Nullish Coalescing Operator (??)///////////
