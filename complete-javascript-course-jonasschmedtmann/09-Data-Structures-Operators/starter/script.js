@@ -228,6 +228,8 @@ const rest2 = { name: 'La Piazza', owner: 'Giovani Rossi' };
 // restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 // restaurant.orderPizza('mushrooms');
 
+/** SPREAD OPERATOR UNPPACKS  ELELEMNTS FROM AN ARRAY, REST OPERATOR- PACKS ELEMENTS INTO AN ARRAY*/
+
 /////////////////////////////////////////////////////////
 /////////////////spread operator/////////////////////////
 ////////////////////////////////////////////////////////
