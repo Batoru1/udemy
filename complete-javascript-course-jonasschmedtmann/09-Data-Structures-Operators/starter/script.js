@@ -56,9 +56,32 @@ const restaurant = {
   },
 };
 
+///////////////////////////////////////////////////////////////////////////////Enhanced Object Literals///////////////////////
 //////////////////////////////////////////////////////////////
-////////////////Looping Arrays: The for-of-Loop///////////////
+
+//////////////////////////////////////////////////////////////
+////////////////Looping Arrays: The for-of Loop///////////////
 /////////////////////////////////////////////////////////////
+
+//automatically loop over entire array and in each itteration give us acess to the current array element(item current variable in each iteration, and it can be apple or egg or whtw)
+//no need for code block when only one statement need to be executed
+//continue and break can be used with for of loop
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+console.log(menu);
+
+for (const item of menu) console.log(item);
+
+//if we want THE CURRENT INDEX not just the current element? use .entries method
+
+// for (const item of menu.entries()) {
+//   console.log(`${item[0] + 1}:${item[1]}`);
+// }
+//or do this with destructuring
+for (const [key, value] of menu.entries()) {
+  console.log(`${key + 1}:${value}`);
+}
+// console.log(...menu.entries());
 
 //////////////////////////////////////////////////////////////
 //////////Logical Assignment Operators//////////////////////
