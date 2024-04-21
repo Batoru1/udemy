@@ -233,6 +233,24 @@ Use the for-of loop to loop over the books array and sum the pages of all books.
 
 let pageSum = 0;
 
+for (const i of books) {
+  // console.log(i.pages);
+  pageSum += i.pages;
+}
+
+console.log(pageSum);
+
+/*8.2
+Below is the allAuthors variable which stores an empty array. Use the for-of loop to fill allAuthors with the authors of each book from the books array.
+
+Remember that each book object has the author property, which can be a string (if there is only a single author) or an array (if there are multiple authors). You may need to use the typeof operator. You can also use multiple loops if needed. The allAuthors array should have just one level (no nested arrays).*/
+
+const allAuthors = [];
+
+for (const book of books) {
+  console.log(book.author);
+}
+
 /////////////////////////////////////////////////////////////
 //////////Logical Assignments Operators/////////////////////
 ///////////////////////////////////////////////////////////
