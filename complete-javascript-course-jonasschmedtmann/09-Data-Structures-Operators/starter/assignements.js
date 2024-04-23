@@ -248,9 +248,38 @@ Remember that each book object has the author property, which can be a string (i
 const allAuthors = [];
 
 for (const book of books) {
-  console.log(book.author);
+  if (typeof book.author === 'string') {
+    allAuthors.push(book.author);
+  } else {
+    for (const author of book.author) {
+      allAuthors.push(author);
+    }
+  }
 }
 
+console.log(allAuthors);
+
+/*8.3
+Use the for-of loop together with Array's entries() method to log each author from allAuthors to the console together with its index. Make the index start from 1, instead of 0.
+
+Expected output
+1. Robert Sedgewick
+2. Kevin Wayne
+3. Harold Abelson
+   ...                    // part removed for clarity
+15. Cal Newport*/
+
+for (const authorNIndex of allAuthors.entries()) {
+  console.log(`${authorNIndex[0] + 1}:${authorNIndex[1]}`);
+  // console.log(authorNIndex);
+}
+
+//2nd way
+for (const [key, value] of allAuthors.entries()) {
+  console.log(`${key + 1}. ${value}`);
+}
+
+// console.log([...allAuthors.entries()]);
 /////////////////////////////////////////////////////////////
 //////////Logical Assignments Operators/////////////////////
 ///////////////////////////////////////////////////////////
