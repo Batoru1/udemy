@@ -224,62 +224,95 @@ const books = [
   },
 ];
 
+///////////////////////////////////////////////////////////////////////////////Enhanced Object Literals///////////////////////
+//////////////////////////////////////////////////////////////
+
+/*9.1
+Below is the bookData array that contains other arrays. Each inner array consists of the property name (first element), and the value (second element). For example, in ['title', 'Computer Networking: A Top-Down Approach'], 'title' is the property name, and 'Computer Networking: A Top-Down Approach' is meant to be the value assigned to that property name.
+
+Using computed properties, fill the newBook object with the properties and values from the bookData array. The first one is done already.*/
+
+// const bookData = [
+//   ['title', 'Computer Networking: A Top-Down Approach'],
+//   ['author', ['James F. Kurose', 'Keith W. Ross']],
+//   ['publisher', 'Addison Wesley'],
+// ];
+
+// // Do the rest
+// const newBook = {
+//   [bookData[0][0]]: bookData[0][1]
+//   // ...
+// };
+// // show example solution
+//  {...}
+/*9.2
+Below is the pages variable. Add it as a property of the newBook2 object. Use the shorter way.*/
+
+// const pages = 880;
+
+// const newBook2 = {
+//   title: 'The C Programming Language',
+//   author: ['Brian W. Kernighan', 'Dennis M. Ritchie'],
+//   // ...
+// }
+
 /////////////////////////////////////////////////////////////
 //////////////////Looping arrays: The for-of loop//////////////
 ///////////////////////////////////////////////////////////
 
-/*8.1
-Use the for-of loop to loop over the books array and sum the pages of all books. Use the pageSum variable below, and the pages property of the book objects.*/
+// /*8.1
+// Use the for-of loop to loop over the books array and sum the pages of all books. Use the pageSum variable below, and the pages property of the book objects.*/
 
-let pageSum = 0;
+// let pageSum = 0;
 
-for (const i of books) {
-  // console.log(i.pages);
-  pageSum += i.pages;
-}
+// for (const i of books) {
+//   // console.log(i.pages);
+//   pageSum += i.pages;
+// }
 
-console.log(pageSum);
+// console.log(pageSum);
 
-/*8.2
-Below is the allAuthors variable which stores an empty array. Use the for-of loop to fill allAuthors with the authors of each book from the books array.
+// /*8.2
+// Below is the allAuthors variable which stores an empty array. Use the for-of loop to fill allAuthors with the authors of each book from the books array.
 
-Remember that each book object has the author property, which can be a string (if there is only a single author) or an array (if there are multiple authors). You may need to use the typeof operator. You can also use multiple loops if needed. The allAuthors array should have just one level (no nested arrays).*/
+// Remember that each book object has the author property, which can be a string (if there is only a single author) or an array (if there are multiple authors). You may need to use the typeof operator. You can also use multiple loops if needed. The allAuthors array should have just one level (no nested arrays).*/
 
-const allAuthors = [];
+// const allAuthors = [];
 
-for (const book of books) {
-  if (typeof book.author === 'string') {
-    allAuthors.push(book.author);
-  } else {
-    for (const author of book.author) {
-      allAuthors.push(author);
-    }
-  }
-}
+// for (const book of books) {
+//   if (typeof book.author === 'string') {
+//     allAuthors.push(book.author);
+//   } else {
+//     for (const author of book.author) {
+//       allAuthors.push(author);
+//     }
+//   }
+// }
 
-console.log(allAuthors);
+// console.log(allAuthors);
 
-/*8.3
-Use the for-of loop together with Array's entries() method to log each author from allAuthors to the console together with its index. Make the index start from 1, instead of 0.
+// /*8.3
+// Use the for-of loop together with Array's entries() method to log each author from allAuthors to the console together with its index. Make the index start from 1, instead of 0.
 
-Expected output
-1. Robert Sedgewick
-2. Kevin Wayne
-3. Harold Abelson
-   ...                    // part removed for clarity
-15. Cal Newport*/
+// Expected output
+// 1. Robert Sedgewick
+// 2. Kevin Wayne
+// 3. Harold Abelson
+//    ...                    // part removed for clarity
+// 15. Cal Newport*/
 
-for (const authorNIndex of allAuthors.entries()) {
-  console.log(`${authorNIndex[0] + 1}:${authorNIndex[1]}`);
-  // console.log(authorNIndex);
-}
+// for (const authorNIndex of allAuthors.entries()) {
+//   console.log(`${authorNIndex[0] + 1}:${authorNIndex[1]}`);
+//   // console.log(authorNIndex);
+// }
 
-//2nd way
-for (const [key, value] of allAuthors.entries()) {
-  console.log(`${key + 1}. ${value}`);
-}
+// //2nd way
+// for (const [key, value] of allAuthors.entries()) {
+//   console.log(`${key + 1}. ${value}`);
+// }
 
-// console.log([...allAuthors.entries()]);
+// // console.log([...allAuthors.entries()]);
+
 /////////////////////////////////////////////////////////////
 //////////Logical Assignments Operators/////////////////////
 ///////////////////////////////////////////////////////////
