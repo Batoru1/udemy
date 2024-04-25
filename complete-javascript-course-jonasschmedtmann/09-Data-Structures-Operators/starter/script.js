@@ -69,12 +69,43 @@ const restaurant = {
 ///////////////////////////////////////////////////////////////////////////////Optional Chaining (?.)////////////////////////
 /////////////////////////////////////////////////////////////
 
+//EXAMPLE get opening hours for our restaurant for monday
+
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+
+// if (restaurant.openingHours.fri.open)
+//   console.log(restaurant.openingHours.fri.open);
+
+//Same EXAMPLE with OPTIONAL CHANING
+
+//if a certain property does not exist, then undefined is returned immediately
+
+console.log(restaurant.openingHours.mon?.open);
+console.log(
+  restaurant.openingHours?.mon?.open
+); /*the same as with && example above, just shorter*/
+
+//EXAMPLE2
+//loope over this array and check whether this restaurant is open or closed on each of the days
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+for (const day of days) {
+  // console.log(day);
+  const open = restaurant.openingHours[day]?.open;
+  console.log(`On ${day}, we open at ${open}`);
+}
+//if  we want to use a variable name as the property name we need to use bracet notation []   !!!!!!!!!!!!!!!!!!!
+
+//HOW OPC works: only if the property before this - ?. - exists then the property after -?.- will be red, but if not - undefined is immediatelly returned
+
+//exists means- that the property is not null and not undefined so if it's 0 or ' ' it still exists
+
 ///////////////////////////////////////////////////////////////////////////////Enhanced Object Literals///////////////////////
 //////////////////////////////////////////////////////////////
 
 //there are 3 ways to write object literals is ES6:
 
-//1) an object outside restaurant object(openingHours or hours)
+//1) Adding an object or a variable to an existing object. EXAMPLE: an object outside restaurant object(openingHours or hours)
 //old way to change - hours:hours NEW - hours,
 
 //2) Method writting in ES6 - we no longer have to create a property and then set it to a function expression(ex. order:...)
