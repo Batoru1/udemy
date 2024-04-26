@@ -66,39 +66,65 @@ const restaurant = {
   },
 };
 
+///////////////////////////////////////////////////////////////
+//////////Looping Objects:Object Keys, Values and Entries/////
+///////////////////////////////////////////////////////////////
+
 ///////////////////////////////////////////////////////////////////////////////Optional Chaining (?.)////////////////////////
 /////////////////////////////////////////////////////////////
 
-//EXAMPLE get opening hours for our restaurant for monday
+// //EXAMPLE get opening hours for our restaurant for monday
 
-if (restaurant.openingHours && restaurant.openingHours.mon)
-  console.log(restaurant.openingHours.mon.open);
+// if (restaurant.openingHours && restaurant.openingHours.mon)
+//   console.log(restaurant.openingHours.mon.open);
 
-// if (restaurant.openingHours.fri.open)
-//   console.log(restaurant.openingHours.fri.open);
+// // if (restaurant.openingHours.fri.open)
+// //   console.log(restaurant.openingHours.fri.open);
 
-//Same EXAMPLE with OPTIONAL CHANING
+// //Same EXAMPLE with OPTIONAL CHANING
 
-//if a certain property does not exist, then undefined is returned immediately
+// //if a certain property does not exist, then undefined is returned immediately
 
-console.log(restaurant.openingHours.mon?.open);
-console.log(
-  restaurant.openingHours?.mon?.open
-); /*the same as with && example above, just shorter*/
+// console.log(restaurant.openingHours.mon?.open);
+// console.log(
+//   restaurant.openingHours?.mon?.open
+// ); /*the same as with && example above, just shorter*/
 
-//EXAMPLE2
-//loope over this array and check whether this restaurant is open or closed on each of the days
-const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-for (const day of days) {
-  // console.log(day);
-  const open = restaurant.openingHours[day]?.open;
-  console.log(`On ${day}, we open at ${open}`);
-}
-//if  we want to use a variable name as the property name we need to use bracet notation []   !!!!!!!!!!!!!!!!!!!
+// //EXAMPLE2
+// //loope over this array and check whether this restaurant is open or closed on each of the days
+// //?? nulish coalescing instead of || or because of 0 on saturday
+// const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+// for (const day of days) {
+//   // console.log(day);
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   console.log(`On ${day}, we open at ${open}`);
+// }
+// //if  we want to use a variable name as the property name we need to use bracet notation [] (by doing this you get acces to weekdays of restaurant object)  !!!!!!!!!!!!!!!!!!!
 
-//HOW OPC works: only if the property before this - ?. - exists then the property after -?.- will be red, but if not - undefined is immediatelly returned
+// //HOW OPC works: only if the property before this - ?. - exists then the property after -?.- will be red, but if not - undefined is immediatelly returned
 
-//exists means- that the property is not null and not undefined so if it's 0 or ' ' it still exists
+// //exists means- that the property is not null and not undefined so if it's 0 or ' ' it still exists
+
+// ////Calling METHODS with optional chaning///
+
+// //essentially it checks, if a method exists before calling it
+// //exists:
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+// //doesn't exist:
+// console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+// /////////optional chaning on Arrays/////////////
+// //to check if array is empty?
+
+// const users = [{ name: 'Jonas', email: 'hello@jonas.io' }];
+// // const users = [];
+
+// console.log(users[0]?.name ?? 'User array empty');
+// //?. optional chaning checks, if the value on the left does exist
+
+// //the same using if else
+// if (users.length > 0) console.log(users[0].name);
+// else console.log('usser array empty');
 
 ///////////////////////////////////////////////////////////////////////////////Enhanced Object Literals///////////////////////
 //////////////////////////////////////////////////////////////
