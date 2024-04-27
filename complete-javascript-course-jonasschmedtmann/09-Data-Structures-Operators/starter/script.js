@@ -70,6 +70,20 @@ const restaurant = {
 //////////Looping Objects:Object Keys, Values and Entries/////
 ///////////////////////////////////////////////////////////////
 
+//looping over property NAMES or keys Object.keys
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open on ${properties.length} days:`;
+
+for (const day of properties) {
+  openStr += `${day},`;
+}
+
+console.log(openStr);
+
+// Property VALUES Object.values
+
 ///////////////////////////////////////////////////////////////////////////////Optional Chaining (?.)////////////////////////
 /////////////////////////////////////////////////////////////
 
@@ -91,7 +105,7 @@ const restaurant = {
 // ); /*the same as with && example above, just shorter*/
 
 // //EXAMPLE2
-// //loope over this array and check whether this restaurant is open or closed on each of the days
+// //loop over this array and check whether this restaurant is open or closed on each of the days
 // //?? nulish coalescing instead of || or because of 0 on saturday
 // const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 // for (const day of days) {

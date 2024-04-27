@@ -231,12 +231,22 @@ const books = [
 ///////////////////////////////////////////////////////////////////////////////Optional Chaining (?.)////////////////////////
 /////////////////////////////////////////////////////////////
 
-/*10.1﻿
+/*10.1
 Write a function called getFirstKeyword that takes the book object as an argument. This function should return the first keyword from the book's keywords property (array) or undefined (if the keywords property doesn't exist). It shouldn't throw an error. Use optional chaining for that.*/
 
-const getFirstKeyword = function (books) {
-  console.log(books.keywords?.keywords[0]);
-};
+// const pages = 880;
+
+// const newBook2 = {
+//   title: 'The C Programming Language',
+//   author: ['Brian W. Kernighan', 'Dennis M. Ritchie'],
+//   pages,
+// };
+
+// const getFirstKeyword = function (book) {
+//   return book.keywords?.[0];
+// };
+
+// console.log(getFirstKeyword(books[1]));
 
 /*Example 1
 
