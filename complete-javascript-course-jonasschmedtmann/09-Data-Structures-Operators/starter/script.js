@@ -70,7 +70,8 @@ const restaurant = {
 //////////Looping Objects:Object Keys, Values and Entries/////
 ///////////////////////////////////////////////////////////////
 
-//looping over property NAMES or keys Object.keys
+//looping over property NAMES or keys (Object.keys())
+
 const properties = Object.keys(openingHours);
 console.log(properties);
 
@@ -82,7 +83,21 @@ for (const day of properties) {
 
 console.log(openStr);
 
-// Property VALUES Object.values
+//Looping over Property VALUES (Object.values())
+
+const values = Object.values(openingHours);
+console.log(values);
+
+//Looping over the enrire OBJECT (Object.entries())
+//Entries is NAMES + VAlues together
+
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+//destructuring of x [key, value] value is an object in this case so for destructuring need this {}
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
 
 ///////////////////////////////////////////////////////////////////////////////Optional Chaining (?.)////////////////////////
 /////////////////////////////////////////////////////////////
