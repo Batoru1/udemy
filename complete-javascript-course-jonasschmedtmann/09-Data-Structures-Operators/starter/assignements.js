@@ -237,19 +237,35 @@ In the end, the entriez array should be filled with arrays containing keys:
 
 const entriez = [];
 const goodReads = Object.keys(books[0].thirdParty.goodreads);
-console.log(entry);
+console.log(goodReads);
 
 for (const entry of goodReads) {
+  entriez.push([entry]);
 }
 
-console.log(entry);
+console.log(entriez);
+
+// entriez.push(goodReads);
+// console.log(entriez);
 
 /*11.2
 The Object.values() method returns an array, which means you can call the Array's entries() method on it, for example, Object.entries(books[0].thirdParty.goodreads).entries(). The Array's entries() method returns [index, value] arrays for each element in the array.
 
 Use the for-of loop together with the Object.values() method and Array's entries() method to loop over thirdParty.goodreads property of the first book from the books array.
 
-Push each value to the appropriate inner array in the entries array (use index from entries()).*/
+Push each value to the appropriate inner array in the entriez array (use index from entriez()).*/
+
+const valuez = Object.values(books[0].thirdParty.goodreads).entries();
+
+console.log(valuez);
+
+for (const [index, value] of valuez) {
+  // console.log(iterator);
+  // console.log(index, value);
+  entriez[index].push(value);
+}
+
+console.log(entriez);
 
 /*11.3
 Use the Object.entries() method on the thirdParty.goodreads property of the first book from the books array. Assign the returned value to the variable called entries2.*/

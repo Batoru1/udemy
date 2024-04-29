@@ -88,7 +88,7 @@ console.log(openStr);
 const values = Object.values(openingHours);
 console.log(values);
 
-//Looping over the enrire OBJECT (Object.entries())
+//Looping over the entire OBJECT (Object.entries())
 //Entries is NAMES + VAlues together
 
 const entries = Object.entries(openingHours);
