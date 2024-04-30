@@ -70,34 +70,34 @@ const restaurant = {
 //////////Looping Objects:Object Keys, Values and Entries/////
 ///////////////////////////////////////////////////////////////
 
-//looping over property NAMES or keys (Object.keys())
+// //looping over property NAMES or keys (Object.keys())
 
-const properties = Object.keys(openingHours);
-console.log(properties);
+// const properties = Object.keys(openingHours);
+// console.log(properties);
 
-let openStr = `We are open on ${properties.length} days:`;
+// let openStr = `We are open on ${properties.length} days:`;
 
-for (const day of properties) {
-  openStr += `${day},`;
-}
+// for (const day of properties) {
+//   openStr += `${day},`;
+// }
 
-console.log(openStr);
+// console.log(openStr);
 
-//Looping over Property VALUES (Object.values())
+// //Looping over Property VALUES (Object.values())
 
-const values = Object.values(openingHours);
-console.log(values);
+// const values = Object.values(openingHours);
+// console.log(values);
 
-//Looping over the entire OBJECT (Object.entries())
-//Entries is NAMES + VAlues together
+// //Looping over the entire OBJECT (Object.entries())
+// //Entries is NAMES + VAlues together
 
-const entries = Object.entries(openingHours);
-console.log(entries);
+// const entries = Object.entries(openingHours);
+// console.log(entries);
 
-//destructuring of x [key, value] value is an object in this case so for destructuring need this {}
-for (const [key, { open, close }] of entries) {
-  console.log(`On ${key} we open at ${open} and close at ${close}`);
-}
+// //destructuring of x [key, value] value is an object in this case so for destructuring need this {}
+// for (const [key, { open, close }] of entries) {
+//   console.log(`On ${key} we open at ${open} and close at ${close}`);
+// }
 
 ///////////////////////////////////////////////////////////////////////////////Optional Chaining (?.)////////////////////////
 /////////////////////////////////////////////////////////////

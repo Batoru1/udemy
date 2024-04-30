@@ -228,50 +228,56 @@ const books = [
 //////////Looping Objects:Object Keys, Values and Entries/////
 ///////////////////////////////////////////////////////////////
 
-/*11.1
-Below is the entries variable that stores an empty array. Use the for-of loop together with the Object.keys() method to loop over the thirdParty.goodreads property (array) of the first book object from the books array. For each key, push a new array that contains that key to the entriez array.
+// /*11.1
+// Below is the entries variable that stores an empty array. Use the for-of loop together with the Object.keys() method to loop over the thirdParty.goodreads property (array) of the first book object from the books array. For each key, push a new array that contains that key to the entriez array.
 
-In the end, the entriez array should be filled with arrays containing keys:
+// In the end, the entriez array should be filled with arrays containing keys:
 
-[['rating'], ['ratingsCount'], ['reviewsCount'], ['fiveStartRatingCount'], ['oneStartRatingCount']]*/
+// [['rating'], ['ratingsCount'], ['reviewsCount'], ['fiveStartRatingCount'], ['oneStartRatingCount']]*/
 
-const entriez = [];
-const goodReads = Object.keys(books[0].thirdParty.goodreads);
-console.log(goodReads);
+// const entriez = [];
+// const goodReads = Object.keys(books[0].thirdParty.goodreads);
+// console.log(goodReads);
 
-for (const entry of goodReads) {
-  entriez.push([entry]);
-}
+// for (const entry of goodReads) {
+//   entriez.push([entry]);
+// }
 
-console.log(entriez);
-
-// entriez.push(goodReads);
 // console.log(entriez);
 
-/*11.2
-The Object.values() method returns an array, which means you can call the Array's entries() method on it, for example, Object.entries(books[0].thirdParty.goodreads).entries(). The Array's entries() method returns [index, value] arrays for each element in the array.
+// // entriez.push(goodReads);
+// // console.log(entriez);
 
-Use the for-of loop together with the Object.values() method and Array's entries() method to loop over thirdParty.goodreads property of the first book from the books array.
+// /*11.2
+// The Object.values() method returns an array, which means you can call the Array's entries() method on it, for example, Object.entries(books[0].thirdParty.goodreads).entries(). The Array's entries() method returns [index, value] arrays for each element in the array.
 
-Push each value to the appropriate inner array in the entriez array (use index from entriez()).*/
+// Use the for-of loop together with the Object.values() method and Array's entries() method to loop over thirdParty.goodreads property of the first book from the books array.
 
-const valuez = Object.values(books[0].thirdParty.goodreads).entries();
+// Push each value to the appropriate inner array in the entriez array (use index from entriez()).*/
 
-console.log(valuez);
+// const valuez = Object.values(books[0].thirdParty.goodreads).entries();
 
-for (const [index, value] of valuez) {
-  // console.log(iterator);
-  // console.log(index, value);
-  entriez[index].push(value);
-}
+// console.log(valuez);
 
-console.log(entriez);
+// for (const [index, value] of valuez) {
+//   // console.log(iterator);
+//   // console.log(index, value);
+//   entriez[index].push(value);
+// }
 
-/*11.3
-Use the Object.entries() method on the thirdParty.goodreads property of the first book from the books array. Assign the returned value to the variable called entries2.*/
+// console.log(entriez);
+
+// /*11.3
+// Use the Object.entries() method on the thirdParty.goodreads property of the first book from the books array. Assign the returned value to the variable called entries2.*/
+
+// const entries2 = Object.entries(books[0].thirdParty.goodreads);
+
+// console.log(entries2);
 
 /*11.4
-Log the entries and entries2 variables to the console, and compare them. They should look the same.*/
+Log the entriez and entries2 variables to the console, and compare them. They should look the same.*/
+
+//done  in 11.2 and 11.3
 
 ///////////////////////////////////////////////////////////////////////////////Optional Chaining (?.)////////////////////////
 /////////////////////////////////////////////////////////////
@@ -656,7 +662,7 @@ undefined*/
 // spellWord('bam');
 
 /////////////////////////////////////////////////////////////
-// //////////////Coding Challenge #1////////////////////////
+// //////////////Coding Challenges////////////////////////
 ////////////////////////////////////////////////////////////
 
 /*We're building a football betting app
@@ -703,6 +709,47 @@ const game = {
     team2: 6.5,
   },
 };
+
+///////////////////////////////////////////////////////////////
+///////////////////Coding Challenge #2////////////////////////
+//////////////////////////////////////////////////////////////
+
+// 1
+for (const player of game.scored.entries()) {
+  console.log(`Goal ${player[0] + 1}: ${player[1]}`);
+}
+
+/*Let's continue with our football betting app! Keep using the 'game' variable from
+before.
+Your tasks:
+1. Loop over the game.scored array and print each player name to the console,
+along with the goal number (Example: "Goal 1: Lewandowski")
+2. Use a loop to calculate the average odd and log it to the console (We already
+studied how to calculate averages, you can go check if you don't remember)
+3. Print the 3 odds to the console, but in a nice formatted way, exactly like this:
+Odd of victory Bayern Munich: 1.33
+Odd of draw: 3.25
+Odd of victory Borrussia Dortmund: 6.5
+Get the team names directly from the game object, don't hardcode them
+(except for "draw"). Hint: Note how the odds and the game objects have the
+same property names 😉
+4. Bonus: Create an object called 'scorers' which contains the names of the
+players who scored as properties, and the number of goals as the value. In this
+game, it will look like this:
+{
+Gnarby: 1,
+Hummels: 1,
+Lewandowski: 2
+}
+GOOD LUCK 😀*/
+
+/////////////////////////////////////////////////////////////
+// //////////////Coding Challenge #1////////////////////////
+////////////////////////////////////////////////////////////
+
+/*We're building a football betting app
+Suppose we get data from a web service about a certain game
+ In this challenge we're gonna work with that data.*/
 
 // /*1. Create one player array for each team (variables 'players1' and
 // 'players2')*/
