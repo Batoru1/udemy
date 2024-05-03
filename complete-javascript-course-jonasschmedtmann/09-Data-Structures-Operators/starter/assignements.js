@@ -717,8 +717,24 @@ const game = {
 // 1
 for (const player of game.scored.entries()) {
   console.log(`Goal ${player[0] + 1}: ${player[1]}`);
+  // console.log(player);
+}
+//2
+const num = Object.values(game.odds);
+// console.log(num);
+
+let sum = 0;
+for (let i = 0; i < num.length; i++) {
+  sum += num[i];
+  // console.log(sum);
 }
 
+const avgOdd = sum / num.length;
+console.log(avgOdd);
+//3
+console.log(`Odd of victory ${game.team1}:${num[0]} 
+Odd of draw: ${num[1]}
+Odd of victory ${game.team2}:${num[1]}`);
 /*Let's continue with our football betting app! Keep using the 'game' variable from
 before.
 Your tasks:
