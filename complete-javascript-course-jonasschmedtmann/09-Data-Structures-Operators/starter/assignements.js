@@ -735,6 +735,21 @@ console.log(avgOdd);
 console.log(`Odd of victory ${game.team1}:${num[0]} 
 Odd of draw: ${num[1]}
 Odd of victory ${game.team2}:${num[1]}`);
+
+//4
+const scores = game.scored;
+console.log(scores);
+
+for (const player of game.scored) {
+  console.log(player);
+}
+
+for (const item of game.scored.entries()) {
+  console.log(item);
+}
+
+const scorers = {};
+
 /*Let's continue with our football betting app! Keep using the 'game' variable from
 before.
 Your tasks:
