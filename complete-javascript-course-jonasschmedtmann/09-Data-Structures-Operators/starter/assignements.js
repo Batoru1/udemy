@@ -731,24 +731,25 @@ for (let i = 0; i < num.length; i++) {
 
 const avgOdd = sum / num.length;
 console.log(avgOdd);
+
+// const odds = Object.values(game.odds);
+// let average = 0;
+// for (const odd of odds) average += odd;
+
+// average /= odds.length;
+// console.log(average);
+// console.log(odds);
 //3
 console.log(`Odd of victory ${game.team1}:${num[0]} 
 Odd of draw: ${num[1]}
 Odd of victory ${game.team2}:${num[1]}`);
 
 //4
-const scores = game.scored;
-console.log(scores);
-
-for (const player of game.scored) {
-  console.log(player);
-}
-
-for (const item of game.scored.entries()) {
-  console.log(item);
-}
-
 const scorers = {};
+for (const player of game.scored) {
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+}
+console.log(scorers);
 
 /*Let's continue with our football betting app! Keep using the 'game' variable from
 before.
