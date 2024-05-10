@@ -70,6 +70,8 @@ const restaurant = {
 //////////Looping Objects:Object Keys, Values and Entries/////
 ///////////////////////////////////////////////////////////////
 
+///in  arrays we use the entries() to get the entries of the array, but in the object we have to use Object.entries() and then pass into the function the object that we are interested (into the () of Object.entries)in!!!!!!!!!!!!!
+
 // //looping over property NAMES or keys (Object.keys())
 
 // const properties = Object.keys(openingHours);

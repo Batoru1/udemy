@@ -714,24 +714,26 @@ const game = {
 ///////////////////Coding Challenge #2////////////////////////
 //////////////////////////////////////////////////////////////
 
-// 1
-for (const player of game.scored.entries()) {
-  console.log(`Goal ${player[0] + 1}: ${player[1]}`);
-  // console.log(player);
-}
-//2
-const num = Object.values(game.odds);
-// console.log(num);
+// // 1
+// for (const player of game.scored.entries()) {
+//   console.log(`Goal ${player[0] + 1}: ${player[1]}`);
+//   // console.log(player);
+// }
+// //2
+//mine sol
+// const num = Object.values(game.odds);
+// // console.log(num);
 
-let sum = 0;
-for (let i = 0; i < num.length; i++) {
-  sum += num[i];
-  // console.log(sum);
-}
+// let sum = 0;
+// for (let i = 0; i < num.length; i++) {
+//   sum += num[i];
+//   // console.log(sum);
+// }
 
-const avgOdd = sum / num.length;
-console.log(avgOdd);
+// const avgOdd = sum / num.length;
+// console.log(avgOdd);
 
+//not mine
 // const odds = Object.values(game.odds);
 // let average = 0;
 // for (const odd of odds) average += odd;
@@ -740,16 +742,23 @@ console.log(avgOdd);
 // console.log(average);
 // console.log(odds);
 //3
-console.log(`Odd of victory ${game.team1}:${num[0]} 
-Odd of draw: ${num[1]}
-Odd of victory ${game.team2}:${num[1]}`);
-
-//4
-const scorers = {};
-for (const player of game.scored) {
-  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+//my sol
+// console.log(`Odd of victory ${game.team1}:${num[0]}
+// Odd of draw: ${num[1]}
+// Odd of victory ${game.team2}:${num[1]}`);
+//not mine
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr} ${odd}`);
 }
-console.log(scorers);
+
+console.log(Object.entries(game.odds));
+//4
+// const scorers = {};
+// for (const player of game.scored) {
+//   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+// }
+// console.log(scorers);
 
 /*Let's continue with our football betting app! Keep using the 'game' variable from
 before.
