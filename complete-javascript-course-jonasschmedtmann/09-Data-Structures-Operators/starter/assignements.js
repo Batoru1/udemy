@@ -224,6 +224,10 @@ const books = [
   },
 ];
 
+/////////////////////////////////////////////////////////////////
+///////////////////////////SETS//////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
 ///////////////////////////////////////////////////////////////
 //////////Looping Objects:Object Keys, Values and Entries/////
 ///////////////////////////////////////////////////////////////
@@ -747,12 +751,12 @@ const game = {
 // Odd of draw: ${num[1]}
 // Odd of victory ${game.team2}:${num[1]}`);
 //not mine
-for (const [team, odd] of Object.entries(game.odds)) {
-  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
-  console.log(`Odd of ${teamStr} ${odd}`);
-}
+// for (const [team, odd] of Object.entries(game.odds)) {
+//   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+//   console.log(`Odd of ${teamStr} ${odd}`);
+// }
 
-console.log(Object.entries(game.odds));
+// console.log(Object.entries(game.odds));
 //4
 // const scorers = {};
 // for (const player of game.scored) {
