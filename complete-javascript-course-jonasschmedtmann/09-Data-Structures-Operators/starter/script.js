@@ -70,6 +70,32 @@ const restaurant = {
 ////////////////////Maps:Fundamentals///////////////////////////
 ///////////////////////////////////////////////////////////////
 
+//MAP is a data structure that you can use to map values to keys.
+//Just like in objects data is stored in key-value pairs.
+//DIFFERENCE between Objects and MAPS - in MAPS the keys can have any type (in Objects the keys are almost always strings) - it can even be objects or arrays or other maps.
+
+//lets create a restorant map
+//1st create an empty map
+const rest = new Map();
+//2nd fill it using .set() method, by passing two argumnts: 1st is key name, 2nd-the name itself
+rest.set('name', 'Classico Italiano');
+//.set() method is similar to .add() method in SETS. both allow us to add new element to the data structure
+
+//any datat type that we want can be used:
+// lets say that the restaurant has two locations-  so we can create a key with a number
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal'));
+//calling the set method like the three times above not only updates the Map that it is called on but also returns the Map
+
+//.set() method can be chained, because it not only updates, but also returns the MAP, like so:
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'we are open ')
+  .set(false, 'we are closed');
+console.log(rest);
+// Calling the .set() method returns the updated MAP!!!!!!!!!!!!!!
 ////////////////////////////////////////////////////////////////
 ///////////////////////////Sets/////////////////////////////////
 ///////////////////////////////////////////////////////////////
