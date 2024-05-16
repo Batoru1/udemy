@@ -92,10 +92,21 @@ rest
   .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
   .set('open', 11)
   .set('close', 23)
-  .set(true, 'we are open ')
-  .set(false, 'we are closed');
+  .set(true, 'we are open :D')
+  .set(false, 'we are closed :(');
 console.log(rest);
 // Calling the .set() method returns the updated MAP!!!!!!!!!!!!!!
+
+//in order to read data from a MAP we use the .get() method, by passing in the name of the key in the parenthesis().
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+//lets create smth fun from booleans as keys, lets check if restauran
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
 ////////////////////////////////////////////////////////////////
 ///////////////////////////Sets/////////////////////////////////
 ///////////////////////////////////////////////////////////////
