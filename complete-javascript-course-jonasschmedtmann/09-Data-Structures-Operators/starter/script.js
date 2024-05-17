@@ -107,6 +107,26 @@ console.log(rest.get(1));
 const time = 21;
 console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
 
+//to check if a map contains a certain key use .has() method
+console.log(rest.has('categories'));
+
+//delete elements from the map .delete() method
+rest.delete(2);
+//remove all elements from the map .clear()
+// rest.clear();
+console.log(rest);
+
+//use arrays or objects as map keys
+// get the data from the above array(key)
+const arr = [1, 2];
+rest.set(arr, 'Test');
+//manipulate DOM objects(because they are special kind of objects)
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest.get(arr));
+
+// .size() method
+console.log(rest.size);
+
 ////////////////////////////////////////////////////////////////
 ///////////////////////////Sets/////////////////////////////////
 ///////////////////////////////////////////////////////////////
