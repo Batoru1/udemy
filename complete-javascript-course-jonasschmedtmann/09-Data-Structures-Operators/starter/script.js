@@ -66,66 +66,70 @@ const restaurant = {
   },
 };
 
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////Maps: iteration//////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+
 ////////////////////////////////////////////////////////////////
 ////////////////////Maps:Fundamentals///////////////////////////
 ///////////////////////////////////////////////////////////////
 
-//MAP is a data structure that you can use to map values to keys.
-//Just like in objects data is stored in key-value pairs.
-//DIFFERENCE between Objects and MAPS - in MAPS the keys can have any type (in Objects the keys are almost always strings) - it can even be objects or arrays or other maps.
+// //MAP is a data structure that you can use to map values to keys.
+// //Just like in objects data is stored in key-value pairs.
+// //DIFFERENCE between Objects and MAPS - in MAPS the keys can have any type (in Objects the keys are almost always strings) - it can even be objects or arrays or other maps.
 
-//lets create a restorant map
-//1st create an empty map
-const rest = new Map();
-//2nd fill it using .set() method, by passing two argumnts: 1st is key name, 2nd-the name itself
-rest.set('name', 'Classico Italiano');
-//.set() method is similar to .add() method in SETS. both allow us to add new element to the data structure
+// //lets create a restorant map
+// //1st create an empty map
+// const rest = new Map();
+// //2nd fill it using .set() method, by passing two argumnts: 1st is key name, 2nd-the name itself
+// rest.set('name', 'Classico Italiano');
+// //.set() method is similar to .add() method in SETS. both allow us to add new element to the data structure
 
-//any datat type that we want can be used:
-// lets say that the restaurant has two locations-  so we can create a key with a number
-rest.set(1, 'Firenze, Italy');
-console.log(rest.set(2, 'Lisbon, Portugal'));
-//calling the set method like the three times above not only updates the Map that it is called on but also returns the Map
+// //any datat type that we want can be used:
+// // lets say that the restaurant has two locations-  so we can create a key with a number
+// rest.set(1, 'Firenze, Italy');
+// console.log(rest.set(2, 'Lisbon, Portugal'));
+// //calling the set method like the three times above not only updates the Map that it is called on but also returns the Map
 
-//.set() method can be chained, because it not only updates, but also returns the MAP, like so:
-rest
-  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
-  .set('open', 11)
-  .set('close', 23)
-  .set(true, 'we are open :D')
-  .set(false, 'we are closed :(');
-console.log(rest);
-// Calling the .set() method returns the updated MAP!!!!!!!!!!!!!!
+// //.set() method can be chained, because it not only updates, but also returns the MAP, like so:
+// rest
+//   .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+//   .set('open', 11)
+//   .set('close', 23)
+//   .set(true, 'we are open :D')
+//   .set(false, 'we are closed :(');
+// console.log(rest);
+// // Calling the .set() method returns the updated MAP!!!!!!!!!!!!!!
 
-//in order to read data from a MAP we use the .get() method, by passing in the name of the key in the parenthesis().
+// //in order to read data from a MAP we use the .get() method, by passing in the name of the key in the parenthesis().
 
-console.log(rest.get('name'));
-console.log(rest.get(true));
-console.log(rest.get(1));
+// console.log(rest.get('name'));
+// console.log(rest.get(true));
+// console.log(rest.get(1));
 
-//lets create smth fun from booleans as keys, lets check if restauran
-const time = 21;
-console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+// //lets create smth fun from booleans as keys, lets check if restaurant works at xertain time
+// const time = 21;
+// console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
 
-//to check if a map contains a certain key use .has() method
-console.log(rest.has('categories'));
+// //to check if a map contains a certain key use .has() method
+// console.log(rest.has('categories'));
 
-//delete elements from the map .delete() method
-rest.delete(2);
-//remove all elements from the map .clear()
-// rest.clear();
-console.log(rest);
+// //delete elements from the map .delete() method
+// rest.delete(2);
+// //remove all elements from the map .clear()
+// // rest.clear();
+// console.log(rest);
 
-//use arrays or objects as map keys
-// get the data from the above array(key)
-const arr = [1, 2];
-rest.set(arr, 'Test');
-//manipulate DOM objects(because they are special kind of objects)
-rest.set(document.querySelector('h1'), 'Heading');
-console.log(rest.get(arr));
+// //use arrays or objects as map keys
+// // get the data from the above array(key)
+// const arr = [1, 2];
+// rest.set(arr, 'Test');
+// //manipulate DOM objects(because they are special kind of objects)
+// rest.set(document.querySelector('h1'), 'Heading');
+// console.log(rest.get(arr));
 
-// .size() method
-console.log(rest.size);
+// // .size() method
+// console.log(rest.size);
 
 ////////////////////////////////////////////////////////////////
 ///////////////////////////Sets/////////////////////////////////
