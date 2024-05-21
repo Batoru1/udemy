@@ -70,6 +70,35 @@ const restaurant = {
 //////////////////////////Maps: iteration//////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 
+//how populate a new map without set method? pass in an array which will contain multiple arrays (array of arrays) and in each of those arrays there will be key and value
+const question = new Map([
+  ['question', 'what is the best programming language?'],
+  [1, 'C'],
+  [2, 'java'],
+  [3, 'javaScript'],
+  ['correct', 3],
+  [true, 'correct 🥳'],
+  [false, 'try again 🫠'],
+]);
+
+console.log(question);
+//when creating new map from scratch use above method, 2) when keep adding new elements programatically while using code, use .set()
+
+//the structure above is the same as calling an Object with .entries() method
+console.log(Object.entries(openingHours));
+//Convert Object to Map with .entries(), because it's an array of arrays
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+//iteration is possible on maps, because maps are iterables, so for loop is also available for them
+//print 3 options from questions map
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}:${value}`);
+}
+
+//to get the answer from the user
+
 ////////////////////////////////////////////////////////////////
 ////////////////////Maps:Fundamentals///////////////////////////
 ///////////////////////////////////////////////////////////////
