@@ -66,38 +66,57 @@ const restaurant = {
   },
 };
 
+///////////////////////////////////////////////////////////////////////////////
+//////////////////////Summarry:Which data structures to use?//////////////////
+/////////////////////////////////////////////////////////////////////////////
+
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////Maps: iteration//////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 
-//how populate a new map without set method? pass in an array which will contain multiple arrays (array of arrays) and in each of those arrays there will be key and value
-const question = new Map([
-  ['question', 'what is the best programming language?'],
-  [1, 'C'],
-  [2, 'java'],
-  [3, 'javaScript'],
-  ['correct', 3],
-  [true, 'correct 🥳'],
-  [false, 'try again 🫠'],
-]);
+// //how populate a new map without set method? pass in an array which will contain multiple arrays (array of arrays) and in each of those arrays there will be key and value
+// const question = new Map([
+//   ['question', 'what is the best programming language?'],
+//   [1, 'C'],
+//   [2, 'java'],
+//   [3, 'javaScript'],
+//   ['correct', 3],
+//   [true, 'correct 🥳'],
+//   [false, 'try again 🫠'],
+// ]);
 
-console.log(question);
-//when creating new map from scratch use above method, 2) when keep adding new elements programatically while using code, use .set()
+// console.log(question);
+// //when creating new map from scratch use above method, 2) when keep adding new elements programatically while using code, use .set()
 
-//the structure above is the same as calling an Object with .entries() method
-console.log(Object.entries(openingHours));
-//Convert Object to Map with .entries(), because it's an array of arrays
-const hoursMap = new Map(Object.entries(openingHours));
-console.log(hoursMap);
+// //the structure above is the same as calling an Object with .entries() method
+// console.log(Object.entries(openingHours));
 
-//iteration is possible on maps, because maps are iterables, so for loop is also available for them
-//print 3 options from questions map
-console.log(question.get('question'));
-for (const [key, value] of question) {
-  if (typeof key === 'number') console.log(`Answer ${key}:${value}`);
-}
+// //Convert Object to Map with .entries(), because it's an array of arrays
+// const hoursMap = new Map(Object.entries(openingHours));
+// console.log(hoursMap);
 
-//to get the answer from the user
+// //iteration is possible on maps, because maps are iterables, so for loop is also available for them
+// //print 3 options from questions map
+// console.log(question.get('question'));
+// for (const [key, value] of question) {
+//   if (typeof key === 'number') console.log(`Answer ${key}:${value}`);
+// }
+// //to get the answer from the user lets use a prompt
+// // const answer = Number(prompt('your answer'));
+// const answer = 3;
+// console.log(answer);
+
+// console.log(question.get(question.get('correct') === answer));
+
+// //converting Map into an array, by building a new array and then unpacking the Map by using spread operator ...
+// console.log([...question]);
+// //these also can be used
+// console.log(question.entries());
+// console.log(question.keys());
+// console.log(question.values());
+// //to better read them use spread operator again
+// console.log(...question.keys());
+// console.log(...question.values());
 
 ////////////////////////////////////////////////////////////////
 ////////////////////Maps:Fundamentals///////////////////////////
