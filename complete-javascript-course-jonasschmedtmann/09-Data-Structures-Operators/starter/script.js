@@ -70,6 +70,20 @@ const restaurant = {
 //////////////////////Summarry:Which data structures to use?//////////////////
 /////////////////////////////////////////////////////////////////////////////
 
+//4 data structures: 1 arrays 2 objects 3 sets 4 maps
+
+//where can data come from? 3 sources of data:
+//1from the program itself: Data written directly in source code(e.g. status messages)
+//2 from the UI: Data input from the user data written in DOM (e.g. tasks in todo app)
+//3 from external sources: Data fetched for example from web API-application programming interface (e.g. recipe objects)
+
+//no matter where data comes from , or what kind of data it is, we usually have COLLECTIONS OF DATA that we then need to store somewhere - in DATA STRUCTURES- arrays, objects, maps,sets
+
+//How to decide which datat structure to use?
+//Do I just need a simple list of values? ---- ARRAY or SET
+//If need key, value pairs --- OBJECT or MAP
+//the main diffrence is that with objects and maps we have a way of describing a value(with key), whereas with arrays we have only the values themselves
+
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////Maps: iteration//////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
