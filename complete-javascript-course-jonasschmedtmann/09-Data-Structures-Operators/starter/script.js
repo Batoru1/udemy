@@ -82,7 +82,7 @@ const restaurant = {
 //How to decide which datat structure to use?
 //Do I just need a simple list of values? ---- ARRAY or SET
 //If need key, value pairs --- OBJECT or MAP
-//the main diffrence is that with objects and maps we have a way of describing a value(with key), whereas with arrays we have only the values themselves
+//the main diffrence is that with key-value pairs (objects and maps) we have a way of describing a value(with key), whereas with Lists (arrays and sets) we have only the values themselves, without any description
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////Maps: iteration//////////////////////////////////////
