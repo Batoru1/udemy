@@ -228,6 +228,15 @@ const books = [
 //////////////////////////Maps: iteration//////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 
+const firstBookMap = new Map(Object.entries(books[0]));
+console.log(firstBookMap);
+
+for (const [key, value] of firstBookMap) {
+  if (typeof value === 'number') {
+    console.log(value);
+  }
+}
+
 /*14.1
 Convert the first book object from the books array into a Map, and assign it to a firstBookMap variable.
 
