@@ -82,7 +82,26 @@ const restaurant = {
 //How to decide which datat structure to use?
 //Do I just need a simple list of values? ---- ARRAY or SET
 //If need key, value pairs --- OBJECT or MAP
-//the main diffrence is that with key-value pairs (objects and maps) we have a way of describing a value(with key), whereas with Lists (arrays and sets) we have only the values themselves, without any description
+//the main diffrence is that with key-value pairs (objects and maps) we have a way of describing a value(with key), whereas with Lists (arrays and sets) we have only the values themselves, without any description.
+
+//example:getting data from web API. It comes in special DATA FORMAT - JSON.
+//JSON is(text) esentially a long string. It can easilly be converted to javaScript OBJECTS, because it uses the same formating as objects and arrays/
+
+//creating an array of objects is extremely common in javaScript
+
+//there are also weak sets and weak maps data structures in javaScript, but they are not as important
+
+//built in data structures(arrays objects sets maps) when to use?
+//ARRAYS vs SETS:
+//we use both for simple list of values, when we don't need to describe the values
+//USE arrays 1 when need ordered lists of values(might contain duplicates) 2 when need to manipulate data
+//USE sets 1 when need to work with unique values 2when high performance is really important 3 to remove duplicates from arrays
+// SETS compliment ARRAYS whenever we deal with unique values. ARRAYS have a lot of methods, that's why easy to manipulate data. SETS  retrieve/delete data much faster.
+
+//OBJECTS vs MAPS
+//use both(key-value datat stucturs) when need to describe VALUES using KEYS
+//USE objects: 1 More "traditional" key/value store ("abused" objects) 2 Easier to write and access values with .and []
+//Use maps: 1 Better performance 2 Keys can have any data type 3 Easy to iterate 4 Easy to compute size
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////Maps: iteration//////////////////////////////////////
