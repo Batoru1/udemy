@@ -102,6 +102,12 @@ const restaurant = {
 //use both(key-value datat stucturs) when need to describe VALUES using KEYS
 //USE objects: 1 More "traditional" key/value store ("abused" objects) 2 Easier to write and access values with .and []
 //Use maps: 1 Better performance 2 Keys can have any data type 3 Easy to iterate 4 Easy to compute size
+//maps better for simple key-value pairs
+//biggest advantage of objects is how easy it is to write them and acess data from them(dot . or bracket [] operators)
+//conclussion:
+//use <MAPS when you simply need to map keys to values and also when you need keys that are not strings
+//if need FUNCTIONS as values use OBJECT, in objects these functions are then called METHODS and you can use .this keyword to acess the properties of the same object
+//or working with JSON(can convert to map)
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////Maps: iteration//////////////////////////////////////
