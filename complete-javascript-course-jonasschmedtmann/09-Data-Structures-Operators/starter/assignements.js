@@ -224,6 +224,46 @@ const books = [
   },
 ];
 
+///////////////////////////////////////////////////////////////
+/////////////Working with Strings - Pt. 1//////////////////////
+//////////////////////////////////////////////////////////////
+
+/*15.1
+Take the ISBN property of the first book from the books array, and log to the console characters at index 6, 4, 9 and 8. Use bracket notation to access individual characters.
+
+show example solution
+ {...}
+15.2
+Below is the quote variable that stores a string. Find the index of the word 'chess', and log it to the console.
+
+const quote = 'A computer once beat me at chess, but it was no match for me at kick boxing';
+show example solution
+ {...}
+15.3
+Extract the word "boxing" from the same quote string, and log it to the console.
+
+show example solution
+ {...}
+15.4
+Some authors are noted as "(Contributor)", for example "Julie Sussman (Contributor)". Create a function called isContributor that takes an author's name as an argument, and returns either true (if he's a contributor) of false (if he's not a contributor). The string "(Contributor)" is always the last part of the author's name string.
+
+Example 1
+
+Code:
+
+isContributor('Julie Sussman (Contributor)');
+Expected output:
+
+true
+
+Example 2
+Code:
+
+isContributor('Robert Sedgewick');
+Expected output:
+
+false*/
+
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////Maps: iteration//////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
@@ -860,17 +900,26 @@ const gameEvents = new Map([
 ]);
 
 //1
-const gameEventsArr = [...gameEvents.values()];
-// console.log(gameEventsArr);
+//bad way
+// const gameEventsArr = [...gameEvents.values()];
+// // console.log(gameEventsArr);
+// const eventsSet = [new Set(gameEventsArr)];
+// // console.log(eventsSet);
+// const events = [...eventsSet];
+// console.log(events);
+// //teacher way
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
 
-const eventsSet = [new Set(gameEventsArr)];
-// console.log(eventsSet);
-
+//my way
+console.log(gameEvents.values());
+const eventsSet = new Set(gameEvents.values());
+console.log(eventsSet);
 const events = [...eventsSet];
 console.log(events);
 
-//2
-gameEvents.delete(64);
+//const events = [...new Set(gameEvents.values())];
+// console.log(events);meEvents.delete(64);
 console.log(gameEvents);
 
 //3
@@ -879,10 +928,22 @@ average, every ${90 / gameEvents.size} minutes`);
 
 //4
 for (const [key, value] of gameEvents) {
-  console.log(
-    `${key < 45}?[FIRST HALF] ${(key, value)}:[SECOND HALF] ${(key, value)} `
-  );
+  if (key < 45) {
+    console.log(`[FIRST HALF] ${(key, value)}`);
+  }
+  if (key > 45) {
+    console.log(`[SECOND HALF] ${(key, value)}`);
+  }
 }
+
+//Bonus to count time from 92 not 90
+const time = [...gameEvents.keys()];
+// //teacher way
+// for (const [key, value] of gameEvents) {
+//   const half = key <= 45 ? 'FIRST' : 'SECOND';
+//   console.log(`[${half} HALF] ${key}: ${value}`);
+// }
+
 /*
 1. Create an array 'events' of the different game events that happened (no
 duplicates)
