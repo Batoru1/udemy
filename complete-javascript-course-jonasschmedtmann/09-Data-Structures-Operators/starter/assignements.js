@@ -926,6 +926,10 @@ console.log(gameEvents);
 console.log(`An event happened, on
 average, every ${90 / gameEvents.size} minutes`);
 
+//Bonus to count time from 92 not 90
+const time = [...gameEvents.keys()].pop();
+console.log(time);
+
 //4
 for (const [key, value] of gameEvents) {
   if (key < 45) {
@@ -936,8 +940,6 @@ for (const [key, value] of gameEvents) {
   }
 }
 
-//Bonus to count time from 92 not 90
-const time = [...gameEvents.keys()];
 // //teacher way
 // for (const [key, value] of gameEvents) {
 //   const half = key <= 45 ? 'FIRST' : 'SECOND';
