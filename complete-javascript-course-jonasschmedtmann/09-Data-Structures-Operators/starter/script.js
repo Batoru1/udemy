@@ -70,6 +70,37 @@ const restaurant = {
 /////////////Working with Strings - Pt. 1//////////////////////
 //////////////////////////////////////////////////////////////
 
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+//getting character of a string in a certain position
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+//length
+console.log(airline.length);
+console.log('B737'.length);
+
+//String METHODS
+
+//indexOf position of certain letter in the string(first occurance)
+console.log(airline.indexOf('r'));
+//lastIndexOf when need last occurance of certain letter
+console.log(airline.lastIndexOf('r'));
+//can search for entire words (also case (r R) sensitive)
+console.log(airline.indexOf('Portugal'));
+console.log(airline.indexOf('portugal'));
+//indexes are useful with slice method, because we need to find out from where to slice. the index is the place from where extraction starts
+//the result of slice methos is a substring, which doesn't replace the original string, because strings are primitive and immutable
+//if we wanted to use this substring, we would first need to store it in a variable or data structure
+//so this method and all the others return a NEW STRING
+console.log(airline.slice(4));
+//so .slice() is a BEGIN parameter
+//length of string is end - beggining
+//the last index is not returned
+//END parameter
+console.log(airline.slice(4, 7));
+
 ///////////////////////////////////////////////////////////////////////////////
 //////////////////////Summarry:Which data structures to use?//////////////////
 /////////////////////////////////////////////////////////////////////////////
