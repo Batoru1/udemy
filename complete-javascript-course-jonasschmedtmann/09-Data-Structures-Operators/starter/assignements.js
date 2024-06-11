@@ -899,52 +899,52 @@ const gameEvents = new Map([
   [92, '🔶 Yellow card'],
 ]);
 
-//1
-//bad way
-// const gameEventsArr = [...gameEvents.values()];
-// // console.log(gameEventsArr);
-// const eventsSet = [new Set(gameEventsArr)];
-// // console.log(eventsSet);
+// //1
+// //bad way
+// // const gameEventsArr = [...gameEvents.values()];
+// // // console.log(gameEventsArr);
+// // const eventsSet = [new Set(gameEventsArr)];
+// // // console.log(eventsSet);
+// // const events = [...eventsSet];
+// // console.log(events);
+// // //teacher way
+// // const events = [...new Set(gameEvents.values())];
+// // console.log(events);
+
+// //my way
+// console.log(gameEvents.values());
+// const eventsSet = new Set(gameEvents.values());
+// console.log(eventsSet);
 // const events = [...eventsSet];
 // console.log(events);
-// //teacher way
-// const events = [...new Set(gameEvents.values())];
-// console.log(events);
 
-//my way
-console.log(gameEvents.values());
-const eventsSet = new Set(gameEvents.values());
-console.log(eventsSet);
-const events = [...eventsSet];
-console.log(events);
+// //const events = [...new Set(gameEvents.values())];
+// // console.log(events);meEvents.delete(64);
+// console.log(gameEvents);
 
-//const events = [...new Set(gameEvents.values())];
-// console.log(events);meEvents.delete(64);
-console.log(gameEvents);
+// //3
+// console.log(`An event happened, on
+// average, every ${90 / gameEvents.size} minutes`);
 
-//3
-console.log(`An event happened, on
-average, every ${90 / gameEvents.size} minutes`);
+// //Bonus to count time from 92 not 90
+// const time = [...gameEvents.keys()].pop();
+// console.log(time);
 
-//Bonus to count time from 92 not 90
-const time = [...gameEvents.keys()].pop();
-console.log(time);
-
-//4
-for (const [key, value] of gameEvents) {
-  if (key < 45) {
-    console.log(`[FIRST HALF] ${(key, value)}`);
-  }
-  if (key > 45) {
-    console.log(`[SECOND HALF] ${(key, value)}`);
-  }
-}
-
-// //teacher way
+// //4
 // for (const [key, value] of gameEvents) {
-//   const half = key <= 45 ? 'FIRST' : 'SECOND';
-//   console.log(`[${half} HALF] ${key}: ${value}`);
+//   if (key < 45) {
+//     console.log(`[FIRST HALF] ${(key, value)}`);
+//   }
+//   if (key > 45) {
+//     console.log(`[SECOND HALF] ${(key, value)}`);
+//   }
 // }
+
+// // //teacher way
+// // for (const [key, value] of gameEvents) {
+// //   const half = key <= 45 ? 'FIRST' : 'SECOND';
+// //   console.log(`[${half} HALF] ${key}: ${value}`);
+// // }
 
 /*
 1. Create an array 'events' of the different game events that happened (no
