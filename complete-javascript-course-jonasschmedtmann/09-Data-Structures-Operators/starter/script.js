@@ -72,6 +72,7 @@ const restaurant = {
 
 const airline = 'TAP Air Portugal';
 const plane = 'A320';
+
 //getting character of a string in a certain position
 console.log(plane[0]);
 console.log(plane[1]);
