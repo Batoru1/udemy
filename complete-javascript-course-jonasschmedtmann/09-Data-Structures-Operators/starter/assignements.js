@@ -241,7 +241,24 @@ const quote =
 console.log(quote.indexOf('chess'));
 
 //15.3
+console.log(quote.slice(quote.lastIndexOf(' ') + 1));
 
+//15.4
+function isContributor(autName) {
+  const ifContr = autName.slice(autName.lastIndexOf(' ') + 1);
+  // console.log(ifContr);
+  if (ifContr === '(Contributor)') {
+    console.log(true);
+  } else {
+    console.log(false);
+  }
+}
+
+// function isContributor(author) {
+//   return author.lastIndexOf('(Contributor)') !== -1;
+// }
+
+isContributor('Julie Sussman (Contributor)');
 /*15.1
 Take the ISBN property of the first book from the books array, and log to the console characters at index 6, 4, 9 and 8. Use bracket notation to access individual characters.
 

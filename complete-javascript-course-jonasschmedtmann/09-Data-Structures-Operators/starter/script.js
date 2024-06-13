@@ -70,74 +70,74 @@ const restaurant = {
 /////////////Working with Strings - Pt. 1//////////////////////
 //////////////////////////////////////////////////////////////
 
-const airline = 'TAP Air Portugal';
-const plane = 'A320';
+// const airline = 'TAP Air Portugal';
+// const plane = 'A320';
 
-//getting character of a string in a certain position
-console.log(plane[0]);
-console.log(plane[1]);
-console.log(plane[2]);
-console.log('B737'[0]);
-//length
-console.log(airline.length);
-console.log('B737'.length);
+// //getting character of a string in a certain position
+// console.log(plane[0]);
+// console.log(plane[1]);
+// console.log(plane[2]);
+// console.log('B737'[0]);
+// //length
+// console.log(airline.length);
+// console.log('B737'.length);
 
-//String METHODS
+// //String METHODS
 
-//indexOf position of certain letter in the string(first occurance)
-console.log(airline.indexOf('r'));
+// //indexOf position of certain letter in the string(first occurance)
+// console.log(airline.indexOf('r'));
 
-//lastIndexOf when need last occurance of certain letter
-console.log(airline.lastIndexOf('r'));
+// //lastIndexOf when need last occurance of certain letter
+// console.log(airline.lastIndexOf('r'));
 
-//can search for entire words (also case (r R) sensitive)
-console.log(airline.indexOf('Portugal'));
-console.log(airline.indexOf('portugal'));
+// //can search for entire words (also case (r R) sensitive)
+// console.log(airline.indexOf('Portugal'));
+// console.log(airline.indexOf('portugal'));
 
-//indexes are useful with slice method, because we need to find out from where to slice. the index is the place from where extraction starts
-//the result of slice methos is a substring, which doesn't replace the original string, because strings are primitive and immutable
-//if we wanted to use this substring, we would first need to store it in a variable or data structure
-//so this method and all the others return a NEW STRING
-console.log(airline.slice(4));
+// //indexes are useful with slice method, because we need to find out from where to slice. the index is the place from where extraction starts
+// //the result of slice methos is a substring, which doesn't replace the original string, because strings are primitive and immutable
+// //if we wanted to use this substring, we would first need to store it in a variable or data structure
+// //so this method and all the others return a NEW STRING
+// console.log(airline.slice(4));
 
-//so .slice() is a BEGIN parameter
-//length of string is end - beggining
-//the last index is not returned
-//END parameter
-console.log(airline.slice(4, 7));
+// //so .slice() is a BEGIN parameter
+// //length of string is end - beggining
+// //the last index is not returned
+// //END parameter
+// console.log(airline.slice(4, 7));
 
-//extracting first word without knowing indexes
-console.log(airline.slice(0, airline.indexOf(' ')));
+// //extracting first word without knowing indexes
+// console.log(airline.slice(0, airline.indexOf(' ')));
 
-//extracting the last word without knowing indexes(+1 to remove empty space before last word)
-console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+// //extracting the last word without knowing indexes(+1 to remove empty space before last word)
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
 
-//defining a negative begin argument
-console.log(airline.slice(-2));
-console.log(airline.slice(1, -1));
+// //defining a negative begin argument
+// console.log(airline.slice(-2));
+// console.log(airline.slice(1, -1));
 
-//writte function that receives plain seat and prints to console wether it's middle seat or notMiddleSeat
-//To EXTRACT PART OF A STRING use .slice()
-//TO TAKE LAST CHARACTER OF A STRING use -1 as the beggin character
-const checkMiddleSeat = function (seat) {
-  // B and E are middle seats
-  const s = seat.slice(-1);
-  if (s === 'B' || s === 'E') console.log('You got the middle seat🫠');
-  else console.log('You got lucky 😁');
-};
+// //writte function that receives plain seat and prints to console wether it's middle seat or notMiddleSeat
+// //To EXTRACT PART OF A STRING use .slice()
+// //TO TAKE LAST CHARACTER OF A STRING use -1 as the beggin character
+// const checkMiddleSeat = function (seat) {
+//   // B and E are middle seats
+//   const s = seat.slice(-1);
+//   if (s === 'B' || s === 'E') console.log('You got the middle seat🫠');
+//   else console.log('You got lucky 😁');
+// };
 
-checkMiddleSeat('11B');
-checkMiddleSeat('23C');
-checkMiddleSeat('3E');
+// checkMiddleSeat('11B');
+// checkMiddleSeat('23C');
+// checkMiddleSeat('3E');
 
-//boxing-making a string primitive into a string object so the methods work - behind the scenes, because string is primitive value, so should not have methods.
-//when operation is done the string object is reverted to regular string primitive
+// //boxing-making a string primitive into a string object so the methods work - behind the scenes, because string is primitive value, so should not have methods.
+// //when operation is done the string object is reverted to regular string primitive
 
-console.log(new String('jonas'));
-console.log(typeof new String('jonas'));
+// console.log(new String('jonas'));
+// console.log(typeof new String('jonas'));
 
-//all string methods return string primitives even if called on a string object
-console.log(typeof new String('jonas').slice(1));
+// //all string methods return string primitives even if called on a string object
+// console.log(typeof new String('jonas').slice(1));
 
 ///////////////////////////////////////////////////////////////////////////////
 //////////////////////Summarry:Which data structures to use?//////////////////
