@@ -228,35 +228,36 @@ const books = [
 /////////////Working with Strings - Pt.1//////////////////////
 //////////////////////////////////////////////////////////////
 
-//15.1 9780321573513
-console.log(books[0].ISBN[6]);
-console.log(books[0]['ISBN'][4]);
-console.log(books[0]['ISBN'][9]);
-console.log(books[0]['ISBN'][8]);
+// //15.1 9780321573513
+// console.log(books[0].ISBN[6]);
+// console.log(books[0]['ISBN'][4]);
+// console.log(books[0]['ISBN'][9]);
+// console.log(books[0]['ISBN'][8]);
 
-//15.2
-const quote =
-  'A computer once beat me at chess, but it was no match for me at kick boxing';
+// //15.2
+// const quote =
+//   'A computer once beat me at chess, but it was no match for me at kick boxing';
 
-console.log(quote.indexOf('chess'));
+// console.log(quote.indexOf('chess'));
 
-//15.3
-console.log(quote.slice(quote.lastIndexOf(' ') + 1));
+// //15.3
+// console.log(quote.slice(quote.lastIndexOf(' ') + 1));
 
-//15.4
-function isContributor(autName) {
-  const ifContr = autName.slice(autName.lastIndexOf(' ') + 1);
-  // console.log(ifContr);
-  if (ifContr === '(Contributor)') {
-    console.log(true);
-  } else {
-    console.log(false);
-  }
-}
-
-// function isContributor(author) {
-//   return author.lastIndexOf('(Contributor)') !== -1;
+// //15.4
+// function isContributor(autName) {
+//   const ifContr = autName.slice(autName.lastIndexOf(' ') + 1);
+//   // console.log(ifContr);
+//   if (ifContr === '(Contributor)') {
+//     console.log(true);
+//   } else {
+//     console.log(false);
+//   }
 // }
+
+// //memas solution
+// // function isContributor(author) {
+// //   return author.lastIndexOf('(Contributor)') !== -1;
+// // }
 
 isContributor('Julie Sussman (Contributor)');
 /*15.1
