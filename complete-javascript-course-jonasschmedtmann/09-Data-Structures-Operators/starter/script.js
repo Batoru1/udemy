@@ -67,6 +67,50 @@ const restaurant = {
 };
 
 ///////////////////////////////////////////////////////////////
+/////////////Working with Strings - Pt. 2//////////////////////
+//////////////////////////////////////////////////////////////
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+//changing the case of a string(2methos)
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+//fix capitalization in name
+const passenger = 'jOnAS'; //Jonas
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+//assignment - function with fixed capitalization
+function fixedCapitalization(name) {
+  const nameLower = name.toLowerCase();
+  const nameNormal = nameLower[0].toUpperCase() + nameLower.slice(1);
+  console.log(nameNormal);
+}
+
+fixedCapitalization('DzaiMeSas');
+
+//Live example -compare (check) user input email
+const email = 'hello@jonas.io';
+const loginEmail = '  Hello@Jonas.Io \n';
+
+//1st step convert to lower case
+const lowerEmail = loginEmail.toLowerCase();
+
+// removing white spaces .trim()
+const trimedEmail = lowerEmail.trim();
+console.log(trimedEmail);
+
+//doing all the above in one step
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
+
+//assignment - make function whgere you pass two emails-one correct and one to check and return true or false from that
+///////////////////////////////////////////////////////////////
 /////////////Working with Strings - Pt. 1//////////////////////
 //////////////////////////////////////////////////////////////
 
