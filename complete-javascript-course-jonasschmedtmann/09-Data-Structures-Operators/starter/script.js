@@ -67,6 +67,10 @@ const restaurant = {
 };
 
 ///////////////////////////////////////////////////////////////
+/////////////Working with Strings - Pt. 3//////////////////////
+//////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////
 /////////////Working with Strings - Pt. 2//////////////////////
 //////////////////////////////////////////////////////////////
 
@@ -108,6 +112,54 @@ console.log(trimedEmail);
 const normalizedEmail = loginEmail.toLowerCase().trim();
 console.log(normalizedEmail);
 console.log(email === normalizedEmail);
+
+//replacing parts of strings
+//replace() creates a brand new string,  but does not mutate the original one
+//.replace() only replaces the first occurance of replacable part
+// to replace all occurances use .replaceAll()
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcment =
+  'All passengers come to boarding door 23. Boarding door 23!';
+
+console.log(announcment.replaceAll('door', 'gate'));
+
+//replacing all occurances using regular expression
+//.replace() method, like all string methods, is case sesnsitive
+console.log(announcment.replace(/door/g, 'gate'));
+
+//3 methods return Booleans - .includes(), .startsWith(), .endsWith()
+const plane2 = 'Airbus A320neo';
+
+//checking if a string includes certain part
+console.log(plane2.includes('A320'));
+console.log(plane2.includes('Boeing'));
+
+//checking if string starts with certain fraze
+console.log(plane2.startsWith('Air'));
+
+//checking if plane is part of a new airbus family
+if (plane2.startsWith('Airbus') && plane2.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family');
+}
+
+//Practice exercise to check if passanger baggage is allowed to be checked in
+//using toLowerCase all the time, because comparison needs to be equal(lower upper case, case sesnsitivity)
+
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are NOT alowed on board');
+  } else {
+    console.log('You are ALOWED on  a plane');
+  }
+};
+
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
 
 //assignment - make function whgere you pass two emails-one correct and one to check and return true or false from that
 ///////////////////////////////////////////////////////////////
