@@ -237,10 +237,9 @@ function normalizeAuthorName(name) {
   const surname = nameSurname[1].toLowerCase().trim();
   const fnameCap = fName[0].toUpperCase() + fName.slice(1);
   const surnameCap = surname[0].toUpperCase() + surname.slice(1);
+  const goodName = [fnameCap, surnameCap].join(' ');
 
-  console.log(surnameCap);
-  // const capitalized = noWhiteSpace.toUpperCase();
-  // console.log(capitalized);
+  console.log(goodName);
 }
 
 normalizeAuthorName('  JuliE sussMan (Contributor)');
