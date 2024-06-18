@@ -231,8 +231,14 @@ const books = [
 //16.1
 function normalizeAuthorName(name) {
   const removeContr = name.replace('(Contributor)', '');
-  const capitalized = removeContr.toUpperCase();
-  console.log(capitalized);
+  const noWhiteSpace = removeContr.trim();
+  const nameSurname = noWhiteSpace.split(' ');
+  console.log(nameSurname);
+  const Name = nameSurname[0];
+  console.log(Name);
+
+  // const capitalized = noWhiteSpace.toUpperCase();
+  // console.log(capitalized);
 }
 
 normalizeAuthorName('  JuliE sussMan (Contributor)');
