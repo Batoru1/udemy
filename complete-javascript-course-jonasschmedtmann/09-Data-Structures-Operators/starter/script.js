@@ -161,7 +161,6 @@ checkBaggage('I have a laptop, some Food and a pocket Knife');
 checkBaggage('Socks and camera');
 checkBaggage('Got some snacks and a gun for protection');
 
-//assignment - make function whgere you pass two emails-one correct and one to check and return true or false from that
 ///////////////////////////////////////////////////////////////
 /////////////Working with Strings - Pt. 1//////////////////////
 //////////////////////////////////////////////////////////////

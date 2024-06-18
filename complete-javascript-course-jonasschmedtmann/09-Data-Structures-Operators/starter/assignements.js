@@ -228,6 +228,15 @@ const books = [
 /////////////Working with Strings - Pt.2//////////////////////
 //////////////////////////////////////////////////////////////
 
+//16.1
+function normalizeAuthorName(name) {
+  const removeContr = name.replace('(Contributor)', '');
+  const capitalized = removeContr.toUpperCase();
+  console.log(capitalized);
+}
+
+normalizeAuthorName('  JuliE sussMan (Contributor)');
+
 /*16.1
 Write a function called normalizeAuthorName that takes an author's name (string) as an argument, and returns the same string, but the first name and last name are capitalized, and the "(Contributor)" part is removed (if exists).
 
