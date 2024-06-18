@@ -233,10 +233,12 @@ function normalizeAuthorName(name) {
   const removeContr = name.replace('(Contributor)', '');
   const noWhiteSpace = removeContr.trim();
   const nameSurname = noWhiteSpace.split(' ');
-  console.log(nameSurname);
-  const Name = nameSurname[0];
-  console.log(Name);
+  const fName = nameSurname[0].toLowerCase().trim();
+  const surname = nameSurname[1].toLowerCase().trim();
+  const fnameCap = fName[0].toUpperCase() + fName.slice(1);
+  const surnameCap = surname[0].toUpperCase() + surname.slice(1);
 
+  console.log(surnameCap);
   // const capitalized = noWhiteSpace.toUpperCase();
   // console.log(capitalized);
 }
