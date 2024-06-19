@@ -224,82 +224,86 @@ const books = [
   },
 ];
 
-//////////////////////////////////////////////////////////////
-/////////////Working with Strings - Pt.2//////////////////////
-//////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+/////////////Working with Strings - Pt.3////////////////////
+////////////////////////////////////////////////////////////
 
-//16.1
-function normalizeAuthorName(name) {
-  const removeContr = name.replace('(Contributor)', '');
-  const noWhiteSpace = removeContr.trim();
-  const nameSurname = noWhiteSpace.split(' ');
-  const fName = nameSurname[0].toLowerCase().trim();
-  const surname = nameSurname[1].toLowerCase().trim();
-  const fnameCap = fName[0].toUpperCase() + fName.slice(1);
-  const surnameCap = surname[0].toUpperCase() + surname.slice(1);
-  const goodName = [fnameCap, surnameCap].join(' ');
+////////////////////////////////////////////////////////////
+/////////////Working with Strings - Pt.2////////////////////
+////////////////////////////////////////////////////////////
 
-  console.log(goodName);
-  // return goodName;
-}
+// //16.1
+// function normalizeAuthorName(name) {
+//   const removeContr = name.replace('(Contributor)', '');
+//   const noWhiteSpace = removeContr.trim();
+//   const nameSurname = noWhiteSpace.split(' ');
+//   const fName = nameSurname[0].toLowerCase().trim();
+//   const surname = nameSurname[1].toLowerCase().trim();
+//   const fnameCap = fName[0].toUpperCase() + fName.slice(1);
+//   const surnameCap = surname[0].toUpperCase() + surname.slice(1);
+//   const goodName = [fnameCap, surnameCap].join(' ');
 
-normalizeAuthorName('  JuliE sussMan (Contributor)');
+//   console.log(goodName);
+//   // return goodName;
+// }
 
-//16.2
-const newBookTitle = books[1].title.replace('Programs', 'Software');
+// normalizeAuthorName('  JuliE sussMan (Contributor)');
 
-console.log(newBookTitle);
+// //16.2
+// const newBookTitle = books[1].title.replace('Programs', 'Software');
 
-//16.3
+// console.log(newBookTitle);
 
-/*16.1
-Write a function called normalizeAuthorName that takes an author's name (string) as an argument, and returns the same string, but the first name and last name are capitalized, and the "(Contributor)" part is removed (if exists).
+// //16.3
 
-You can be sure that the author's name always consists of two words separated by a space, and possibly ends with "(Contributor)". The string may also contain trailing spaces.
+// /*16.1
+// Write a function called normalizeAuthorName that takes an author's name (string) as an argument, and returns the same string, but the first name and last name are capitalized, and the "(Contributor)" part is removed (if exists).
 
-Example
-Code:
+// You can be sure that the author's name always consists of two words separated by a space, and possibly ends with "(Contributor)". The string may also contain trailing spaces.
 
-normalizeAuthorName('  JuliE sussMan (Contributor)')
-Expected output:
+// Example
+// Code:
 
-"Julie Sussman"
+// normalizeAuthorName('  JuliE sussMan (Contributor)')
+// Expected output:
 
-16.2
-Take the title of the second book (books[1]) from the books array, and replace the word "Programs" with "Software". Assign the new string to the newBookTitle variable.
+// "Julie Sussman"
 
-16.3
-Write a function called logBookTheme that takes book's title (string), and logs to the console:
+// 16.2
+// Take the title of the second book (books[1]) from the books array, and replace the word "Programs" with "Software". Assign the new string to the newBookTitle variable.
 
-"This book is about computers" if the title starts with the word "computer",
+// 16.3
+// Write a function called logBookTheme that takes book's title (string), and logs to the console:
 
-"This book is about algorithms and data structures" if the title includes both the "algorithms" and "structures" words,
+// "This book is about computers" if the title starts with the word "computer",
 
-and, "This book is about some systems, but definitely not about operating systems" if the title ends with the word "system" or "systems", but doesn't include the word "operating".
+// "This book is about algorithms and data structures" if the title includes both the "algorithms" and "structures" words,
 
-The title may contain both small and capital letters. */
+// and, "This book is about some systems, but definitely not about operating systems" if the title ends with the word "system" or "systems", but doesn't include the word "operating".
 
-//16.3
-function logBookTheme(title) {
-  const booksTitle = title.toLowerCase();
+// The title may contain both small and capital letters. */
 
-  if (booksTitle.startsWith('computer')) {
-    console.log('This book is about computers');
-  }
-  if (booksTitle.includes('algorithms') && booksTitle.includes('structures')) {
-    console.log('This book is about algorithms and data structures');
-  }
-  if (
-    booksTitle.endsWith('system') ||
-    (booksTitle.endsWith('systems') && !booksTitle.include('operating'))
-  ) {
-    console.log(
-      'This book is about some systems, but definitely not about operating systems'
-    );
-  }
-}
+// //16.3
+// function logBookTheme(title) {
+//   const booksTitle = title.toLowerCase();
 
-logBookTheme("Computer Systems: A Programmer's Perspective");
+//   if (booksTitle.startsWith('computer')) {
+//     console.log('This book is about computers');
+//   }
+//   if (booksTitle.includes('algorithms') && booksTitle.includes('structures')) {
+//     console.log('This book is about algorithms and data structures');
+//   }
+//   if (
+//     booksTitle.endsWith('system') ||
+//     (booksTitle.endsWith('systems') && !booksTitle.include('operating'))
+//   ) {
+//     console.log(
+//       'This book is about some systems, but definitely not about operating systems'
+//     );
+//   }
+// }
+
+// logBookTheme("Computer Systems: A Programmer's Perspective");
 
 //////////////////////////////////////////////////////////////
 /////////////Working with Strings - Pt.1//////////////////////

@@ -66,13 +66,38 @@ const restaurant = {
   },
 };
 
-///////////////////////////////////////////////////////////////
-/////////////Working with Strings - Pt. 3//////////////////////
-//////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////Working with Strings - Pt. 3////////////////////
+/////////////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////
-/////////////Working with Strings - Pt. 2//////////////////////
-//////////////////////////////////////////////////////////////
+// .split() splits a string into multiple parts based on a divider string. splits the original string into an array of strings
+console.log('a+very+nice+string'.split('+'));
+console.log('Jonas Schmedtmann'.split(' '));
+
+//creating variables with destructuring and .split()
+const [firsName, lastName] = 'Jonas Schmedtmann'.split(' ');
+console.log(lastName);
+
+//.join() - opposite of .split(). Joins an array of strings into one string
+const newName = ['Mr.', firsName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+//capitalizing a name using join and split
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+  }
+  console.log(namesUpper.join(' '));
+};
+capitalizeName('jessica ann smith davis');
+capitalizeName('jonas schmedtmann');
+
+/////////////////////////////////////////////////////////////
+/////////////Working with Strings - Pt. 2////////////////////
+/////////////////////////////////////////////////////////////
 
 // const airline = 'TAP Air Portugal';
 // const plane = 'A320';
