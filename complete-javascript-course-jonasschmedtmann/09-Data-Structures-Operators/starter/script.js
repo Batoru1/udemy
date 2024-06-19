@@ -74,92 +74,92 @@ const restaurant = {
 /////////////Working with Strings - Pt. 2//////////////////////
 //////////////////////////////////////////////////////////////
 
-const airline = 'TAP Air Portugal';
-const plane = 'A320';
+// const airline = 'TAP Air Portugal';
+// const plane = 'A320';
 
-//changing the case of a string(2methos)
-console.log(airline.toLowerCase());
-console.log(airline.toUpperCase());
+// //changing the case of a string(2methos)
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
 
-//fix capitalization in name
-const passenger = 'jOnAS'; //Jonas
-const passengerLower = passenger.toLowerCase();
-const passengerCorrect =
-  passengerLower[0].toUpperCase() + passengerLower.slice(1);
-console.log(passengerCorrect);
+// //fix capitalization in name
+// const passenger = 'jOnAS'; //Jonas
+// const passengerLower = passenger.toLowerCase();
+// const passengerCorrect =
+//   passengerLower[0].toUpperCase() + passengerLower.slice(1);
+// console.log(passengerCorrect);
 
-//assignment - function with fixed capitalization
-function fixedCapitalization(name) {
-  const nameLower = name.toLowerCase();
-  const nameNormal = nameLower[0].toUpperCase() + nameLower.slice(1);
-  console.log(nameNormal);
-}
+// //assignment - function with fixed capitalization
+// function fixedCapitalization(name) {
+//   const nameLower = name.toLowerCase();
+//   const nameNormal = nameLower[0].toUpperCase() + nameLower.slice(1);
+//   console.log(nameNormal);
+// }
 
-fixedCapitalization('DzaiMeSas');
+// fixedCapitalization('DzaiMeSas');
 
-//Live example -compare (check) user input email
-const email = 'hello@jonas.io';
-const loginEmail = '  Hello@Jonas.Io \n';
+// //Live example -compare (check) user input email
+// const email = 'hello@jonas.io';
+// const loginEmail = '  Hello@Jonas.Io \n';
 
-//1st step convert to lower case
-const lowerEmail = loginEmail.toLowerCase();
+// //1st step convert to lower case
+// const lowerEmail = loginEmail.toLowerCase();
 
-// removing white spaces .trim()
-const trimedEmail = lowerEmail.trim();
-console.log(trimedEmail);
+// // removing white spaces .trim()
+// const trimedEmail = lowerEmail.trim();
+// console.log(trimedEmail);
 
-//doing all the above in one step
-const normalizedEmail = loginEmail.toLowerCase().trim();
-console.log(normalizedEmail);
-console.log(email === normalizedEmail);
+// //doing all the above in one step
+// const normalizedEmail = loginEmail.toLowerCase().trim();
+// console.log(normalizedEmail);
+// console.log(email === normalizedEmail);
 
-//replacing parts of strings
-//replace() creates a brand new string,  but does not mutate the original one
-//.replace() only replaces the first occurance of replacable part
-// to replace all occurances use .replaceAll()
-const priceGB = '288,97£';
-const priceUS = priceGB.replace('£', '$').replace(',', '.');
-console.log(priceUS);
+// //replacing parts of strings
+// //replace() creates a brand new string,  but does not mutate the original one
+// //.replace() only replaces the first occurance of replacable part
+// // to replace all occurances use .replaceAll()
+// const priceGB = '288,97£';
+// const priceUS = priceGB.replace('£', '$').replace(',', '.');
+// console.log(priceUS);
 
-const announcment =
-  'All passengers come to boarding door 23. Boarding door 23!';
+// const announcment =
+//   'All passengers come to boarding door 23. Boarding door 23!';
 
-console.log(announcment.replaceAll('door', 'gate'));
+// console.log(announcment.replaceAll('door', 'gate'));
 
-//replacing all occurances using regular expression
-//.replace() method, like all string methods, is case sesnsitive
-console.log(announcment.replace(/door/g, 'gate'));
+// //replacing all occurances using regular expression
+// //.replace() method, like all string methods, is case sesnsitive
+// console.log(announcment.replace(/door/g, 'gate'));
 
-//3 methods return Booleans - .includes(), .startsWith(), .endsWith()
-const plane2 = 'Airbus A320neo';
+// //3 methods return Booleans - .includes(), .startsWith(), .endsWith()
+// const plane2 = 'Airbus A320neo';
 
-//checking if a string includes certain part
-console.log(plane2.includes('A320'));
-console.log(plane2.includes('Boeing'));
+// //checking if a string includes certain part
+// console.log(plane2.includes('A320'));
+// console.log(plane2.includes('Boeing'));
 
-//checking if string starts with certain fraze
-console.log(plane2.startsWith('Air'));
+// //checking if string starts with certain fraze
+// console.log(plane2.startsWith('Air'));
 
-//checking if plane is part of a new airbus family
-if (plane2.startsWith('Airbus') && plane2.endsWith('neo')) {
-  console.log('Part of the NEW Airbus family');
-}
+// //checking if plane is part of a new airbus family
+// if (plane2.startsWith('Airbus') && plane2.endsWith('neo')) {
+//   console.log('Part of the NEW Airbus family');
+// }
 
-//Practice exercise to check if passanger baggage is allowed to be checked in
-//using toLowerCase all the time, because comparison needs to be equal(lower upper case, case sesnsitivity)
+// //Practice exercise to check if passanger baggage is allowed to be checked in
+// //using toLowerCase all the time, because comparison needs to be equal(lower upper case, case sesnsitivity)
 
-const checkBaggage = function (items) {
-  const baggage = items.toLowerCase();
-  if (baggage.includes('knife') || baggage.includes('gun')) {
-    console.log('You are NOT alowed on board');
-  } else {
-    console.log('You are ALOWED on  a plane');
-  }
-};
+// const checkBaggage = function (items) {
+//   const baggage = items.toLowerCase();
+//   if (baggage.includes('knife') || baggage.includes('gun')) {
+//     console.log('You are NOT alowed on board');
+//   } else {
+//     console.log('You are ALOWED on  a plane');
+//   }
+// };
 
-checkBaggage('I have a laptop, some Food and a pocket Knife');
-checkBaggage('Socks and camera');
-checkBaggage('Got some snacks and a gun for protection');
+// checkBaggage('I have a laptop, some Food and a pocket Knife');
+// checkBaggage('Socks and camera');
+// checkBaggage('Got some snacks and a gun for protection');
 
 ///////////////////////////////////////////////////////////////
 /////////////Working with Strings - Pt. 1//////////////////////

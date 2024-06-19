@@ -240,9 +240,17 @@ function normalizeAuthorName(name) {
   const goodName = [fnameCap, surnameCap].join(' ');
 
   console.log(goodName);
+  // return goodName;
 }
 
 normalizeAuthorName('  JuliE sussMan (Contributor)');
+
+//16.2
+const newBookTitle = books[1].title.replace('Programs', 'Software');
+
+console.log(newBookTitle);
+
+//16.3
 
 /*16.1
 Write a function called normalizeAuthorName that takes an author's name (string) as an argument, and returns the same string, but the first name and last name are capitalized, and the "(Contributor)" part is removed (if exists).
@@ -270,6 +278,28 @@ Write a function called logBookTheme that takes book's title (string), and logs 
 and, "This book is about some systems, but definitely not about operating systems" if the title ends with the word "system" or "systems", but doesn't include the word "operating".
 
 The title may contain both small and capital letters. */
+
+//16.3
+function logBookTheme(title) {
+  const booksTitle = title.toLowerCase();
+
+  if (booksTitle.startsWith('computer')) {
+    console.log('This book is about computers');
+  }
+  if (booksTitle.includes('algorithms') && booksTitle.includes('structures')) {
+    console.log('This book is about algorithms and data structures');
+  }
+  if (
+    booksTitle.endsWith('system') ||
+    (booksTitle.endsWith('systems') && !booksTitle.include('operating'))
+  ) {
+    console.log(
+      'This book is about some systems, but definitely not about operating systems'
+    );
+  }
+}
+
+logBookTheme("Computer Systems: A Programmer's Perspective");
 
 //////////////////////////////////////////////////////////////
 /////////////Working with Strings - Pt.1//////////////////////
