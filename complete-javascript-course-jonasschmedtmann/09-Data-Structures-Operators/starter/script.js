@@ -113,6 +113,19 @@ console.log(maskCreditCard(44544337));
 console.log(maskCreditCard(84646473844337));
 console.log(maskCreditCard('14845164789421465456456'));
 
+//Repeat- allows to repeat the same string multiple times
+//.repeat(number of times to repeat)
+const message2 = 'Bad weather... All Departures Delayed...';
+console.log(message2.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'✈️'.repeat(n)}`);
+};
+
+planesInLine(5);
+planesInLine(3);
+planesInLine(12);
+
 /////////////////////////////////////////////////////////////
 /////////////Working with Strings - Pt. 2////////////////////
 /////////////////////////////////////////////////////////////
