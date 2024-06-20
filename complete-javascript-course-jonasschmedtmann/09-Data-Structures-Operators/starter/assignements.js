@@ -228,6 +228,60 @@ const books = [
 /////////////Working with Strings - Pt.3////////////////////
 ////////////////////////////////////////////////////////////
 
+/*17.1
+Below is the bookCategories variable that stores a string of categories. Each category is separated with a semicolon, for example, in a string "science;computing", 'science' and 'computing' are separate categories.
+
+Write a function called logBookCategories that takes a string of categories separated with semicolons, and logs each category to the console (as separate strings).
+
+Example
+Code:
+
+const bookCategories = 'science;computing;computer science;algorithms;business;operating systems;networking;electronics';
+logBookCategories(bookCategories);
+Expected output:
+
+science
+computing
+computer science
+algorithms
+business
+operating systems
+networking
+electronics
+
+17.2
+Now, the opposite. Each book from the books array has the keywords property.
+
+Write a function called getKeywordsAsString that takes the books array as an argument, collects keywords from each book, removes duplicates, and then joins them to create a single string where keywords are separated by a semicolon.
+
+Example
+Code:
+
+getKeywordsAsString(books);
+Expected output:
+
+computer science;programming;algorithms;data structures;java;math;software;engineering;javascript;computer systems;C;operating systems;Java;mathematics;business;compilers;interpreters;work;focus;personal development
+
+17.3
+Below is the bookChapters array that contains inner arrays. Each inner array consists of a chapter's title, and the number of a page, for example, in ['The Basics', 14], 'The Basics' is the chapter's title, and 14 is the number of a page.
+
+Write a function called logBookChapters that takes an array of arrays (like bookChapters) as an argument, and logs each chapter's name to the console together with the page number. The page number should be separated from the chapter's name with underscores (take a look at the example below).
+
+Use the padEnd method.
+
+Example
+Code:
+
+const bookChapters = [['The Basics', 14], ['Sorting', 254], ['Searching', 372], ['Graphs', 526], ['Strings', 706]];
+logBookChapters(bookChapters);
+Expected output:
+
+The Basics__________ 14
+Sorting_____________ 254
+Searching___________ 372
+Graphs______________ 526
+Strings_____________ 706*/
+
 ////////////////////////////////////////////////////////////
 /////////////Working with Strings - Pt.2////////////////////
 ////////////////////////////////////////////////////////////
@@ -984,9 +1038,44 @@ const game = {
   },
 };
 
-//////////////////////////////////////////////////////////////
-//////////////////Coding Challange #3/////////////////////////
-//////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+//////////////////Coding Challange #4///////////////////////
+////////////////////////////////////////////////////////////
+
+/*Write a program that receives a list of variable names written in underscore_case
+and convert them to camelCase.
+The input will come from a textarea inserted into the DOM (see code below to
+insert the elements), and conversion will happen when the button is pressed.
+Test data (pasted to textarea, including spaces):
+underscore_case
+first_name
+Some_Variable
+calculate_AGE
+delayed_departure
+Should produce this output (5 separate console.log outputs):
+underscoreCase
+firstName✅
+✅✅
+someVariable
+calculateAge✅✅✅
+✅✅✅✅
+delayedDeparture✅✅✅✅✅
+Hints:
+§Remember which character defines a new line in the textarea 😉
+§The solution only needs to work for a variable made out of 2 words, like a_b
+§Start without worrying about the ✅. Tackle that only after you have the variable
+name conversion working 😉
+§
+This challenge is difficult on purpose, so start watching the solution in case
+you're stuck. Then pause and continue!
+Afterwards, test with your own test data!
+GOOD LUCK 😀
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));*/
+
+///////////////////////////////////////////////////////////
+//////////////////Coding Challange #3///////////////////////
+////////////////////////////////////////////////////////////
 
 /*Let's continue with our football betting app! This time, we have a map called
 'gameEvents' (see below) with a log of the events that happened during the
