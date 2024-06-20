@@ -89,11 +89,29 @@ const capitalizeName = function (name) {
 
   for (const n of names) {
     // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
   }
   console.log(namesUpper.join(' '));
 };
 capitalizeName('jessica ann smith davis');
 capitalizeName('jonas schmedtmann');
+
+//padding a string - adding a number of characters to the string, until the string has a certain desired legth
+//.padstart(total desired length of string,character to be added to reach that legth)
+const message = 'Go to gate 23!';
+console.log(message.padStart(20, '+').padEnd(30, '+'));
+console.log('Jonas'.padStart(20, '+').padEnd(30, '+'));
+
+//real world example of padding - masking credit card number
+const maskCreditCard = function (number) {
+  const str = number + ''; //coverting num into string
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+
+console.log(maskCreditCard(44544337));
+console.log(maskCreditCard(84646473844337));
+console.log(maskCreditCard('14845164789421465456456'));
 
 /////////////////////////////////////////////////////////////
 /////////////Working with Strings - Pt. 2////////////////////
@@ -140,6 +158,7 @@ capitalizeName('jonas schmedtmann');
 
 // //replacing parts of strings
 // //replace() creates a brand new string,  but does not mutate the original one
+//.replace(replaced part, replacer)
 // //.replace() only replaces the first occurance of replacable part
 // // to replace all occurances use .replaceAll()
 // const priceGB = '288,97£';
