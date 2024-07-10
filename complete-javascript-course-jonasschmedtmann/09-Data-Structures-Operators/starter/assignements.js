@@ -1038,6 +1038,13 @@ const game = {
   },
 };
 
+/////////////////////////////////////////////////////////////////////////////
+////////////////////String Methods Practice/////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
 ///////////////////////////////////////////////////////////
 //////////////////Coding Challange #4///////////////////////
 ////////////////////////////////////////////////////////////
@@ -1074,14 +1081,22 @@ This challenge is difficult on purpose, so start watching the solution in case
 you're stuck. Then pause and continue!
 Afterwards, test with your own test data!
 GOOD LUCK 😀*/
-document.body.append(document.createElement('textarea'));
-document.body.append(document.createElement('button'));
+// document.body.append(document.createElement('textarea'));
+// document.body.append(document.createElement('button'));
 
-document.querySelector('button').addEventListener('click', function () {
-  const text = document.querySelector('textarea').value;
-  const rows = text.split('\n');
-  console.log(rows);
-});
+// document.querySelector('button').addEventListener('click', function () {
+//   const text = document.querySelector('textarea').value;
+//   const rows = text.split('\n');
+//   for (const [i, row] of rows.entries()) {
+//     const [first, second] = row.toLowerCase().trim().split('_');
+
+//     const output = `${first}${second.replace(
+//       second[0],
+//       second[0].toLocaleUpperCase()
+//     )}`;
+//     console.log(`${output.padEnd(20)}${'🗼'.repeat(i + 1)}`);
+//   }
+// });
 
 ///////////////////////////////////////////////////////////
 //////////////////Coding Challange #3///////////////////////
