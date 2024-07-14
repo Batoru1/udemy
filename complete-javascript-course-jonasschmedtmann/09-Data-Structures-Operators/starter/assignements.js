@@ -224,6 +224,112 @@ const books = [
   },
 ];
 
+/////////////////////////////////////////////////////////////////////////////
+///////////////////////////REPEAT///////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+
+// Destructuring Objects
+
+// 2.1
+// Destructure the first book object from the books array into variables called title, author and ISBN.
+
+const { title, author, ISBN } = books[0];
+console.log(title, author, ISBN);
+
+// 2.2
+// Each book object has the keywords property. Destructure the first book object from the books array into a variable called tags. The tags variable should be assigned with the value of the keywords property.
+
+// const tags = books[0].keywords;
+const { keywords: tags } = books[0];
+console.log(tags);
+
+// 2.3
+// The seventh book from the books array is missing the programmingLanguage property. Destructure the seventh book object (books[6]) into variables called language and programmingLanguage. Assign the programmingLanguage variable with a default value of 'unknown'.
+
+const { language, programmingLanguage = 'unknown' } = books[6];
+console.log(language, programmingLanguage);
+
+// 2.4
+// Below are two variables called bookTitle and bookAuthor. Reassign them with the values of the title and author properties of the first book object from the books array.
+
+let bookTitle = 'unknown';
+let bookAuthor = 'unknown';
+({ title: bookTitle, author: bookAuthor } = books[0]);
+console.log(bookTitle, bookAuthor);
+
+// 2.5
+// Each book object has a deeply nested rating property as illustrated below:
+
+// {
+//   title: 'Algorithms',
+//   ...
+//   thirdParty: {
+//     goodreads: {
+//       rating: 4.41,              // <-- HERE
+//       ratingsCount: 1733,
+//       reviewsCount: 63,
+//       fiveStarRatingCount: 976,
+//       oneStarRatingCount: 13
+//     }
+//   }
+// },
+// Destructure the first book object from the books array into a variable called bookRating. In the result of your destructuring, the bookRating variable should be assigned with the value of the book[0].thirdParty.goodreads.rating property.
+
+// Please do most of the work on the left side of the assignment operator: const ... = books[0];
+
+// show example solution
+//  {...}
+// 2.6
+// Write a function called printBookInfo that has three parameters called title, author and year. This function should work for a single object passed as an argument, and it should log to the console information about the book in this format: "${title} by ${author}, ${year}".
+
+// If year is undefined (was not passed), it should be assigned with a default value of 'year unknown'.
+
+// Example 1
+// Example 2
+// Code:
+
+// printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick', year: '2011' });
+// Expected output:
+
+// "Algorithms by Robert Sedgewick, 2011"
+
+//Destructuring Arrays
+
+// //1.1
+// let [firstBook, secondBook] = books;
+// console.log(firstBook, secondBook);
+
+// //1.2
+// let [, , thirdBook] = books;
+// console.log(thirdBook);
+
+// //1.3
+// const ratings = [
+//   ['rating', 4.19],
+//   ['ratingsCount', 144584],
+// ];
+
+// const [[, rating], [, ratingsCount]] = ratings;
+// console.log(rating, ratingsCount);
+
+// //1.4
+// const ratingStars = [63405, 1808];
+// const [fiveStarRatings, oneStarRatings, threeStarRatings = 1] = ratingStars;
+// console.log(fiveStarRatings, oneStarRatings, threeStarRatings);
+// 1.1
+// Destructure the books array into two variables called firstBook and secondBook.
+
+// 1.2
+// Destructure the books array into a variable called thirdBook. You must skip the first two books.
+
+// 1.3
+// Below is the nested ratings array that contains two other arrays. Destructure the nested ratings arrays into two variables called rating and ratingsCount. In the result of your destructuring, the ratings variable should store a number 4.19, and the ratingsCount variable should store a number 144584.
+
+// 1.4
+// Below is the ratingStars array. Destructure it into three variables called fiveStarRatings, oneStarRatings and threeStarRatings. Assign the threeStarRatings variable with a default value of 0.
+
+//
+
 ////////////////////////////////////////////////////////////
 /////////////Working with Strings - Pt.3////////////////////
 ////////////////////////////////////////////////////////////
@@ -1042,26 +1148,26 @@ const game = {
 ////////////////////String Methods Practice/////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+// const flights =
+//   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
-// console.log(flights.split('+'));
+// // console.log(flights.split('+'));
 
-//refractoring
-const getCode = str => str.slice(0, 3).toUpperCase();
+// //refractoring
+// const getCode = str => str.slice(0, 3).toUpperCase();
 
-for (const flight of flights.split('+')) {
-  const [type, from, to, time] = flight.split(';');
+// for (const flight of flights.split('+')) {
+//   const [type, from, to, time] = flight.split(';');
 
-  const output = `${type.startsWith('_Delayed') ? '🫥' : ''}${type.replaceAll(
-    '_',
-    ' '
-  )} from ${getCode(from)} to ${getCode(to)} (${time.replace(
-    ':',
-    'h'
-  )})`.padStart(50);
-  console.log(output);
-}
+//   const output = `${type.startsWith('_Delayed') ? '🫥' : ''}${type.replaceAll(
+//     '_',
+//     ' '
+//   )} from ${getCode(from)} to ${getCode(to)} (${time.replace(
+//     ':',
+//     'h'
+//   )})`.padStart(50);
+//   console.log(output);
+// }
 
 ///////////////////////////////////////////////////////////
 //////////////////Coding Challange #4///////////////////////

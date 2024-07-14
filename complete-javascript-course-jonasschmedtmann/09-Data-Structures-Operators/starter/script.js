@@ -911,7 +911,7 @@ const restaurant = {
 // let b = 999;
 
 // const obj = { a: 23, b: 7, c: 14 };
-// in order to override let a and b need use parenthesis ()!!!s
+// // in order to override let a and b need use parenthesis ()!!!s
 // ({ a, b } = obj);
 // console.log(a, b);
 
@@ -956,7 +956,7 @@ const restaurant = {
 // secondary = temp;
 // console.log(main, secondary);
 
-// [main, secondary] = [secondary, main]; //because rassigning, no need to declare variables//
+// [main, secondary] = [secondary, main]; //because reassigning, no need to declare variables//
 // console.log(main, secondary);
 
 // //receive 2 return values from a function
