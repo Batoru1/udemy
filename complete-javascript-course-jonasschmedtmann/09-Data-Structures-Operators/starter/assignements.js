@@ -228,70 +228,178 @@ const books = [
 ///////////////////////////REPEAT///////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 
-// Destructuring Objects
-
-// 2.1
-// Destructure the first book object from the books array into variables called title, author and ISBN.
-
-const { title, author, ISBN } = books[0];
-console.log(title, author, ISBN);
-
-// 2.2
-// Each book object has the keywords property. Destructure the first book object from the books array into a variable called tags. The tags variable should be assigned with the value of the keywords property.
-
-// const tags = books[0].keywords;
-const { keywords: tags } = books[0];
-console.log(tags);
-
-// 2.3
-// The seventh book from the books array is missing the programmingLanguage property. Destructure the seventh book object (books[6]) into variables called language and programmingLanguage. Assign the programmingLanguage variable with a default value of 'unknown'.
-
-const { language, programmingLanguage = 'unknown' } = books[6];
-console.log(language, programmingLanguage);
-
-// 2.4
-// Below are two variables called bookTitle and bookAuthor. Reassign them with the values of the title and author properties of the first book object from the books array.
-
-let bookTitle = 'unknown';
-let bookAuthor = 'unknown';
-({ title: bookTitle, author: bookAuthor } = books[0]);
-console.log(bookTitle, bookAuthor);
-
-// 2.5
-// Each book object has a deeply nested rating property as illustrated below:
+// Short Circuiting (&& and ||)
+// 5.1
+// Some of the book objects have the programmingLanguage property, which specifies what programming language is used in the book, for example
 
 // {
 //   title: 'Algorithms',
+//   author: ['Robert Sedgewick', 'Kevin Wayne'],
 //   ...
-//   thirdParty: {
-//     goodreads: {
-//       rating: 4.41,              // <-- HERE
-//       ratingsCount: 1733,
-//       reviewsCount: 63,
-//       fiveStarRatingCount: 976,
-//       oneStarRatingCount: 13
-//     }
-//   }
-// },
-// Destructure the first book object from the books array into a variable called bookRating. In the result of your destructuring, the bookRating variable should be assigned with the value of the book[0].thirdParty.goodreads.rating property.
+//   programmingLanguage: 'Java',     // <-- HERE
+// }
+// Write a function called hasExamplesInJava that takes a book object from the books array as an argument. This function should return true if the book uses Java, or a string 'no data available' if it uses other language or no programming language at all.
 
-// Please do most of the work on the left side of the assignment operator: const ... = books[0];
-
-// show example solution
-//  {...}
-// 2.6
-// Write a function called printBookInfo that has three parameters called title, author and year. This function should work for a single object passed as an argument, and it should log to the console information about the book in this format: "${title} by ${author}, ${year}".
-
-// If year is undefined (was not passed), it should be assigned with a default value of 'year unknown'.
+// Use short-circuiting.
 
 // Example 1
 // Example 2
 // Code:
 
-// printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick', year: '2011' });
+// hasExamplesInJava(books[0]);
 // Expected output:
 
-// "Algorithms by Robert Sedgewick, 2011"
+// true
+
+function hasExamplesInJava(book) {
+  console.log(book.programmingLanguage === 'Java' || 'no data available');
+}
+
+hasExamplesInJava(books[5]);
+
+// 5.2
+// Some of the book objects have the onlineContent property, which is either true or false. Loop over the books array, and for the books that provide online content, log to the console a string in this format: "${title}" provides online content. Use short-circuiting.
+
+// {
+//   title: 'Operating System Concepts',
+//   // ... removed for clarity
+//   onlineContent: false,          // <-- HERE
+// },
+
+// // Rest Pattern and Parameters
+// // 4.1
+// // Destructure the keywords property (array) of the first book from the books array into variables called mainKeyword and rest. The first keyword should be assigned to mainKeyword, and the rest of the keywords should be assigned to the rest variable (it should be an array).
+
+// const [mainKeyword, ...rest] = books[0].keywords;
+// console.log(mainKeyword, rest);
+
+// // 4.2
+// // Destructure the second book from the books array into a variable called bookPublisher. The bookPublisher variable should be assigned with the value of the publisher property of the book object. Assign the rest of the properties to the restOfTheBook variable.
+
+// const { publisher: bookPublisher, ...restOfTheBook } = books[1];
+// console.log(bookPublisher);
+// console.log(restOfTheBook);
+
+// // 4.3
+// // Write a function called printBookAuthorsCount that has two parameters called title and authors. The authors parameter should accept any number of arguments. This function should log to the console a string formatted like that: "The book "${title}" has ${authors.length} authors".
+
+// // Example
+// // Code:
+
+// // printBookAuthorsCount('Algorithms', 'Robert Sedgewick', 'Kevin Wayne');
+// // Expected output:
+
+// // "The book "Algorithms" has 2 authors"
+
+// function printBookAuthorsCount(title, ...authors) {
+//   console.log(`The book "${title}" has ${authors.length} authors`);
+// }
+// printBookAuthorsCount('Algorithms', 'Robert Sedgewick', 'Kevin Wayne');
+
+/*The Spread Operator
+3.1
+Each book object has the author property, which stores an array of strings (author names) if there are multiple authors, or a single string (author name) if there is just one author.
+
+Declare an array called bookAuthors, and fill it with authors of the first two books from the books array. The bookAuthors array should have just one level (no nested arrays).
+
+3.2
+Write a function called spellWord that accepts a single string as an argument. This function should log to the console each letter of the argument separated by a space.
+
+Example
+Code:
+
+spellWord('JavaScript')
+Expected output:
+
+"J a v a S c r i p t"
+*/
+
+// const bookAuthors = [...books[0].author, ...books[1].author];
+// console.log(bookAuthors);
+
+// function spellWord(str) {
+//   console.log(...str);
+// }
+// spellWord('wtf');
+// // Destructuring Objects
+
+// // 2.1
+// // Destructure the first book object from the books array into variables called title, author and ISBN.
+
+// const { title, author, ISBN } = books[0];
+// console.log(title, author, ISBN);
+
+// // 2.2
+// // Each book object has the keywords property. Destructure the first book object from the books array into a variable called tags. The tags variable should be assigned with the value of the keywords property.
+
+// // const tags = books[0].keywords;
+// const { keywords: tags } = books[0];
+// console.log(tags);
+
+// // 2.3
+// // The seventh book from the books array is missing the programmingLanguage property. Destructure the seventh book object (books[6]) into variables called language and programmingLanguage. Assign the programmingLanguage variable with a default value of 'unknown'.
+
+// const { language, programmingLanguage = 'unknown' } = books[6];
+// console.log(language, programmingLanguage);
+
+// // 2.4
+// // Below are two variables called bookTitle and bookAuthor. Reassign them with the values of the title and author properties of the first book object from the books array.
+
+// let bookTitle = 'unknown';
+// let bookAuthor = 'unknown';
+// ({ title: bookTitle, author: bookAuthor } = books[0]);
+// console.log(bookTitle, bookAuthor);
+
+// // 2.5
+// // Each book object has a deeply nested rating property as illustrated below:
+
+// // {
+// //   title: 'Algorithms',
+// //   ...
+// //   thirdParty: {
+// //     goodreads: {
+// //       rating: 4.41,              // <-- HERE
+// //       ratingsCount: 1733,
+// //       reviewsCount: 63,
+// //       fiveStarRatingCount: 976,
+// //       oneStarRatingCount: 13
+// //     }
+// //   }
+// // },
+// // Destructure the first book object from the books array into a variable called bookRating. In the result of your destructuring, the bookRating variable should be assigned with the value of the book[0].thirdParty.goodreads.rating property.
+
+// // Please do most of the work on the left side of the assignment operator: const ... = books[0];
+// const {
+//   thirdParty: {
+//     goodreads: { rating: bookRating },
+//   },
+// } = books[0];
+
+// console.log(bookRating);
+
+// // 2.6
+// // Write a function called printBookInfo that has three parameters called title, author and year. This function should work for a single object passed as an argument, and it should log to the console information about the book in this format: "${title} by ${author}, ${year}".
+
+// // If year is undefined (was not passed), it should be assigned with a default value of 'year unknown'.
+
+// // Example 1
+
+// // printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick', year: '2011' });
+// // Expected output:
+
+// // "Algorithms by Robert Sedgewick, 2011"
+
+// function printBookInfo({ title, author, year = 'year unknown' }) {
+//   console.log(`${title} by ${author}, ${year}`);
+// }
+
+// printBookInfo({
+//   title: 'Algorithms',
+//   author: 'Robert Sedgewick',
+//   year: '2011',
+// });
+
+// // printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick', year: '2011' });
 
 //Destructuring Arrays
 

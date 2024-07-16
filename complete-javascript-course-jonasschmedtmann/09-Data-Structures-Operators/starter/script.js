@@ -758,9 +758,9 @@ const restaurant = {
 // console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 // // //undefined, 0, '', are falsy-  Hello is the first truthy value and will be returned
 
-// restaurant.numGuests = 23; //if 0 then guests=10, because 0 is falsy and gets short circuited
-// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
-// console.log(guests1);
+restaurant.numGuests = 23; //if 0 then guests=10, because 0 is falsy and gets short circuited
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
 
 // const guests2 = restaurant.numGuests || 10;
 // console.log(guests2);
