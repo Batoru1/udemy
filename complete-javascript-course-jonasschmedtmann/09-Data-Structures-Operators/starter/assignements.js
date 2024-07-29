@@ -228,37 +228,79 @@ const books = [
 ///////////////////////////REPEAT///////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 
-// Sets
+// Maps: Fundamentals
+// 13.1
+// Create a new book, but this time, as a Map. Assign it to the bookMap variable. Use this array as initial data:
 
-// 12.1
-// Below is the allKeywords variable, which stores an empty array. Loop over the books array, and fill the allKeywords array with the keywords coming from the keywords property of each book object. The allKeywords array should have just one level (no nested arrays).
+// [['title', 'Clean Code'], ['author', 'Robert C. Martin']]
+// show example solution
+//  {...}
+// 13.2
+// Set a new key in bookMap called pages, and assign it with a number 464.
 
-// Use whatever loop and methods you want. You can also use the spread syntax. In the end, the allKeywords array should look more or less like this: ['computer science', 'programming', 'algorithms', 'data structures', ...].
+// show example solution
+//  {...}
+// 13.3
+// Get the title and author values from bookMap, and log to the console a string formatted like that: "${title} by ${author}".
+
+// show example solution
+//  {...}
+// 13.4
+// Get the size of bookMap, and log it to the console.
+
+// show example solution
+//  {...}
+// 13.5
+// Check if bookMap has the author key. and if so, log "The author of the book is known" to the console.
+
+// // Sets
+
+// // 12.1
+// // Below is the allKeywords variable, which stores an empty array. Loop over the books array, and fill the allKeywords array with the keywords coming from the keywords property of each book object. The allKeywords array should have just one level (no nested arrays).
+
+// // Use whatever loop and methods you want. You can also use the spread syntax. In the end, the allKeywords array should look more or less like this: ['computer science', 'programming', 'algorithms', 'data structures', ...].
 
 // const allKeywords = [];
 
-// 12.2
-// The allKeyword array contains duplicates. Remove them by creating a Set out of that array. Assign the newly created set to the uniqueKeywords variable.
+// for (const book of books) {
+//   allKeywords.push(...book.keywords);
+// }
 
-// show example solution
-//  {...}
-// 12.3
-// Add two more keywords to the uniqueKeywords set, for example, 'coding' and 'science'.
+// console.log(allKeywords);
 
-// show example solution
-//  {...}
-// 12.4
-// Delete 'business' from the uniqueKeywords set.
+// // The for-of loop is used to iterate over the books array. For each book, the spread operator is used to spread the keywords array into the allKeywords array. This effectively adds all the keywords from each book to the allKeywords array.
+// // The console.log(allKeywords) statement is used to log the contents of the allKeywords array to the console, which will display all the keywords from all the books in the array.
 
-// show example solution
-//  {...}
-// 12.5
-// Create an array out of the uniqueKeywords set, and assign it to the uniqueKeywordsArr variable.
+// // 12.2
+// // The allKeyword array contains duplicates. Remove them by creating a Set out of that array. Assign the newly created set to the uniqueKeywords variable.
 
-// show example solution
-//  {...}
-// 12.6
-// Delete all items from the uniqueKeywords set.
+// const uniqueKeywords = new Set(allKeywords);
+// console.log(uniqueKeywords);
+
+// // 12.3
+// // Add two more keywords to the uniqueKeywords set, for example, 'coding' and 'science'.
+
+// uniqueKeywords.add('coding');
+// uniqueKeywords.add('science');
+// console.log(uniqueKeywords);
+
+// // 12.4
+// // Delete 'business' from the uniqueKeywords set.
+
+// uniqueKeywords.delete('business');
+// console.log(uniqueKeywords);
+
+// // 12.5
+// // Create an array out of the uniqueKeywords set, and assign it to the uniqueKeywordsArr variable.
+
+// const uniqueKeywordsArr = [...uniqueKeywords];
+// console.log(uniqueKeywordsArr);
+
+// // 12.6
+// // Delete all items from the uniqueKeywords set.
+
+// uniqueKeywords.clear();
+// console.log(uniqueKeywords);
 
 // Looping Objects: Object Keys, Values and Entries
 

@@ -454,66 +454,66 @@ const restaurant = {
 // //SETS are itterables
 // //SETS are similar to arrays , but diffrent , because their values are uneque and their order is irrelevant
 
-const ordersSet = new Set([
-  'Pasta',
-  'Pizza',
-  'Pizza',
-  'Risotto',
-  'Pasta',
-  'Pizza',
-]);
-console.log(ordersSet);
-console.log(new Set('Jonas'));
-console.log(new Set());
+// const ordersSet = new Set([
+//   'Pasta',
+//   'Pizza',
+//   'Pizza',
+//   'Risotto',
+//   'Pasta',
+//   'Pizza',
+// ]);
+// console.log(ordersSet);
+// console.log(new Set('Jonas'));
+// console.log(new Set());
 
-// //WOrking with SETS
+// // //WOrking with SETS
 
-// //getting set size similar to .length inn arrays
+// // //getting set size similar to .length inn arrays
 
-console.log(ordersSet.size);
+// console.log(ordersSet.size);
 
-// //checks if certain element is in a set .has() similar to .includes() inn arrays
-console.log(ordersSet.has('Pizza'));
-console.log(ordersSet.has('Bread'));
+// // //checks if certain element is in a set .has() similar to .includes() inn arrays
+// console.log(ordersSet.has('Pizza'));
+// console.log(ordersSet.has('Bread'));
 
-// //adding new elements to a set
-ordersSet.add('Garlic Bread');
-ordersSet.add('Garlic Bread');
-console.log(ordersSet);
-
-// //deleting elements
-ordersSet.delete('Risotto');
-console.log(ordersSet);
-
-// ////////////HOW to RETRIEVE values from a set???????
-// //no indexe's in a set
-// //.has() is enough, because values are uneque so no need to get anything out of set or then use an array
-
-// //delete all elements of a set .clear()
-// // ordersSet.clear();
+// // //adding new elements to a set
+// ordersSet.add('Garlic Bread');
+// ordersSet.add('Garlic Bread');
 // console.log(ordersSet);
 
-// //SETS are iterrables so we can loop over them
-for (const order of ordersSet) {
-  console.log(order);
-}
+// // //deleting elements
+// ordersSet.delete('Risotto');
+// console.log(ordersSet);
 
-// //main use case for a set is to remove duplicate values of arrays
-const staff = ['waiter', 'chef', 'waiter', 'manager', 'chef', 'waiter'];
-//what positions are there in a restaurant
-// const staffUneque = new Set(staff);
+// // ////////////HOW to RETRIEVE values from a set???????
+// // //no indexe's in a set
+// // //.has() is enough, because values are uneque so no need to get anything out of set or then use an array
 
-// //CONVERSION from set to array.Spread operator works on all itterables!!!
-const staffUneque = [...new Set(staff)];
-console.log(staffUneque);
+// // //delete all elements of a set .clear()
+// // // ordersSet.clear();
+// // console.log(ordersSet);
 
-// //how many diffrent positions there are???
-console.log(
-  new Set(['waiter', 'chef', 'waiter', 'manager', 'chef', 'waiter']).size
-); //or just staff var instead of whole array
+// // //SETS are iterrables so we can loop over them
+// for (const order of ordersSet) {
+//   console.log(order);
+// }
 
-// //how many diffrent letters are there in a string?
-console.log(new Set('jonasschmedtmann').size);
+// // //main use case for a set is to remove duplicate values of arrays
+// const staff = ['waiter', 'chef', 'waiter', 'manager', 'chef', 'waiter'];
+// //what positions are there in a restaurant
+// // const staffUneque = new Set(staff);
+
+// // //CONVERSION from set to array.Spread operator works on all itterables!!!
+// const staffUneque = [...new Set(staff)];
+// console.log(staffUneque);
+
+// // //how many diffrent positions there are???
+// console.log(
+//   new Set(['waiter', 'chef', 'waiter', 'manager', 'chef', 'waiter']).size
+// ); //or just staff var instead of whole array
+
+// // //how many diffrent letters are there in a string?
+// console.log(new Set('jonasschmedtmann').size);
 
 // ////////Conclussion////////////////////
 // //SETS are not intended to replace arrays. To store values in order that might include duplicates use ARRAYS. Or when you need to manipulate data, because ARRAYS have lots of methods.['waiter', 'chef', 'waiter', 'manager', 'chef', 'waiter']
