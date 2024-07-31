@@ -222,8 +222,8 @@ const restaurant = {
 /////////////Working with Strings - Pt. 1//////////////////////
 //////////////////////////////////////////////////////////////
 
-const airline = 'TAP Air Portugal';
-const plane = 'A320';
+// const airline = 'TAP Air Portugal';
+// const plane = 'A320';
 
 // //getting character of a string in a certain position
 // console.log(plane[0]);
