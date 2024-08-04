@@ -70,61 +70,61 @@ const restaurant = {
 /////////////Working with Strings - Pt. 3////////////////////
 /////////////////////////////////////////////////////////////
 
-// // .split() splits a string into multiple parts based on a divider string. splits the original string into an array of strings
-console.log('a+very+nice+string'.split('+'));
-console.log('Jonas Schmedtmann'.split(' '));
+// // // .split() splits a string into multiple parts based on a divider string. splits the original string into an array of strings
+// console.log('a+very+nice+string'.split('+'));
+// console.log('Jonas Schmedtmann'.split(' '));
 
-// //creating variables with destructuring and .split()
-const [firsName, lastName] = 'Jonas Schmedtmann'.split(' ');
-console.log(lastName);
+// // //creating variables with destructuring and .split()
+// const [firsName, lastName] = 'Jonas Schmedtmann'.split(' ');
+// console.log(lastName);
 
-// //.join() - opposite of .split(). Joins an array of strings into one string
-const newName = ['Mr.', firsName, lastName.toUpperCase()].join(' ');
-console.log(newName);
+// // //.join() - opposite of .split(). Joins an array of strings into one string
+// const newName = ['Mr.', firsName, lastName.toUpperCase()].join(' ');
+// console.log(newName);
 
-// //capitalizing a name using join and split
-const capitalizeName = function (name) {
-  const names = name.split(' ');
-  const namesUpper = [];
+// // //capitalizing a name using join and split
+// const capitalizeName = function (name) {
+//   const names = name.split(' ');
+//   const namesUpper = [];
 
-  for (const n of names) {
-    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
-    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
-  }
-  console.log(namesUpper.join(' '));
-};
-capitalizeName('jessica ann smith davis');
-capitalizeName('jonas schmedtmann');
+//   for (const n of names) {
+//     // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+//     namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+//   }
+//   console.log(namesUpper.join(' '));
+// };
+// capitalizeName('jessica ann smith davis');
+// capitalizeName('jonas schmedtmann');
 
-// //padding a string - adding a number of characters to the string, until the string has a certain desired legth
-// //.padstart(total desired length of string,character to be added to reach that legth)
-const message = 'Go to gate 23!';
-console.log(message.padStart(20, '+').padEnd(30, '+'));
-console.log('Jonas'.padStart(20, '+').padEnd(30, '+'));
+// // //padding a string - adding a number of characters to the string, until the string has a certain desired legth
+// // //.padstart(total desired length of string,character to be added to reach that legth)
+// const message = 'Go to gate 23!';
+// console.log(message.padStart(20, '+').padEnd(30, '+'));
+// console.log('Jonas'.padStart(20, '+').padEnd(30, '+'));
 
-// //real world example of padding - masking credit card number
-const maskCreditCard = function (number) {
-  const str = number + ''; //coverting num into string
-  const last = str.slice(-4);
-  return last.padStart(str.length, '*');
-};
+// // //real world example of padding - masking credit card number
+// const maskCreditCard = function (number) {
+//   const str = number + ''; //coverting num into string
+//   const last = str.slice(-4);
+//   return last.padStart(str.length, '*');
+// };
 
-console.log(maskCreditCard(44544337));
-console.log(maskCreditCard(84646473844337));
-console.log(maskCreditCard('14845164789421465456456'));
+// console.log(maskCreditCard(44544337));
+// console.log(maskCreditCard(84646473844337));
+// console.log(maskCreditCard('14845164789421465456456'));
 
-// //Repeat- allows to repeat the same string multiple times
-// //.repeat(number of times to repeat)
-const message2 = 'Bad weather... All Departures Delayed...';
-console.log(message2.repeat(5));
+// // //Repeat- allows to repeat the same string multiple times
+// // //.repeat(number of times to repeat)
+// const message2 = 'Bad weather... All Departures Delayed...';
+// console.log(message2.repeat(5));
 
-const planesInLine = function (n) {
-  console.log(`There are ${n} planes in line ${'✈️'.repeat(n)}`);
-};
+// const planesInLine = function (n) {
+//   console.log(`There are ${n} planes in line ${'✈️'.repeat(n)}`);
+// };
 
-planesInLine(5);
-planesInLine(3);
-planesInLine(12);
+// planesInLine(5);
+// planesInLine(3);
+// planesInLine(12);
 
 /////////////////////////////////////////////////////////////
 /////////////Working with Strings - Pt. 2////////////////////
