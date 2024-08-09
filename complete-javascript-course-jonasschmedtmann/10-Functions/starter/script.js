@@ -55,47 +55,47 @@
 
 ///////How passing arguments works:value vs reference//////
 
-//how primitives and objects work in the context of functions?
+// //how primitives and objects work in the context of functions?
 
-const flight = 'LH234';
-const jonas = {
-  name: 'Jonas Schmedtmann',
-  passport: 24739479284,
-};
+// const flight = 'LH234';
+// const jonas = {
+//   name: 'Jonas Schmedtmann',
+//   passport: 24739479284,
+// };
 
-//checkin function , when passenger already bought the flight and needs to check in
-const checkIn = function (flightNum, passenger) {
-  flightNum = 'LH999';
-  passenger.name = 'Mr.' + passenger.name;
-  if (passenger.passport === 24739479284) {
-    alert('Check in');
-  } else {
-    alert('Wrong passport!');
-  }
-};
+// //checkin function , when passenger already bought the flight and needs to check in
+// const checkIn = function (flightNum, passenger) {
+//   flightNum = 'LH999';
+//   passenger.name = 'Mr.' + passenger.name;
+//   if (passenger.passport === 24739479284) {
+//     alert('Check in');
+//   } else {
+//     alert('Wrong passport!');
+//   }
+// };
 
-checkIn(flight, jonas);
-console.log(flight);
-console.log(jonas);
+// checkIn(flight, jonas);
+// console.log(flight);
+// console.log(jonas);
 
-//as we pass primitive value(string) to a function it contains a copy of that value, so if it is not changed outside the function, it stays the same
+// //as we pass primitive value(string) to a function it contains a copy of that value, so if it is not changed outside the function, it stays the same
 
-//flightNum=flight
+// //flightNum=flight
 
-//when we pass a reference type to a function, what is copied is really just a reference to the object in the memory heap. exactly like doing this:
-// passenger = jonas;
+// //when we pass a reference type to a function, what is copied is really just a reference to the object in the memory heap. exactly like doing this:
+// // passenger = jonas;
 
-//Is the same as doing THIS...
-// const flightNum = flight;
-// const passenger = jonas;
+// //Is the same as doing THIS...
+// // const flightNum = flight;
+// // const passenger = jonas;
 
-//function that will accept a person and change their's passport number
-const newPassport = function (person) {
-  person.passport = Math.trunc(Math.random() * 10000000000);
-};
+// //function that will accept a person and change their's passport number
+// const newPassport = function (person) {
+//   person.passport = Math.trunc(Math.random() * 10000000000);
+// };
 
-newPassport(jonas);
-checkIn(flight, jonas);
+// newPassport(jonas);
+// checkIn(flight, jonas);
 
 //summary
 //passing a primitive type to a function is really just the same as creating a copy like this, outside of the function, so the value is simply copied
@@ -123,3 +123,33 @@ checkIn(flight, jonas);
 //---HIGHER-ORDER function is 1) either a function that receives another function as an argument 2) or a function that returns a new function  ---
 //a function that is passed in(another function) is a CALL-BACK function, that's because the callback function will be called latter by the higher-order function(most obvious example is addEventListener  functions)
 //Functions that return another function
+
+//first class functions is a feature that a programming language has or doesn't. All it means that all functions are values. there are no first-class functions in practise- they are just a concept
+
+//higher order functions are possible in practise, because there are first-class functions
+
+////132 FUNCTIONS ACCEPTING CALLBACK FUNCTIONS////////
+
+//this function takes in one string and returns a new one without any spaces in it
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowerCase();
+};
+
+//transform the first word of input string to upper case(using rest pattern and spread operator)
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+};
+
+//a function that will take in a string and also a function-so it's a HIGHER-order function
+
+const transformer = function (str, fn) {
+  console.log(`Original string ${str}`);
+  console.log(`Transformed string: ${fn(str)}`);
+
+  //function property - name
+  console.log(`Transformed by: ${fn.name}`);
+};
+
+//transforming the input string using the input function
+transformer('JavaScript is the best!', upperFirstWord);
