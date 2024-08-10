@@ -162,3 +162,10 @@ const high5 = function () {
 document.body.addEventListener('click', high5); //highFive is a callback function, in this cases it's called an event handler, and the addEventListener is the higher order function
 
 ['Jonas', 'Martha', 'Adam'].forEach(high5); //forEach() method is the higher order function and high5 is the callback function
+
+//Callbacks are really common, because 1) it makes it easy to split up our code into more reusable and interconected parts 2) callback functions allows us to create abstractions
+
+//Abstraction means that we hide the detail of some code implementation because we dont really care about all that detail and this allows us to think about problems at a higher more abstract level.
+//exmp: we created abstraction with the transformer function, because it only cres about transforming the string, but not how it's transformed, it's done by oneWord or upperFirstWord functons
+
+//so transformer function is a higher order function, because it works at a higher level of abstraction, leaving lower level details to those low level functions
