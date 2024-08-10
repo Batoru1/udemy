@@ -143,13 +143,22 @@ const upperFirstWord = function (str) {
 
 //a function that will take in a string and also a function-so it's a HIGHER-order function
 
-const transformer = function (str, fn) {
-  console.log(`Original string ${str}`);
-  console.log(`Transformed string: ${fn(str)}`);
+const transformer = function (str, fn) /*fn here is upperFirstWord*/ {
+  console.log(`Original string: ${str}`);
+  console.log(`Transformed string: ${fn(str)}`); //this is where the function is called
 
-  //function property - name
+  //function property - .name
   console.log(`Transformed by: ${fn.name}`);
 };
 
-//transforming the input string using the input function
+//transforming the input string using the input function, only putting the value of upperFirstWord, the transformer function will be calling it
 transformer('JavaScript is the best!', upperFirstWord);
+
+transformer('JavaScript is the best!', oneWord); //oneWord and upperFirstWord are callBack functions, they are called so because JS is calling them, not us, they are called by the transformer function
+
+const high5 = function () {
+  console.log('👋');
+};
+document.body.addEventListener('click', high5); //highFive is a callback function, in this cases it's called an event handler, and the addEventListener is the higher order function
+
+['Jonas', 'Martha', 'Adam'].forEach(high5); //forEach() method is the higher order function and high5 is the callback function
