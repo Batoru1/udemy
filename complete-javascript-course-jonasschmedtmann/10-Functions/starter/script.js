@@ -170,3 +170,5 @@
 // // //exmp: we created abstraction with the transformer function, because it only cares about transforming the string, but not how it's transformed, it's done by oneWord or upperFirstWord functons
 
 // // //so transformer function is a higher order function, because it works at a higher level of abstraction, leaving lower level details to those low level functions
+
+///////////133. Functions Returning Functions//////
