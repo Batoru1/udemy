@@ -109,63 +109,64 @@
 
 /////FIRST-CLAS and HIGHER-ORDER functions////////////////
 
-//first-class functions - first citizens- they are simply values. They act like this, because they are just another type of object in Java-Script.
+// // //first-class functions - first citizens- they are simply values. They act like this, because they are just another type of object in Java-Script.
 
-//we can store functions in variables or object properties
+// // //we can store functions in variables or object properties
 
-// we can also pass functions as arguments to other functions(adding event listeners or event handlers to DOM methods)
+// // // we can also pass functions as arguments to other functions(adding event listeners or event handlers to DOM methods)
 
-//we can also return a function from another function
+// // //we can also return a function from another function
 
-//functions are like objects and objets have methods so functions also have METHODS-methods that we can call on functions
+// // //functions are like objects and objets have methods so functions also have METHODS-methods that we can call on functions
 
-//first class functions lets us write HIGHER-ORDER functions
-//---HIGHER-ORDER function is 1) either a function that receives another function as an argument 2) or a function that returns a new function  ---
-//a function that is passed in(another function) is a CALL-BACK function, that's because the callback function will be called latter by the higher-order function(most obvious example is addEventListener  functions)
-//Functions that return another function
+// // //first class functions lets us write HIGHER-ORDER functions
+// // //---HIGHER-ORDER function is 1) either a function that receives another function as an argument 2) or a function that returns a new function  ---
+// // //a function that is passed in(another function) is a CALL-BACK function, that's because the callback function will be called latter by the higher-order function(most obvious example is addEventListener  functions)
+// // //Functions that return another function
 
-//first class functions is a feature that a programming language has or doesn't. All it means that all functions are values. there are no first-class functions in practise- they are just a concept
+// // //first class functions is a feature that a programming language has or doesn't. All it means that all functions are values. there are no first-class functions in practise- they are just a concept
 
-//higher order functions are possible in practise, because there are first-class functions
+// // //higher order functions are possible in practise, because there are first-class functions
 
-////132 FUNCTIONS ACCEPTING CALLBACK FUNCTIONS////////
+// // ////132 FUNCTIONS ACCEPTING CALLBACK FUNCTIONS////////
 
-//this function takes in one string and returns a new one without any spaces in it
-const oneWord = function (str) {
-  return str.replace(/ /g, '').toLowerCase();
-};
+// // //this function takes in one string and returns a new one without any spaces in it
+// const oneWord = function (str) {
+//   return str.replace(/ /g, '').toLowerCase();
+// };
 
-//transform the first word of input string to upper case(using rest pattern and spread operator)
-const upperFirstWord = function (str) {
-  const [first, ...others] = str.split(' ');
-  return [first.toUpperCase(), ...others].join(' ');
-};
+// // //transform the first word of input string to upper case(using rest pattern and spread operator)
+// const upperFirstWord = function (str) {
+//   const [first, ...others] = str.split(' ');
+//   return [first.toUpperCase(), ...others].join(' ');
+// };
 
-//a function that will take in a string and also a function-so it's a HIGHER-order function
+// // //a function that will take in a string and also a function-so it's a HIGHER-order function
 
-const transformer = function (str, fn) /*fn here is upperFirstWord*/ {
-  console.log(`Original string: ${str}`);
-  console.log(`Transformed string: ${fn(str)}`); //this is where the function is called
+// const transformer = function (str, fn) /*fn here is upperFirstWord*/ {
+//   console.log(`Original string: ${str}`);
+//   console.log(`Transformed string: ${fn(str)}`); //this is where the function is called
 
-  //function property - .name
-  console.log(`Transformed by: ${fn.name}`);
-};
+//   //function property - .name
+//   console.log(`Transformed by: ${fn.name}`);
+// };
 
-//transforming the input string using the input function, only putting the value of upperFirstWord, the transformer function will be calling it
-transformer('JavaScript is the best!', upperFirstWord);
+// // //transforming the input string using the input function, only putting the value of upperFirstWord, the transformer function will be calling it
+// transformer('JavaScript is the best!', upperFirstWord);
 
-transformer('JavaScript is the best!', oneWord); //oneWord and upperFirstWord are callBack functions, they are called so because JS is calling them, not us, they are called by the transformer function
+// // transformer('JavaScript is the best!', oneWord); //oneWord and upperFirstWord are callBack functions, they are called so because JS is calling them, not us, they are called by the transformer function
 
-const high5 = function () {
-  console.log('👋');
-};
-document.body.addEventListener('click', high5); //highFive is a callback function, in this cases it's called an event handler, and the addEventListener is the higher order function
+// const high5 = function () {
+//   console.log('👋');
+// };
+// document.body.addEventListener('click', high5); //highFive is a callback function, in this cases it's called an event handler, and the addEventListener is the higher order function(event listener)
 
-['Jonas', 'Martha', 'Adam'].forEach(high5); //forEach() method is the higher order function and high5 is the callback function
+// ['Jonas', 'Martha', 'Adam'].forEach(high5); //forEach() method is the higher order function and high5 is the callback function
+// //will get three waves without even pushing the btn with the forEach() method
 
-//Callbacks are really common, because 1) it makes it easy to split up our code into more reusable and interconected parts 2) callback functions allows us to create abstractions
+// // //Callbacks are really common, because 1) it makes it easy to split up our code into more reusable and interconected parts 2) callback functions allows us to create abstractions
 
-//Abstraction means that we hide the detail of some code implementation because we dont really care about all that detail and this allows us to think about problems at a higher more abstract level.
-//exmp: we created abstraction with the transformer function, because it only cres about transforming the string, but not how it's transformed, it's done by oneWord or upperFirstWord functons
+// // //Abstraction means that we hide the detail of some code implementation because we dont really care about all that detail and this allows us to think about problems at a higher more abstract level.
+// // //exmp: we created abstraction with the transformer function, because it only cares about transforming the string, but not how it's transformed, it's done by oneWord or upperFirstWord functons
 
-//so transformer function is a higher order function, because it works at a higher level of abstraction, leaving lower level details to those low level functions
+// // //so transformer function is a higher order function, because it works at a higher level of abstraction, leaving lower level details to those low level functions
