@@ -171,4 +171,44 @@
 
 // // //so transformer function is a higher order function, because it works at a higher level of abstraction, leaving lower level details to those low level functions
 
-///////////133. Functions Returning Functions//////
+// ///////////133. Functions Returning Functions//////
+
+// // const greet = function (greeting) {
+// //   return function (name) {
+// //     console.log(`${greeting} ${name}`);
+// //   };
+// // };
+
+// //CHALLANGE: rewrite greet function using only arrow functions
+// // const greet = greeting => {
+// //   return name => {
+// //     console.log(`${greeting} ${name}`);
+// //   };
+// // };
+// //or you can skip curly braces {} and return.Takes greeting as an argument and returns a new function. it only has one line of code which returns something, thats why can skip {} and return
+// const greet = greeting => name => console.log(`${greeting} ${name}`);
+
+// //this works because of CLOSURES
+// const greeterHey = greet('hey');
+// greeterHey('Jonas');
+// greeterHey('Steven');
+// //function greet returned a new function that we stored in greet variable, which is now a function greeterHey that we can call
+
+// //do the same in one go. greet is a function and we call it immediately with ('Jonas)
+// greet('Hello')('Jonas');
+// //call greet with ('Hello') and the call greet('Hello') with ('Jonas')
+
+// //whats the point of functions returning other functions? it;s useful whwn using a programming paradigm called functional programming
+
+///////134 The Call and Apply Methods////////
+
+//How to set .this keyword manually and why would we want to do that?
+
+// Let's say we're an airline. create an object for this airline with a very simple booking method aswell=> airline name,code,array of bookings, the book method( will be written using enhanced object literal syntax-by defining a method without having to write a function)
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book() {},
+};
