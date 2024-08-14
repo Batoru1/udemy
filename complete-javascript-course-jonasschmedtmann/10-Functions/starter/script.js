@@ -202,13 +202,32 @@
 
 ///////134 The Call and Apply Methods////////
 
-//How to set .this keyword manually and why would we want to do that?
+//How to set this. keyword manually and why would we want to do that?
 
-// Let's say we're an airline. create an object for this airline with a very simple booking method aswell=> airline name,code,array of bookings, the book method( will be written using enhanced object literal syntax-by defining a method without having to write a function)
+// Let's say we're an airline. create an object for this airline with a very simple booking method aswell => airline name,code,array of bookings, the book method( will be written using enhanced object literal syntax-by defining a method without having to write a function - book:function(){}
 
 const lufthansa = {
   airline: 'Lufthansa',
   iataCode: 'LH',
   bookings: [],
-  book() {},
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on a ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    //book method needs to add to bookings arr
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
 };
+//calling the function
+lufthansa.book(239, 'Jonas Schmedtmann');
+lufthansa.book(635, 'John Smith');
+console.log(lufthansa);
+
+const eurowings = { name: 'Eurowings', iataCode: 'Ew', bookings: [] };
+
+//create a new function to store the book method so we can use it on eurowings function(refractoring in practise)
+
+const book = lufthansa.book;
+
+book(23, 'Sarah Williams');
+//in regular functions the this. keywoed points to undefined. So the above function is no longer the book method from lufthansa object
