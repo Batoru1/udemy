@@ -1,6 +1,7 @@
 'use strict';
 
-/////////////Default Parameters///////////////////////
+///////////////////////////////////////////
+/////////////Default Parameters///////////////////////////////
 
 // //old way of setting default parameters for passangers and price in ES6
 
@@ -107,7 +108,8 @@
 //JS doesnt have passing by reference, only passing by value, even thought it looks like passing by reference
 //we pass a reference to the function, but we do not pass by reference
 
-/////FIRST-CLAS and HIGHER-ORDER functions////////////////
+//////////////////////////////////////////////
+/////FIRST-CLAS and HIGHER-ORDER functions///////////////////////////////
 
 // // //first-class functions - first citizens- they are simply values. They act like this, because they are just another type of object in Java-Script.
 
@@ -128,7 +130,8 @@
 
 // // //higher order functions are possible in practise, because there are first-class functions
 
-// // ////132 FUNCTIONS ACCEPTING CALLBACK FUNCTIONS////////
+/////////////////////////////////////////
+// // ////132 FUNCTIONS ACCEPTING CALLBACK FUNCTIONS////////////////////////////////
 
 // // //this function takes in one string and returns a new one without any spaces in it
 // const oneWord = function (str) {
@@ -171,7 +174,8 @@
 
 // // //so transformer function is a higher order function, because it works at a higher level of abstraction, leaving lower level details to those low level functions
 
-// ///////////133. Functions Returning Functions//////
+//////////////////////////////////////////////
+///////////133. Functions Returning Functions///////////////////////////////////
 
 // // const greet = function (greeting) {
 // //   return function (name) {
@@ -200,7 +204,9 @@
 
 // //whats the point of functions returning other functions? it;s useful whwn using a programming paradigm called functional programming
 
+/////////////////////////////////////////////
 ///////134 The Call and Apply Methods////////
+////////////////////////////////////////////
 
 //How to set this. keyword manually and why would we want to do that?
 
@@ -223,11 +229,111 @@ lufthansa.book(239, 'Jonas Schmedtmann');
 lufthansa.book(635, 'John Smith');
 console.log(lufthansa);
 
-const eurowings = { name: 'Eurowings', iataCode: 'Ew', bookings: [] };
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'Ew',
+  bookings: [],
+};
 
 //create a new function to store the book method so we can use it on eurowings function(refractoring in practise)
 
 const book = lufthansa.book;
 
-book(23, 'Sarah Williams');
 //in regular functions the this. keywoed points to undefined. So the above function is no longer the book method from lufthansa object
+
+//so how to tell javascript to create a new booking on eurowings object? or even how to tell it that we want to book on the lufthansa object?. how to tell JS that this. keyword should point to lufthansa or eurowings?
+//there are three function methods to do this: 1) call 2) apply 3) bind
+
+//so this does not work
+// book(23, 'Sarah Williams');
+//use .call
+//**afunction is just an object and object have methods, so functions can too**
+//in the .call() method the first 1) argument is exactly what we want for the this. keyword to point to, the second argument 2) is the rest of the arguments
+book.call(eurowings, 23, 'Sarah Williams');
+console.log(eurowings);
+//the .call() method allows us to set the this. kyword explicitly to what we want to call, and all the arguments after the first argument are simply the arguments of the original function
+
+//lets do the same for lufthansa function
+book.call(lufthansa, 239, 'Mary Cooper');
+console.log(lufthansa);
+
+//lets do another object
+const swiss = {
+  airline: 'Swiss Airlines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 583, 'Mary Cooper');
+console.log(swiss);
+
+//Apply method
+//it does exactly the same as .call() method, but it doesn't receive a list of argumnents after the this. keyword, but instead it takes an array of the arguments, it then will take the arguments from the array and pass it into the function
+const flightDta = [583, 'George Cooper'];
+//the first argument 1) points to this. keyword the second 2) is an array of data
+book.apply(swiss, flightDta);
+console.log(swiss);
+//Apply method is not that used nowdays, beacause it is better to use again .call() method with the spread operator ... to take the data out of ther array
+
+book.call(swiss, ...flightDta);
+//so it's more practicall to use .call() method and spread the data from an array
+// the .call() method allows us to explicitly define the this. keyword in any function
+
+//////////////////////////////////////////////
+//////////The Bind Method////////////////////
+////////////////////////////////////////////
+
+// the .bind() keyword also allows to manually set the this. keyword for any function call
+//the DIFFERENCE is that .bind() method does not immediatelly call the function, but instead it returns a NEW function whre the this. keyword is bound, so it's set to whatever value we pass into bind
+
+//lets continue with airlines example from previous lesson
+//lets say that we need to use the book function for Eurowings all the time
+//book.call(eurowings, 23, 'Sarah Williams');
+//lets create a function bookEW which always sets the this. keyword to Eurowings
+const bookEW = book.bind(eurowings);
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swiss);
+
+bookEW(23, 'Stewen Williams');
+
+//in the .call() method we can pass multiple arguments besides the this. keyword. In the .bind() method we can do the same, and then all the arguments will be 'set in stone', so they will be defined and the function will be called with the same arguments
+//exmp: we could use bind to create a function for one specific airline and specific flight number
+
+const bookEW23 = book.bind(eurowings, 23);
+//so now this function only needs a name(s), because airline and flight number are already set
+bookEW23('Jonas Schmedtmann');
+bookEW23('Martha Cooper');
+//what was done up there - specifying parts of the argument beforehand is called - PARTIAL APPLICATION - it means that a part of the arguments of the original function are already applied or already set - so that what bookEW23 function is
+
+///other situations where we can use .bind() method//////
+
+////when we use objects together with event listeners//
+
+//lets add new properties to lufthansa method
+//in an event handler function(lufthansa.buyPlane) the this. keyword points to the element on which that handler is attached to (.querySelector('.buy')), in this cas eto a button
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+
+  this.planes++;
+  console.log(this.planes);
+};
+//if we simply call the buy function out here, the the this. keyword would be lufthansa, because it's the object calling the function, in the other(lower) case it's event listener function calling this function
+// lufthansa.buyPlane();
+
+//bind is gonna return a new function
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+/////one more example about PARTIAL APPLICATION, because it's one more big use case for  .bind() method/////
+
+//partial application means that we can  PRESET parameters
+
+// ageneral function for adding tax
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+//lets say that there is one tax that we use all the time, lets create a function just for that. Preset a VAT tax so that it will always be 23
+const addVat = addTax.bind(null, 0.23);
+// addVAT= value=>+value*0.23
+//null because the firdt argument in .bind() methos is the this. keyword, which in this case doesn't exist
