@@ -421,7 +421,7 @@ displayResults:
 B*** setting this.keyword
 */
 
-//my solution
+// // my solution
 // const poll = {
 //   question: 'What is your favourite programming language?',
 //   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
@@ -447,16 +447,141 @@ B*** setting this.keyword
 // const pollBtn = document.querySelector('.poll');
 // pollBtn.addEventListener('click', poll.registerNewAnswer.bind(poll));
 
-//not my solution
+// // //not my solution
 
-const poll = {
-  question: 'What is your favourite programming language?',
-  options: ['0: JavaScript', '1: Python', '2: Rust', '3:C++'],
-  // This generates [0, 0, 0, 0]. More in the next section!
-  answers: new Array(4).fill(0),
-  registerNewAnswer: function () {
-    const answer = prompt(
-      `${this.question}\n${this.options.join('\n')}\n('Write option number')`
-    );
-  },
+// const poll = {
+//   question: 'What is your favourite programming language?',
+//   options: ['0: JavaScript', '1: Python', '2: Rust', '3:C++'],
+//   // This generates [0, 0, 0, 0]. More in the next section!
+//   answers: new Array(4).fill(0),
+//   registerNewAnswer() {
+//     //Get answer
+//     const answer = Number(
+//       prompt(
+//         `${this.question}\n${this.options.join('\n')}\n(Write option number)`
+//       )
+//     );
+//     console.log(answer);
+
+//     //Register the answers
+//     typeof answer === 'number' &&
+//       answer < this.answers.length &&
+//       this.answers[answer]++;
+
+//     this.displayResults();
+//     this.displayResults('string');
+//   },
+//   displayResults(type = 'array') {
+//     if (type === 'array') {
+//       console.log(this.answers);
+//     } else if (type === 'string') {
+//       console.log(`Poll results are ${this.answers.join(', ')}`);
+//     }
+//   },
+// };
+// // poll.registerNewAnswer();
+
+// document
+//   .querySelector('.poll')
+//   .addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+// //creating new object for this. keyword
+// poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
+// poll.displayResults.call({ answers: [5, 2, 3] });
+
+// poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
+// poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
+
+// //   [5, 2, 3]
+// // [1, 5, 3, 9, 6, 1]
+
+// //to transform array to a string we use .join() method
+// //Converting results to a number Number()
+// //to check if answer is a number typeof
+// //shortcircuiting with &&
+// // in an event handler function the this keyword will always point to the element to which it is attached and in this case we need to set it to the poll object using .bind() method
+// //type='array' - setting the default parameters
+
+/////////////137 IMEDIATELLY INVOKED FUNCTION EXPRESSIONS/////////////////////////
+////////////////////////////////////////////
+
+// //sometimes in JS we need a function that is only executed once and the never again, so a function - that disappears after it's called once. We will need it later for async/await
+
+// //this is not the way
+// const runOnce = function () {
+//   console.log('This will never run again');
+// };
+// runOnce();
+
+// //this is way
+// //write a function itself 1) without assigning it to any variable and 2) wrap it into parenthesis () 3) call it using  double parenthesis () right after it's written
+// (function () {
+//   console.log('This will never run again');
+//   const isPrivate = 23;
+// })();
+
+// //IIFE above
+
+// //the same for arrow function
+// (() => console.log('This will also never run again'))();
+
+// //Why need IIFE?.
+// //functions have scopes, one scope does not have acces to variables from inner scope, but the inner scope has access to global scope.
+// //Therefor we say that the data inside the scope is private or incapsulated
+
+// //variables declared with let or const also create their own scope inside a block
+
+// {
+//   const isPrivate = 23;
+//   var notPrivate = 46;
+// }
+
+// // console.log(isPrivate); can't access because in its own block
+
+// console.log(notPrivate); //can access, because var
+
+// // so IIFE's are not commonly used nowdays, because it's better to just create block {} for data privacy, if we just want to create a new scope
+
+// //But if you really want to execute a function just once(not just to create a new scope) then IIFE is still the way to go
+
+// //mistral exercise
+// // Write an immediately invoked function expression (IIFE) that takes two arguments: a number n and a string s. The function should return a new string that consists of n copies of the string s, concatenated together.
+
+// // For example, if the function is called with the arguments 3 and "hello", it should return the string "hellohellohello".
+
+// (function (n, s) {
+//   let result = '';
+//   for (let i = 0; i < n; i++) {
+//     result += s;
+//   }
+//   console.log(result);
+// })(5, 'hello');
+// // In this solution, we define an immediately invoked function expression (IIFE) that takes two arguments: n and s. We initialize an empty string result to store the final result. We then use a for loop to concatenate s to result n times. Finally, we return the result string.
+
+///////////////////////////////////////////////////////////
+///////////////////////138Closures/////////////////////////
+//////////////////////////////////////////////////////////
+
+//closure is not a feature that we explicitly use - so we don't create closures manually like we create a new array or a new function, so a closure simply happens automatically in certain situations, we just need to recognize these situations.
+// Creating a situation where a closure example can be made
+//this function will return a new function
+//which will update the passengerCount variable
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
 };
+//lets call secureBookings function and secure the results in a variable called booker
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+// //as we call secureBooking it will return this function function () {
+//     passengerCount++;
+//     console.log(`${passengerCount} passengers`)};  and store it in booker variable
+
+//so basically the booker variable allows us to acces the returned function of secureBookings in the global scope
