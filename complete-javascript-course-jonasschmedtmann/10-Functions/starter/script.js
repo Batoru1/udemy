@@ -562,26 +562,115 @@ B*** setting this.keyword
 ///////////////////////138Closures/////////////////////////
 //////////////////////////////////////////////////////////
 
-//closure is not a feature that we explicitly use - so we don't create closures manually like we create a new array or a new function, so a closure simply happens automatically in certain situations, we just need to recognize these situations.
-// Creating a situation where a closure example can be made
-//this function will return a new function
-//which will update the passengerCount variable
-const secureBooking = function () {
-  let passengerCount = 0;
+// //closure is not a feature that we explicitly use - so we don't create closures manually like we create a new array or a new function, so a closure simply happens automatically in certain situations, we just need to recognize these situations.
+// // Creating a situation where a closure example can be made
+// //this function will return a new function
+// //which will update the passengerCount variable
+// const secureBooking = function () {
+//   let passengerCount = 0;
 
-  return function () {
-    passengerCount++;
-    console.log(`${passengerCount} passengers`);
-  };
-};
-//lets call secureBookings function and secure the results in a variable called booker
-const booker = secureBooking();
-
-booker();
-booker();
-booker();
-// //as we call secureBooking it will return this function function () {
+//   return function () {
 //     passengerCount++;
-//     console.log(`${passengerCount} passengers`)};  and store it in booker variable
+//     console.log(`${passengerCount} passengers`);
+//   };
+// };
+// //lets call secureBookings function and secure the results in a variable called booker
+// const booker = secureBooking();
 
-//so basically the booker variable allows us to acces the returned function of secureBookings in the global scope
+// booker();
+// booker();
+// booker();
+
+// console.dir(booker);
+// // //as we call secureBooking it will return this function function () {
+// //     passengerCount++;
+// //     console.log(`${passengerCount} passengers`)};  and store it in booker variable
+
+// //!!!!!!!!!!so basically the booker variable allows us to acces the returned function of secureBookings in the global scope!!!!!!!!!!!!!!!!!!!!!!!
+
+// //A CLOSURE makes a function 'remember' all the variables that existed when the function was created
+
+// //a function always has access to the variable environment of the execution context in which the function was created. even after when that execution context is gone
+// //a closure is a  variable environment (booker) attached to the function
+
+// //thanks to a closure a function does not lose connection to variables that existed at the functions creation
+
+// //closure has priority over scope chain
+
+// /////////////////////Closure////////////////////////////
+// /////a CLOSURE is the closed-over variable environment of the execution context in which a function was created, even after that execution context is gone/////////
+// //////A Closure gives a function access to all the variables of its parent function, even after that parent function has returned. The function keeps a reference to its outer scope, which preserves the scope chain forever
+// /////////////A closure makes sure that a function never loses connection to variables that existed at the function's creation place. it remembers the variables even after the function is gone///////////////////////////////////
+// ///////////A CLOSURE is like a backpack that a function carries around wherever it goes. This backpack has all the variables that were present in the environment where the function was created//////////////////
+
+// //We do't have to manually create clossures, this is a Js feature that happens automatically. We can't even access losed-over variables explicitlyu. A closure is not a tangiable JS object
+// //so we cant just reach into a closure and take variables from it, beacause  a closure is just an internal property of a function. We can observe thjat it happens, because functions keep having access to variables that should no longer exist, but we cannot directly access theses variables
+
+// ////////////////////////////////////////////////////////////
+// //////////139 MORE CLOSURE EXAMPLES/////////////////////////
+// ////////////////////////////////////////////////////////////
+
+// //two more situations for closures to happen
+// //these examples will demonstrate that we don't need to return  a function from another function in order to creaye a closure
+
+// //drfinr empty variable called f
+// //a function expression g
+// //inside g define a variable(set to 23)
+// //reassign the f variable to a function value, and the function will simply log the a * 2  variable to the console
+// //example1
+// let f;
+
+// const g = function () {
+//   const a = 23;
+//   f = function () {
+//     console.log(a * 2);
+//   };
+// };
+
+// //creat function h
+// //it's gona define b as some other value
+// //reassign f again
+// //what happens when we assign f a nother function
+// const h = function () {
+//   const b = 777;
+//   f = function () {
+//     console.log(b * 2);
+//   };
+// };
+// //call g and f
+// g();
+// f();
+// console.dir(f);
+// //reassigned f function, called by h(not the same as above f which is called by g)
+// h();
+// f();
+// //inspecting variable environment
+// console.dir(f);
+// //when you reassign functions even without returning them, that will also create a closure
+// //a closure always makes sure that a function does not lose the connection to the variables that were present at its birthplace
+// //f is the closure in action!!!!!!!!!!!!!!!
+
+// //example2
+// //a function with parameters of - number of passangers and a wait time
+// //inside is a variable perGroup,beacause boarding happens in groups of 3
+// //use a TIMER- setTimeout() function, needs two params 1) function which will be executed after a certain time 2) the time after which the function will be executed(in miliseconds)
+// const boardPassengers = function (n, wait) {
+//   const perGroup = n / 3;
+
+//   setTimeout(function () {
+//     console.log(`We are now boarding all ${n} passengers`);
+//   }, wait * 1000);
+//   console.log(`There are 3 groups, each with ${perGroup} passengers`);
+
+//   console.log(`Will start boarding in ${wait} seconds`);
+// };
+
+// //proof that closure has priority over global scope
+// const perGroup = 1000; //this will only be used if perGroup inside boardPassengers is commented out
+// boardPassengers(180, 3);
+
+// //the only way that the callback function setTimeout can have acces to the variables in the board passengers function is because of closure
+
+// // setTimeout(function () {
+// //   console.log('Timer');
+// // }, 1000);
