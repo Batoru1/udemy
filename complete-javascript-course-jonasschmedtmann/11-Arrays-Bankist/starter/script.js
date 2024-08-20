@@ -74,3 +74,13 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+//arrays have methods and methods need tools
+
+///////////////////////////////////////////////////////////
+////////////////143 SIMPLE ARRAY METHODS///////////////////
+//////////////////////////////////////////////////////////
+
+//why do arrays actually have methods?
+//Methods-are simply functions that we can call on objects, so bassically, they are functions attached to objects
+//So if we have array methods, that means that arrays themselves are also objects
