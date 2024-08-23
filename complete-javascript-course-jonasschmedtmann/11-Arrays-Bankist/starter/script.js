@@ -71,7 +71,7 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
@@ -146,15 +146,73 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 /////////144THE NEW AT METHOD//////////////
 //////////////////////////////////////////
 
-const arr = [23, 11, 64];
-//taking the first value out of arr
-console.log(arr[0]); //array at position zero
-//exactly the same using .at() method
-console.log(arr.at(0));
-//Why use .at()! method instead of the [] brackets notation???
-//exmp: lets say we need to !get the last element! of the array, supposing that we don't know the legth of the array
-console.log(arr[arr.length - 1]); //using !arr.legth
-console.log(arr.slice(-1)); //using .slice()! to get a copy of last element of the array,
-console.log(arr.slice(-1)[0]);
-//but we want to take out that value by using [0] square brackets 0
-!console.log(arr.at(-1)); //using .at() method!
+// const arr = [23, 11, 64];
+// //taking the first value out of arr
+// console.log(arr[0]); //array at position zero
+// //exactly the same using .at() method
+// console.log(arr.at(0));
+// //Why use .at()! method instead of the [] brackets notation???
+// //exmp: lets say we need to !get the last element! of the array, supposing that we don't know the legth of the array
+// console.log(arr[arr.length - 1]); //using !arr.legth
+// console.log(arr.slice(-1)); //using .slice()! to get a copy of last element of the array,
+// console.log(arr.slice(-1)[0]);
+// //but we want to take out that value by using [0] square brackets 0
+// !console.log(arr.at(-1)); //using .at() method!
+
+// //If you want to start counting from the end of the array or trying to find the last element of an array use .at() method
+// //if you want to method chain also use .at() method
+// //if you just want to quickly get a value from an array us [] bracket notation
+
+// //.at() method also works on strings!
+// console.log('jonas'.at(-1)); //.at(-1) - last char
+
+/////////////////////////////////////////////
+///////145.LOOPING ARRAYS: forEach///////////
+/////////////////////////////////////////////
+
+//lets say that we want to loop over this arr in order to print a message for each movement in this bank account
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+//for of
+for (const movement of movements) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`); //absolute value to remove the -
+  }
+}
+
+//!!.forEach(callback function(){})!! - so technically .forEach() is a higher order function, which requires a callback function in order to tell it what to do
+//when will forEach() calback the function? forEach() loops over the array and in each itteration it will execute the callback function. also as the forEach() method calls this callback function and in each itteration it will pass in the !current element of the array as an argument! movement in this case
+
+movements.forEach(function (movement) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`); //absolute value to remove the -minus
+  }
+});
+
+//at itteration zero
+//0: function(200)
+//at 1
+//1: function(450)
+//2: function(400)
+//...
+
+// !we use a callback function to tell another higher order function exactly what it should do!
+//in the above example we tell forEach() that in each itteration it should log one of the 2 strings to the console
+//!we give the forEach() method instructions by giving it a callback function, which conatains these instructions!
+
+//!what if we actually needed access to a counter variable here? 
+
+//So just like we can access the current index of the array in the for of loop
+// movements.forEach(function (movement) {
+//!.entries() is just another array method - it returns array of arrays,which in the first position contains i-current index, j-value itself!
+for(const[i,j] of movements.entries())
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`); //absolute value to remove the -minus
+  }
+});
