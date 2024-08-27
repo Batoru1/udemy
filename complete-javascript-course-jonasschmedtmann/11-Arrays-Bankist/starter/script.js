@@ -61,6 +61,28 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+//!instead of working with global variables, it's best to pass in data that function needs into that function
+//!template literals are amazing at creating HTML templates
+const displayMovments = function (movments) {
+  movments.forEach(function (mov, i) {
+    //if the current movment is >0, then type =deposit,else withdrawal
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+
+    const html = `
+    <div class="movements__row">
+          <div class="movements__type movements__type--${type}">
+          ${i + 1} ${type}</div>
+          <div class="movements__value">${mov}</div>
+    </div>`;
+    //${mov}- value straight from the array- current value
+    //${i+1} to know the number of operation?
+    //{type} from ternary operator
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+displayMovments(account1.movements);
+//insertAdjescantHTML() method accepts two strings 1) position in which we want to attach the html 2) the string containing the html that we want to insert
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -251,3 +273,9 @@ const inputClosePin = document.querySelector('.form__input--pin');
 // });
 // // a Set doesn't have keys nor indexes
 // //_ - underscore means - !throwaway variable - variable that is completely unecessery
+
+///////////////////////////////////////////////////147 PROJECT:"Bankist" APP//////////////
+////////////////////////////////////////////
+
+///////////////////////////////////////////////////148 Creating DOM Elements//////////////
+////////////////////////////////////////////
