@@ -61,9 +61,56 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+///////////////////////////////////////////////////
+///////////////149 CODING CHALLANGE 1/////////////
+/////////////////////////////////////////////////
+
+juliaArr1 = [3, 5, 2, 12, 7];
+kateArr1 = [4, 1, 15, 8, 3];
+
+juliaArr2 = [9, 16, 6, 8, 3];
+kateArr2 = [10, 5, 6, 1, 4];
+
+// pseudo:
+//coditional puppy or dog?
+//create checkDogs
+//create shallow copy of first array(not mutate the original)
+//use an array method to remove first and last two elements of shallow array copy
+//create new arr with corrected  J and K data
+//log to console wether an adult or a pup
+
+/**Julia and Kate are doing a study on dogs. So each of them asked 5 dog owners
+about their dog's age, and stored the data into an array (one array for each). For
+now, they are just interested in knowing whether a dog is an adult or a puppy.
+A dog is an adult if it is at least 3 years old, and it's a puppy if it's less than 3 years
+old.
+Your tasks:
+Create a function 'checkDogs', which accepts 2 arrays of dog's ages
+('dogsJulia' and 'dogsKate'), and does the following things:
+1. Julia found out that the owners of the first and the last two dogs actually have
+cats, not dogs! So create a shallow copy of Julia's array, and remove the cat
+ages from that copied array (because it's a bad practice to mutate function
+parameters)
+2. Create an array with both Julia's (corrected) and Kate's data
+3. For each remaining dog, log to the console whether it's an adult ("Dog
+🐶 number 1
+is an adult, and is 5 years old") or a puppy ("Dog number 2 is still a puppy
+")
+4. Run the function for both test datasets
+Test data:
+§Data 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
+§Data 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
+Hints: Use tools from all lectures in this section so far 😉
+GOOD LUCK 😀 */
+
+///////////////////////////////////////////////////  ////////148 Creating DOM Elements//////////////
+////////////////////////////////////////////
+
 //!instead of working with global variables, it's best to pass in data that function needs into that function
 //!template literals are amazing at creating HTML templates
 const displayMovments = function (movments) {
+  containerMovements.innerHTML = ''; //textContent returns the text itself while innerHTML returns everything, including the HTML.!innerHTML to an empty string returns what we have dynamically inserted with adjascentHTML.innerHTML is a property!
+
   movments.forEach(function (mov, i) {
     //if the current movment is >0, then type =deposit,else withdrawal
     const type = mov > 0 ? 'deposit' : 'withdrawal';
@@ -75,13 +122,15 @@ const displayMovments = function (movments) {
           <div class="movements__value">${mov}</div>
     </div>`;
     //${mov}- value straight from the array- current value
-    //${i+1} to know the number of operation?
-    //{type} from ternary operator
-    containerMovements.insertAdjacentHTML('afterbegin', html);
+    //${i+1} to know the number of operation
+    //{type} from ternary operator,
+    containerMovements.insertAdjacentHTML('afterbegin', html); //!
   });
 };
 displayMovments(account1.movements);
-//insertAdjescantHTML() method accepts two strings 1) position in which we want to attach the html 2) the string containing the html that we want to insert
+//!!insertAdjescantHTML() method accepts two strings 1) position in which we want to attach the html 2) the string containing the html that we want to insert. it is a method of creating elements
+
+// console.log(containerMovements.innerHTML);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -275,7 +324,4 @@ displayMovments(account1.movements);
 // //_ - underscore means - !throwaway variable - variable that is completely unecessery
 
 ///////////////////////////////////////////////////147 PROJECT:"Bankist" APP//////////////
-////////////////////////////////////////////
-
-///////////////////////////////////////////////////148 Creating DOM Elements//////////////
 ////////////////////////////////////////////
