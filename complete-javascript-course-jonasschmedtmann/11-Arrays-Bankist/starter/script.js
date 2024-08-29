@@ -65,11 +65,29 @@ const inputClosePin = document.querySelector('.form__input--pin');
 ///////////////149 CODING CHALLANGE 1/////////////
 /////////////////////////////////////////////////
 
-juliaArr1 = [3, 5, 2, 12, 7];
-kateArr1 = [4, 1, 15, 8, 3];
+const juliaArr1 = [3, 5, 2, 12, 7];
+const kateArr1 = [4, 1, 15, 8, 3];
 
-juliaArr2 = [9, 16, 6, 8, 3];
-kateArr2 = [10, 5, 6, 1, 4];
+const juliaArr2 = [9, 16, 6, 8, 3];
+const kateArr2 = [10, 5, 6, 1, 4];
+
+const checkDogs = function (arr1, arr2) {
+  const shallowArr1 = arr1.slice(1, -2);
+  const newArr = [...shallowArr1, ...arr2];
+  const results = [];
+
+  newArr.forEach(function (dog, i) {
+    if (dog > 3) {
+      results.push(
+        `Dog 🐶 number ${i + 1} is an adult, and is ${dog} years old`
+      );
+    } else {
+      results.push(`Dog number ${i + 1} is still a puppy`);
+    }
+  });
+  return console.log(results.join('\n'));
+};
+checkDogs(juliaArr2, kateArr2);
 
 // pseudo:
 //coditional puppy or dog?
