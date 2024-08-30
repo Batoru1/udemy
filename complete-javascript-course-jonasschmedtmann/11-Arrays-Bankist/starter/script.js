@@ -61,6 +61,13 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+/////////////////////////////////////////////////////
+///////////150 DATA TRANSFORMATIONS: MAP.FILTER.REDUCE///////////////////////////////////////////////
+/////////////////////////////////////////////////////
+
+//these are array methods to perform data tranformations
+//so these are methods to create new arrays based on transforming data from other arrays
+
 ///////////////////////////////////////////////////
 ///////////////149 CODING CHALLANGE 1/////////////
 /////////////////////////////////////////////////
@@ -71,23 +78,49 @@ const kateArr1 = [4, 1, 15, 8, 3];
 const juliaArr2 = [9, 16, 6, 8, 3];
 const kateArr2 = [10, 5, 6, 1, 4];
 
-const checkDogs = function (arr1, arr2) {
-  const shallowArr1 = arr1.slice(1, -2);
-  const newArr = [...shallowArr1, ...arr2];
-  const results = [];
+//my solution///
 
-  newArr.forEach(function (dog, i) {
-    if (dog > 3) {
-      results.push(
-        `Dog 🐶 number ${i + 1} is an adult, and is ${dog} years old`
-      );
-    } else {
-      results.push(`Dog number ${i + 1} is still a puppy`);
-    }
-  });
-  return console.log(results.join('\n'));
-};
-checkDogs(juliaArr2, kateArr2);
+// const checkDogs = function (arr1, arr2) {
+//   const shallowArr1 = arr1.slice(1, -2);
+//   const newArr = [...shallowArr1, ...arr2];
+//   const results = [];
+
+//   newArr.forEach(function (dog, i) {
+//     if (dog >= 3) {
+//       results.push(
+//         `Dog 🐶 number ${i + 1} is an adult, and is ${dog} years old`
+//       );
+//     } else {
+//       results.push(`Dog number ${i + 1} is still a puppy`);
+//     }
+//   });
+//   return console.log(results.join('\n'));
+// };
+// checkDogs(juliaArr2, kateArr2);
+
+// //jonas solution///
+
+// const checkDogs = function (dogsJulia, dogsKate) {
+//   const dogsJuliaCorrected = dogsJulia.slice();
+//   dogsJuliaCorrected.splice(0, 1);
+//   dogsJuliaCorrected.splice(-2);
+//   // const arr3 = dogsJulia.slice(1, 3);
+//   // console.log(arr3);
+//   const dogs = dogsJuliaCorrected.concat(dogsKate);
+//   console.log(dogs);
+
+//   dogs.forEach(function (dog, i) {
+//     if (dog >= 3) {
+//       console.log(
+//         `Dog 🐶 number ${i + 1} is an adult, and is ${dog} years old`
+//       );
+//     } else {
+//       console.log(`Dog number ${i + 1} is still a puppy`);
+//     }
+//   });
+// };
+
+// checkDogs(juliaArr2, kateArr2);
 
 // pseudo:
 //coditional puppy or dog?
