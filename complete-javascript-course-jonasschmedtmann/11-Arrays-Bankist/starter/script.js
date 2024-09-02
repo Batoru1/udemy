@@ -61,6 +61,51 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+//////////////////////////////////////////////////////THE MAP METHOD/////////////////////////
+////////////////////////////////////////////
+
+// used to lloop over arrays and gives back a new array
+//and this new array will contain in each position -! the result of applying a callback function to the original array elements
+
+//assignment: movments are dollars that  need be converted to euros 2) lets say euro is 1.1 dollars
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const eurToUsd = 1.1;
+
+const movementsUSD = movements.map(function (mov) {
+  return mov * eurToUsd;
+});
+
+console.log(movements);
+console.log(movementsUSD);
+
+//same thing, but using for of loop
+const movementsUSDfor = [];
+for (const mov of movements) {
+  movementsUSDfor.push(mov * eurToUsd);
+}
+console.log(movementsUSDfor);
+
+//assignement: movmentsUSD but with arrow function
+
+const movementsUSD2 = movements.map(mov => {
+  return mov * eurToUsd;
+});
+
+console.log(movementsUSD2);
+//since it's a on liner no need for return and {}
+const movementsUSD3 = movements.map(mov => mov * eurToUsd);
+
+console.log(movementsUSD3);
+
+//the callback function has the movment parameters and {} in the curly braces we specify we need to retun the value that we want the new array to have in the current position
+
+////////////////////////////////////////////
+//just like the .forEach() method, .map() method also has access to the !!exact same three parameters. so besides the 1)! current array element, we also get access to  2)!current index as well as 3)! the whole array
+
+//assignment:
+
 /////////////////////////////////////////////////////
 ///////////150 DATA TRANSFORMATIONS: MAP.FILTER.REDUCE///////////////////////////////////////////////
 /////////////////////////////////////////////////////
@@ -68,15 +113,28 @@ const inputClosePin = document.querySelector('.form__input--pin');
 //these are array methods to perform data tranformations
 //so these are methods to create new arrays based on transforming data from other arrays
 
+//!!MAP method- another method used to !loop over arrays. Similar to forEach method - but the difference is that map creates a !brand new array, based on the original array
+//.Map() method 1)takes an array 2)loops over that array and in each iterration it 3)applies a !callback function ,that we specify in our code, to the current array element
+//we say that it maps the values of the original array to a new array and that's why this method is called map
+//forEach() allows us to do some work with each array element, .Map() builds us a brand new array, containing the results of applying an operation to the original array
+
+//!!FILTER method- used to filter for elements in the original array !which satisfy a certain !condition
+//filter returns !a new array containing the array elements that passed a specified test condition
+//in other words-elements for whicj the condition is true will be included in a new array that the filter method returns.
+//all other elements  will be filtered out(not included in the new array)
+
+//!!REDUCE method- which is used to boil down all the elements of the original array into one single value(simple exmp:add all elements of an array to a single value: we need to specify the operation with the accumulator variable)
+//so NO new array, but only the rdeuced (new) value!
+
 ///////////////////////////////////////////////////
 ///////////////149 CODING CHALLANGE 1/////////////
 /////////////////////////////////////////////////
 
-const juliaArr1 = [3, 5, 2, 12, 7];
-const kateArr1 = [4, 1, 15, 8, 3];
+// const juliaArr1 = [3, 5, 2, 12, 7];
+// const kateArr1 = [4, 1, 15, 8, 3];
 
-const juliaArr2 = [9, 16, 6, 8, 3];
-const kateArr2 = [10, 5, 6, 1, 4];
+// const juliaArr2 = [9, 16, 6, 8, 3];
+// const kateArr2 = [10, 5, 6, 1, 4];
 
 //my solution///
 
