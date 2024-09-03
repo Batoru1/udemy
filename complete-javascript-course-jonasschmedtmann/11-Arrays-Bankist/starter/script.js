@@ -61,50 +61,106 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-//////////////////////////////////////////////////////THE MAP METHOD/////////////////////////
-////////////////////////////////////////////
+const displayMovments = function (movments) {
+  containerMovements.innerHTML = '';
 
-// used to lloop over arrays and gives back a new array
-//and this new array will contain in each position -! the result of applying a callback function to the original array elements
+  movments.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
 
-//assignment: movments are dollars that  need be converted to euros 2) lets say euro is 1.1 dollars
+    const html = `
+    <div class="movements__row">
+          <div class="movements__type movements__type--${type}">
+          ${i + 1} ${type}</div>
+          <div class="movements__value">${mov}</div>
+    </div>`;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html); //!
+  });
+};
+displayMovments(account1.movements);
+
+const createUserNames = function (user) {
+  const username = user
+    .toLowerCase()
+    .split(' ')
+    .map(name => name[0])
+    .join('');
+  return username;
+};
+
+console.log(createUserNames('Steven Thomas Williams')); //stw
+
+//using .split() to divide string into seperate words - split by an empty space(' ')
+//looping over username array, taking first letter  and putting it into new array with .map()
+//.split() method returns an array so we call the .map() method directly on that array
+//.map() returns an array with just the first letters
+//on an array call .join() method by an empty string ('') annd this will return the inicials
+//to compute username for each acc we use .forEach(), because we don't want to create new arr but to loop over accounts arr and modify it's elements(the objects of the app)
+
+// LECTURES!
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const eurToUsd = 1.1;
+//////////////////////////////////////////////
+//////////152 COMPUTING USERNAMES//////////////
+//////////////////////////////////////////////
 
-const movementsUSD = movements.map(function (mov) {
-  return mov * eurToUsd;
-});
+// the code is in the app
+//assignememnt: use .map() and .forEach() methods to  1) compute usernames for each account owner in the app 2) the username is the initials of the account holder
 
-console.log(movements);
-console.log(movementsUSD);
-
-//same thing, but using for of loop
-const movementsUSDfor = [];
-for (const mov of movements) {
-  movementsUSDfor.push(mov * eurToUsd);
-}
-console.log(movementsUSDfor);
-
-//assignement: movmentsUSD but with arrow function
-
-const movementsUSD2 = movements.map(mov => {
-  return mov * eurToUsd;
-});
-
-console.log(movementsUSD2);
-//since it's a on liner no need for return and {}
-const movementsUSD3 = movements.map(mov => mov * eurToUsd);
-
-console.log(movementsUSD3);
-
-//the callback function has the movment parameters and {} in the curly braces we specify we need to retun the value that we want the new array to have in the current position
-
+//////////////////////////////////////////////////////151 THE MAP METHOD/////////////////////////
 ////////////////////////////////////////////
-//just like the .forEach() method, .map() method also has access to the !!exact same three parameters. so besides the 1)! current array element, we also get access to  2)!current index as well as 3)! the whole array
 
-//assignment:
+// // used to lloop over arrays and gives back a new array
+// //and this new array will contain in each position -! the result of applying a callback function to the original array elements
+
+// //assignment: movments are dollars that  need be converted to euros 2) lets say euro is 1.1 dollars
+
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const eurToUsd = 1.1;
+
+// const movementsUSD = movements.map(function (mov) {
+//   return mov * eurToUsd;
+// });
+
+// console.log(movements);
+// console.log(movementsUSD);
+
+// //same thing, but using for of loop
+// const movementsUSDfor = [];
+// for (const mov of movements) {
+//   movementsUSDfor.push(mov * eurToUsd);
+// }
+// console.log(movementsUSDfor);
+
+// //assignement: movmentsUSD but with arrow function
+
+// const movementsUSD2 = movements.map(mov => {
+//   return mov * eurToUsd;
+// });
+
+// console.log(movementsUSD2);
+// //since it's a on liner no need for return and {}
+// const movementsUSD3 = movements.map(mov => mov * eurToUsd);
+
+// console.log(movementsUSD3);
+
+// //the callback function has the movment parameters and {} in the curly braces we specify we need to retun the value that we want the new array to have in the current position
+
+// ////////////////////////////////////////////
+// //just like the .forEach() method, .map() method also has access to the !!exact same three parameters. so besides the 1)! current array element, we also get access to  2)!current index as well as 3)! the whole array
+
+// //assignment:loop over array, extract current element, index and the whole array
+
+// const movmentDescriptions = movements.map(
+//   (mov, i) =>
+//     `Movement ${i + 1} You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
+//       mov
+//     )}`
+// );
+
+// console.log(movmentDescriptions);
 
 /////////////////////////////////////////////////////
 ///////////150 DATA TRANSFORMATIONS: MAP.FILTER.REDUCE///////////////////////////////////////////////
@@ -215,37 +271,31 @@ GOOD LUCK 😀 */
 ///////////////////////////////////////////////////  ////////148 Creating DOM Elements//////////////
 ////////////////////////////////////////////
 
-//!instead of working with global variables, it's best to pass in data that function needs into that function
-//!template literals are amazing at creating HTML templates
-const displayMovments = function (movments) {
-  containerMovements.innerHTML = ''; //textContent returns the text itself while innerHTML returns everything, including the HTML.!innerHTML to an empty string returns what we have dynamically inserted with adjascentHTML.innerHTML is a property!
+// //!instead of working with global variables, it's best to pass in data that function needs into that function
+// //!template literals are amazing at creating HTML templates
+// const displayMovments = function (movments) {
+//   containerMovements.innerHTML = ''; //textContent returns the text itself while innerHTML returns everything, including the HTML.!innerHTML to an empty string returns what we have dynamically inserted with adjascentHTML.innerHTML is a property!
 
-  movments.forEach(function (mov, i) {
-    //if the current movment is >0, then type =deposit,else withdrawal
-    const type = mov > 0 ? 'deposit' : 'withdrawal';
+//   movments.forEach(function (mov, i) {
+//     //if the current movment is >0, then type =deposit,else withdrawal
+//     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
-    const html = `
-    <div class="movements__row">
-          <div class="movements__type movements__type--${type}">
-          ${i + 1} ${type}</div>
-          <div class="movements__value">${mov}</div>
-    </div>`;
-    //${mov}- value straight from the array- current value
-    //${i+1} to know the number of operation
-    //{type} from ternary operator,
-    containerMovements.insertAdjacentHTML('afterbegin', html); //!
-  });
-};
-displayMovments(account1.movements);
-//!!insertAdjescantHTML() method accepts two strings 1) position in which we want to attach the html 2) the string containing the html that we want to insert. it is a method of creating elements
+//     const html = `
+//     <div class="movements__row">
+//           <div class="movements__type movements__type--${type}">
+//           ${i + 1} ${type}</div>
+//           <div class="movements__value">${mov}</div>
+//     </div>`;
+//     //${mov}- value straight from the array- current value
+//     //${i+1} to know the number of operation
+//     //{type} from ternary operator,
+//     containerMovements.insertAdjacentHTML('afterbegin', html); //!
+//   });
+// };
+// displayMovments(account1.movements);
+// !!insertAdjescantHTML() method accepts two strings 1) position in which we want to attach the html 2) the string containing the html that we want to insert. it is a method of creating elements
 
 // console.log(containerMovements.innerHTML);
-
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// LECTURES
-
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
