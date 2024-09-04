@@ -74,32 +74,60 @@ const displayMovments = function (movments) {
           <div class="movements__value">${mov}</div>
     </div>`;
 
-    containerMovements.insertAdjacentHTML('afterbegin', html); //!
+    containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
 displayMovments(account1.movements);
 
-const createUserNames = function (user) {
-  const username = user
-    .toLowerCase()
-    .split(' ')
-    .map(name => name[0])
-    .join('');
-  return username;
+const createUserNames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
 };
-
-console.log(createUserNames('Steven Thomas Williams')); //stw
-
-//using .split() to divide string into seperate words - split by an empty space(' ')
-//looping over username array, taking first letter  and putting it into new array with .map()
-//.split() method returns an array so we call the .map() method directly on that array
-//.map() returns an array with just the first letters
-//on an array call .join() method by an empty string ('') annd this will return the inicials
-//to compute username for each acc we use .forEach(), because we don't want to create new arr but to loop over accounts arr and modify it's elements(the objects of the app)
+createUserNames(accounts); //stw
+console.log(accounts);
 
 // LECTURES!
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+//////////////////////////////////////////////
+//////////154THE REDUCE METHOD////////////////
+/////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////153THE FILTER METHOD/////////////
+/////////////////////////////////////////////
+
+// //used to filter for elements, that specify a certain condition
+// //to specify the condition we use a callback function!
+// //.!filter() get access to 1)current array element,2)index of the element,3) entire array
+// //in .filter() method we usually need only the current element
+// //returns a new array
+
+// //create array of deposits(movments that are above 0):
+// const deposits = movements.filter(function (mov, i, arr) {
+//   return mov > 0;
+// });
+// console.log(movements);
+// console.log(deposits);
+
+// //for of for comparison
+// const depositsFor = [];
+// for (const mov of movements) if (mov > 0) depositsFor.push(mov);
+
+// console.log(depositsFor);
+
+// //challange-create arr of withdrawals:
+// const withdrawals = movements.filter(mov => mov < 0);
+
+// console.log(withdrawals);
+
+//we will return a boolean value
+//there is a push in js to use methods with callback functions, because you can chain the methods together, unlike with a for loop
 
 //////////////////////////////////////////////
 //////////152 COMPUTING USERNAMES//////////////
@@ -107,6 +135,15 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // the code is in the app
 //assignememnt: use .map() and .forEach() methods to  1) compute usernames for each account owner in the app 2) the username is the initials of the account holder
+//!!createUsername function:
+//using .split() to divide string into seperate words - split by an empty space(' ')
+//looping over username array, taking first letter  and putting it into new array with .map()
+//.split() method returns an array so we call the .map() method directly on that array
+//.map() returns a new array with just the first letters, but does not modify old array!
+//on an array call .join() method by an empty string ('') annd this will return the inicials
+//to compute username for each acc we use .forEach(), !because we don't want to create new arr but to loop over accounts arr and modify it's elements(the objects of the app)
+//!!each function should receive data that it should work with instead of using a global variable
+//the createUser function is not to return a value but to make a side effect
 
 //////////////////////////////////////////////////////151 THE MAP METHOD/////////////////////////
 ////////////////////////////////////////////
