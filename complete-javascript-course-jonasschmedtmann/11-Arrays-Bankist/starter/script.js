@@ -89,7 +89,7 @@ const createUserNames = function (accs) {
   });
 };
 createUserNames(accounts); //stw
-console.log(accounts);
+// console.log(accounts);
 
 // LECTURES!
 
@@ -99,7 +99,38 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //////////154THE REDUCE METHOD////////////////
 /////////////////////////////////////////////
 
-//////////////////////////////////////////////////////////153THE FILTER METHOD/////////////
+// is used to boil down all the elements in an array to one single value
+
+//global balance of the account(movements):
+console.log(movements);
+
+const balance = movements.reduce(function (acc, cur, i, arr) {
+  console.log(`Iteration ${i}:${acc}`);
+
+  return acc + cur;
+}, 0);
+
+console.log(balance);
+
+//the same manually with a for of loop
+let balance2 = 0;
+for (const mov of movements) {
+  balance2 += mov;
+}
+console.log(balance2);
+//!whenever we want to use for of loop we need external variable to store the results and that's fine if you only need one loop, but gets unpracticle when we use many loops
+
+//!!the .reduce() function also gets a callback function!, but diffrent than in .map() or .forEach(). The first parameter is called ! 1) the accumulator(like a snowball that keeps accumulating the value until it is returned),second parameter is 2)! current value, third 3) ! current index(of iteration), 4)! whole original array!!
+
+//so the callback function will be called in each itteration of looping over the array!!so .rdeuce() loops over the arr and calls this callback in each iteration
+//accumulator is the value that we will keep adding to!
+// accumulator + current value works because in each call of the callback function the accumulator will be the current sum of all the previous values and we will be adding to this accumulator in each iteration of the loop
+//we need to return the accumulated value so the accumulator can be used in the next iteration of the loop
+//!!to sum up - in each loop iteration we return the updated accumulator(the current acc + cur current value) and like this we can keep adding to it in the next iteration
+
+//!!the callback function is the 1) first argument of the .reduce() method! the second argument(parameter) is 2)! the initial value of the accumulator!(in the first loop iteration)!!
+
+/////////////153THE FILTER METHOD/////////////
 /////////////////////////////////////////////
 
 // //used to filter for elements, that specify a certain condition
@@ -145,7 +176,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //!!each function should receive data that it should work with instead of using a global variable
 //the createUser function is not to return a value but to make a side effect
 
-//////////////////////////////////////////////////////151 THE MAP METHOD/////////////////////////
+////////////151 THE MAP METHOD/////////////////////////
 ////////////////////////////////////////////
 
 // // used to lloop over arrays and gives back a new array
@@ -199,8 +230,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // console.log(movmentDescriptions);
 
-/////////////////////////////////////////////////////
-///////////150 DATA TRANSFORMATIONS: MAP.FILTER.REDUCE///////////////////////////////////////////////
+///////150 DATA TRANSFORMATIONS: MAP.FILTER REDUCE///////////////////////////////////////////////
 /////////////////////////////////////////////////////
 
 //these are array methods to perform data tranformations
@@ -305,7 +335,7 @@ Test data:
 Hints: Use tools from all lectures in this section so far 😉
 GOOD LUCK 😀 */
 
-///////////////////////////////////////////////////  ////////148 Creating DOM Elements//////////////
+////////148 Creating DOM Elements//////////////
 ////////////////////////////////////////////
 
 // //!instead of working with global variables, it's best to pass in data that function needs into that function
