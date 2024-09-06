@@ -79,6 +79,12 @@ const displayMovments = function (movments) {
 };
 displayMovments(account1.movements);
 
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance} EUR`;
+};
+calcDisplayBalance(account1.movements);
+
 const createUserNames = function (accs) {
   accs.forEach(function (acc) {
     acc.username = acc.owner
@@ -89,7 +95,6 @@ const createUserNames = function (accs) {
   });
 };
 createUserNames(accounts); //stw
-// console.log(accounts);
 
 // LECTURES!
 
@@ -99,38 +104,62 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //////////154THE REDUCE METHOD////////////////
 /////////////////////////////////////////////
 
-// is used to boil down all the elements in an array to one single value
+// ////calcDisplayBalance:
+// //receive array of movments as imput
+// //display the result in balance_value. It's already selected as labelBalance in this js
 
-//global balance of the account(movements):
-console.log(movements);
+// // is used to boil down all the elements in an array to one single value
 
-const balance = movements.reduce(function (acc, cur, i, arr) {
-  console.log(`Iteration ${i}:${acc}`);
+// //global balance of the account(movements):
+// console.log(movements);
 
-  return acc + cur;
-}, 0);
+// //normal function
+// // const balance = movements.reduce(function (acc, cur, i, arr) {
+// //   console.log(`Iteration ${i}:${acc}`);
 
-console.log(balance);
+// //   return acc + cur;
+// // }, 0);
 
-//the same manually with a for of loop
-let balance2 = 0;
-for (const mov of movements) {
-  balance2 += mov;
-}
-console.log(balance2);
-//!whenever we want to use for of loop we need external variable to store the results and that's fine if you only need one loop, but gets unpracticle when we use many loops
+// //arrow
+// const balance = movements.reduce((acc, cur) => acc + cur, 0);
 
-//!!the .reduce() function also gets a callback function!, but diffrent than in .map() or .forEach(). The first parameter is called ! 1) the accumulator(like a snowball that keeps accumulating the value until it is returned),second parameter is 2)! current value, third 3) ! current index(of iteration), 4)! whole original array!!
+// console.log(balance);
 
-//so the callback function will be called in each itteration of looping over the array!!so .rdeuce() loops over the arr and calls this callback in each iteration
-//accumulator is the value that we will keep adding to!
-// accumulator + current value works because in each call of the callback function the accumulator will be the current sum of all the previous values and we will be adding to this accumulator in each iteration of the loop
-//we need to return the accumulated value so the accumulator can be used in the next iteration of the loop
-//!!to sum up - in each loop iteration we return the updated accumulator(the current acc + cur current value) and like this we can keep adding to it in the next iteration
+// //the same manually with a for of loop
+// let balance2 = 0;
+// for (const mov of movements) {
+//   balance2 += mov;
+// }
+// console.log(balance2);
+// ///////////////////////////////////////////////////////////
+// //getting Maximum value of the movments arr(3000):
+// //the accumulator doesn't have to be a sum, it can be a string , object, multiplication....
+// const max = movements.reduce((acc, mov) => {
+//   if (acc > mov) return acc;
+//   else return mov;
+// }, movements[0]);
+// console.log(max);
 
-//!!the callback function is the 1) first argument of the .reduce() method! the second argument(parameter) is 2)! the initial value of the accumulator!(in the first loop iteration)!!
+// //logic:
+// //if acc is biger then the current value-mov, then return the acc
+// //if the acc < mov return mov
+// //in .reduce() method we have to return the accumulator into next iteration
+// ///////////////////////////////////////////////////////////
+// //!whenever we want to use for of loop we need external variable to store the results and that's fine if you only need one loop, but gets unpracticle when we use many loops
 
-/////////////153THE FILTER METHOD/////////////
+// //!!the .reduce() function also gets a callback function!, but diffrent than in .map() or .forEach(). The first parameter is called ! 1) the accumulator(like a snowball that keeps accumulating the value until it is returned),second parameter is 2)! current value, third 3) ! current index(of iteration), 4)! whole original array!!
+
+// //so the callback function will be called in each itteration of looping over the array!!so .rdeuce() loops over the arr and calls this callback in each iteration
+// //accumulator is the value that we will keep adding to!
+// // accumulator + current value works because in each call of the callback function the accumulator will be the current sum of all the previous values and we will be adding to this accumulator in each iteration of the loop
+// //we need to return the accumulated value so the accumulator can be used in the next iteration of the loop
+// //!!to sum up - in each loop iteration we return the updated accumulator(the current acc + cur current value) and like this we can keep adding to it in the next iteration
+
+// //always need the accumulator and the current value forarguments not always i or arr
+
+// //!!the callback function is the 1) first argument of the .reduce() method! the second argument(parameter) is 2)! the initial value of the accumulator!(in the first loop iteration)!!
+
+/////////////153THE FILTER METHOD///////////
 /////////////////////////////////////////////
 
 // //used to filter for elements, that specify a certain condition
@@ -248,92 +277,6 @@ console.log(balance2);
 
 //!!REDUCE method- which is used to boil down all the elements of the original array into one single value(simple exmp:add all elements of an array to a single value: we need to specify the operation with the accumulator variable)
 //so NO new array, but only the rdeuced (new) value!
-
-///////////////////////////////////////////////////
-///////////////149 CODING CHALLANGE 1/////////////
-/////////////////////////////////////////////////
-
-// const juliaArr1 = [3, 5, 2, 12, 7];
-// const kateArr1 = [4, 1, 15, 8, 3];
-
-// const juliaArr2 = [9, 16, 6, 8, 3];
-// const kateArr2 = [10, 5, 6, 1, 4];
-
-//my solution///
-
-// const checkDogs = function (arr1, arr2) {
-//   const shallowArr1 = arr1.slice(1, -2);
-//   const newArr = [...shallowArr1, ...arr2];
-//   const results = [];
-
-//   newArr.forEach(function (dog, i) {
-//     if (dog >= 3) {
-//       results.push(
-//         `Dog 🐶 number ${i + 1} is an adult, and is ${dog} years old`
-//       );
-//     } else {
-//       results.push(`Dog number ${i + 1} is still a puppy`);
-//     }
-//   });
-//   return console.log(results.join('\n'));
-// };
-// checkDogs(juliaArr2, kateArr2);
-
-// //jonas solution///
-
-// const checkDogs = function (dogsJulia, dogsKate) {
-//   const dogsJuliaCorrected = dogsJulia.slice();
-//   dogsJuliaCorrected.splice(0, 1);
-//   dogsJuliaCorrected.splice(-2);
-//   // const arr3 = dogsJulia.slice(1, 3);
-//   // console.log(arr3);
-//   const dogs = dogsJuliaCorrected.concat(dogsKate);
-//   console.log(dogs);
-
-//   dogs.forEach(function (dog, i) {
-//     if (dog >= 3) {
-//       console.log(
-//         `Dog 🐶 number ${i + 1} is an adult, and is ${dog} years old`
-//       );
-//     } else {
-//       console.log(`Dog number ${i + 1} is still a puppy`);
-//     }
-//   });
-// };
-
-// checkDogs(juliaArr2, kateArr2);
-
-// pseudo:
-//coditional puppy or dog?
-//create checkDogs
-//create shallow copy of first array(not mutate the original)
-//use an array method to remove first and last two elements of shallow array copy
-//create new arr with corrected  J and K data
-//log to console wether an adult or a pup
-
-/**Julia and Kate are doing a study on dogs. So each of them asked 5 dog owners
-about their dog's age, and stored the data into an array (one array for each). For
-now, they are just interested in knowing whether a dog is an adult or a puppy.
-A dog is an adult if it is at least 3 years old, and it's a puppy if it's less than 3 years
-old.
-Your tasks:
-Create a function 'checkDogs', which accepts 2 arrays of dog's ages
-('dogsJulia' and 'dogsKate'), and does the following things:
-1. Julia found out that the owners of the first and the last two dogs actually have
-cats, not dogs! So create a shallow copy of Julia's array, and remove the cat
-ages from that copied array (because it's a bad practice to mutate function
-parameters)
-2. Create an array with both Julia's (corrected) and Kate's data
-3. For each remaining dog, log to the console whether it's an adult ("Dog
-🐶 number 1
-is an adult, and is 5 years old") or a puppy ("Dog number 2 is still a puppy
-")
-4. Run the function for both test datasets
-Test data:
-§Data 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
-§Data 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
-Hints: Use tools from all lectures in this section so far 😉
-GOOD LUCK 😀 */
 
 ////////148 Creating DOM Elements//////////////
 ////////////////////////////////////////////
@@ -551,3 +494,119 @@ GOOD LUCK 😀 */
 
 ///////////////////////////////////////////////////147 PROJECT:"Bankist" APP//////////////
 ////////////////////////////////////////////
+
+///////////////////////////////////////////////////
+///////////////149 CODING CHALLANGE 1/////////////
+/////////////////////////////////////////////////
+
+// const juliaArr1 = [3, 5, 2, 12, 7];
+// const kateArr1 = [4, 1, 15, 8, 3];
+
+// const juliaArr2 = [9, 16, 6, 8, 3];
+// const kateArr2 = [10, 5, 6, 1, 4];
+
+//my solution///
+
+// const checkDogs = function (arr1, arr2) {
+//   const shallowArr1 = arr1.slice(1, -2);
+//   const newArr = [...shallowArr1, ...arr2];
+//   const results = [];
+
+//   newArr.forEach(function (dog, i) {
+//     if (dog >= 3) {
+//       results.push(
+//         `Dog 🐶 number ${i + 1} is an adult, and is ${dog} years old`
+//       );
+//     } else {
+//       results.push(`Dog number ${i + 1} is still a puppy`);
+//     }
+//   });
+//   return console.log(results.join('\n'));
+// };
+// checkDogs(juliaArr2, kateArr2);
+
+// //jonas solution///
+
+// const checkDogs = function (dogsJulia, dogsKate) {
+//   const dogsJuliaCorrected = dogsJulia.slice();
+//   dogsJuliaCorrected.splice(0, 1);
+//   dogsJuliaCorrected.splice(-2);
+//   // const arr3 = dogsJulia.slice(1, 3);
+//   // console.log(arr3);
+//   const dogs = dogsJuliaCorrected.concat(dogsKate);
+//   console.log(dogs);
+
+//   dogs.forEach(function (dog, i) {
+//     if (dog >= 3) {
+//       console.log(
+//         `Dog 🐶 number ${i + 1} is an adult, and is ${dog} years old`
+//       );
+//     } else {
+//       console.log(`Dog number ${i + 1} is still a puppy`);
+//     }
+//   });
+// };
+
+// checkDogs(juliaArr2, kateArr2);
+
+// pseudo:
+//coditional puppy or dog?
+//create checkDogs
+//create shallow copy of first array(not mutate the original)
+//use an array method to remove first and last two elements of shallow array copy
+//create new arr with corrected  J and K data
+//log to console wether an adult or a pup
+
+/**Julia and Kate are doing a study on dogs. So each of them asked 5 dog owners
+about their dog's age, and stored the data into an array (one array for each). For
+now, they are just interested in knowing whether a dog is an adult or a puppy.
+A dog is an adult if it is at least 3 years old, and it's a puppy if it's less than 3 years
+old.
+Your tasks:
+Create a function 'checkDogs', which accepts 2 arrays of dog's ages
+('dogsJulia' and 'dogsKate'), and does the following things:
+1. Julia found out that the owners of the first and the last two dogs actually have
+cats, not dogs! So create a shallow copy of Julia's array, and remove the cat
+ages from that copied array (because it's a bad practice to mutate function
+parameters)
+2. Create an array with both Julia's (corrected) and Kate's data
+3. For each remaining dog, log to the console whether it's an adult ("Dog
+🐶 number 1
+is an adult, and is 5 years old") or a puppy ("Dog number 2 is still a puppy
+")
+4. Run the function for both test datasets
+Test data:
+§Data 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
+§Data 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
+Hints: Use tools from all lectures in this section so far 😉
+GOOD LUCK 😀 */
+
+/////////////////////////////////////////////////////////
+///////155CODING Challange 2///////////////////////////
+/////////////////////////////////////////////////////
+
+/**Let's go back to Julia and Kate's study about dogs. This time, they want to convert
+dog ages to human ages and calculate the average age of the dogs in their study.
+Your tasks:
+Create a function 'calcAverageHumanAge', which accepts an arrays of dog's
+ages ('ages'), and does the following things in order:
+1. Calculate the dog age in human years using the following formula: if the dog is
+<= 2 years old, humanAge = 2 * dogAge. If the dog is > 2 years old,
+humanAge = 16 + dogAge * 4
+2. Exclude all dogs that are less than 18 human years old (which is the same as
+keeping dogs that are at least 18 years old)
+3. Calculate the average human age of all adult dogs (you should already know
+from other challenges how we calculate averages 😉)
+4. Run the function for both test datasets
+Test data:
+§Data 1: [5, 2, 4, 1, 15, 8, 3]
+§Data 2: [16, 6, 10, 5, 6, 1, 4]
+GOOD LUCK 😀 */
+
+/**
+ * calcAverageHumanAge should accept an arr
+ * write a conditional statement according to dog/human year formulas
+ * keep only dogs that are >=18 human years (use-.filter())
+ * calculate avg  of the above arr (use - .rduce() to calculate sum and divide sum from arr.length)
+ * use .map(), .filter(), .reduce() methods
+ */
