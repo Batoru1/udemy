@@ -155,7 +155,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // //we need to return the accumulated value so the accumulator can be used in the next iteration of the loop
 // //!!to sum up - in each loop iteration we return the updated accumulator(the current acc + cur current value) and like this we can keep adding to it in the next iteration
 
-// //always need the accumulator and the current value forarguments not always i or arr
+// //always need the accumulator and the current value for arguments not always i or arr
 
 // //!!the callback function is the 1) first argument of the .reduce() method! the second argument(parameter) is 2)! the initial value of the accumulator!(in the first loop iteration)!!
 
@@ -166,7 +166,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // //to specify the condition we use a callback function!
 // //.!filter() get access to 1)current array element,2)index of the element,3) entire array
 // //in .filter() method we usually need only the current element
-// //returns a new array
+// //returns a new array!
 
 // //create array of deposits(movments that are above 0):
 // const deposits = movements.filter(function (mov, i, arr) {
@@ -199,7 +199,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //using .split() to divide string into seperate words - split by an empty space(' ')
 //looping over username array, taking first letter  and putting it into new array with .map()
 //.split() method returns an array so we call the .map() method directly on that array
-//.map() returns a new array with just the first letters, but does not modify old array!
+//.map() returns a !new array with just the first letters, but does not modify old array!
 //on an array call .join() method by an empty string ('') annd this will return the inicials
 //to compute username for each acc we use .forEach(), !because we don't want to create new arr but to loop over accounts arr and modify it's elements(the objects of the app)
 //!!each function should receive data that it should work with instead of using a global variable
@@ -208,7 +208,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 ////////////151 THE MAP METHOD/////////////////////////
 ////////////////////////////////////////////
 
-// // used to lloop over arrays and gives back a new array
+// // used to loop over arrays and gives back a new array
 // //and this new array will contain in each position -! the result of applying a callback function to the original array elements
 
 // //assignment: movments are dollars that  need be converted to euros 2) lets say euro is 1.1 dollars
@@ -272,7 +272,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 //!!FILTER method- used to filter for elements in the original array !which satisfy a certain !condition
 //filter returns !a new array containing the array elements that passed a specified test condition
-//in other words-elements for whicj the condition is true will be included in a new array that the filter method returns.
+//in other words-elements for which the condition is true will be included in a new array that the filter method returns.
 //all other elements  will be filtered out(not included in the new array)
 
 //!!REDUCE method- which is used to boil down all the elements of the original array into one single value(simple exmp:add all elements of an array to a single value: we need to specify the operation with the accumulator variable)
@@ -319,7 +319,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // //Methods-are simply functions that we can call on objects, so bassically, they are functions attached to objects
 // //So if we have array methods, that means that arrays themselves are also objects
 // //Array methods are simply functions that are attached to all arrays that we create in JavaScript
-// //!Arrays are objects, and they get access to special buuilt in methods that we can essentially see as tools for arrays
+// //!Arrays are objects, and they get access to special built in methods that we can essentially see as tools for arrays
 
 // //a simple test array
 // let arr = ['a', 'b', 'c', 'd', 'e'];
@@ -327,7 +327,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // //!!.slice() method - we can extract part of any array, but without changing (mutating) the original array - slice( 1)index of start extraction(icluded),2)index of end extraction(excluded)). Starting index is included, end index is excluded from the output. The method can be used only with starting index. The method returns a new array!!
 // console.log(arr.slice(2));
 // console.log(arr);
-// console.log(arr.slice(2, 4)); //2-3 is actually 2-3, because 4 is excluded. So the length of the outputting array is end - start 4-2 =2
+// console.log(arr.slice(2, 4)); //2-4 is actually 2-3, because 4 is excluded. So the length of the outputting array is end - start 4-2 =2
 // //!!begin param can be negative, and then it will start to copy from the end of the array
 // console.log(arr.slice(-2));
 // console.log(arr.slice(-1)); //-1 always the last element of any array
@@ -347,7 +347,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // //.splice() very often used to !remove the last element of an array!
 // arr.splice(-1);
 // console.log(arr);
-// //!the second parameter in .splice() is called delete count-it soecifies how many elements to delete!
+// //!the second parameter in .splice() is called delete count-it specifies how many elements to delete!
 // arr.splice(1, 2); //this means that you delete two elements from position 1
 // console.log(arr);
 
@@ -382,9 +382,11 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // const arr = [23, 11, 64];
 // //taking the first value out of arr
+
 // console.log(arr[0]); //array at position zero
 // //exactly the same using .at() method
 // console.log(arr.at(0));
+
 // //Why use .at()! method instead of the [] brackets notation???
 // //exmp: lets say we need to !get the last element! of the array, supposing that we don't know the legth of the array
 // console.log(arr[arr.length - 1]); //using !arr.legth
@@ -585,6 +587,28 @@ GOOD LUCK 😀 */
 ///////155CODING Challange 2///////////////////////////
 /////////////////////////////////////////////////////
 
+const dogAges1 = [5, 2, 4, 1, 15, 8, 3];
+const dogAges2 = [16, 6, 10, 5, 6, 1, 4];
+
+const calcAverageHumanAge = function (ages) {
+  const humanAges = ages.map(age => {
+    if (age <= 2) {
+      return age * 2;
+    } else {
+      return 16 + age * 4;
+    }
+  });
+
+  const over18s = humanAges.filter(humanAge => humanAge >= 18);
+
+  const avgOver18s =over18s.reduce(over18=>)
+
+   console.log(humanAges);
+  console.log(over18s);
+};
+
+calcAverageHumanAge(dogAges2);
+
 /**Let's go back to Julia and Kate's study about dogs. This time, they want to convert
 dog ages to human ages and calculate the average age of the dogs in their study.
 Your tasks:
@@ -605,7 +629,7 @@ GOOD LUCK 😀 */
 
 /**
  * calcAverageHumanAge should accept an arr
- * write a conditional statement according to dog/human year formulas
+ * write a conditional statement according to dog/human year formulas(.map)
  * keep only dogs that are >=18 human years (use-.filter())
  * calculate avg  of the above arr (use - .rduce() to calculate sum and divide sum from arr.length)
  * use .map(), .filter(), .reduce() methods
