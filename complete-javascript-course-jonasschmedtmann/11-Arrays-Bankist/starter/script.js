@@ -101,6 +101,31 @@ createUserNames(accounts); //stw
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 //////////////////////////////////////////////
+////156THE MAGIC OF CHAINING METHODS/////////
+////////////////////////////////////////////
+
+//assg
+//1)take all the movment deposits(>0) then 2)convert them from euros to dollars and 3) add them all up. so that we know how much was deposited into the account in dollars
+
+const eurToUsd = 1.1;
+console.log(movements);
+
+const totalDepositsUSD = movements
+  .filter(mov => mov < 0)
+  .map((mov, i, arr) => {
+    console.log(arr);
+
+    return mov * eurToUsd;
+  })
+  // .map(mov => mov * eurToUsd)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(totalDepositsUSD);
+//can chain even more methods as long as they return new arrays
+
+//!when chaining alot of methods debugging is harder.So then we need to checks the arrays in each of the steps
+//!!to check only the results of one operation we need to check out the array on the next array method that has been chained to it
+
+//////////////////////////////////////////////
 //////////154THE REDUCE METHOD////////////////
 /////////////////////////////////////////////
 
@@ -587,27 +612,40 @@ GOOD LUCK 😀 */
 ///////155CODING Challange 2///////////////////////////
 /////////////////////////////////////////////////////
 
-const dogAges1 = [5, 2, 4, 1, 15, 8, 3];
-const dogAges2 = [16, 6, 10, 5, 6, 1, 4];
+//my solution
 
-const calcAverageHumanAge = function (ages) {
-  const humanAges = ages.map(age => {
-    if (age <= 2) {
-      return age * 2;
-    } else {
-      return 16 + age * 4;
-    }
-  });
+// // {
+// // if (age <= 2) {
+// //   return age * 2;
+// // } else {
+// //   return 16 + age * 4;
+// // }}
+// const dogAges1 = [5, 2, 4, 1, 15, 8, 3];
+// const dogAges2 = [16, 6, 10, 5, 6, 1, 4];
 
-  const over18s = humanAges.filter(humanAge => humanAge >= 18);
+// const calcAverageHumanAge = function (ages) {
+//   const humanAges = ages.map(age => (age <= 2 ? age * 2 : 16 + age * 4));
 
-  const avgOver18s =over18s.reduce(over18=>)
+//   const adults = humanAges.filter(age => age >= 18);
 
-   console.log(humanAges);
-  console.log(over18s);
-};
+//   console.log(humanAges);
+//   console.log(adults);
+//   //1st way of calculating avg:
+//   // const avgAdults = adults.reduce((sum, age) => sum + age, 0) / adults.length;
+//   //2st way of calculating avg:
+//   const avgAdults = adults.reduce(
+//     (acc, age, i, arr) => acc + age / arr.length,
+//     0
+//   );
 
-calcAverageHumanAge(dogAges2);
+//   //1st way of calculating avg: avg of 2 and 3 =(2+3)/2=2.5
+//   //2st way of calculating avg: also can 2/2+3/2=2.5
+//   return avgAdults;
+// };
+
+// const avg1 = calcAverageHumanAge(dogAges1);
+// const avg2 = calcAverageHumanAge(dogAges2);
+// console.log(avg1, avg2);
 
 /**Let's go back to Julia and Kate's study about dogs. This time, they want to convert
 dog ages to human ages and calculate the average age of the dogs in their study.
