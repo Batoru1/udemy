@@ -71,7 +71,7 @@ const displayMovments = function (movments) {
     <div class="movements__row">
           <div class="movements__type movements__type--${type}">
           ${i + 1} ${type}</div>
-          <div class="movements__value">${mov}</div>
+          <div class="movements__value">${mov}€</div>
     </div>`;
 
     containerMovements.insertAdjacentHTML('afterbegin', html);
@@ -81,9 +81,46 @@ displayMovments(account1.movements);
 
 const calcDisplayBalance = function (movements) {
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${balance} EUR`;
+  labelBalance.textContent = `${balance}€`;
 };
 calcDisplayBalance(account1.movements);
+
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}€`;
+
+  const out = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumOut.textContent = `${Math.abs(out)}€`;
+
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter((int, i, arr) => {
+      console.log(arr);
+      return int >= 1;
+    })
+    .reduce((acc, int) => acc + int, 0);
+  labelSumInterest.textContent = `${interest}€`;
+};
+
+//const interest
+//lets say that the bank pays interest each time that there is a deposit in the acc and the interest is 1.2% of the deposited amount
+//filter- to sort out deposits
+//.map to create a new array which contains all of the interests
+//and in the end we can just add them(interests) together
+//we take the current movment with map and call it deposit
+//calculate percentages
+//add all the percentages with .reduce()
+//int is interest, because each of the current movments is interest now
+
+//new bank rule: bank only pays interest if that interest is at least 1EUr
+//use .filter()
+
+calcDisplaySummary(account1.movements);
 
 const createUserNames = function (accs) {
   accs.forEach(function (acc) {
@@ -104,26 +141,29 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 ////156THE MAGIC OF CHAINING METHODS/////////
 ////////////////////////////////////////////
 
-//assg
+// //assg
 //1)take all the movment deposits(>0) then 2)convert them from euros to dollars and 3) add them all up. so that we know how much was deposited into the account in dollars
 
 const eurToUsd = 1.1;
 console.log(movements);
-
+//PIPELINE
 const totalDepositsUSD = movements
-  .filter(mov => mov < 0)
+  .filter(mov => mov > 0)
+  // .map(mov => mov * eurToUsd)
   .map((mov, i, arr) => {
-    console.log(arr);
-
+    // console.log(arr);
     return mov * eurToUsd;
   })
-  // .map(mov => mov * eurToUsd)
   .reduce((acc, mov) => acc + mov, 0);
 console.log(totalDepositsUSD);
 //can chain even more methods as long as they return new arrays
 
-//!when chaining alot of methods debugging is harder.So then we need to checks the arrays in each of the steps
-//!!to check only the results of one operation we need to check out the array on the next array method that has been chained to it
+// //!when chaining alot of methods debugging is harder.So then we need to check the arrays in each of the steps
+// //!!to check  the results of one array method,we meed to check out the current array, to do that, we need to check out-the array, on the next array method that has been chained to it
+// //above is the biggest use case for. We can inspect the current array at any stage of the pipeline using the third parameter of the callback function
+
+//const calcDisplaySummary!
+//.Math.abs takes the absolute value, because we need to remove the minu-, because it's c;ear that it's negative
 
 //////////////////////////////////////////////
 //////////154THE REDUCE METHOD////////////////
