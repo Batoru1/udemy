@@ -100,25 +100,12 @@ const calcDisplaySummary = function (movements) {
     .filter(mov => mov > 0)
     .map(deposit => (deposit * 1.2) / 100)
     .filter((int, i, arr) => {
-      console.log(arr);
+      // console.log(arr);
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
   labelSumInterest.textContent = `${interest}€`;
 };
-
-//const interest
-//lets say that the bank pays interest each time that there is a deposit in the acc and the interest is 1.2% of the deposited amount
-//filter- to sort out deposits
-//.map to create a new array which contains all of the interests
-//and in the end we can just add them(interests) together
-//we take the current movment with map and call it deposit
-//calculate percentages
-//add all the percentages with .reduce()
-//int is interest, because each of the current movments is interest now
-
-//new bank rule: bank only pays interest if that interest is at least 1EUr
-//use .filter()
 
 calcDisplaySummary(account1.movements);
 
@@ -137,33 +124,57 @@ createUserNames(accounts); //stw
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+///////////////////////////////////////////////
+////////////158 THE FIND METHOD////////////////
+//////////////////////////////////////////////
+
 //////////////////////////////////////////////
 ////156THE MAGIC OF CHAINING METHODS/////////
 ////////////////////////////////////////////
 
-// //assg
-//1)take all the movment deposits(>0) then 2)convert them from euros to dollars and 3) add them all up. so that we know how much was deposited into the account in dollars
+// // //assg
+// //1)take all the movment deposits(>0) then 2)convert them from euros to dollars and 3) add them all up. so that we know how much was deposited into the account in dollars
 
-const eurToUsd = 1.1;
-console.log(movements);
-//PIPELINE
-const totalDepositsUSD = movements
-  .filter(mov => mov > 0)
-  // .map(mov => mov * eurToUsd)
-  .map((mov, i, arr) => {
-    // console.log(arr);
-    return mov * eurToUsd;
-  })
-  .reduce((acc, mov) => acc + mov, 0);
-console.log(totalDepositsUSD);
-//can chain even more methods as long as they return new arrays
+// const eurToUsd = 1.1;
+// console.log(movements);
+// //PIPELINE
+// const totalDepositsUSD = movements
+//   .filter(mov => mov > 0)
+//   // .map(mov => mov * eurToUsd)
+//   .map((mov, i, arr) => {
+//     // console.log(arr);
+//     return mov * eurToUsd;
+//   })
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(totalDepositsUSD);
+// //can chain even more methods as long as they return new arrays
 
-// //!when chaining alot of methods debugging is harder.So then we need to check the arrays in each of the steps
-// //!!to check  the results of one array method,we meed to check out the current array, to do that, we need to check out-the array, on the next array method that has been chained to it
-// //above is the biggest use case for. We can inspect the current array at any stage of the pipeline using the third parameter of the callback function
+// // //!when chaining alot of methods debugging is harder.So then we need to check the arrays in each of the steps
+// // //!!to check  the results of one array method,we meed to check out the current array, to do that, we need to check out-the array, on the next array method that has been chained to it
+// // //above is the biggest use case for. We can inspect the current array at any stage of the pipeline using the third parameter of the callback function
 
-//const calcDisplaySummary!
-//.Math.abs takes the absolute value, because we need to remove the minu-, because it's c;ear that it's negative
+// //const calcDisplaySummary!!
+// //.Math.abs takes the absolute value, because we need to remove the minu-, because it's c;ear that it's negative
+
+// //const interest!!
+// //lets say that the bank pays interest each time that there is a deposit in the acc and the interest is 1.2% of the deposited amount
+// //filter- to sort out deposits
+// //.map to create a new array which contains all of the interests
+// //and in the end we can just add them(interests) together
+// //we take the current movment with map and call it deposit
+// //calculate percentages
+// //add all the percentages with .reduce()
+// //int is interest, because each of the current movments is interest now
+
+// //new bank rule: bank only pays interest if that interest is at least 1EUr
+// //use .filter()
+
+// //remarks:!
+// //1) not overuse chaining
+// //if we have huge chain of methods, chained one after the other, we should compress all the functionality that they do into as little methods as possible
+// //exmp() overusing .map() method when one would be enough to map through the array
+// //2) it is a bad practise to chain methods that mutate! the underlying original array
+// //exmp = .splice() method or .reverse()
 
 //////////////////////////////////////////////
 //////////154THE REDUCE METHOD////////////////
@@ -712,3 +723,27 @@ GOOD LUCK 😀 */
  * calculate avg  of the above arr (use - .rduce() to calculate sum and divide sum from arr.length)
  * use .map(), .filter(), .reduce() methods
  */
+
+///////////////////////////////////////////////
+///////////157 CODING CHALLANGE 3//////////////
+///////////////////////////////////////////////
+
+/**Rewrite the 'calcAverageHumanAge' function from Challenge #2, but this time
+as an arrow function, and using chaining!
+Test data:
+§Data 1: [5, 2, 4, 1, 15, 8, 3]
+§Data 2: [16, 6, 10, 5, 6, 1, 4]
+GOOD LUCK 😀 */
+
+// const dogAges1 = [5, 2, 4, 1, 15, 8, 3];
+// const dogAges2 = [16, 6, 10, 5, 6, 1, 4];
+
+// const calcAverageHumanAge = ages =>
+//   /**!!RETURN*/ ages
+//     .map(age => (age <= 2 ? age * 2 : 16 + age * 4))
+//     .filter(age => age >= 18)
+//     .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+
+// const avg1 = calcAverageHumanAge(dogAges1);
+// const avg2 = calcAverageHumanAge(dogAges2);
+// console.log(avg1, avg2);
