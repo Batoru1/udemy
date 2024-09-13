@@ -122,13 +122,13 @@ createUserNames(accounts); //stw
 
 // LECTURES!
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300, 444];
 
 ///////////////////////////////////////////////
 ///////159 IMPLEMENTING LOGIN//////////////////
 //////////////////////////////////////////////
 
-//if the user and PIN are correct we can log in
+//if the user and PIN are correct we can log in//
 //either by pushing the arrow(button) or clicking enter
 
 // attach addEventListener method to this button 1)   <button class="login__btn">&rarr;</button>
