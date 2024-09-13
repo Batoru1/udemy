@@ -128,6 +128,41 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 ////////////158 THE FIND METHOD////////////////
 //////////////////////////////////////////////
 
+//we can use .find() method to retrieve one element of an array based on a condition
+//it accepts a condition, a callback function, which will then be called as the method loops over the array
+//it's another method that loops over the array and retrieves an element of the array
+//like the .filter() method .find() returns a boolean(true or false), but unlike the .filter() method the .find() !method will NOT return a new array, but will only return !the first element in the array that satisfies the condition!. in other words - the first element in the array for which the operation in the callback function becomes true
+//FILTER vs FIND:!!
+// 1) .filter() returns all the elements that match the condition while .find() method only returns first one and
+// 2) .filter() method returns an new array, while .find() method returns the element itself, not an array
+
+const firstWithdrawl = movements.find(mov => mov < 0);
+console.log(movements);
+console.log(firstWithdrawl);
+
+console.log(accounts);
+
+const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+console.log(account);
+
+let account6;
+for (const acc of accounts) {
+  if (acc.owner === 'Jessica Davis') {
+    account6 = acc;
+    // break;
+  }
+}
+
+console.log(account6);
+
+//working with array of objects (const accounts)
+//we can find an object in the array based on some property of that object
+//can use .find() method to search an array for an  object, of  which we know one property already
+//usually we look for one element with the .find() method
+
+//each of the current elements is one account(acc)
+//need to select one of the accounts by the name (Jessica Davis)
+
 //////////////////////////////////////////////
 ////156THE MAGIC OF CHAINING METHODS/////////
 ////////////////////////////////////////////
