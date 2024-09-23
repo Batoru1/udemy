@@ -120,13 +120,34 @@ const createUserNames = function (accs) {
 };
 createUserNames(accounts); //stw
 
+//Event handler
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  e.preventDefault();
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    //display UI and message
+    //Display movments
+    //Display balance
+    //Display summary
+  }
+});
+
 // LECTURES!
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300, 444];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 ///////////////////////////////////////////////
 ///////159 IMPLEMENTING LOGIN//////////////////
 //////////////////////////////////////////////
+
+//declerring curent account outside function so we can use it latter- let currentAccount
+//preventDefault() - to prevent the form from submitting(so the page doesn't reload)
 
 //if the user and PIN are correct we can log in//
 //either by pushing the arrow(button) or clicking enter
@@ -136,8 +157,8 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300, 444];
 //and the PIN is gonna come from this one -  3)class="login__input login__input--pin"
 //all of the above are already selected :
 //1)const btnLogin = document.querySelector('.login__btn');
-//2)
-//3)
+//2)const inputLoginUsername = document.querySelector('.login__input--user');
+//3)const inputLoginPin = document.querySelector('.login__input--pin');
 
 ///////////////////////////////////////////////
 ////////////158 THE FIND METHOD////////////////
