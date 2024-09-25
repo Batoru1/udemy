@@ -78,9 +78,9 @@ const displayMovments = function (movments) {
   });
 };
 
-const calcDisplayBalance = function (movements) {
-  const balance = movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${balance}€`;
+const calcDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${acc.balance}€`;
 };
 
 const calcDisplaySummary = function (acc) {
@@ -139,15 +139,40 @@ btnLogin.addEventListener('click', function (e) {
     //Display movments
     displayMovments(currentAccount.movements);
     //Display balance
-    calcDisplayBalance(currentAccount.movements);
+    calcDisplayBalance(currentAccount);
     //Display summary
     calcDisplaySummary(currentAccount);
   }
 });
 
-// LECTURES!
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    acc => acc.username === inputTransferTo.value
+  );
+  console.log(amount, receiverAcc);
+
+  if (
+    amount > 0 &&
+    //receiverAcc &&
+    currentAccount.balance >= amount &&
+    receiverAcc?.username !== currentAccount.username
+  ) {
+    console.log('Transfer valid');
+  }
+});
+
+// LECTURES!!!
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+///////////////////////////////////////////////
+/////////160 IMPLEMENTING TRANSFERS///////////
+/////////////////////////////////////////////
+
+// e.preventDefault()- will prevent the reloading of the page. pretty common when working with forms
+//amount > 0 && currentAccount.balance >= amount && receiverAcc?.username !== currentAccount.username - this condition checks if 1) transfered amount is more than 0 2) the current amount balance is more or equal to the transfer 3) ?. - optional chaining operator to check if the current account exists, instead of commented out - currentAcc && 4) current user is not transfering to himself
 
 ///////////////////////////////////////////////
 ///////159 IMPLEMENTING LOGIN//////////////////
@@ -175,7 +200,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // //we can use .find() method to retrieve one element of an array based on a condition
 // //it accepts a condition, a callback function, which will then be called as the method loops over the array
 // //it's another method that loops over the array and retrieves an element of the array
-// //like the .filter() method .find() returns a boolean(true or false), but unlike the .filter() method the .find() !method will NOT return a new array, but will only return !the first element in the array that satisfies the condition!. in other words - the first element in the array for which the operation in the callback function becomes true
+// //like the .filter() method .find() returns a boolean(true or false), but unlike the .filter() method the .find() !!!the first element in the array that satisfies the condition!!!. in other words - the first element in the array for which the operation in the callback function becomes true
 // //FILTER vs FIND:!!
 // // 1) .filter() returns all the elements that match the condition while .find() method only returns first one and
 // // 2) .filter() method returns an new array, while .find() method returns the element itself, not an array
@@ -228,7 +253,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // console.log(totalDepositsUSD);
 // //can chain even more methods as long as they return new arrays
 
-// // //!when chaining alot of methods debugging is harder.So then we need to check the arrays in each of the steps
+// // //!!!when chaining alot of methods debugging is harder.So then we need to check the arrays in each of the steps
 // // //!!to check  the results of one array method,we meed to check out the current array, to do that, we need to check out-the array, on the next array method that has been chained to it
 // // //above is the biggest use case for. We can inspect the current array at any stage of the pipeline using the third parameter of the callback function
 
@@ -248,11 +273,11 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // //new bank rule: bank only pays interest if that interest is at least 1EUr
 // //use .filter()
 
-// //remarks:!
+// //remarks:!!!
 // //1) not overuse chaining
 // //if we have huge chain of methods, chained one after the other, we should compress all the functionality that they do into as little methods as possible
 // //exmp() overusing .map() method when one would be enough to map through the array
-// //2) it is a bad practise to chain methods that mutate! the underlying original array
+// //2) it is a bad practise to chain methods that mutate!!! the underlying original array
 // //exmp = .splice() method or .reverse()
 
 //////////////////////////////////////////////
@@ -300,28 +325,28 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // //if the acc < mov return mov
 // //in .reduce() method we have to return the accumulator into next iteration
 // ///////////////////////////////////////////////////////////
-// //!whenever we want to use for of loop we need external variable to store the results and that's fine if you only need one loop, but gets unpracticle when we use many loops
+// //!!!whenever we want to use for of loop we need external variable to store the results and that's fine if you only need one loop, but gets unpracticle when we use many loops
 
-// //!!the .reduce() function also gets a callback function!, but diffrent than in .map() or .forEach(). The first parameter is called ! 1) the accumulator(like a snowball that keeps accumulating the value until it is returned),second parameter is 2)! current value, third 3) ! current index(of iteration), 4)! whole original array!!
+// //!!the .reduce() function also gets a callback function!!!, but diffrent than in .map() or .forEach(). The first parameter is called !!! 1) the accumulator(like a snowball that keeps accumulating the value until it is returned),second parameter is 2)!!! current value, third 3) !!! current index(of iteration), 4)!!! whole original array!!
 
 // //so the callback function will be called in each itteration of looping over the array!!so .rdeuce() loops over the arr and calls this callback in each iteration
-// //accumulator is the value that we will keep adding to!
+// //accumulator is the value that we will keep adding to!!!
 // // accumulator + current value works because in each call of the callback function the accumulator will be the current sum of all the previous values and we will be adding to this accumulator in each iteration of the loop
 // //we need to return the accumulated value so the accumulator can be used in the next iteration of the loop
 // //!!to sum up - in each loop iteration we return the updated accumulator(the current acc + cur current value) and like this we can keep adding to it in the next iteration
 
 // //always need the accumulator and the current value for arguments not always i or arr
 
-// //!!the callback function is the 1) first argument of the .reduce() method! the second argument(parameter) is 2)! the initial value of the accumulator!(in the first loop iteration)!!
+// //!!the callback function is the 1) first argument of the .reduce() method!!! the second argument(parameter) is 2)!!! the initial value of the accumulator!!!(in the first loop iteration)!!
 
 /////////////153THE FILTER METHOD///////////
 /////////////////////////////////////////////
 
 // //used to filter for elements, that specify a certain condition
-// //to specify the condition we use a callback function!
-// //.!filter() get access to 1)current array element,2)index of the element,3) entire array
+// //to specify the condition we use a callback function!!!
+// //.!!!filter() get access to 1)current array element,2)index of the element,3) entire array
 // //in .filter() method we usually need only the current element
-// //returns a new array!
+// //returns a new array!!!
 
 // //create array of deposits(movments that are above 0):
 // const deposits = movements.filter(function (mov, i, arr) {
@@ -354,9 +379,9 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //using .split() to divide string into seperate words - split by an empty space(' ')
 //looping over username array, taking first letter  and putting it into new array with .map()
 //.split() method returns an array so we call the .map() method directly on that array
-//.map() returns a !new array with just the first letters, but does not modify old array!
+//.map() returns a !!!new array with just the first letters, but does not modify old array!!!
 //on an array call .join() method by an empty string ('') annd this will return the inicials
-//to compute username for each acc we use .forEach(), !because we don't want to create new arr but to loop over accounts arr and modify it's elements(the objects of the app)
+//to compute username for each acc we use .forEach(), !!!because we don't want to create new arr but to loop over accounts arr and modify it's elements(the objects of the app)
 //!!each function should receive data that it should work with instead of using a global variable
 //the createUser function is not to return a value but to make a side effect
 
@@ -364,7 +389,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 ////////////////////////////////////////////
 
 // // used to loop over arrays and gives back a new array
-// //and this new array will contain in each position -! the result of applying a callback function to the original array elements
+// //and this new array will contain in each position -!!! the result of applying a callback function to the original array elements
 
 // //assignment: movments are dollars that  need be converted to euros 2) lets say euro is 1.1 dollars
 
@@ -401,7 +426,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // //the callback function has the movment parameters and {} in the curly braces we specify we need to retun the value that we want the new array to have in the current position
 
 // ////////////////////////////////////////////
-// //just like the .forEach() method, .map() method also has access to the !!exact same three parameters. so besides the 1)! current array element, we also get access to  2)!current index as well as 3)! the whole array
+// //just like the .forEach() method, .map() method also has access to the !!exact same three parameters. so besides the 1)!!!current index as well as 3)!!! the whole array
 
 // //assignment:loop over array, extract current element, index and the whole array
 
@@ -420,26 +445,26 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //these are array methods to perform data tranformations
 //so these are methods to create new arrays based on transforming data from other arrays
 
-//!!MAP method- another method used to !loop over arrays. Similar to forEach method - but the difference is that map creates a !brand new array, based on the original array
-//.Map() method 1)takes an array 2)loops over that array and in each iterration it 3)applies a !callback function ,that we specify in our code, to the current array element
+//!!MAP method- another method used to !!!loop over arrays. Similar to forEach method - but the difference is that map creates a !!!brand new array, based on the original array
+//.Map() method 1)takes an array 2)loops over that array and in each iterration it 3)applies a !!!callback function ,that we specify in our code, to the current array element
 //we say that it maps the values of the original array to a new array and that's why this method is called map
 //forEach() allows us to do some work with each array element, .Map() builds us a brand new array, containing the results of applying an operation to the original array
 
-//!!FILTER method- used to filter for elements in the original array !which satisfy a certain !condition
-//filter returns !a new array containing the array elements that passed a specified test condition
+//!!FILTER method- used to filter for elements in the original array !!!which satisfy a certain !!!condition
+//filter returns !!!a new array containing the array elements that passed a specified test condition
 //in other words-elements for which the condition is true will be included in a new array that the filter method returns.
 //all other elements  will be filtered out(not included in the new array)
 
 //!!REDUCE method- which is used to boil down all the elements of the original array into one single value(simple exmp:add all elements of an array to a single value: we need to specify the operation with the accumulator variable)
-//so NO new array, but only the rdeuced (new) value!
+//so NO new array, but only the rdeuced (new) value!!!
 
 ////////148 Creating DOM Elements//////////////
 ////////////////////////////////////////////
 
-// //!instead of working with global variables, it's best to pass in data that function needs into that function
-// //!template literals are amazing at creating HTML templates
+// //!!!instead of working with global variables, it's best to pass in data that function needs into that function
+// //!!!template literals are amazing at creating HTML templates
 // const displayMovments = function (movments) {
-//   containerMovements.innerHTML = ''; //textContent returns the text itself while innerHTML returns everything, including the HTML.!innerHTML to an empty string returns what we have dynamically inserted with adjascentHTML.innerHTML is a property!
+//   containerMovements.innerHTML = ''; //textContent returns the text itself while innerHTML returns everything, including the HTML.!!!innerHTML to an empty string returns what we have dynamically inserted with adjascentHTML.innerHTML is a property!!!
 
 //   movments.forEach(function (mov, i) {
 //     //if the current movment is >0, then type =deposit,else withdrawal
@@ -454,7 +479,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //     //${mov}- value straight from the array- current value
 //     //${i+1} to know the number of operation
 //     //{type} from ternary operator,
-//     containerMovements.insertAdjacentHTML('afterbegin', html); //!
+//     containerMovements.insertAdjacentHTML('afterbegin', html); //!!!
 //   });
 // };
 // displayMovments(account1.movements);
@@ -474,7 +499,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // //Methods-are simply functions that we can call on objects, so bassically, they are functions attached to objects
 // //So if we have array methods, that means that arrays themselves are also objects
 // //Array methods are simply functions that are attached to all arrays that we create in JavaScript
-// //!Arrays are objects, and they get access to special built in methods that we can essentially see as tools for arrays
+// //!!!Arrays are objects, and they get access to special built in methods that we can essentially see as tools for arrays
 
 // //a simple test array
 // let arr = ['a', 'b', 'c', 'd', 'e'];
@@ -495,14 +520,14 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // //so which one to use for a shallow copy?-personal pref, but if want to chain couple of methods together, then use .slice
 
 // //!!SPLICE!!
-// //works almost the same way as .slice() method, but the fundamental diffrence is that it !does actually change the originall array! - so it mutates the array
+// //works almost the same way as .slice() method, but the fundamental diffrence is that it !!!does actually change the originall array!!! - so it mutates the array
 // // console.log(arr.splice(2));
 // console.log(arr); //changed array
 // //.splice() is usually used to delete one or two elements from an array
-// //.splice() very often used to !remove the last element of an array!
+// //.splice() very often used to !!!remove the last element of an array!!!
 // arr.splice(-1);
 // console.log(arr);
-// //!the second parameter in .splice() is called delete count-it specifies how many elements to delete!
+// //!!!the second parameter in .splice() is called delete count-it specifies how many elements to delete!!!
 // arr.splice(1, 2); //this means that you delete two elements from position 1
 // console.log(arr);
 
@@ -510,16 +535,16 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // arr = ['a', 'b', 'c', 'd', 'e'];
 // const arr2 = ['j', 'i', 'h', 'g', 'f'];
 // console.log(arr2.reverse());
-// //the .reverse() method !mutates! the original array
+// //the .reverse() method !!!mutates!!! the original array
 // console.log(arr2);
 
 // //!!CONCAT!!
-// //used to concatenate two arrays. !doesn't mutate! the originall arrays
+// //used to concatenate two arrays. !!!doesn't mutate!!! the originall arrays
 // const letters = arr.concat(arr2);
 // console.log(letters);
 // console.log(arr);
 // console.log(arr2);
-// //the spred operetaor ... gives the same result and !doesn't mutate! the original arrays
+// //the spred operetaor ... gives the same result and !!!doesn't mutate!!! the original arrays
 // const letters2 = [...arr, ...arr2];
 // console.log(letters2);
 // console.log(arr);
@@ -542,19 +567,19 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // //exactly the same using .at() method
 // console.log(arr.at(0));
 
-// //Why use .at()! method instead of the [] brackets notation???
-// //exmp: lets say we need to !get the last element! of the array, supposing that we don't know the legth of the array
-// console.log(arr[arr.length - 1]); //using !arr.legth
-// console.log(arr.slice(-1)); //using .slice()! to get a copy of last element of the array,
+// //Why use .at()!!! method instead of the [] brackets notation???
+// //exmp: lets say we need to !!!get the last element!!! of the array, supposing that we don't know the legth of the array
+// console.log(arr[arr.length - 1]); //using !!!arr.legth
+// console.log(arr.slice(-1)); //using .slice()!!! to get a copy of last element of the array,
 // console.log(arr.slice(-1)[0]);
 // //but we want to take out that value by using [0] square brackets 0
-// !console.log(arr.at(-1)); //using .at() method!
+// !!!console.log(arr.at(-1)); //using .at() method!!!
 
 // //If you want to start counting from the end of the array or trying to find the last element of an array use .at() method
 // //if you want to method chain also use .at() method
 // //if you just want to quickly get a value from an array us [] bracket notation
 
-// //.at() method also works on strings!
+// //.at() method also works on strings!!!
 // console.log('jonas'.at(-1)); //.at(-1) - last char
 
 /////////////////////////////////////////////
@@ -574,16 +599,16 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // }
 
 // //!!.forEach(callback function(){})!! - so technically .forEach() is a higher order function, which requires a callback function in order to tell it what to do
-// //when will forEach() calback the function? forEach() loops over the array and in each itteration it will execute the callback function. also as the forEach() method calls this callback function and in each itteration it will pass in the !current element of the array as an argument! movement in this case
+// //when will forEach() calback the function? forEach() loops over the array and in each itteration it will execute the callback function. also as the forEach() method calls this callback function and in each itteration it will pass in the !!!current element of the array as an argument!!! movement in this case
 
 // //access to current index in forEach!!
 // //how it works?
 // //it is the forEach() method that calls the callback function in each iteration
 // //and as it calls this function it also passes in the current element of the array
-// //and actually it also passes 1)the current element of the array 2)! the index 3) and the entire array that we are looping!
+// //and actually it also passes 1)the current element of the array 2)!!! the index 3) and the entire array that we are looping!!!
 // // they -1) 2), 3) can be specified in our parameters list
 // // the names of the params don't matter - what matters is the order:
-// //ALWAYS !1st param - current element, !2nd param - current index, !3d param - entire array that we are looping over
+// //ALWAYS !!!1st param - current element, !!!2nd param - current index, !!!3d param - entire array that we are looping over
 // //i+1 because index starts at 0
 // console.log('----FOREACH----');
 
@@ -602,15 +627,15 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // //2: function(400)
 // //...
 
-// // !we use a callback function to tell another higher order function exactly what it should do!
+// // !!!we use a callback function to tell another higher order function exactly what it should do!!!
 // //in the above example we tell forEach() that in each itteration it should log one of the 2 strings to the console
-// //!we give the forEach() method instructions by giving it a callback function, which conatains these instructions!
+// //!!!we give the forEach() method instructions by giving it a callback function, which conatains these instructions!!!
 
-// //!what if we actually needed access to a counter variable here?
+// //!!!what if we actually needed access to a counter variable here?
 
 // //So just like we can access the current index of the array in the for of loop
 // // movements.forEach(function (movement) {
-// //!.entries() is just another array method - it returns array of arrays,which in the first position contains i-current index, j-value itself or current array element (in this case we call j - movment) !
+// //!!!.entries() is just another array method - it returns array of arrays,which in the first position contains i-current index, j-value itself or current array element (in this case we call j - movment) !!!
 // //i+1 because index starts at 0
 // console.log('----ENTRIES----');
 
@@ -622,8 +647,8 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //   }
 
 // //!!When use forEach() when forof loop?
-// //fundamental diffrence between the two of them: is that you !cannot break out of a forEach() loop!. So the continue and break statements don't work in a forEach() loop so instead - forEach() will always loop over the entire array and ther is nothing you can do about it.
-// //So if you really need to !break out of a loop! then you need to use the forof loop
+// //fundamental diffrence between the two of them: is that you !!!cannot break out of a forEach() loop!!!. So the continue and break statements don't work in a forEach() loop so instead - forEach() will always loop over the entire array and ther is nothing you can do about it.
+// //So if you really need to !!!break out of a loop!!! then you need to use the forof loop
 
 /////////////////////////////////////////////////////146 forEach() with Maps and Sets////
 ////////////////////////////////////////////
@@ -647,7 +672,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //   console.log(`${value}: ${value}`);
 // });
 // // a Set doesn't have keys nor indexes
-// //_ - underscore means - !throwaway variable - variable that is completely unecessery
+// //_ - underscore means - !!!throwaway variable - variable that is completely unecessery
 
 ///////////////////////////////////////////////////147 PROJECT:"Bankist" APP//////////////
 ////////////////////////////////////////////
@@ -723,7 +748,7 @@ Your tasks:
 Create a function 'checkDogs', which accepts 2 arrays of dog's ages
 ('dogsJulia' and 'dogsKate'), and does the following things:
 1. Julia found out that the owners of the first and the last two dogs actually have
-cats, not dogs! So create a shallow copy of Julia's array, and remove the cat
+cats, not dogs!!! So create a shallow copy of Julia's array, and remove the cat
 ages from that copied array (because it's a bad practice to mutate function
 parameters)
 2. Create an array with both Julia's (corrected) and Kate's data
@@ -808,7 +833,7 @@ GOOD LUCK 😀 */
 ///////////////////////////////////////////////
 
 /**Rewrite the 'calcAverageHumanAge' function from Challenge #2, but this time
-as an arrow function, and using chaining!
+as an arrow function, and using chaining!!!
 Test data:
 §Data 1: [5, 2, 4, 1, 15, 8, 3]
 §Data 2: [16, 6, 10, 5, 6, 1, 4]
