@@ -116,6 +116,15 @@ const createUserNames = function (accs) {
 };
 createUserNames(accounts); //stw
 
+const updateUi = function (acc) {
+  //Display movments
+  displayMovments(acc.movements);
+  //Display balance
+  calcDisplayBalance(acc);
+  //Display summary
+  calcDisplaySummary(acc);
+};
+
 //Event handler
 let currentAccount;
 
@@ -136,12 +145,7 @@ btnLogin.addEventListener('click', function (e) {
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur(); //removes focus
 
-    //Display movments
-    displayMovments(currentAccount.movements);
-    //Display balance
-    calcDisplayBalance(currentAccount);
-    //Display summary
-    calcDisplaySummary(currentAccount);
+    updateUi(currentAccount);
   }
 });
 
@@ -151,15 +155,34 @@ btnTransfer.addEventListener('click', function (e) {
   const receiverAcc = accounts.find(
     acc => acc.username === inputTransferTo.value
   );
-  console.log(amount, receiverAcc);
+  inputTransferAmount.value = inputTransferTo.value = '';
 
   if (
     amount > 0 &&
-    //receiverAcc &&
+    receiverAcc &&
     currentAccount.balance >= amount &&
     receiverAcc?.username !== currentAccount.username
   ) {
-    console.log('Transfer valid');
+    //Doing the transfer
+    currentAccount.movements.push(-amount);
+    receiverAcc.movements.push(amount);
+
+    updateUi(currentAccount);
+  }
+});
+
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+  if (
+    currentAccount.username === inputCloseUsername.value &&
+    currentAccount.pin === Number(inputClosePin.value)
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+    console.log(index);
+
+    // accounts.splice(index, 1);
   }
 });
 
@@ -167,12 +190,22 @@ btnTransfer.addEventListener('click', function (e) {
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+////////////////////////////////////////////
+///////161 THE findIndex METHOD////////////
+//////////////////////////////////////////
+
+//works almost the same as .find() method, but returns the index of the found element and not the element istself
+
+//the example will be - close account implementation 1) delete account from accounts array using .splice() methods 2) find the index of the account using .findIndex() method
+
 ///////////////////////////////////////////////
 /////////160 IMPLEMENTING TRANSFERS///////////
 /////////////////////////////////////////////
 
+// inputTransferAmount.value = inputTransferTo.value = ''; - to clear the input fields after doing the transfers
+
 // e.preventDefault()- will prevent the reloading of the page. pretty common when working with forms
-//amount > 0 && currentAccount.balance >= amount && receiverAcc?.username !== currentAccount.username - this condition checks if 1) transfered amount is more than 0 2) the current amount balance is more or equal to the transfer 3) ?. - optional chaining operator to check if the current account exists, instead of commented out - currentAcc && 4) current user is not transfering to himself
+//amount > 0 && currentAccount && currentAccount.balance >= amount && receiverAcc?.username !== currentAccount.username - this condition checks if 1) transfered amount is more than 0 2) receiver account exists 3) the current amount balance is more or equal to the transfer 4) ?. - optional chaining operator to check if the current account is not the same as the receiver acc  5) current user is not transfering to himself
 
 ///////////////////////////////////////////////
 ///////159 IMPLEMENTING LOGIN//////////////////
