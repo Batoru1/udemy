@@ -173,6 +173,7 @@ btnTransfer.addEventListener('click', function (e) {
 
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
+
   if (
     currentAccount.username === inputCloseUsername.value &&
     currentAccount.pin === Number(inputClosePin.value)
@@ -182,17 +183,48 @@ btnClose.addEventListener('click', function (e) {
     );
     console.log(index);
 
-    // accounts.splice(index, 1);
+    //Delete account
+    accounts.splice(index, 1);
+
+    //Hide UI
+    containerApp.style.opacity = 0;
   }
+  //empty input fields
+  inputCloseUsername.value = inputClosePin.value = '';
 });
 
 // LECTURES!!!
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+///////////////////////////////////////////
+///////162 SOME AND EVERY/////////////////
+//////////////////////////////////////////
+
+//APP- requesting loan from the bank(between transfer and close buttons)
+
+//check for equality
+console.log(movements);
+console.log(movements.includes(-130));
+
+//check for condition
+console.log(movements.some(mov => mov === -130)); //the same as includes
+
+const anyDeposits = movements.some(mov => mov > 5000);
+console.log(anyDeposits);
+
+//if there is any value for which this condition is true, then the some method will return true
+
+//we can test only for equality  === with .includes() method
+
+//if we want to test for condition we use .some() method
+
 ////////////////////////////////////////////
 ///////161 THE findIndex METHOD////////////
 //////////////////////////////////////////
+
+//!!difference between .findIndex() and indexOf()- with indexOf() we can only search for value that is in the array, but with .findIndex() we can create a complex condition to check if it's true or false
+//both of these methods get access to 1)current index and the 2)current entire array, but the 3)current element is what we use
 
 //works almost the same as .find() method, but returns the index of the found element and not the element istself
 
