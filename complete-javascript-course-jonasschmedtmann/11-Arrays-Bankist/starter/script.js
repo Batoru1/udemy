@@ -167,8 +167,25 @@ btnTransfer.addEventListener('click', function (e) {
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
 
+    //Update UI
     updateUi(currentAccount);
   }
+});
+//mov => mov-we get the current movment in the current itteration, condition - >=amount/10
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  if (amount > 0 && currentAccount.movments.some(mov => mov >= amount * 0.1)) {
+    //Add movment
+    currentAccount.movments.push(amount);
+
+    //Update UI
+    updateUi(currentAccount);
+  }
+  //Clear field
+  inputLoanAmount.value = '';
 });
 
 btnClose.addEventListener('click', function (e) {
@@ -202,6 +219,8 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //////////////////////////////////////////
 
 //APP- requesting loan from the bank(between transfer and close buttons)
+//grants loan only if there is at least one deposit with at least 10% of the requested loan amount
+//whenever you hear "any" - good use case for .some() method
 
 //check for equality
 console.log(movements);
