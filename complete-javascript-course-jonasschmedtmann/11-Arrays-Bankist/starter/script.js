@@ -177,9 +177,9 @@ btnLoan.addEventListener('click', function (e) {
 
   const amount = Number(inputLoanAmount.value);
 
-  if (amount > 0 && currentAccount.movments.some(mov => mov >= amount * 0.1)) {
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     //Add movment
-    currentAccount.movments.push(amount);
+    currentAccount.movements.push(amount);
 
     //Update UI
     updateUi(currentAccount);
@@ -226,13 +226,27 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 console.log(movements);
 console.log(movements.includes(-130));
 
-//check for condition
+//SOME:CONDITION (check for condition)
 console.log(movements.some(mov => mov === -130)); //the same as includes
 
-const anyDeposits = movements.some(mov => mov > 5000);
+const anyDeposits = movements.some(mov => mov > 0);
 console.log(anyDeposits);
 
-//if there is any value for which this condition is true, then the some method will return true
+//EVERY
+console.log(movements.every(mov => mov > 0));
+console.log(account4.movements.every(mov => mov > 0));
+
+//SEPARATE CALLBACK
+const deposit = mov => mov > 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
+
+//until now we wrote our methods callback function as an argument, but we can write it sepatatly and then call it back as an argument(SEPARATE CALLBACK)
+
+// ,every()- method only returns true if all of the elements in the array satisfy the condition, that we pass in.OTHER WORDS-!!if every element passes the test in our callback function only then the .every() method returns true
+
+//!!if there is any value for which a condition is true, then the .some() method will return true
 
 //we can test only for equality  === with .includes() method
 
