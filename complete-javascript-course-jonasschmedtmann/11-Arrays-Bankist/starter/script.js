@@ -218,6 +218,21 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 ///////164 SORTING ARRAYS///////////////////
 ///////////////////////////////////////////
 
+//JavaScripts built in sort methods
+
+//Strings
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners.sort());
+console.log(owners);
+
+//Numbers
+console.log(movements);
+console.log(movements.sort());
+
+//.sort() method sorted  the array of strings alphabetically and !! mutated the original array
+//.sort() method does sorting based on strings
+// so bassically it converts everything into strings and then does the sorting itself!!
+
 // ///////////////////////////////////////////////////163 flat and flatMap////////////////
 // //////////////////////////////////////////
 
