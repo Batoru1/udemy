@@ -214,33 +214,81 @@ btnClose.addEventListener('click', function (e) {
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+////////////////////////////////////////////
+///////164 SORTING ARRAYS///////////////////
+///////////////////////////////////////////
+
+// ///////////////////////////////////////////////////163 flat and flatMap////////////////
+// //////////////////////////////////////////
+
+// //an array with array in it - a nested array
+// //take elements in nested arrays seperately and put it in one big aray, with all numbers from 1-8
+// //removes nested array and no callback function
+// const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+// console.log(arr.flat());
+
+// //even more nested array
+// //.flat(whats in here is the depth of flatenning-1 is default, 2- is deeper...)
+// const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+// console.log(arrDeep.flat(2));
+
+// //lets say ther bank wants to callculate the ballance of overall movements of all the accounts
+
+// //way1
+// // const accountMovements = accounts.map(acc => acc.movements);
+// // console.log(accountMovements);
+// // const allMovements = accountMovements.flat();
+// // console.log(allMovements);
+// // const overalBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
+
+// //way2 with chaining and .flat() method
+// const overalBalance = accounts
+//   .map(acc => acc.movements)
+//   .flat()
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(overalBalance);
+
+// //way3 with .flatMap() method
+
+// const overalBalance2 = accounts
+//   .flatMap(acc => acc.movements)
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(overalBalance2);
+
+// //first .map() and then .flat() is a pretty common practice so to solve this we use - flatMap() method
+// //since flatMap() also does mapping it needs to receive exactly the same callback as a .map() method
+// //!! .flatMap() is essentially a map method that flattens the results in the end
+// //.!!flatMap() goes only one level deep and we cannot change that. So if you need to go deeper you still need to use .flat() method
+
+// //!!these two methods are used for nested arrays
+
 ///////////////////////////////////////////
 ///////162 SOME AND EVERY/////////////////
 //////////////////////////////////////////
 
-//APP- requesting loan from the bank(between transfer and close buttons)
-//grants loan only if there is at least one deposit with at least 10% of the requested loan amount
-//whenever you hear "any" - good use case for .some() method
+// //APP- requesting loan from the bank(between transfer and close buttons)
+// //grants loan only if there is at least one deposit with at least 10% of the requested loan amount
+// //whenever you hear "any" - good use case for .some() method
 
-//check for equality
-console.log(movements);
-console.log(movements.includes(-130));
+// //check for equality
+// console.log(movements);
+// console.log(movements.includes(-130));
 
-//SOME:CONDITION (check for condition)
-console.log(movements.some(mov => mov === -130)); //the same as includes
+// //SOME:CONDITION (check for condition)
+// console.log(movements.some(mov => mov === -130)); //the same as includes
 
-const anyDeposits = movements.some(mov => mov > 0);
-console.log(anyDeposits);
+// const anyDeposits = movements.some(mov => mov > 0);
+// console.log(anyDeposits);
 
-//EVERY
-console.log(movements.every(mov => mov > 0));
-console.log(account4.movements.every(mov => mov > 0));
+// //EVERY
+// console.log(movements.every(mov => mov > 0));
+// console.log(account4.movements.every(mov => mov > 0));
 
-//SEPARATE CALLBACK
-const deposit = mov => mov > 0;
-console.log(movements.some(deposit));
-console.log(movements.every(deposit));
-console.log(movements.filter(deposit));
+// //SEPARATE CALLBACK
+// const deposit = mov => mov > 0;
+// console.log(movements.some(deposit));
+// console.log(movements.every(deposit));
+// console.log(movements.filter(deposit));
 
 //until now we wrote our methods callback function as an argument, but we can write it sepatatly and then call it back as an argument(SEPARATE CALLBACK)
 
