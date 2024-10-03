@@ -227,11 +227,29 @@ console.log(owners);
 
 //Numbers
 console.log(movements);
-console.log(movements.sort());
+
+//return<0,A,B(keep order)
+//return>0,B,A(switch order)
+//sorting in ascending order
+movements.sort((a, b) => {
+  if (a > b) return 1;
+  if (b > a) return -1;
+});
+console.log(movements);
+//descending order
+movements.sort((a, b) => {
+  if (a > b) return -1;
+  if (b > a) return 1;
+});
+console.log(movements);
 
 //.sort() method sorted  the array of strings alphabetically and !! mutated the original array
-//.sort() method does sorting based on strings
+//.sort() method does sorting based on strings, sorts numbers as if they were strings as well
 // so bassically it converts everything into strings and then does the sorting itself!!
+
+//we can fix this for number by passing in a compare callback function into the .sort() method!! which is called with two arguments (a,b in this example)- a- current value,b-next value, if we imagine the sort method looping over the array
+//!! if we return less than 0-then the value A will be sorted before value B
+//!! if we return a positive value then A will be put before B, in the sorted output array
 
 // ///////////////////////////////////////////////////163 flat and flatMap////////////////
 // //////////////////////////////////////////
