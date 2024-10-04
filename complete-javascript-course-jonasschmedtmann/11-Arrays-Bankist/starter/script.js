@@ -61,11 +61,6 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-//we will add sort=false param to displayMovements
-//new var movs is a conditional
-//we use slice() to copy movements arr, because we dont want to mutate it with.sort()
-//we want to sort arr in ascending order, because it will be diplayes from the bottom up
-
 const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
 
@@ -217,18 +212,29 @@ btnClose.addEventListener('click', function (e) {
   inputCloseUsername.value = inputClosePin.value = '';
 });
 
+let sorted = false;
 btnSort.addEventListener('click', function (e) {
   e.preventDefault();
-  displayMovements(currentAccount.movements, true);
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
 });
 
-// LECTURES!!!
+// LECTURES
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 ////////////////////////////////////////////
 ///////164 SORTING ARRAYS///////////////////
 ///////////////////////////////////////////
+
+//using a state variable to solve sort btn not returning to default
+//state variable will monitor if we are currently sorting or not
+//it needs to be outside btnSort function to preserve the sorted state
+
+//we will add sort=false param to displayMovements
+//new var movs is a conditional
+//we use slice() to copy movements arr, because we dont want to mutate it with.sort()
+//we want to sort arr in ascending order, because it will be diplayes from the bottom up
 
 //JavaScripts built in sort methods-sort btn
 
