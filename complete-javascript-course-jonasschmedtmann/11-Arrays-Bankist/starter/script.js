@@ -61,10 +61,17 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMovments = function (movments) {
+//we will add sort=false param to displayMovements
+//new var movs is a conditional
+//we use slice() to copy movements arr, because we dont want to mutate it with.sort()
+//we want to sort arr in ascending order, because it will be diplayes from the bottom up
+
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
 
-  movments.forEach(function (mov, i) {
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html = `
@@ -117,8 +124,8 @@ const createUserNames = function (accs) {
 createUserNames(accounts); //stw
 
 const updateUi = function (acc) {
-  //Display movments
-  displayMovments(acc.movements);
+  //Display movements
+  displayMovements(acc.movements);
   //Display balance
   calcDisplayBalance(acc);
   //Display summary
@@ -210,6 +217,11 @@ btnClose.addEventListener('click', function (e) {
   inputCloseUsername.value = inputClosePin.value = '';
 });
 
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, true);
+});
+
 // LECTURES!!!
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
@@ -218,29 +230,35 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 ///////164 SORTING ARRAYS///////////////////
 ///////////////////////////////////////////
 
-//JavaScripts built in sort methods
+//JavaScripts built in sort methods-sort btn
+
+//APP implementation
 
 //Strings
 const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
 console.log(owners.sort());
 console.log(owners);
 
-//Numbers
+//!!Numbers!!
 console.log(movements);
 
 //return<0,A,B(keep order)
 //return>0,B,A(switch order)
+
 //sorting in ascending order
-movements.sort((a, b) => {
-  if (a > b) return 1;
-  if (b > a) return -1;
-});
+// movements.sort((a, b) => {
+//   if (a > b) return 1;
+//   if (b > a) return -1;
+// });
+movements.sort((a, b) => a - b);
 console.log(movements);
 //descending order
-movements.sort((a, b) => {
-  if (a > b) return -1;
-  if (b > a) return 1;
-});
+// movements.sort((a, b) => {
+//   if (a > b) return -1;
+//   if (b > a) return 1;
+// });
+
+movements.sort((a, b) => b - a);
 console.log(movements);
 
 //.sort() method sorted  the array of strings alphabetically and !! mutated the original array
@@ -249,7 +267,8 @@ console.log(movements);
 
 //we can fix this for number by passing in a compare callback function into the .sort() method!! which is called with two arguments (a,b in this example)- a- current value,b-next value, if we imagine the sort method looping over the array
 //!! if we return less than 0-then the value A will be sorted before value B
-//!! if we return a positive value then A will be put before B, in the sorted output array
+//!! if we return a positive value then B will be put before A, in the sorted output array
+//mistral -!! If a is greater than b, the function returns 1, which means b should come before a in the sorted array. If b is greater than a, the function returns -1, which means a should come before b in the sorted array. If a and b are equal, the function returns 0, which means their order doesn't change.!!
 
 // ///////////////////////////////////////////////////163 flat and flatMap////////////////
 // //////////////////////////////////////////
@@ -447,7 +466,7 @@ console.log(movements);
 // //we take the current movment with map and call it deposit
 // //calculate percentages
 // //add all the percentages with .reduce()
-// //int is interest, because each of the current movments is interest now
+// //int is interest, because each of the current movements is interest now
 
 // //new bank rule: bank only pays interest if that interest is at least 1EUr
 // //use .filter()
@@ -464,7 +483,7 @@ console.log(movements);
 /////////////////////////////////////////////
 
 // ////calcDisplayBalance:
-// //receive array of movments as imput
+// //receive array of movements as imput
 // //display the result in balance_value. It's already selected as labelBalance in this js
 
 // // is used to boil down all the elements in an array to one single value
@@ -491,7 +510,7 @@ console.log(movements);
 // }
 // console.log(balance2);
 // ///////////////////////////////////////////////////////////
-// //getting Maximum value of the movments arr(3000):
+// //getting Maximum value of the movements arr(3000):
 // //the accumulator doesn't have to be a sum, it can be a string , object, multiplication....
 // const max = movements.reduce((acc, mov) => {
 //   if (acc > mov) return acc;
@@ -527,7 +546,7 @@ console.log(movements);
 // //in .filter() method we usually need only the current element
 // //returns a new array!!!
 
-// //create array of deposits(movments that are above 0):
+// //create array of deposits(movements that are above 0):
 // const deposits = movements.filter(function (mov, i, arr) {
 //   return mov > 0;
 // });
@@ -570,7 +589,7 @@ console.log(movements);
 // // used to loop over arrays and gives back a new array
 // //and this new array will contain in each position -!!! the result of applying a callback function to the original array elements
 
-// //assignment: movments are dollars that  need be converted to euros 2) lets say euro is 1.1 dollars
+// //assignment: movements are dollars that  need be converted to euros 2) lets say euro is 1.1 dollars
 
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
@@ -590,7 +609,7 @@ console.log(movements);
 // }
 // console.log(movementsUSDfor);
 
-// //assignement: movmentsUSD but with arrow function
+// //assignement: movementsUSD but with arrow function
 
 // const movementsUSD2 = movements.map(mov => {
 //   return mov * eurToUsd;
@@ -642,10 +661,10 @@ console.log(movements);
 
 // //!!!instead of working with global variables, it's best to pass in data that function needs into that function
 // //!!!template literals are amazing at creating HTML templates
-// const displayMovments = function (movments) {
+// const displayMovements = function (movements) {
 //   containerMovements.innerHTML = ''; //textContent returns the text itself while innerHTML returns everything, including the HTML.!!!innerHTML to an empty string returns what we have dynamically inserted with adjascentHTML.innerHTML is a property!!!
 
-//   movments.forEach(function (mov, i) {
+//   movements.forEach(function (mov, i) {
 //     //if the current movment is >0, then type =deposit,else withdrawal
 //     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
@@ -661,7 +680,7 @@ console.log(movements);
 //     containerMovements.insertAdjacentHTML('afterbegin', html); //!!!
 //   });
 // };
-// displayMovments(account1.movements);
+// displayMovements(account1.movements);
 // !!insertAdjescantHTML() method accepts two strings 1) position in which we want to attach the html 2) the string containing the html that we want to insert. it is a method of creating elements
 
 // console.log(containerMovements.innerHTML);
