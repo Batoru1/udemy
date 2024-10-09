@@ -223,104 +223,130 @@ btnSort.addEventListener('click', function (e) {
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+////////////////////////////////////////////////////////////////////////
+////////166SUMMary which array methods to use//////////////////////////
+//////////////////////////////////////////////////////////////////////////
+
 //////////////////////////////////////
 ////////165 More ways of creating and filling Arrays//////////////////////
 ///////////////////////////////////
 
-//how to programatically create and fill arrays?
+// //how to programatically create and fill arrays?
 
-//manually creating
-const arr = [1, 2, 3, 4, 5, 6, 7];
-console.log(new Array(1, 2, 3, 4, 5, 6, 7));
+// //manually creating
+// const arr = [1, 2, 3, 4, 5, 6, 7];
+// console.log(new Array(1, 2, 3, 4, 5, 6, 7));
 
-//Empty arrays +fill method
-//programatically creating
-const x = new Array(7);
-console.log(x);
-// console.log(x.map(() => 5));
+// //Empty arrays +fill method
+// //programatically creating
+// const x = new Array(7);
+// console.log(x);
+// // console.log(x.map(() => 5));
 
-// x.fill(1);
-x.fill(1, 3, 5);
-console.log(x);
+// // x.fill(1);
+// x.fill(1, 3, 5);
+// console.log(x);
 
-//fill the array with 23 at position 4 till 6
-arr.fill(23, 4, 6);
-console.log(arr);
+// //fill the array with 23 at position 4 till 6
+// arr.fill(23, 4, 6);
+// console.log(arr);
 
-//Array.from() function (to create a sequence)
+// //Array.from() function (to create a sequence)
 
-//create array of ones
-const y = Array.from({ length: 7 }, () => 1);
-console.log(y);
+// //create array of ones
+// const y = Array.from({ length: 7 }, () => 1);
+// console.log(y);
 
-//create array from 1 to 7
-//cur-current element, i-current index, !! we can use underscore - _ as a throw away variable, because we do not need this current value at all, but we still need to define something at the first parameter, because index that we need is only the second parameter, but to denote that we are not ussing this current element, we write _!!
-const z = Array.from({ length: 7 }, (_, i) => i + 1);
-console.log(z);
+// //create array from 1 to 7
+// //cur-current element, i-current index, !! we can use underscore - _ as a throw away variable, because we do not need this current value at all, but we still need to define something at the first parameter, because index that we need is only the second parameter, but to denote that we are not ussing this current element, we write _!!
+// const z = Array.from({ length: 7 }, (_, i) => i + 1);
+// console.log(z);
 
-//Arrray is a function and on that function object we call the .from() method
-//!!first argument1) object with the length property, second argument 2) a mapping function(exactly like a callback function that we pass into the .map() method)
+// //100 random dice rolls
+// const d = Array.from(
+//   { length: 100 },
+//   (_, i) => Math.floor(Math.random() * 6) + 1
+// );
+// console.log(d);
 
-//.fill() does mutate the enrire array
-//this method is a bit similar to .slice() method
-//!!besides the value that we want to 1) fill the array with, we can also specify 2) where we want it to start to fill(begin parameter), we can also specify 3) end parameter(like in .slice() won't be included)
+// //calculating mvements from the ui
+// labelBalance.addEventListener('click', function () {
+//   const movementsUI = Array.from(
+//     document.querySelectorAll('.movements__value'),
+//     el => Number(el.textContent.replace('€', ''))
+//   );
 
-//we can use the .fill() method on other arrays(not only empty ones)
+//   console.log(movementsUI);
 
-//whenerver we pass in one argument, into array constructor function - new Array() then it creates new empty argument (array?) with that length
+//   const movementsUI2 = [...document.querySelectorAll('.movements__value')];
+// });
 
-////////////////////////////////////////////
-///////164 SORTING ARRAYS///////////////////
-///////////////////////////////////////////
+// //Array.from() function is used to create arrays from 1) iterables(maps, sets, querrySelectorAll...)
+// //querrySelectorAll returns a node list, which is similar to array which contains all the selected elements, but it's not a real array so it doesn't have  array methods. To convert it into a real array we use Array.from() function and then we can use all the array methods
 
-// //using a state variable to solve sort btn not returning to default
-// //state variable will monitor if we are currently sorting or not
-// //it needs to be outside btnSort function to preserve the sorted state
+// //Arrray is a function and on that function object we call the .from() method
+// //!!first argument1) object with the length property, second argument 2) a mapping function(exactly like a callback function that we pass into the .map() method)
 
-// //we will add sort=false param to displayMovements
-// //new var movs is a conditional
-// //we use slice() to copy movements arr, because we dont want to mutate it with.sort()
-// //we want to sort arr in ascending order, because it will be diplayes from the bottom up
+// //.fill() does mutate the enrire array
+// //this method is a bit similar to .slice() method
+// //!!besides the value that we want to 1) fill the array with, we can also specify 2) where we want it to start to fill(begin parameter), we can also specify 3) end parameter(like in .slice() won't be included)
 
-// //JavaScripts built in sort methods-sort btn
+// //we can use the .fill() method on other arrays(not only empty ones)
 
-// //APP implementation
+// //whenerver we pass in one argument, into array constructor function - new Array() then it creates new empty argument (array?) with that length
 
-// //Strings
-// const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
-// console.log(owners.sort());
-// console.log(owners);
+// ////////////////////////////////////////////
+// ///////164 SORTING ARRAYS///////////////////
+// ///////////////////////////////////////////
 
-// //!!Numbers!!
-// console.log(movements);
+// // //using a state variable to solve sort btn not returning to default
+// // //state variable will monitor if we are currently sorting or not
+// // //it needs to be outside btnSort function to preserve the sorted state
 
-// //return<0,A,B(keep order)
-// //return>0,B,A(switch order)
+// // //we will add sort=false param to displayMovements
+// // //new var movs is a conditional
+// // //we use slice() to copy movements arr, because we dont want to mutate it with.sort()
+// // //we want to sort arr in ascending order, because it will be diplayes from the bottom up
 
-// //sorting in ascending order
-// // movements.sort((a, b) => {
-// //   if (a > b) return 1;
-// //   if (b > a) return -1;
-// // });
-// movements.sort((a, b) => a - b);
-// console.log(movements);
-// //descending order
-// // movements.sort((a, b) => {
-// //   if (a > b) return -1;
-// //   if (b > a) return 1;
-// // });
+// // //JavaScripts built in sort methods-sort btn
 
-// movements.sort((a, b) => b - a);
-// console.log(movements);
+// // //APP implementation
 
-// //.sort() method sorted  the array of strings alphabetically and !! mutated the original array
-// //.sort() method does sorting based on strings, sorts numbers as if they were strings as well
-// // so bassically it converts everything into strings and then does the sorting itself!!
+// // //Strings
+// // const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+// // console.log(owners.sort());
+// // console.log(owners);
 
-// //we can fix this for number by passing in a compare callback function into the .sort() method!! which is called with two arguments (a,b in this example)- a- current value,b-next value, if we imagine the sort method looping over the array
-// //!! if we return less than 0-then the value A will be sorted before value B
-// //!! if we return a positive value then B will be put before A, in the sorted output array
-// //mistral -!! If a is greater than b, the function returns 1, which means b should come before a in the sorted array. If b is greater than a, the function returns -1, which means a should come before b in the sorted array. If a and b are equal, the function returns 0, which means their order doesn't change.!!
+// // //!!Numbers!!
+// // console.log(movements);
+
+// // //return<0,A,B(keep order)
+// // //return>0,B,A(switch order)
+
+// // //sorting in ascending order
+// // // movements.sort((a, b) => {
+// // //   if (a > b) return 1;
+// // //   if (b > a) return -1;
+// // // });
+// // movements.sort((a, b) => a - b);
+// // console.log(movements);
+// // //descending order
+// // // movements.sort((a, b) => {
+// // //   if (a > b) return -1;
+// // //   if (b > a) return 1;
+// // // });
+
+// // movements.sort((a, b) => b - a);
+// // console.log(movements);
+
+// // //.sort() method sorted  the array of strings alphabetically and !! mutated the original array
+// // //.sort() method does sorting based on strings, sorts numbers as if they were strings as well
+// // // so bassically it converts everything into strings and then does the sorting itself!!
+
+// // //we can fix this for number by passing in a compare callback function into the .sort() method!! which is called with two arguments (a,b in this example)- a- current value,b-next value, if we imagine the sort method looping over the array
+// // //!! if we return less than 0-then the value A will be sorted before value B
+// // //!! if we return a positive value then B will be put before A, in the sorted output array
+// // //mistral -!! If a is greater than b, the function returns 1, which means b should come before a in the sorted array. If b is greater than a, the function returns -1, which means a should come before b in the sorted array. If a and b are equal, the function returns 0, which means their order doesn't change.!!
 
 // ///////////////////////////////////////////////////163 flat and flatMap////////////////
 // //////////////////////////////////////////
