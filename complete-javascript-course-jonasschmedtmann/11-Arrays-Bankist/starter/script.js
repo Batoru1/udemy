@@ -223,6 +223,23 @@ btnSort.addEventListener('click', function (e) {
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+//////////////////////////////////////////////Array methods practice////////////////
+/////////////////////////////////////
+
+//how much, in total, has been deposited in the bank(across all the accounts)
+//.map() to get all the movements
+//.flat() to move all arrays into one array
+//or just use .flatMap()
+//.filter() for positive values
+//.reduce() to boil down to single value
+
+const bankDepositSum = accounts
+  .flatMap(acc => acc.movements)
+  .filter(mov => mov > 0)
+  .reduce((sum, cur) => sum + cur, 0);
+
+console.log(bankDepositSum);
+
 ////////////////////////////////////////////////////////////////////////
 ////////166SUMMary which array methods to use//////////////////////////
 //////////////////////////////////////////////////////////////////////////
