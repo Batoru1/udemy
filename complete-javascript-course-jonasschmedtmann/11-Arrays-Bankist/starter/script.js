@@ -226,7 +226,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //////////////////////////////////////////////Array methods practice////////////////
 /////////////////////////////////////
 
-//how much, in total, has been deposited in the bank(across all the accounts)
+//1)how much, in total, has been deposited in the bank(across all the accounts)
 //.map() to get all the movements
 //.flat() to move all arrays into one array
 //or just use .flatMap()
@@ -239,6 +239,65 @@ const bankDepositSum = accounts
   .reduce((sum, cur) => sum + cur, 0);
 
 console.log(bankDepositSum);
+
+//2) how many deposits has there been with atleast 1000 ?
+// const numDeposits1000 = accounts
+//   .flatMap(acc => acc.movements)
+//   .filter(mov => mov >= 1000).length;
+
+//same thing using reduce
+//reduce- whwnever the count is more/equal 100 return count+1 otherwise return the count
+const numDeposits1000 = accounts
+  .flatMap(acc => acc.movements)
+  // .reduce((count, cur) => (cur >= 1000 ? count + 1 : count), 0);
+  .reduce((count, cur) => (cur >= 1000 ? ++count : count), 0);
+
+console.log(numDeposits1000);
+//++ operator increments but returns the old value, need to use prefixed ++ operator- write before the operand
+let a = 10;
+console.log(a++);
+console.log(a);
+console.log(++a);
+
+//3) create a new object, which contains the sum of the deposits and of the withdrawals
+
+//reduce boils down array to just one value , which can be an object or a new array
+
+//starting point is an object with d/w at 0
+// deposits: 0, withdrawls: 0 =sums so we can access it sums.deposits or sums.withdrawals
+const { deposits, withdrawals } = accounts
+  .flatMap(acc => acc.movements)
+  .reduce(
+    (sums, cur) => {
+      // cur > 0 ? (sums.deposits += cur) : (sums.withdrawls += cur);
+      sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
+      return sums;
+    },
+    { deposits: 0, withdrawals: 0 }
+  );
+
+console.log(deposits, withdrawals);
+
+//4 create a function to convert any string to a title case(all words are capitalized except for some of them) - this is a nice title->This Is a Nice Title
+
+//!!it's common practice to create exceptions
+//terneray: if ? the current word is included in the xceptions array then return the word otherwise : capitalize
+const convertTitleCase = function (title) {
+  const capitalize = str => str[0].toUpperCase() + str.slice(1);
+
+  const exceptions = ['a', 'an', 'and', 'the', 'but', 'or', 'on', 'in', 'with'];
+
+  const titleCase = title
+    .toLowerCase()
+    .split(' ')
+    .map(word => (exceptions.includes(word) ? word : capitalize(word)))
+    .join(' ');
+  return capitalize(titleCase);
+};
+
+console.log(convertTitleCase('this is a nice title'));
+console.log(convertTitleCase('this is a LONG title but not too long'));
+console.log(convertTitleCase('and here is another title with an EXAMPLE'));
 
 ////////////////////////////////////////////////////////////////////////
 ////////166SUMMary which array methods to use//////////////////////////
