@@ -226,78 +226,78 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //////////////////////////////////////////////Array methods practice////////////////
 /////////////////////////////////////
 
-//1)how much, in total, has been deposited in the bank(across all the accounts)
-//.map() to get all the movements
-//.flat() to move all arrays into one array
-//or just use .flatMap()
-//.filter() for positive values
-//.reduce() to boil down to single value
+// //1)how much, in total, has been deposited in the bank(across all the accounts)
+// //.map() to get all the movements
+// //.flat() to move all arrays into one array
+// //or just use .flatMap()
+// //.filter() for positive values
+// //.reduce() to boil down to single value
 
-const bankDepositSum = accounts
-  .flatMap(acc => acc.movements)
-  .filter(mov => mov > 0)
-  .reduce((sum, cur) => sum + cur, 0);
+// const bankDepositSum = accounts
+//   .flatMap(acc => acc.movements)
+//   .filter(mov => mov > 0)
+//   .reduce((sum, cur) => sum + cur, 0);
 
-console.log(bankDepositSum);
+// console.log(bankDepositSum);
 
-//2) how many deposits has there been with atleast 1000 ?
+// //2) how many deposits has there been with atleast 1000 ?
+// // const numDeposits1000 = accounts
+// //   .flatMap(acc => acc.movements)
+// //   .filter(mov => mov >= 1000).length;
+
+// //same thing using reduce
+// //reduce- whwnever the count is more/equal 100 return count+1 otherwise return the count
 // const numDeposits1000 = accounts
 //   .flatMap(acc => acc.movements)
-//   .filter(mov => mov >= 1000).length;
+//   // .reduce((count, cur) => (cur >= 1000 ? count + 1 : count), 0);
+//   .reduce((count, cur) => (cur >= 1000 ? ++count : count), 0);
 
-//same thing using reduce
-//reduce- whwnever the count is more/equal 100 return count+1 otherwise return the count
-const numDeposits1000 = accounts
-  .flatMap(acc => acc.movements)
-  // .reduce((count, cur) => (cur >= 1000 ? count + 1 : count), 0);
-  .reduce((count, cur) => (cur >= 1000 ? ++count : count), 0);
+// console.log(numDeposits1000);
+// //++ operator increments but returns the old value, need to use prefixed ++ operator- write before the operand
+// let a = 10;
+// console.log(a++);
+// console.log(a);
+// console.log(++a);
 
-console.log(numDeposits1000);
-//++ operator increments but returns the old value, need to use prefixed ++ operator- write before the operand
-let a = 10;
-console.log(a++);
-console.log(a);
-console.log(++a);
+// //3) create a new object, which contains the sum of the deposits and of the withdrawals
 
-//3) create a new object, which contains the sum of the deposits and of the withdrawals
+// //reduce boils down array to just one value , which can be an object or a new array
 
-//reduce boils down array to just one value , which can be an object or a new array
+// //starting point is an object with d/w at 0
+// // deposits: 0, withdrawls: 0 =sums so we can access it sums.deposits or sums.withdrawals
+// const { deposits, withdrawals } = accounts
+//   .flatMap(acc => acc.movements)
+//   .reduce(
+//     (sums, cur) => {
+//       // cur > 0 ? (sums.deposits += cur) : (sums.withdrawls += cur);
+//       sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
+//       return sums;
+//     },
+//     { deposits: 0, withdrawals: 0 }
+//   );
 
-//starting point is an object with d/w at 0
-// deposits: 0, withdrawls: 0 =sums so we can access it sums.deposits or sums.withdrawals
-const { deposits, withdrawals } = accounts
-  .flatMap(acc => acc.movements)
-  .reduce(
-    (sums, cur) => {
-      // cur > 0 ? (sums.deposits += cur) : (sums.withdrawls += cur);
-      sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
-      return sums;
-    },
-    { deposits: 0, withdrawals: 0 }
-  );
+// console.log(deposits, withdrawals);
 
-console.log(deposits, withdrawals);
+// //4 create a function to convert any string to a title case(all words are capitalized except for some of them) - this is a nice title->This Is a Nice Title
 
-//4 create a function to convert any string to a title case(all words are capitalized except for some of them) - this is a nice title->This Is a Nice Title
+// //!!it's common practice to create exceptions
+// //terneray: if ? the current word is included in the xceptions array then return the word otherwise : capitalize
+// const convertTitleCase = function (title) {
+//   const capitalize = str => str[0].toUpperCase() + str.slice(1);
 
-//!!it's common practice to create exceptions
-//terneray: if ? the current word is included in the xceptions array then return the word otherwise : capitalize
-const convertTitleCase = function (title) {
-  const capitalize = str => str[0].toUpperCase() + str.slice(1);
+//   const exceptions = ['a', 'an', 'and', 'the', 'but', 'or', 'on', 'in', 'with'];
 
-  const exceptions = ['a', 'an', 'and', 'the', 'but', 'or', 'on', 'in', 'with'];
+//   const titleCase = title
+//     .toLowerCase()
+//     .split(' ')
+//     .map(word => (exceptions.includes(word) ? word : capitalize(word)))
+//     .join(' ');
+//   return capitalize(titleCase);
+// };
 
-  const titleCase = title
-    .toLowerCase()
-    .split(' ')
-    .map(word => (exceptions.includes(word) ? word : capitalize(word)))
-    .join(' ');
-  return capitalize(titleCase);
-};
-
-console.log(convertTitleCase('this is a nice title'));
-console.log(convertTitleCase('this is a LONG title but not too long'));
-console.log(convertTitleCase('and here is another title with an EXAMPLE'));
+// console.log(convertTitleCase('this is a nice title'));
+// console.log(convertTitleCase('this is a LONG title but not too long'));
+// console.log(convertTitleCase('and here is another title with an EXAMPLE'));
 
 ////////////////////////////////////////////////////////////////////////
 ////////166SUMMary which array methods to use//////////////////////////
@@ -1203,3 +1203,76 @@ GOOD LUCK 😀 */
 // const avg1 = calcAverageHumanAge(dogAges1);
 // const avg2 = calcAverageHumanAge(dogAges2);
 // console.log(avg1, avg2);
+
+//////////////////////////////////////////////////
+//////CODING CHALLANGE 4#////////////////////////
+////////////////////////////////////////////////
+
+/**Julia and Kate are still studying dogs, and this time they are studying if dogs are
+eating too much or too little.
+Eating too much means the dog's current food portion is larger than the
+recommended portion, and eating too little is the opposite.
+Eating an okay amount means the dog's current food portion is within a range 10%
+above and 10% below the recommended portion (see hint).
+Your tasks:
+1. Loop over the 'dogs' array containing dog objects, and for each dog, calculate
+the recommended food portion and add it to the object as a new property. Do
+not create a new array, simply loop over the array. Forumla:
+recommendedFood = weight ** 0.75 * 28. (The result is in grams of
+food, and the weight needs to be in kg)
+2. Find Sarah's dog and log to the console whether it's eating too much or too
+little. Hint: Some dogs have multiple owners, so you first need to find Sarah in
+the owners array, and so this one is a bit tricky (on purpose) 🤓
+3. Create an array containing all owners of dogs who eat too much
+('ownersEatTooMuch') and an array with all owners of dogs who eat too little
+('ownersEatTooLittle').
+4. Log a string to the console for each array created in 3., like this: "Matilda and
+Alice and Bob's dogs eat too much!" and "Sarah and John and Michael's dogs eat
+too little!"
+5. Log to the console whether there is any dog eating exactly the amount of food
+that is recommended (just true or false)
+6. Log to the console whether there is any dog eating an okay amount of food
+(just true or false)
+7. Create an array containing the dogs that are eating an okay amount of food (try
+to reuse the condition used in 6.)
+8. Create a shallow copy of the 'dogs' array and sort it by recommended food
+portion in an ascending order (keep in mind that the portions are inside the
+array's objects 😉) 
+
+Hints:
+§
+Use many different tools to solve these challenges, you can use the summary
+lecture to choose between them 😉
+§
+Being within a range 10% above and below the recommended portion means:
+current > (recommended * 0.90) && current < (recommended *
+1.10). Basically, the current portion should be between 90% and 110% of the
+recommended portion
+*/
+
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+//1
+
+dogs.forEach(dog => {
+  dog.recFood = Math.trunc(dog.weight ** 0.75 * 28);
+});
+
+console.log(dogs);
+
+//2
+// if curFood > recFood * 0.9 &&
+//curFood < recFood * 1.1;
+const sarahsDog = dogs.find(dog => dog.owners.includes('Sarah'));
+if (sarahsDog.curFood < sarahsDog.recFood * 0.9) {
+  console.log("Sarah's dog eats to little");
+} else if (sarahsDog.curFood > sarahsDog.recFood * 1.1) {
+  console.log("Sarah's dog eats to much");
+}
+
+console.log(sarahsDog);
