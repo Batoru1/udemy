@@ -1269,10 +1269,34 @@ console.log(dogs);
 // if curFood > recFood * 0.9 &&
 //curFood < recFood * 1.1;
 const sarahsDog = dogs.find(dog => dog.owners.includes('Sarah'));
-if (sarahsDog.curFood < sarahsDog.recFood * 0.9) {
-  console.log("Sarah's dog eats to little");
-} else if (sarahsDog.curFood > sarahsDog.recFood * 1.1) {
-  console.log("Sarah's dog eats to much");
-}
-
+console.log(
+  `Sarah's dog is eating too ${
+    sarahsDog.curFood > sarahsDog.recFood ? 'much' : 'little'
+  }`
+);
+// if (sarahsDog.curFood < sarahsDog.recFood * 0.9) {
+//   console.log("Sarah's dog eats to little");
+// } else if (sarahsDog.curFood > sarahsDog.recFood * 1.1) {
+//   console.log("Sarah's dog eats to much");
+// }
 console.log(sarahsDog);
+
+//3
+
+const ownersEatTooMuch = dogs
+  .filter(dog => dog.curFood > dog.recFood)
+  .flatMap(dog => dog.owners);
+
+console.log(ownersEatTooMuch);
+
+const ownersEatTooLittle = dogs
+  .filter(dog => dog.curFood < dog.recFood)
+  .map(dog => dog.owners)
+  .flat();
+
+console.log(ownersEatTooLittle);
+
+//4
+("Matilda and Alice and Bob's dogs eat too much!");
+("Sarah and John and Michael's dogs eat too little!");
+console.log(``);
