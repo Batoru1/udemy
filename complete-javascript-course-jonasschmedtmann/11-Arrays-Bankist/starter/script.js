@@ -1305,5 +1305,26 @@ console.log(`${ownersEatTooLittle.join("'s and ")}'s dogs eat too little!`);
 
 //5
 const rightAmount = dogs.some(dog => {
-  console.log(dog.recFood * 0.9 < dog.curFood < dog.recFood * 1.1);
+  console.log(dog.recFood === dog.curFood);
 });
+
+//6
+
+console.log(
+  dogs.some(
+    dog => dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1
+  )
+);
+
+//same
+const dogCheckEating = dog =>
+  dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1;
+console.log(dogs.some(dogCheckEating));
+
+//7
+const dogsRightAmount = dogs.filter(dog => {
+  return dog =>
+    dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1;
+});
+
+console.log(dogsRightAmount);
