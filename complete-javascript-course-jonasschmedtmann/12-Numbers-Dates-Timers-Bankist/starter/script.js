@@ -164,7 +164,7 @@ btnLogin.addEventListener('click', function (e) {
   );
   console.log(currentAccount);
 
-  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+  if (currentAccount?.pin === +inputLoginPin.value) {
     // Display UI and message
     labelWelcome.textContent = `Welcome back, ${
       currentAccount.owner.split(' ')[0]
@@ -182,7 +182,7 @@ btnLogin.addEventListener('click', function (e) {
 
 btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
-  const amount = Number(inputTransferAmount.value);
+  const amount = +inputTransferAmount.value;
   const receiverAcc = accounts.find(
     acc => acc.username === inputTransferTo.value
   );
@@ -206,7 +206,7 @@ btnTransfer.addEventListener('click', function (e) {
 btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
 
-  const amount = Number(inputLoanAmount.value);
+  const amount = +inputLoanAmount.value;
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // Add movement
@@ -223,7 +223,7 @@ btnClose.addEventListener('click', function (e) {
 
   if (
     inputCloseUsername.value === currentAccount.username &&
-    Number(inputClosePin.value) === currentAccount.pin
+    +inputClosePin.value === currentAccount.pin
   ) {
     const index = accounts.findIndex(
       acc => acc.username === currentAccount.username
@@ -263,3 +263,37 @@ btnSort.addEventListener('click', function (e) {
 //how numbers work in js?
 //how to convert values to numbers?
 //how to check if certain values are numbers or not?
+
+//in js all numbers are represented internally as ??floating point numbers-decimals, no matter if we write them as integers or as decimals
+console.log(23 === 23.0);
+//also numbers are represented internally in a 64 base 2 format- numbers are stored in a binary format-0's and 1's
+
+//decimal is base 10 so numbers from 0 to 9
+//binary is base 2 so numbers from 0 to 1
+//some numbers are very hard to represent in binary:exmp-0.1
+console.log(0.1 + 0.2);
+console.log(0.1 + 0.2 === 0.3); //LOL no financial or scientific calculations in js!!
+//base10-1/10=0.1, 3/10=0,333333
+
+//converting a string to a number??
+console.log(Number('23'));
+//easier way
+console.log(+'23');
+
+//Parsing- to parse a number from a string
+//every object is a function. Number is an object
+//.parseInt(specify a string(might have symbols))-and js will try to figure out the number in that string!!.in order for this to work string needs to start with a number??
+//parseInt function also accepts a second argument called ??regex??-it is a base of numeral system.by passing 10?? as regex we might acoid some bugs!!
+//Int- stands for integers!!
+console.log(Number.parseInt('30px', 10));
+console.log(Number.parseInt('e23', 10)); //not gonna work
+
+//parseFloat!!
+console.log(Number.parseFloat('2.5rem'));
+console.log(Number.parseInt('2.5rem'));
+
+//parseInt and parseFloat are Global functions!!
+console.log(parseFloat('2.5rem   '));
+//but in practice we do it with Number because it provides a namespace??- for a all these diffrent functions
+
+//!!isNAN!!
