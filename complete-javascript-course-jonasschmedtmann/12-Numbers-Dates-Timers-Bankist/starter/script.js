@@ -260,40 +260,127 @@ btnSort.addEventListener('click', function (e) {
 ///////171 Converting and Checking Numbers////////
 /////////////////////////////////////////////////
 
-//how numbers work in js?
-//how to convert values to numbers?
-//how to check if certain values are numbers or not?
+// //how numbers work in js?
+// //how to convert values to numbers?
+// //how to check if certain values are numbers or not?
 
-//in js all numbers are represented internally as ??floating point numbers-decimals, no matter if we write them as integers or as decimals
-console.log(23 === 23.0);
-//also numbers are represented internally in a 64 base 2 format- numbers are stored in a binary format-0's and 1's
+// //in js all numbers are represented internally as ??floating point numbers-decimals, no matter if we write them as integers or as decimals
+// console.log(23 === 23.0);
+// //also numbers are represented internally in a 64 base 2 format- numbers are stored in a binary format-0's and 1's
 
-//decimal is base 10 so numbers from 0 to 9
-//binary is base 2 so numbers from 0 to 1
-//some numbers are very hard to represent in binary:exmp-0.1
-console.log(0.1 + 0.2);
-console.log(0.1 + 0.2 === 0.3); //LOL no financial or scientific calculations in js!!
-//base10-1/10=0.1, 3/10=0,333333
+// //decimal is base 10 so numbers from 0 to 9
+// //binary is base 2 so numbers from 0 to 1
+// //some numbers are very hard to represent in binary:exmp-0.1
+// console.log(0.1 + 0.2);
+// console.log(0.1 + 0.2 === 0.3); //LOL no financial or scientific calculations in js!!
+// //base10-1/10=0.1, 3/10=0,333333
 
-//converting a string to a number??
-console.log(Number('23'));
-//easier way
-console.log(+'23');
+// //converting a string to a number??
+// console.log(Number('23'));
+// //easier way
+// console.log(+'23');
 
-//Parsing- to parse a number from a string
-//every object is a function. Number is an object
-//.parseInt(specify a string(might have symbols))-and js will try to figure out the number in that string!!.in order for this to work string needs to start with a number??
-//parseInt function also accepts a second argument called ??regex??-it is a base of numeral system.by passing 10?? as regex we might acoid some bugs!!
-//Int- stands for integers!!
-console.log(Number.parseInt('30px', 10));
-console.log(Number.parseInt('e23', 10)); //not gonna work
+// //Parsing- to parse a number from a string
+// //every object is a function. Number is an object
+// //.parseInt(specify a string(might have symbols))-and js will try to figure out the number in that string!!.in order for this to work string needs to start with a number??
+// //parseInt function also accepts a second argument called ??regex??-it is a base of numeral system.by passing 10?? as regex we might acoid some bugs!!
+// //Int- stands for integers!!
+// console.log(Number.parseInt('30px', 10));
+// console.log(Number.parseInt('e23', 10)); //not gonna work
 
-//parseFloat!!
-console.log(Number.parseFloat('2.5rem'));
-console.log(Number.parseInt('2.5rem'));
+// //parseFloat!!!!!!!!!!!!!!!!!!!!!
+// console.log(Number.parseFloat('2.5rem'));
+// console.log(Number.parseInt('2.5rem'));
 
-//parseInt and parseFloat are Global functions!!
-console.log(parseFloat('2.5rem   '));
-//but in practice we do it with Number because it provides a namespace??- for a all these diffrent functions
+// //parseInt and parseFloat are Global functions!!
+// console.log(parseFloat('2.5rem   '));
+// //but in practice we do it with Number because it provides a namespace??- for a all these diffrent functions
 
-//!!isNAN!!
+// //!!isNAN!!
+
+// //to check if any value is a number
+
+// //Check if value is NaN
+// console.log(Number.isNaN(20));
+// console.log(Number.isNaN('20'));
+// console.log(Number.isNaN(+'20X'));
+// console.log(Number.isNaN(23 / 0));
+
+// //better to check with isFinite!!!!!!!!!!!!!!!!
+// console.log(Number.isFinite(20));
+// console.log(Number.isFinite('20'));
+// console.log(Number.isFinite(+'20x'));
+// console.log(Number.isFinite(23 / 0));
+
+// console.log(Number.isInteger(23));
+// console.log(Number.isInteger('23'));
+// console.log(Number.isInteger(23.0));
+// console.log(Number.isInteger(23.2));
+// console.log(Number.isInteger(23 / 0));
+
+/////////////////////////////////////////////////
+//////////172 MATH and ROUNDING/////////////////
+////////////////////////////////////////////////
+
+//square root
+
+console.log(Math.sqrt(25));
+console.log(25 ** (1 / 2));
+
+//cubic root
+console.log(8 ** (1 / 3));
+
+//maximum value
+console.log(Math.max(5, 18, 23, 11));
+//does type coersion
+console.log(Math.max(5, 18, '23', 11));
+//does not do parsing
+console.log(Math.max(5, 18, '23px', 11, 2));
+
+//minimum value
+console.log(Math.min(5, 18, 23, 11, 2));
+
+//Constants of Math namespace or object
+
+//radius
+//area of a circle with 10px radius
+console.log(Math.PI * Number.parseFloat('10px') ** 2);
+
+//random dice roll
+console.log(Math.trunc(Math.random() * 6 + 1));
+
+//random integers between 2 values!!!!
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min) + 1) + min;
+
+console.log(randomInt(10, 20));
+
+//rounding to integers!!
+//all do type coersion
+
+//no float
+console.log(Math.trunc(23.3));
+
+//normal round
+console.log(Math.round(23.3));
+console.log(Math.round(23.9));
+
+//round up
+console.log(Math.ceil(23.3));
+console.log(Math.ceil(23.9));
+
+//round down
+console.log(Math.floor(23.3));
+console.log(Math.floor('23.9'));
+
+//floor and trunc are the same when dealing with positive numbers, but not for negative numbers
+console.log(Math.trunc(23.3));
+
+console.log(Math.trunc(-23.3));
+console.log(Math.floor(-23.3));
+
+//Rounding to floating point numbers(decimals)!!
+
+console.log((2.7).toFixed(0));
+//toFixed willl always return a string and not a number
+console.log((2.7).toFixed(3));
