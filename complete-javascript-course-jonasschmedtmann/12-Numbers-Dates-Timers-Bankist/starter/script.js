@@ -322,81 +322,117 @@ btnSort.addEventListener('click', function (e) {
 //////////172 MATH and ROUNDING/////////////////
 ////////////////////////////////////////////////
 
-//square root
+// //square root
 
-console.log(Math.sqrt(25));
-console.log(25 ** (1 / 2));
+// console.log(Math.sqrt(25));
+// console.log(25 ** (1 / 2));
 
-//cubic root
-console.log(8 ** (1 / 3));
+// //cubic root!!
+// console.log(8 ** (1 / 3));??
 
-//maximum value
-console.log(Math.max(5, 18, 23, 11));
-//does type coersion
-console.log(Math.max(5, 18, '23', 11));
-//does not do parsing
-console.log(Math.max(5, 18, '23px', 11, 2));
+// //maximum value
+// console.log(Math.max(5, 18, 23, 11));
+// //does type coersion
+// console.log(Math.max(5, 18, '23', 11));
+// //does not do parsing
+// console.log(Math.max(5, 18, '23px', 11, 2));
 
-//minimum value
-console.log(Math.min(5, 18, 23, 11, 2));
+// //minimum value
+// console.log(Math.min(5, 18, 23, 11, 2));
 
-//Constants of Math namespace or object
+// //Constants of Math namespace or object
 
-//radius
-//area of a circle with 10px radius
-console.log(Math.PI * Number.parseFloat('10px') ** 2);
+// //radius
+// //area of a circle with 10px radius
+// console.log(Math.PI * Number.parseFloat('10px') ** 2);
 
-//random dice roll
-console.log(Math.trunc(Math.random() * 6 + 1));
+// //random dice roll
+// console.log(Math.trunc(Math.random() * 6 + 1));
 
-//random integers between 2 values!!!!
+// //random integers between 2 values!!!!
 
-/**
+// /**
 
-Math.random() gives us a random number between 0 and 1.
+// Math.random() gives us a random number between 0 and 1.
 
-But we don’t want a random decimal; we want a random number. We can get that by multiplying our Math.random() result by the size of the range. For example, if we want a random number between 0 and 10, we need to multiply by 10. A result of 0.4 would become 4. If we want random numbers from 7 to 11, that is 5 possible numbers (7, 8, 9, 10, 11).
-This is where we get Math.random() * (max - min + 1)
+// But we don’t want a random decimal; we want a random number. We can get that by multiplying our Math.random() result by the size of the range. For example, if we want a random number between 0 and 10, we need to multiply by 10. A result of 0.4 would become 4. If we want random numbers from 7 to 11, that is 5 possible numbers (7, 8, 9, 10, 11).
+// This is where we get Math.random() * (max - min + 1)
 
-We don’t want decimal numbers though, we want whole numbers. Math.floor() just chops off the decimal. 3.14159 becomes 3.
-That’s where we get Math.floor(Math.random() * (max - min + 1)).
+// We don’t want decimal numbers though, we want whole numbers. Math.floor() just chops off the decimal. 3.14159 becomes 3.
+// That’s where we get Math.floor(Math.random() * (max - min + 1)).
 
-Now we’re getting a number from 0 to whatever our range size was. If we wanted a number from 7 to 11, it’s a random number from 0 to 5. To make that be a number from 7 to 11, we just need to add 7 to whatever number we got. 7 is our minimum value.
-This leads us to Math.floor(Math.random() * (max - min + 1)) + min */
-const randomInt = (min, max) =>
-  Math.floor(Math.random() * (max - min) + 1) + min;
+// Now we’re getting a number from 0 to whatever our range size was. If we wanted a number from 7 to 11, it’s a random number from 0 to 5. To make that be a number from 7 to 11, we just need to add 7 to whatever number we got. 7 is our minimum value.
+// This leads us to Math.floor(Math.random() * (max - min + 1)) + min */
+// const randomInt = (min, max) =>
+//   Math.floor(Math.random() * (max - min) + 1) + min;
 
-console.log(randomInt(10, 20));
+// console.log(randomInt(10, 20));
 
-//rounding to integers!!
-//all do type coersion
+// //rounding to integers!!
+// //all do type coersion
 
-//no float(decimal), only integer!!
-console.log(Math.trunc(23.3));
+// //no float(decimal), only integer!!
+// console.log(Math.trunc(23.3));
 
-//normal round
-console.log(Math.round(23.3));
-console.log(Math.round(23.9));
+// //normal round
+// console.log(Math.round(23.3));
+// console.log(Math.round(23.9));
 
-//round up
-console.log(Math.ceil(23.3));
-console.log(Math.ceil(23.9));
+// //round up
+// console.log(Math.ceil(23.3));
+// console.log(Math.ceil(23.9));
 
-//round down
-console.log(Math.floor(23.3));
-console.log(Math.floor('23.9'));
+// //round down
+// console.log(Math.floor(23.3));
+// console.log(Math.floor('23.9'));
 
-//floor and trunc are the same when dealing with positive numbers, but not for negative numbers
-console.log(Math.trunc(23.3));
+// //floor and trunc are the same when dealing with positive numbers, but not for negative numbers
+// console.log(Math.trunc(23.3));
 
-console.log(Math.trunc(-23.3));
-console.log(Math.floor(-23.3));
+// console.log(Math.trunc(-23.3));
+// console.log(Math.floor(-23.3));
 
-//Rounding to floating point numbers(decimals)!!
+// //Rounding to floating point numbers(decimals)!!
 
-console.log((2.7).toFixed(0));
-//toFixed willl always return a string and not a number
-console.log((2.7).toFixed(3));
-console.log((2.345).toFixed(2));
-//converting result to a number!!
-console.log(+(2.345).toFixed(2));
+// console.log((2.7).toFixed(0));
+// //toFixed willl always return a string and not a number
+// console.log((2.7).toFixed(3));
+// console.log((2.345).toFixed(2));
+// //converting result to a number!!
+// console.log(+(2.345).toFixed(2));
+
+//////////////////////////////////////////////////
+//////////173 THE REMAINDER OPERATOR % ////////////
+/////////////////////////////////////////////////
+
+//??returns the remainder o a division(what's left after division), if we only take integers no decimals(floating numbers)!!
+
+console.log(5 % 2);
+console.log(5 / 2); //5=2*2+1
+
+console.log(8 % 3);
+console.log(8 / 2); //8=2*3+2
+
+//!!Checking if number is even(0,2,4,6...) or odd(1,3,5,7...)!!
+//even numbers ar divisible by 2(if we divide by 2 the reminder is 0)
+
+console.log(6 % 2);
+console.log(6 / 2);
+
+console.log(7 % 2);
+console.log(7 / 2);
+
+//!!!!!!
+const isEven = n => n % 2 === 0;
+console.log(isEven(8));
+console.log(isEven(23));
+console.log(isEven(514));
+
+//if the reminder of any division is 0, that means that the number is divissible by that specific(any) divider!!
+
+//app examples
+labelBalance.addEventListener('click', function () {
+  [...document.querySelectorAll('.movements__row')].forEach(function (row, i) {
+    if (i % 2 === 0) row.style.backgroundColor = 'orangered';
+  });
+});
