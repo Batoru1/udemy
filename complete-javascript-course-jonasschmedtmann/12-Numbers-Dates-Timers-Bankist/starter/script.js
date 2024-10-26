@@ -405,34 +405,103 @@ btnSort.addEventListener('click', function (e) {
 //////////173 THE REMAINDER OPERATOR % ////////////
 /////////////////////////////////////////////////
 
-//??returns the remainder o a division(what's left after division), if we only take integers no decimals(floating numbers)!!
+// //??returns the remainder o a division(what's left after division), if we only take integers no decimals(floating numbers)!!
 
-console.log(5 % 2);
-console.log(5 / 2); //5=2*2+1
+// console.log(5 % 2);
+// console.log(5 / 2); //5=2*2+1
 
-console.log(8 % 3);
-console.log(8 / 2); //8=2*3+2
+// console.log(8 % 3);
+// console.log(8 / 2); //8=2*3+2
 
-//!!Checking if number is even(0,2,4,6...) or odd(1,3,5,7...)!!
-//even numbers ar divisible by 2(if we divide by 2 the reminder is 0)
+// //!!Checking if number is even(0,2,4,6...) or odd(1,3,5,7...)!!
+// //even numbers ar divisible by 2(if we divide by 2 the reminder is 0)
 
-console.log(6 % 2);
-console.log(6 / 2);
+// console.log(6 % 2);
+// console.log(6 / 2);
 
-console.log(7 % 2);
-console.log(7 / 2);
+// console.log(7 % 2);
+// console.log(7 / 2);
 
-//!!!!!!
-const isEven = n => n % 2 === 0;
-console.log(isEven(8));
-console.log(isEven(23));
-console.log(isEven(514));
+// //!!!!!!
+// const isEven = n => n % 2 === 0;
+// console.log(isEven(8));
+// console.log(isEven(23));
+// console.log(isEven(514));
 
-//if the reminder of any division is 0, that means that the number is divissible by that specific(any) divider!!
+// //if the reminder of any division is 0, that means that the number is divissible by that specific(any) divider!!
 
-//app examples
-labelBalance.addEventListener('click', function () {
-  [...document.querySelectorAll('.movements__row')].forEach(function (row, i) {
-    if (i % 2 === 0) row.style.backgroundColor = 'orangered';
-  });
-});
+// //app examples
+// labelBalance.addEventListener('click', function () {
+//   [...document.querySelectorAll('.movements__row')].forEach(function (row, i) {
+//     if (i % 2 === 0) row.style.backgroundColor = 'orangered'; //0 2 4 6
+//     if (i % 3 === 0) row.style.backgroundColor = 'blue'; //0 3 6 9
+//   });
+// });
+
+////////////////////////////////////////////////
+//////////174 NUMERIC SEPARATORS///////////////
+///////////////////////////////////////////////
+
+// //ns-to form numbers in a way that is easier for us to read and understand. Are simply underscores that we can place anywhere that we want
+
+// //diameter of our solar system
+// //287,460,000,000
+// const diameter = 287_460_000_000;
+// console.log(diameter);
+
+// const priceCents = 345_99;
+// console.log(priceCents);
+
+// const transferFee1 = 15_00;
+// const transferFee2 = 1_500;
+
+// //beggining end and after or before . - we  get error and no two __ undersores _
+// const PI = 3.1415;
+// console.log(PI);
+
+// //undersore _ doesn't work in string
+// console.log(Number('23000'));
+
+// console.log(parseInt('230_000'));
+
+// ////////////////////////////////////////////////
+// //////////175Working with BigInt////////////////
+// ///////////////////////////////////////////////
+
+// //it's a special type of integers. Can be used to store numbers as large as we want
+
+// console.log(2 ** 53 - 1);
+// console.log(Number.MAX_SAFE_INTEGER);
+// console.log(2 ** 53 + 1);
+
+// console.log(164564565437568658976957987985990n);
+// console.log(BigInt('164564565437568658976957987985990'));
+
+// //operations
+// console.log(10000n + 10000n);
+// console.log(1423245135234513523452345n * 13241534523542514523523n);
+// // console.log(Math.sqrt(16n));
+
+// //can mix BigInt with regular numbers
+// const huge = 124354325634634562546354n;
+// const num = 23;
+// console.log(huge * BigInt(num));
+
+// //logical operators
+
+// console.log(20n > 15);
+// console.log(20n === 20); //don't do type coersion
+// console.log(typeof 20n);
+// console.log(20n == 20); //does type coersion
+// console.log(20n == '20');
+
+// console.log(huge + ' is REALLY big!');
+
+// //divisions
+
+// //returns closest BigInt-cuts decimal part
+// console.log(10n / 3n);
+
+////////////////////////////////////////////////
+///////176Creating dates///////////////////////
+//////////////////////////////////////////////
