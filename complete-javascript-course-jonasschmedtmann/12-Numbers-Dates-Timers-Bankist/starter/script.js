@@ -256,6 +256,20 @@ btnSort.addEventListener('click', function (e) {
 /////////Numbers, Dates, Intl and Timers//////////
 /////////////////////////////////////////////////
 
+//4 ways to create a date in js, use NewDate constructor function, but can accept diffrent parameters
+
+//1
+const now = new Date();
+console.log(now);
+
+//2 parse date from a date string
+console.log(new Date('Oct 29 2024 19:41:03'));
+console.log(new Date('december 24, 2015'));
+
+///////////////////////////////////////////
+//////.///176Creating dates///////////////
+///////////////////////////////////////////
+
 //////////////////////////////////////////////////
 ///////171 Converting and Checking Numbers////////
 /////////////////////////////////////////////////
@@ -501,7 +515,3 @@ btnSort.addEventListener('click', function (e) {
 
 // //returns closest BigInt-cuts decimal part
 // console.log(10n / 3n);
-
-////////////////////////////////////////////////
-///////176Creating dates///////////////////////
-//////////////////////////////////////////////
