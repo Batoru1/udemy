@@ -256,6 +256,10 @@ btnSort.addEventListener('click', function (e) {
 /////////Numbers, Dates, Intl and Timers//////////
 /////////////////////////////////////////////////
 
+///////////////////////////////////////////
+//////.///176Creating dates///////////////
+///////////////////////////////////////////
+
 //4 ways to create a date in js, use NewDate constructor function, but can accept diffrent parameters
 
 //1
@@ -266,9 +270,19 @@ console.log(now);
 console.log(new Date('Oct 29 2024 19:41:03'));
 console.log(new Date('december 24, 2015'));
 
-///////////////////////////////////////////
-//////.///176Creating dates///////////////
-///////////////////////////////////////////
+//3 Create date from javaScript, from our app
+
+console.log(new Date(account1.movementsDates[0]));
+
+//numbers in js are zero based(start from zero), so this 10 is November
+console.log(new Date(2037, 10, 19, 15, 23, 5));
+//js overcorrects dates
+console.log(new Date(2037, 10, 33));
+
+//when unix system was created
+console.log(new Date(0));
+//3 days after unix system was created
+console.log(new Date(3 * 24 * 60 * 60 * 1000)); //this number that is calculated is a timestamp!!
 
 //////////////////////////////////////////////////
 ///////171 Converting and Checking Numbers////////
